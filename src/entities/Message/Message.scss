@@ -1,0 +1,28 @@
+.message {
+    background: #f0f2f5;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 8px;
+    max-width: 70%;
+  
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+  
+    &__author {
+      font-weight: 600;
+      margin-right: 8px;
+    }
+  
+    &__time {
+      color: #666;
+      font-size: 0.8em;
+    }
+  
+    &__text {
+      margin: 0;
+      word-break: break-word;
+    }
+  }

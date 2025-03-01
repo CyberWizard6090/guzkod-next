@@ -1,0 +1,31 @@
+.input-voice{
+    width: 100%;
+    border: 1px solid var(--border-color2);
+  padding: 8px;
+  border-radius: 4px;
+  width: 100%;
+  padding: var(--spacing-xs) var(--spacing-m);
+  background-color: var(--color-form-input);
+ 
+  border-radius: var(--radius-md);
+  display: grid;
+  grid-template-columns: 1fr 40px;
+  &__mic-btn{
+    background-color: transparent;
+    border: none;
+    color: var(--color-form-input-text);
+    &:disabled{
+        color: red;
+    }
+    svg{
+        width: 20px;
+        height: 20px;
+    }
+  }
+  input{
+    color: var(--color-form-input-text);
+    width: 100%;
+    background-color: var(--color-form-input);
+    border: none;
+  }
+}

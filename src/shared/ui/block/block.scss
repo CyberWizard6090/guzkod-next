@@ -1,0 +1,11 @@
+.block{
+    width: 100%;
+    padding: var(--spacing-m);
+    border-radius: var(--radius-lg);
+    background: var(--block-bg);
+    color: var(--font-color-light);
+    width: 100%;
+    img{
+        max-width: 100%;
+    }
+}

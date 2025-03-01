@@ -1,0 +1,18 @@
+.animation-reveal{
+    opacity: 0;
+    animation: reveal 0.7s ease-in forwards;
+}
+@keyframes reveal {
+    0% {
+      opacity: 0;
+      filter: blur(2px);
+    }
+    50% {
+      opacity: 0.5;
+      filter: blur(0);
+    }
+    100% {
+      opacity: 1;
+     
+    }
+  }

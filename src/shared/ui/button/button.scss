@@ -1,0 +1,77 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-s);
+  font-size: var(--font-size-small);
+  transition: all 0.15s linear;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: var(--radius-md);
+  // height: 34px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    // fill: var(--button-text);
+
+    margin-right: var(--spacing-xs);
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  // &:hover svg {
+  //   fill: var(--button-text);
+  // }
+
+  &-theme__blue {
+    color: var(--button-text);
+    border: none;
+    background-color: var(--accent-color);
+
+    &:hover {
+      background-color: var(--accent-color-hover);
+    }
+  }
+  &-theme__mono {
+    color: var( --btn-text-alt);
+    border: none;
+    background-color: var(--btn-color-alt);
+
+    &:hover {
+      background-color: var(--btn-color-alt-hover);
+    }
+  }
+  &_theme__transparent-grey {
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    background-color: transparent;
+
+    &:hover {
+      color: var(--primary-bg);
+      border-color: var(--primary-bg);
+    }
+
+    &:hover svg {
+      fill: var(--primary-bg);
+    }
+  }
+
+  &_theme__transparent-blue {
+    color:  var(--accent-color);
+    border: 1px solid  var(--accent-color);
+    background-color: transparent;
+    // background-color: red;
+
+    &:hover {
+      color: var(--button-text);
+     
+      background-color: var(--accent-color);
+    }
+    & svg {
+      fill:var(--accent-color);
+    }
+  }
+}

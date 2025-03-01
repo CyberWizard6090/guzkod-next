@@ -1,0 +1,61 @@
+.dropdown {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  &__label {
+    font-size: var(--font-size-medium);
+    padding-left: var(--spacing-xs);
+  }
+
+  &__control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: var(--color-form-input);
+    color: var(--color-form-input-text);
+    border: 1px solid var(--border-color2);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__arrow {
+    margin-left: 8px;
+    font-size: 12px;
+  }
+
+  &__menu {
+    height: 200px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: var(--spacing-m);
+    background-color: var(--color-form-input);
+    color: var(--color-form-input-text);
+    border: 1px solid var(--border-color2);
+    border-radius: var(--radius-md);
+
+    z-index: 10;
+    list-style: none;
+    padding: var(--spacing-xs);
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: var(--radius-md);
+  }
+
+  &__option {
+    padding: var(--spacing-s) var(--spacing-m);
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    &:hover {
+      color: var(--button-text);
+      border: none;
+      background-color: var(--accent-color);
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.NewsBlock {
+    color: var(--font-color-light);
+    width: 100%;
+
+    h2 {
+        margin-bottom: var(--spacing-m);
+        font-weight: bold;
+    }
+
+
+    &_wrap {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+
+
+}
+}

@@ -1,0 +1,19 @@
+.chat-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background: #e9ecef;
+  
+    &__container {
+      width: 100%;
+      max-width: 800px;
+      height: 90vh;
+      background: var(--block-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    //   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  }

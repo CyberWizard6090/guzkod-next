@@ -1,0 +1,47 @@
+[data-theme='brown-beige'] {
+  // Коричневый на бежевом
+  /* Основные цвета */
+  --red: #9b592a; /* Основной красный */
+  --dark-red: #6d3c15; /* Темный красный */
+
+  /* Цвета для кнопок */
+  --accent-color: #d9a56d; /* Фон кнопки */
+  --button-text: #ffffff; /* Текст на кнопке */
+  --accent-color-hover: #c48c56; /* Фон кнопки при наведении */
+
+  // моно цвета
+  --btn-color-alt: #1c1c1e;
+  --btn-color-alt-hover: #000000;
+  --btn-text-alt: #e4dbdb;
+
+  --border-color1: #000000;
+  --border-color2: #5acc18;
+  --border-color3: #000;
+  /* Цвета меню */
+  --menu-item-text: #5d4037; /* Цвет текста элементов меню */
+
+  /* Цвета списков */
+  --list-item-text: #15088b; /* Цвет текста в списках */
+
+  /* Фоны */
+  --background-main: #f5e0d5; /* Основной фон */
+  --background-alt: #f0e6d9; /* Альтернативный фон */
+  --panel-bg: #f0f0f0; /* Фон панели */
+  --panel-item-bg: #ffffff; /* Фон элементов панели */
+  --block-bg: #ffffff; /* Фон блоков */
+
+  /* Тени */
+  --shadow-color-1: rgba(60, 64, 67, 0.3);
+  --shadow-color-2: rgba(9, 36, 51, 0.12);
+
+  /* Цвета текста */
+  --font-color-light: #000000;
+
+  /* Цвета input */
+  --color-form-input: #ffffff;
+  --color-form-input-text: #000000;
+
+  --link-color: rgb(0, 0, 0);
+  /* Цвет для QR кодов */
+  --qr-color: rgb(0, 0, 0); /* Цвет QR кода */
+}

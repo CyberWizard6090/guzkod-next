@@ -1,0 +1,19 @@
+.ButtonTheme{
+    display: flex;
+
+    color: var(--menu-item-text);
+    column-gap: var(--spacing-xs);
+    padding: var(--spacing-m); 
+    background-color:var( --panel-item-bg);
+    border-radius: var(--radius-md);
+    width: 220px;
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg{
+            width: 20px;
+            height: 20px;
+          }
+    }
+}
