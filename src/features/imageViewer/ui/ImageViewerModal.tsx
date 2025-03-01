@@ -20,8 +20,8 @@ export const ImageViewerModal: React.FC = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const startPos = useRef({ x: 0, y: 0 });
-  const lastTouchDistance = useRef(0);
-
+  useDisableScroll(!(!isOpen || !imageUrl));
+  // Сбрасываем состояние при закрытии
   useEffect(() => {
     if (!isOpen) {
       setScale(1);
@@ -29,6 +29,7 @@ export const ImageViewerModal: React.FC = () => {
     }
   }, [isOpen]);
 
+  // Закрытие на Escape
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') dispatch(closeImage());
@@ -37,16 +38,19 @@ export const ImageViewerModal: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [dispatch]);
 
+  // Сброс позиции при масштабе 1
   useEffect(() => {
     if (scale === 1) setPosition({ x: 0, y: 0 });
   }, [scale]);
 
+  // Обработчик колесика для увеличения
   const handleWheel = (e: React.WheelEvent) => {
     e.preventDefault();
     const newScale = scale + (e.deltaY > 0 ? -0.1 : 0.1);
     setScale(Math.min(Math.max(0.5, newScale), 3));
   };
 
+  // Начало перетаскивания
   const handleMouseDown = (e: React.MouseEvent) => {
     if (scale > 1) {
       setIsDragging(true);
@@ -54,45 +58,34 @@ export const ImageViewerModal: React.FC = () => {
     }
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (isDragging) {
+  // Перемещение
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isDragging) return;
+
       setPosition((prev) => ({
         x: prev.x + (e.clientX - startPos.current.x),
         y: prev.y + (e.clientY - startPos.current.y),
       }));
+
       startPos.current = { x: e.clientX, y: e.clientY };
-    }
-  };
+    };
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    if (e.touches.length === 1) {
-      startPos.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-    } else if (e.touches.length === 2) {
-      lastTouchDistance.current = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY,
-      );
-    }
-  };
+    const handleMouseUp = () => {
+      setIsDragging(false);
+    };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (e.touches.length === 1 && scale > 1) {
-      setPosition((prev) => ({
-        x: prev.x + (e.touches[0].clientX - startPos.current.x),
-        y: prev.y + (e.touches[0].clientY - startPos.current.y),
-      }));
-      startPos.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-    } else if (e.touches.length === 2) {
-      const newDistance = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY,
-      );
-      const scaleChange = newDistance / lastTouchDistance.current;
-      setScale((prev) => Math.min(Math.max(0.5, prev * scaleChange), 3));
-      lastTouchDistance.current = newDistance;
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
     }
-  };
-  useDisableScroll();
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isDragging]);
+
   if (!isOpen || !imageUrl) return null;
 
   return (
@@ -136,11 +129,6 @@ export const ImageViewerModal: React.FC = () => {
         onClick={(e) => e.stopPropagation()}
         onWheel={handleWheel}
         onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={() => setIsDragging(false)}
-        onMouseLeave={() => setIsDragging(false)}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
       >
         <img
           src={imageUrl}
