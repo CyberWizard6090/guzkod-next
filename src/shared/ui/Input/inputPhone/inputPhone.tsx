@@ -22,6 +22,8 @@ export const InputPhone = ({ label, fieldName, valueRef }: Props) => {
         onValidChange={(value) => console.log('Валидное значение:', value)}
         fieldName={fieldName}
         valueRef={valueRef}
+        type={'tel'}
+        inputmode={'tel'}
       />
     </div>
   );

@@ -1,11 +1,13 @@
 import { RenderBlocks } from 'entities/blocks';
 import { Suspense } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { useDocumentTitle } from 'shared/lib/hooks/useDocumentTitle';
 import { Empty } from 'shared/ui/empty';
 import { Loader } from 'shared/ui/loader';
 import { Page } from 'shared/ui/page';
 export const DefaultPage = () => {
   const data: any = useLoaderData();
+  useDocumentTitle(data.title || data.namepage || '');
   const text =
     'К сожалению, на этой странице возникла техническая ошибка.\n Мы уже работаем над ее устранением и приносим извинения за неудобства. Пожалуйста, попробуйте вернуться позже.';
   const date = new Date(data.date);

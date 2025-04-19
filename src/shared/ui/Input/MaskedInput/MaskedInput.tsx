@@ -6,6 +6,17 @@ type MaskedInputProps = {
   onValidChange?: (value: string) => void; // Колбэк для изменения валидного значения
   fieldName: keyof any;
   valueRef: React.MutableRefObject<any>;
+  type: string;
+  inputmode:
+    | 'search'
+    | 'text'
+    | 'email'
+    | 'tel'
+    | 'url'
+    | 'none'
+    | 'numeric'
+    | 'decimal'
+    | undefined;
 };
 
 export const MaskedInput: React.FC<MaskedInputProps> = ({
@@ -14,6 +25,8 @@ export const MaskedInput: React.FC<MaskedInputProps> = ({
   onValidChange,
   fieldName,
   valueRef,
+  type = 'text',
+  inputmode = 'text',
 }) => {
   const [value, setValue] = useState<string>('');
   const [isValid, setIsValid] = useState<boolean>(true);
@@ -71,7 +84,8 @@ export const MaskedInput: React.FC<MaskedInputProps> = ({
   return (
     <div>
       <input
-        type="text"
+        type={type}
+        inputMode={inputmode}
         value={value}
         onChange={handleChange}
         className={`input ${isValid ? '' : 'input--error'}`}

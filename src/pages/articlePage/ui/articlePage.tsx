@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react';
 import './articlePage.scss';
 import { CardRead } from 'entities/CardRead';
 import { Article } from 'shared/types/article';
+import { useDocumentTitle } from 'shared/lib/hooks/useDocumentTitle';
 
 export const ArticlePage = () => {
+  useDocumentTitle('Статьи');
   const [pageData, setPageData] = useState([]);
 
   useEffect(() => {

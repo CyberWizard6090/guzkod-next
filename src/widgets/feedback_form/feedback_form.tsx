@@ -56,7 +56,7 @@ export const FormFeedback = () => {
 
   return (
     <div className="Feedback">
-      <h2 className="Feedback__title">Форма обратной связи</h2>
+      <h1 className="Feedback__title">Форма обратной связи</h1>
       <Input
         label={'Ваше Фамилия Имя Отчество (при наличии)'}
         placeholder={'Фамилия Имя Отчество'}
