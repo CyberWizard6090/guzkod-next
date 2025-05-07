@@ -79,7 +79,6 @@ const RenderBlocks: React.FC<RenderBlocksProps> = ({ blocks }) => {
                     {contentItem.selectedBanners.map((banner: any) => (
                       <>
                         {' '}
-                        {console.log(banner)}
                         <Banner
                           key={i}
                           image={banner.image.url}

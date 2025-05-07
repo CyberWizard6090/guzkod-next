@@ -1,0 +1,110 @@
+.navigation {
+  $self: &;
+  position: sticky;
+  top: calc(var(--header-height) + var(--spacing-m));
+  height: max-content;
+  max-height: calc(100vh - var(--header-height) - (var(--spacing-m) * 2));
+  width: 100%;
+  background-color: var(--background-main);
+  grid-area: nav;
+  transition: transform 0.3s ease;
+  z-index: 100;
+  padding: var(--spacing-m);
+  border-radius: var(--radius-lg);
+  background: var(--block-bg);
+  border: 1px solid var(--border-color3);
+  ul{
+    list-style: none;
+  }
+
+  &--mobile {
+    transform: translateX(-100%);
+
+    &.navigation--open {
+      transform: translateX(0);
+    }
+  }
+
+  &__content {
+    height: 100%;
+    overflow-y: auto;
+   
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+    color: var(--font-color-light);
+    text-decoration: none;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: var(--accent-color-hover);
+      color: var(--button-text);
+    }
+  }
+
+  &__icon {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__separator {
+    height: 1px;
+    background: #e2e8f0;
+    margin: 16px 0;
+  }
+
+  &__tree {
+    &-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--font-color-light);
+      border-radius: 6px;
+
+      &:hover {
+        background-color: var(--accent-color-hover);
+        color: var(--button-text);
+      }
+    }
+
+    &-icon {
+      transition: transform 0.2s;
+
+      &.open {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__submenu {
+    margin-left: 24px;
+    padding: 8px 0;
+  }
+
+  &__sublink {
+    display: block;
+    padding: 8px 16px;
+    color: var(--font-color-light);
+    text-decoration: none;
+    font-size: 0.9em;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: var(--accent-color-hover);
+      color: var(--button-text);
+    }
+  }
+}
+
+

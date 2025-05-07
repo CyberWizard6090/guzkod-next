@@ -1,11 +1,13 @@
 .Header {
-  background-color: var(--background-main);
+  background-color: var(--background-alt);
   width: 100%;
   height: var(--header-height);
   grid-area: header;
   top: 0;
   position: sticky;
   z-index: 99;
+  margin-bottom: var(--spacing-m);
+  border-bottom: 1px solid var(--border-color2);
 
 &__logo{
   user-select: none;

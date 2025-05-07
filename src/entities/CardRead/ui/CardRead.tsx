@@ -13,7 +13,7 @@ export const CardRead = ({ article }: CardReadProps) => {
     day: 'numeric',
   } as const;
   return (
-    <Link to={`/read/${article.id}`} className="CardRead__link">
+    <Link to={`/article/${article.id}`} className="CardRead__link">
       <div className="CardRead shadow__style">
         <div className="CardRead__img__wrap">
           <img src={article.wallpaper.sizes.tablet.url || ''} alt={article.title} loading="lazy" />

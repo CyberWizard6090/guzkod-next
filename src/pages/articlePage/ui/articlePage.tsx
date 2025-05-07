@@ -1,28 +1,16 @@
-import React, { useEffect, useState } from 'react';
-
-import './articlePage.scss';
 import { CardRead } from 'entities/CardRead';
 import { Article } from 'shared/types/article';
 import { useDocumentTitle } from 'shared/lib/hooks/useDocumentTitle';
+import { useLoaderData } from 'react-router-dom';
+import './articlePage.scss';
 
 export const ArticlePage = () => {
   useDocumentTitle('Статьи');
-  const [pageData, setPageData] = useState([]);
-
-  useEffect(() => {
-    fetch('/api/article')
-      .then((response) => response.json())
-      .then((data) => {
-        setPageData(data.docs);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
+  const data = useLoaderData() as { docs: Article[] };
 
   return (
     <div className="Page-Article animation-reveal">
-      {pageData.map((item: Article, index) => (
+      {data.docs.map((item: Article, index: number) => (
         <CardRead key={index} article={item} />
       ))}
     </div>
