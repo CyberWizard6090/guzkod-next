@@ -1,0 +1,42 @@
+:root{
+  --font-size-small: 0.75rem; /* 12px */
+  --font-size-medium: 1rem; /* 16px */
+  --font-size-large: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-xxl: 2rem; /* 32px */
+}
+[data-fontsize="small"] {
+  --font-size-small: 0.6rem; /* 9.6px */
+  --font-size-medium: 0.8rem; /* 12.8px */
+  --font-size-large: 1rem; /* 16px */
+  --font-size-xl: 1.2rem; /* 19.2px */
+  --font-size-xxl: 1.6rem; /* 25.6px */
+}
+[data-fontsize="medium"] {
+  --font-size-small: 0.75rem; /* 12px */
+  --font-size-medium: 1rem; /* 16px */
+  --font-size-large: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-xxl: 2rem; /* 32px */
+}
+[data-fontsize="large"] {
+  --font-size-small: 0.9375rem; /* 15px */
+  --font-size-medium: 1.25rem; /* 20px */
+  --font-size-large: 1.5625rem; /* 25px */
+  --font-size-xl: 1.875rem; /* 30px */
+  --font-size-xxl: 2.5rem; /* 40px */
+}
+[data-fontsize="x-large"] {
+  --font-size-small: 1.125rem; /* 18px */
+  --font-size-medium: 1.5rem; /* 24px */
+  --font-size-large: 1.875rem; /* 30px */
+  --font-size-xl: 2.25rem; /* 36px */
+  --font-size-xxl: 3rem; /* 48px */
+}
+[data-fontsize="xx-large"] {
+  --font-size-small: 1.5rem; /* 24px */
+  --font-size-medium: 2rem; /* 32px */
+  --font-size-large: 2.5rem; /* 40px */
+  --font-size-xl: 3rem; /* 48px */
+  --font-size-xxl: 4rem; /* 64px */
+}

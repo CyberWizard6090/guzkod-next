@@ -1,4 +1,4 @@
-// features/themeSwitcher/model/slice.ts
+'use client';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type Theme =

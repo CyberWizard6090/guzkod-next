@@ -1,7 +1,8 @@
+'use client';
 import React, { useState } from 'react';
 import { Collapse } from 'react-collapse';
-import { Link } from 'react-router-dom';
-import { ReactComponent as Icon } from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-down.svg';
+import Link from 'next/link';
+import Icon from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-down.svg';
 import { NavigationItem, TreeItemType } from '../types';
 import { transliterateForURL } from 'shared/lib/transliterateForURL';
 
@@ -30,7 +31,7 @@ export const TreeItem = ({ label, list = [] }: NavigationItem) => {
         >
           {list?.map((item: TreeItemType, index) => (
             <li key={index} role="menuitem">
-              <Link to={item.link || '#'} className="navigation__sublink">
+              <Link href={item.link || '#'} className="navigation__sublink">
                 {item.label}
               </Link>
             </li>

@@ -1,11 +1,8 @@
 .CardRead {
   background-color: var(--block-bg);
-
-  display: flex;
-
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   color: var(--font-color-light);
-
   overflow: hidden;
   row-gap: 10px;
   border-radius: var(--radius-lg);
@@ -54,14 +51,13 @@
   }
   &__type {
     border-radius: var(--spacing-xs);
-    
 
     padding: var(--spacing-xxs) var(--spacing-m);
-    &--news{
+    &--news {
       background-color: #ff0000;
       color: white;
     }
-    &--prevention{
+    &--prevention {
       background-color: #7705e2;
       color: white;
     }
@@ -97,5 +93,73 @@
       line-height: 1.3em;
       height: 6.5em;
     }
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.CardRead--skeleton {
+  .CardRead__img-wrap--skeleton,
+  .CardRead__wrap-date--skeleton,
+  .CardRead__type--skeleton,
+  .CardRead__title--skeleton,
+  .CardRead__text-line--skeleton {
+    background-color: var(--skeleton-base);
+    border-radius: var(--radius-md);
+    animation: shimmer 1.5s infinite linear;
+    background-image: linear-gradient(
+      to right,
+      var(--skeleton-base) 0%,
+      var(--skeleton-highlight) 20%,
+      var(--skeleton-base) 40%,
+      var(--skeleton-base) 100%
+    );
+    background-size: 200% 100%;
+  }
+  .CardRead__content--skeleton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--spacing-m);
+  }
+
+  // .CardRead__img-wrap--skeleton {
+  //   aspect-ratio: 16 / 9;
+  //   width: 100%;
+  // }
+
+  .CardRead__wrap-date--skeleton {
+    width: 180px;
+    height: 1.2em;
+  }
+
+.CardRead__top-bar--skeleton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-m);
+  }
+  .CardRead__type--skeleton {
+    width: 160px;
+    height: 30px;
+  }
+
+  .CardRead__title--skeleton {
+    height: 30px;
+    width: 100%;
+    margin-bottom: var(--spacing-m);
+  }
+
+  .CardRead__text-line--skeleton {
+    height: 1em;
+    width: 100%;
+    margin-bottom: 0.5em;
   }
 }

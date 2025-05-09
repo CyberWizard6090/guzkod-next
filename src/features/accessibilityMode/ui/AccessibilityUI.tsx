@@ -1,3 +1,4 @@
+'use client';
 import { useDispatch, useSelector } from 'react-redux';
 import './Style.scss';
 import { Button } from 'shared/ui/button';

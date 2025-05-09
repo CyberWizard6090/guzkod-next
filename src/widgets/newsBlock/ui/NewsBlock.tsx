@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './NewsBlock.scss';
-import { CardRead } from 'entities/CardRead';
+import { CardRead } from 'entities/card-read';
 import { Article } from 'shared/types/article';
 import { getArticles } from 'shared/api/articles';
 

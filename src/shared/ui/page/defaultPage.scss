@@ -1,27 +1,8 @@
 .Page {
   width: 100%;
   display: flex;
-  justify-content: center;
-  &__body {
-    display: block;
-    background-color: var(--block-bg);
-    color: var(--font-color-light);
-
-    padding: var(--spacing-m);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    border-radius: var(--radius-lg);
-  }
-  &__content {
-    height: min-content;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-m);
-
-    width: 100%;
-  }
-  img {
-    border-radius: calc(var(--radius-xl) - var(--spacing-m));
-  }
+  flex-direction: column;
+  // justify-content: center;
+  color: var(--font-color-light);
+  gap: var(--spacing-m);
 }

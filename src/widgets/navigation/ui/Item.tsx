@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 type Props = {
   label: string;
@@ -9,7 +9,7 @@ export const Item = ({ label, link }: Props) => {
   return (
     <li>
       <Link
-        to={link}
+        href={link}
         className="navigation__link"
         //   onClick={() => isMobile && setMobileMenuVisible(false)}
       >

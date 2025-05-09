@@ -1,3 +1,4 @@
+'use client';
 import { RootState } from 'app/stores';
 import { setTheme, Theme } from 'features/theme/model/themeSlice';
 import { useLayoutEffect } from 'react';

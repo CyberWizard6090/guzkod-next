@@ -1,7 +1,8 @@
+'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import './dropdown.scss';
-import { ReactComponent as Up } from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-up.svg';
-import { ReactComponent as Down } from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-down.svg';
+import Up from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-up.svg';
+import Down from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-down.svg';
 
 type DropdownOption = {
   value: string;

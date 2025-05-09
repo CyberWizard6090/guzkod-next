@@ -3,7 +3,7 @@ import { Navigation } from 'widgets/navigation';
 import { Header } from 'widgets/header';
 import { Footer } from 'widgets/footer';
 
-import './layout.scss';
+
 
 import { NotificationContainer } from 'features/notifications';
 import { AccessibilityStyles, AccessibilityUI } from 'features/accessibilityMode';
@@ -11,6 +11,8 @@ import { ImageViewerModal } from 'features/imageViewer';
 import { SearchModal } from 'features/search';
 import { StateTheme } from 'features/theme';
 import { Breadcrumbs } from 'widgets/breadcrumbs';
+
+import './layout.scss';
 
 export const Layout = () => {
   const location = useLocation();

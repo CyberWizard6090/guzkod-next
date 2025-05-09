@@ -1,3 +1,4 @@
+'use client';
 import { useRef } from 'react';
 import { Organization } from './const/Organization';
 import { Button } from 'shared/ui/button';

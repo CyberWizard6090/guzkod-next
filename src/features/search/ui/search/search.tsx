@@ -1,5 +1,6 @@
+'use client';
 import './search.scss';
-import { ReactComponent as SearchIcon } from 'shared/assets/svg/bootstrap-icons-1.11.2/search.svg';
+import SearchIcon from 'shared/assets/svg/bootstrap-icons-1.11.2/search.svg';
 import { openSearch } from 'features/search/model/searchSlice';
 import { useDispatch } from 'react-redux';
 import { useHotkey } from 'shared/lib/hooks/useHotkey/useHotkey';

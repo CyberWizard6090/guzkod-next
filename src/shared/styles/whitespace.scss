@@ -1,0 +1,33 @@
+:root {
+  --radius-none: 0px; /* Без скругления */
+  --radius-sm: 4px; /* Маленький радиус */
+  --radius-md: 8px; /* Средний радиус */
+  --radius-lg: 16px; /* Большой радиус */
+  --radius-xl: 24px; /* Очень большой радиус */
+  --radius-circle: 9999px; /* Полностью круглая форма */
+  --size-svg-icon: 60px;
+  /* Для мобильных устройств */
+
+  --spacing-xxs: 4px; /* Очень маленький отступ */
+  --spacing-xs: 8px; /* Маленький отступ */
+  --spacing-s: 12px; /* Небольшой отступ */
+  --spacing-m: 16px; /* Средний отступ */
+  --spacing-l: 24px; /* Большой отступ */
+  --spacing-xl: 32px; /* Очень большой отступ */
+  --spacing-xxl: 40px; /* Максимальный отступ */
+
+  /* Для планшетов */
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+  }
+
+  /* Для ПК */
+  @media screen and (min-width: 1200px) {
+    --spacing-xxs: 4px; /* Очень маленький отступ */
+    --spacing-xs: 8px; /* Маленький отступ */
+    --spacing-s: 12px; /* Небольшой отступ */
+    --spacing-m: 16px; /* Средний отступ */
+    --spacing-l: 32px; /* Большой отступ */
+    --spacing-xl: 48px; /* Очень большой отступ */
+    --spacing-xxl: 64px; /* Максимальный отступ */
+  }
+}

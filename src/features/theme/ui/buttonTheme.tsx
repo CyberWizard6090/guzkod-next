@@ -1,3 +1,4 @@
+'use client';
 import { ReactComponent as Moon } from 'shared/assets/svg/bootstrap-icons-1.11.2/moon-stars-fill.svg';
 import { ReactComponent as Sun } from 'shared/assets/svg/bootstrap-icons-1.11.2/sun-fill.svg';
 import { ReactComponent as Special } from 'shared/assets/svg/bootstrap-icons-1.11.2/eyeglasses.svg';
@@ -7,7 +8,7 @@ import { SelectTheme } from '../model/selectors';
 import { AppDispatch, RootState } from 'app/stores';
 import { toggleTheme } from '../model/themeSlice';
 import { Button } from 'shared/ui/button';
-import { useDeviceDetect } from 'shared/lib/WindowSizeListener';
+import { useDeviceDetect } from 'shared/lib/hooks/useDeviceDetect';
 import { IconButton } from 'shared/ui/iconButton';
 
 export const ButtonTheme = () => {
