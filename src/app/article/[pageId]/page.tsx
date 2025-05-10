@@ -1,36 +1,52 @@
-'use client';
+import { RenderBlocks } from 'entities/blocks';
+import { Metadata } from 'next';
+import { getArticleById } from 'shared/api/articles';
+import { SITE_HOST, SITE_NAME } from 'shared/consts/site.constants';
+import { Block } from 'shared/ui/block';
 
-import { CardRead } from 'entities/card-read';
-import { useEffect, useState } from 'react';
+type Props = {
+  params: { pageId: string };
+};
 
-import { Article } from 'shared/types/article';
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const data = await getArticleById(params.pageId);
+  return {
+    title: data.title || data.namepage || 'Страница',
+    description: data.text || 'Описание страницы',
+    openGraph: {
+      title: data.title || data.namepage || 'Страница',
+      description: data.text || 'Описание страницы',
+      url: `${SITE_HOST}/article/${params.pageId}`,
+      siteName: SITE_NAME,
+      images: [
+        {
+          url: data.wallpaper.sizes.tablet.url || '',
+          width: 800,
+          height: 600,
+        },
+      ],
+    },
+  };
+}
 
-// import './articlePage.scss';
+export default async function DefaultPage({ params }: Props) {
+  const data = await getArticleById(params.pageId);
 
-export default function ArticlePage() {
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('/api/articles')
-      .then((res) => res.json())
-      .then((data) => {
-        setArticles(data.docs);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error('Ошибка загрузки статей:', err);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <div>Загрузка...</div>;
+  const date = new Date(data.date).toLocaleString('ru-DE', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
   return (
-    <div className="Page-Article animation-reveal">
-      {articles.map((item, index) => (
-        <CardRead key={index} article={item} />
-      ))}
-    </div>
+    <Block>
+      {data.title && (
+        <div>
+          <span>{date}</span>
+          <h1>{data.title}</h1>
+        </div>
+      )}
+      <RenderBlocks layout={data.layout} />
+    </Block>
   );
 }

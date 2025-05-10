@@ -14,7 +14,7 @@ export default function ArticlePage() {
   useEffect(() => {
     const loadArticles = async () => {
       try {
-        const res = await fetch('http://localhost:4000/api/article', {
+        const res = await fetch('api/article', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

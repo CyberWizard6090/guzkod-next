@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMatches } from 'react-router-dom';
-import { ReactComponent as Icon } from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-right.svg';
+import Icon from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-right.svg';
 import './styles.scss';
 
 interface MatchWithCrumb {

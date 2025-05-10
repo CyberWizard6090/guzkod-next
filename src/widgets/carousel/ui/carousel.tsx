@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './carousel.scss';
 
-import { ReactComponent as Left } from 'shared/assets/svg/bootstrap-icons-1.11.2/arrow-left-short.svg';
-import { ReactComponent as Right } from 'shared/assets/svg/bootstrap-icons-1.11.2/arrow-right-short.svg';
+import Left from 'shared/assets/svg/bootstrap-icons-1.11.2/arrow-left-short.svg';
+import Right from 'shared/assets/svg/bootstrap-icons-1.11.2/arrow-right-short.svg';
 
 type Props = {
   children: React.ReactNode | React.ReactNode[];

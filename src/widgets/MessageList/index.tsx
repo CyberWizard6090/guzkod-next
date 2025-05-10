@@ -1,6 +1,6 @@
 import React from 'react';
 import './MessageList.scss';
-import { Message } from 'entities/Message';
+import { Message } from 'entities/message';
 import { Message as MessageType } from 'shared/types/message';
 
 interface MessageListProps {

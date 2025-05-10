@@ -1,15 +1,14 @@
-import { ReactComponent as DownloadIcon } from 'shared/assets/svg/bootstrap-icons-1.11.2/download.svg';
-
-import { ReactComponent as Excel } from 'shared/assets/svg/SVG-DOCS-ICONS/excel-document-svgrepo-com.svg';
-import { ReactComponent as Powerpoint } from 'shared/assets/svg/SVG-DOCS-ICONS/ppt-document-svgrepo-com.svg';
-import { ReactComponent as Word } from 'shared/assets/svg/SVG-DOCS-ICONS/word-document-svgrepo-com.svg';
-import { ReactComponent as PDF } from 'shared/assets/svg/SVG-DOCS-ICONS/pdf-document-svgrepo-com.svg';
-import { ReactComponent as FileUnknown } from 'shared/assets/svg/SVG-DOCS-ICONS/unknown-document-svgrepo-com.svg';
-import { ReactComponent as Xml } from 'shared/assets/svg/SVG-DOCS-ICONS/xml-document-svgrepo-com.svg';
-import { ReactComponent as Zip } from 'shared/assets/svg/SVG-DOCS-ICONS/zip-document-svgrepo-com.svg';
-import { ReactComponent as Video_File } from 'shared/assets/svg/SVG-DOCS-ICONS/video-document-svgrepo-com.svg';
-import { ReactComponent as Music_File } from 'shared/assets/svg/SVG-DOCS-ICONS/audio-document-svgrepo-com.svg';
-import { ReactComponent as Txt } from 'shared/assets/svg/SVG-DOCS-ICONS/txt-document-svgrepo-com.svg';
+import DownloadIcon from 'shared/assets/svg/bootstrap-icons-1.11.2/download.svg';
+import Excel from 'shared/assets/svg/SVG-DOCS-ICONS/excel-document-svgrepo-com.svg';
+import Powerpoint from 'shared/assets/svg/SVG-DOCS-ICONS/ppt-document-svgrepo-com.svg';
+import Word from 'shared/assets/svg/SVG-DOCS-ICONS/word-document-svgrepo-com.svg';
+import PDF from 'shared/assets/svg/SVG-DOCS-ICONS/pdf-document-svgrepo-com.svg';
+import FileUnknown from 'shared/assets/svg/SVG-DOCS-ICONS/unknown-document-svgrepo-com.svg';
+import Xml from 'shared/assets/svg/SVG-DOCS-ICONS/xml-document-svgrepo-com.svg';
+import Zip from 'shared/assets/svg/SVG-DOCS-ICONS/zip-document-svgrepo-com.svg';
+import VideoIcon from 'shared/assets/svg/SVG-DOCS-ICONS/video-document-svgrepo-com.svg';
+import AudioIcon from 'shared/assets/svg/SVG-DOCS-ICONS/audio-document-svgrepo-com.svg';
+import Txt from 'shared/assets/svg/SVG-DOCS-ICONS/txt-document-svgrepo-com.svg';
 import './Files.scss';
 import { Button } from 'shared/ui/button';
 import { getType } from 'shared/lib/getType';
@@ -32,9 +31,9 @@ export const Files = ({ files }: Props) => {
     } else if (FormatFile.zip.includes(FileType)) {
       return <Zip />;
     } else if (FormatFile.video.includes(FileType)) {
-      return <Music_File />;
+      return <AudioIcon />;
     } else if (FormatFile.music.includes(FileType)) {
-      return <Video_File />;
+      return <VideoIcon />;
     } else if (FileType === 'pdf') {
       return <PDF />;
     } else if (FileType === 'xml') {

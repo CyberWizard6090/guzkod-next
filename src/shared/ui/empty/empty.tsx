@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as Icon } from 'shared/assets/svg/empty-white-box-svgrepo-com.svg';
+import Icon from 'shared/assets/svg/empty-white-box-svgrepo-com.svg';
 import './empty.scss';
 type Props = {
   text: string;

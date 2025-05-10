@@ -9,6 +9,7 @@ import { Dropdown } from 'shared/ui/dropdown';
 import { useAddNotification } from 'features/notifications';
 import { RadioGroup } from 'shared/ui/radioGroup';
 import { Input, InputPhone, InputText } from 'shared/ui/input';
+import { Block } from 'shared/ui/block';
 
 type FieldType = {
   fio?: string;
@@ -56,48 +57,50 @@ export const FormFeedback = () => {
   });
 
   return (
-    <div className="Feedback">
-      <h1 className="Feedback__title">Форма обратной связи</h1>
-      <Input
-        label={'Ваше Фамилия Имя Отчество (при наличии)'}
-        placeholder={'Фамилия Имя Отчество'}
-        fieldName="fio"
-        valueRef={inputRef}
-      />
-      <InputPhone label={'Номер телефона'} fieldName={'phone'} valueRef={inputRef} />
+    <Block>
+      <div className="Feedback">
+        <h1 className="Feedback__title">Форма обратной связи</h1>
+        <Input
+          label={'Ваше Фамилия Имя Отчество (при наличии)'}
+          placeholder={'Фамилия Имя Отчество'}
+          fieldName="fio"
+          valueRef={inputRef}
+        />
+        <InputPhone label={'Номер телефона'} fieldName={'phone'} valueRef={inputRef} />
 
-      <RadioGroup
-        name="TypeTreatment"
-        label="Тип обращения"
-        fieldName={'type_appeal'}
-        valueRef={inputRef}
-        options={[
-          { label: 'Жалоба', value: 'Жалоба' },
-          { label: 'Благодарность', value: 'Благодарность' },
-          { label: 'Вопрос', value: 'Вопрос' },
-          { label: 'Обращение', value: 'Обращение' },
-        ]}
-      />
-      <Dropdown
-        label={'Выберите учреждение'}
-        options={Organization}
-        fieldName={'organization'}
-        valueRef={inputRef}
-      />
-      <Dropdown
-        label={'Выберите отделение'}
-        options={Department}
-        fieldName={'department'}
-        valueRef={inputRef}
-      />
-      <Input
-        label={'Выберите врача'}
-        placeholder={'Фамилия Имя Отчество'}
-        fieldName="doctor"
-        valueRef={inputRef}
-      />
-      <InputText maxLength={600} label={'Сообщение'} fieldName="messages" valueRef={inputRef} />
-      <Button onClick={Push}>Отправить</Button>
-    </div>
+        <RadioGroup
+          name="TypeTreatment"
+          label="Тип обращения"
+          fieldName={'type_appeal'}
+          valueRef={inputRef}
+          options={[
+            { label: 'Жалоба', value: 'Жалоба' },
+            { label: 'Благодарность', value: 'Благодарность' },
+            { label: 'Вопрос', value: 'Вопрос' },
+            { label: 'Обращение', value: 'Обращение' },
+          ]}
+        />
+        <Dropdown
+          label={'Выберите учреждение'}
+          options={Organization}
+          fieldName={'organization'}
+          valueRef={inputRef}
+        />
+        <Dropdown
+          label={'Выберите отделение'}
+          options={Department}
+          fieldName={'department'}
+          valueRef={inputRef}
+        />
+        <Input
+          label={'Выберите врача'}
+          placeholder={'Фамилия Имя Отчество'}
+          fieldName="doctor"
+          valueRef={inputRef}
+        />
+        <InputText maxLength={600} label={'Сообщение'} fieldName="messages" valueRef={inputRef} />
+        <Button onClick={Push}>Отправить</Button>
+      </div>
+    </Block>
   );
 };

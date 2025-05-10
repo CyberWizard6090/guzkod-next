@@ -4,7 +4,7 @@ import { removeNotification } from '../model/notificationSlice';
 import { Notification as NotificationType } from '../model/notificationSlice';
 import './Notification.scss';
 import { Icons } from '../model/notificationIcons';
-import { ReactComponent as Cross } from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
+import Cross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
 interface NotificationProps {
   notification: NotificationType;
 }

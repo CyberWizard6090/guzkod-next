@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ChatPage.scss';
 import { MessageList } from 'widgets/MessageList';
-import { SendMessageForm } from 'features/SendMessageForm';
+import { SendMessageForm } from 'features/send-message-form';
 import { Message } from 'shared/types/message';
 
 export const ChatPage: React.FC = () => {

@@ -6,10 +6,10 @@ import { RootState } from 'app/stores';
 import { useDisableScroll } from 'shared/lib/hooks/useDisableScroll';
 
 import { Button } from 'shared/ui/button';
-import { ReactComponent as ZoomIn } from 'shared/assets/svg/bootstrap-icons-1.11.2/zoom-in.svg';
-import { ReactComponent as ZoomOut } from 'shared/assets/svg/bootstrap-icons-1.11.2/zoom-out.svg';
-import { ReactComponent as Cross } from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
-import { ReactComponent as Reset } from 'shared/assets/svg/bootstrap-icons-1.11.2/arrow-counterclockwise.svg';
+import ZoomIn from 'shared/assets/svg/bootstrap-icons-1.11.2/zoom-in.svg';
+import ZoomOut from 'shared/assets/svg/bootstrap-icons-1.11.2/zoom-out.svg';
+import Cross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
+import Reset from 'shared/assets/svg/bootstrap-icons-1.11.2/arrow-counterclockwise.svg';
 import { IconButton } from 'shared/ui/iconButton';
 import { closeImage } from '../model/imageViewerSlice ';
 

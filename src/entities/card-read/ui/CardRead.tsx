@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import './CardRead.scss';
 import { Article } from 'shared/types/article';
 import clsx from 'clsx';
@@ -13,10 +13,15 @@ export const CardRead = ({ article }: CardReadProps) => {
     day: 'numeric',
   } as const;
   return (
-    <Link to={`/article/${article.id}`} className="CardRead__link">
+    <Link href={`/article/${article.id}`} className="CardRead__link">
       <div className="CardRead shadow__style">
         <div className="CardRead__img__wrap">
-          <img src={article.wallpaper.sizes.tablet.url || ''} alt={article.title} loading="lazy" />
+          <img
+            className="CardRead__img"
+            src={article.wallpaper.sizes.tablet.url || ''}
+            alt={article.title}
+            loading="lazy"
+          />
         </div>
         <div className="CardRead_content">
           <div className="CardRead_top-bar">
