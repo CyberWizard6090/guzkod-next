@@ -56,3 +56,70 @@
     }
   }
 }
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-box {
+  background-color: var(--skeleton-base);
+  border-radius: var(--radius-sm);
+  width: 100%;
+  padding-top: 75%; // сохраняет пропорции 4:3
+  animation: shimmer 1.5s infinite linear;
+  background-image: linear-gradient(
+    to right,
+    var(--skeleton-base) 0%,
+    var(--skeleton-highlight) 20%,
+    var(--skeleton-base) 40%,
+    var(--skeleton-base) 100%
+  );
+  background-size: 200% 100%;
+}
+
+.skeleton-line {
+  background-color: var(--skeleton-base);
+  border-radius: 4px;
+  height: 16px;
+  width: 100%;
+  animation: shimmer 1.5s infinite linear;
+  margin-bottom: 8px;
+  background-image: linear-gradient(
+    to right,
+    var(--skeleton-base) 0%,
+    var(--skeleton-highlight) 20%,
+    var(--skeleton-base) 40%,
+    var(--skeleton-base) 100%
+  );
+  background-size: 200% 100%;
+}
+
+.skeleton-name {
+  width: 60%;
+  height: 24px;
+}
+
+.skeleton-position {
+  width: 40%;
+}
+
+.skeleton-department {
+  width: 50%;
+}
+
+.skeleton-education {
+  width: 30%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

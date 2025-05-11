@@ -6,6 +6,7 @@ import { NewsBlock } from 'widgets/newsBlock';
 import { Carousel } from 'widgets/carousel';
 import { Banner, SimpleRichText } from 'shared/ui/blocks';
 import { Block } from 'shared/ui/block';
+import { Page } from 'shared/ui/page';
 
 type TextBlock = {
   blockType: 'text';
@@ -49,7 +50,7 @@ type PageBlock = {
 
 const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
   return (
-    <div className="table-page">
+    <Page>
       {blocks.map((block, index) => (
         <div key={index} className="Cell" style={{ width: `${block.width}%` }}>
           {block.title?.trim() && <h2>{block.title}</h2>}
@@ -96,7 +97,7 @@ const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
           })}
         </div>
       ))}
-    </div>
+    </Page>
   );
 };
 

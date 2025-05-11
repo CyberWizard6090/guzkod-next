@@ -1,0 +1,58 @@
+.employee-page {
+   
+    &__block{
+        @media screen and (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+          }
+        
+          /* Для планшетов */
+          @media screen and (min-width: 768px) and (max-width: 1024px) {
+            display: flex;
+            justify-content: center;
+          }
+        
+          /* Для ПК */
+          @media screen and (min-width: 1200px) {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            align-items: start;
+            // width: 800px;
+          }
+          gap: var(--spacing-m);
+    }
+    &__info{
+        justify-content: start;
+        display: flex;
+        flex-direction: column;
+        row-gap: var(--spacing-m);
+    }
+&__header {
+    margin-bottom: 10px;
+  }
+  &__name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  &__photo {
+   
+    img{
+        border-radius: var(--radius-sm);
+    }
+  }
+  &__position {
+    font-size: var(-font-size-large);
+  
+  }
+
+  &__department-link:hover {
+    text-decoration: underline;
+  }
+  &__education {
+    font-style: italic;
+   
+  }
+  
+  }
+  

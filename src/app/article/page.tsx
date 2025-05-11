@@ -44,10 +44,10 @@ export default function ArticlePage() {
     );
 
   return (
-    <div className="Page-Article animation-reveal">
+    <>
       {articles.map((item, index) => (
         <CardRead key={index} article={item} />
       ))}
-    </div>
+    </>
   );
 }

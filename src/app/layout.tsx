@@ -14,11 +14,25 @@ import { SearchModal } from 'features/search';
 import { StateTheme } from 'features/theme';
 import { Providers } from './providers';
 import 'shared/styles/index.scss';
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from 'shared/consts/site.constants';
 // import { Breadcrumbs } from 'widgets/breadcrumbs';
 
 export const metadata = {
-  title: 'Название сайта',
-  description: 'Описание сайта',
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    images: [
+      {
+        url: 'https://example.com/image.jpg',
+        width: 800,
+        height: 600,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -40,7 +54,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <AccessibilityUI />
                 {children}
               </main>
-              <Footer />
+              {/* <Footer /> */}
             </div>
           </div>
         </Providers>

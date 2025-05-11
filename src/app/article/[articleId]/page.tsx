@@ -5,18 +5,18 @@ import { SITE_HOST, SITE_NAME } from 'shared/consts/site.constants';
 import { Block } from 'shared/ui/block';
 
 type Props = {
-  params: { pageId: string };
+  params: { articleId: string };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const data = await getArticleById(params.pageId);
+  const data = await getArticleById(params.articleId);
   return {
     title: data.title || data.namepage || 'Страница',
     description: data.text || 'Описание страницы',
     openGraph: {
       title: data.title || data.namepage || 'Страница',
       description: data.text || 'Описание страницы',
-      url: `${SITE_HOST}/article/${params.pageId}`,
+      url: `${SITE_HOST}/article/${params.articleId}`,
       siteName: SITE_NAME,
       images: [
         {
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function DefaultPage({ params }: Props) {
-  const data = await getArticleById(params.pageId);
+  const data = await getArticleById(params.articleId);
 
   const date = new Date(data.date).toLocaleString('ru-DE', {
     year: 'numeric',

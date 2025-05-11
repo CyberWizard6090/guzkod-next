@@ -4,8 +4,8 @@ import Cross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
 import Home from 'shared/assets/svg/bootstrap-icons-1.11.2/house-fill.svg';
 import Chat from 'shared/assets/svg/bootstrap-icons-1.11.2/chat-dots-fill.svg';
 import { useDisableScroll } from 'shared/lib/hooks/useDisableScroll';
-import { Link } from 'react-router-dom';
 import './mobile-menu.scss';
+import Link from 'next/link';
 type MobileMenuProps = {
   children: ReactNode;
 };
@@ -33,10 +33,10 @@ export const MobileMenu = ({ children }: MobileMenuProps) => {
   return (
     <>
       <div className="mobile-menu__toggle">
-        <Link to="/">
+        <Link href="/">
           <MobileMenuItem label={'Главная'} logo={Home} />
         </Link>
-        <Link to="/feedback">
+        <Link href="/feedback">
           <MobileMenuItem label={'Отзыв'} logo={Chat} />
         </Link>
         <button

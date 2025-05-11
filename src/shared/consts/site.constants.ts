@@ -2,7 +2,7 @@
 
 export const SITE_NAME = 'ExampleSite';
 export const SITE_URL = 'https://www.examplesite.com';
-export const SITE_HOST = 'examplesite.com';
+export const SITE_HOST = 'http://localhost:4000';
 export const SITE_DESCRIPTION = 'ExampleSite — это современная платформа для обмена знаниями.';
 export const SITE_AUTHOR = 'Example Team';
 export const SITE_LANGUAGE = 'ru-RU';
