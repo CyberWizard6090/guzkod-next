@@ -1,5 +1,5 @@
 .block__richText {
-  line-height: 150%;
+  line-height: 200%;
   h1 {
     span {
       font-size: var(--font-size-xxl);
@@ -143,3 +143,47 @@
   //   background-color: aqua;
   // }
 }
+
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  padding: 0 var(--spacing-xs);
+  margin-right: var(--spacing-xs);
+  outline: none;
+  background-color: var(--link-bg);
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--link-hover-bg);
+    text-decoration: none;
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__icon {
+    display: inline-flex;
+    color: var(--link-color);
+  }
+
+  &__text {
+    font-weight: 500;
+    color: var(--link-color);
+
+    p, span {
+      margin: 0;
+      line-height: 1.4;
+    }
+  }
+
+  &__info {
+    color: var(--link-info-color);
+    font-size: 0.875rem;
+  }
+}
+

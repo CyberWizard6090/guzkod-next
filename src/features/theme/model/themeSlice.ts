@@ -15,7 +15,7 @@ interface ThemeState {
 }
 
 const initialState: ThemeState = {
-  theme: (localStorage.getItem('theme') as Theme) || 'light', // По умолчанию light
+  theme: (typeof window !== 'undefined' && (localStorage.getItem('theme') as Theme)) || 'light',
 };
 
 const themeSlice = createSlice({
@@ -24,11 +24,11 @@ const themeSlice = createSlice({
   reducers: {
     setTheme: (state, action: PayloadAction<Theme>) => {
       state.theme = action.payload;
-      localStorage.setItem('AccessibilityTheme', state.theme); // Сохраняем тему в localStorage
+      localStorage.setItem('AccessibilityTheme', state.theme);
     },
     toggleTheme: (state) => {
       state.theme = 'light' === state.theme ? 'dark' : 'light';
-      localStorage.setItem('theme', state.theme); // Сохраняем тему в localStorage
+      localStorage.setItem('theme', state.theme);
     },
   },
 });

@@ -133,21 +133,23 @@ export default function serializeLexicalRichText({ children, parentNode = {} }: 
         case 'link':
           return (
             <a
-              className={`${classNames.a}`}
+              className={`link ${classNames.a}`}
               href={escapeHTML(node.fields?.linkType === 'custom' ? node?.fields?.url : '')}
               target={node.fields?.newTab ? '_blank' : '_self'}
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label={`Ссылка: ${ExtractHostname(node.fields?.url || '')}`}
+              title={node.fields?.url}
               key={i}
             >
-              <div className="link_wrap">
-                <IconLink />
-                <span>{serializeLexicalRichText({ children: node.children })}</span>
-                <span className="embed-link__info-text">
-                  [
-                  {ExtractHostname(
-                    escapeHTML(node.fields?.linkType === 'custom' ? node?.fields?.url : ''),
-                  )}
-                  ]
+              <div className="link__wrap">
+                <span className="link__icon">
+                  <IconLink />
+                </span>
+                <span className="link__text">
+                  {serializeLexicalRichText({ children: node.children })}
+                </span>
+                <span className="link__info" aria-hidden="true">
+                  [{ExtractHostname(node.fields?.url || '')}]
                 </span>
               </div>
             </a>

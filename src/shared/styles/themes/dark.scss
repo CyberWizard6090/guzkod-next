@@ -36,4 +36,13 @@
   /* Цвета для скелетон */
   --skeleton-base: #444;
   --skeleton-highlight: #666;
+
+  /* Цвета для ссылок */
+  --link-color: #66ccff;               /* Ярче и чище, чем #4eaaff */
+  --link-bg: #121212;                  /* Глубокий тёмный фон */
+  --link-border: transparent;
+  --link-hover-border: #66ccff;
+  --link-hover-bg: #1e1e1e;            /* Чуть светлее фон при ховере */
+  --link-focus-shadow: rgba(102, 204, 255, 0.4); /* Чёткий фокус */
+  --link-info-color: #bbbbbb;          /* Яснее, чем #aaa для слабого текста */
 }
