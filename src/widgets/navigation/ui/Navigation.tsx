@@ -1,10 +1,8 @@
-'use client';
-import { useEffect, useState } from 'react';
 import { NavigationView } from './NavigationView';
 import { NavigationItem } from '../types';
 import { getNavigation } from '../api/navigation.api';
 
-export const Navigation = () => {
+export const Navigation = async () => {
   const sidebarData: NavigationItem[] = [
     {
       label: 'Главная',
@@ -40,13 +38,7 @@ export const Navigation = () => {
     },
   ];
 
-  const [data, setData] = useState<any>({ layout: [] });
-
-  useEffect(() => {
-    getNavigation().then((navigationData) => {
-      setData(navigationData);
-    });
-  }, []);
+  const data = await getNavigation();
 
   const merged = [...sidebarData, ...data.layout];
   return <NavigationView items={merged} />;

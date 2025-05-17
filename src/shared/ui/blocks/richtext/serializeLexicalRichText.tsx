@@ -141,7 +141,7 @@ export default function serializeLexicalRichText({ children, parentNode = {} }: 
               title={node.fields?.url}
               key={i}
             >
-              <div className="link__wrap">
+              <span className="link__wrap">
                 <span className="link__icon">
                   <IconLink />
                 </span>
@@ -151,7 +151,7 @@ export default function serializeLexicalRichText({ children, parentNode = {} }: 
                 <span className="link__info" aria-hidden="true">
                   [{ExtractHostname(node.fields?.url || '')}]
                 </span>
-              </div>
+              </span>
             </a>
           );
         case 'horizontalrule':
@@ -163,7 +163,7 @@ export default function serializeLexicalRichText({ children, parentNode = {} }: 
             </p>
           );
         default:
-          return <p key={i}>{serializeLexicalRichText({ children: node.children })}</p>;
+          return serializeLexicalRichText({ children: node.children });
       }
     })
     .filter((node: null) => node !== null);

@@ -40,6 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="ru">
       <body>
         <Providers>
+          <AccessibilityUI />
           <Header />
           <div className="content-container">
             <div className="layout layout__wrapper">
@@ -51,7 +52,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <Navigation />
               <main className="layout__content">
                 {/* <Breadcrumbs /> */}
-                <AccessibilityUI />
+
                 {children}
               </main>
               {/* <Footer /> */}

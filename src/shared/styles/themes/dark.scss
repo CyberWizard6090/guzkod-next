@@ -1,48 +1,59 @@
 [data-theme='dark'] {
+
+  /* 🔴 Красные акценты */
   --red: #cb0e4e;
   --dark-red: #a00c3d;
 
-  // акцентный цвет
-  --accent-color: #916107; /* Фон кнопки */
-  --button-text: #e4dbdb; /* Текст на кнопке */
-  --accent-color-hover: #917d0d; /* Фон кнопки при наведении */
-  // моно цвета
-  --btn-color-alt: #18181a;
-  --btn-color-alt-hover: #1c1c1e;
+  /* 🟠 Основной акцент — оранжевый */
+  --accent-color: #b5740f;                /* Кнопка и акценты */
+  --accent-color-hover: #d88d1a;          /* Hover-состояние */
+  --button-text: #f9f5f2;                 /* Светлый текст на кнопках */
+
+  /* ⬛ Альтернативные кнопки (тёмные) */
+  --btn-color-alt: #1e1e20;
+  --btn-color-alt-hover: #2a2a2d;
   --btn-text-alt: #ffffff;
 
+  /* 📄 Цвета фонов */
+  --background-main: #111113;
+  --background-alt: #18181a;
+  --panel-bg: #151516;
+  --panel-item-bg: #202022;
+  --block-bg: #1c1c1e;
+
+  /* 🧾 Текстовые цвета */
+  --font-color-light: #e6e6eb;
+  --font-color-gray: #b3b3ba;
+  --form-text: #999ca3;
   --menu-item-text: #f8f0f0;
-  --list-item-text: #15088b;
-  --form-text: #6b6b6c;
-  --border-color1: #000;
+  --list-item-text: #f4ad47; /* Заменён на тёплый — синеватый неуместен */
+
+  /* 💬 Ссылки */
+  --link-color: #f7a723;                 /* Яркий оранжевый */
+  --link-bg: #121212;
+  --link-hover-bg: #1e1e1e;
+  --link-border: transparent;
+  --link-hover-border: #f7a723;
+  --link-focus-shadow: rgba(255, 165, 0, 0.4);
+  --link-info-color: #aaaaaa;
+
+  /* 🧱 Границы */
+  --border-color1: #2e2e30;
   --border-color2: #555753;
   --border-color3: transparent;
 
-  --background-main: #111113;
-  --background-alt:  #1c1c1e;
-  --panel-bg: #151516;
-  --panel-item-bg: #26282b;
-  --block-bg: #18181a;
-  /* Тени */
-  --shadow-color-1: rgba(255, 128, 0, 0.3); /* Новый цвет 1 */
-  --shadow-color-2: rgba(255, 0, 0, 0.12); /* Новый цвет 2 */
-  --font-color-light: #d4e5ee;
-  --font-color-gray: #ebebf5bb;
-  --link-color: rgb(146, 132, 207);
+  /* 🧊 Цвета форм */
   --color-form-input: #2c2c30;
-  --color-form-input-text: #fff;
-  --qr-color: rgb(255, 255, 255);
+  --color-form-input-text: #ffffff;
 
-  /* Цвета для скелетон */
+  /* 🌓 Тени */
+  --shadow-color-1: rgba(255, 165, 0, 0.15); /* мягкий оранжевый */
+  --shadow-color-2: rgba(255, 64, 64, 0.12); /* красноватый для акцентов */
+
+  /* 📷 QR и Skeleton */
+  --qr-color: #ffffff;
   --skeleton-base: #444;
   --skeleton-highlight: #666;
 
-  /* Цвета для ссылок */
-  --link-color: #66ccff;               /* Ярче и чище, чем #4eaaff */
-  --link-bg: #121212;                  /* Глубокий тёмный фон */
-  --link-border: transparent;
-  --link-hover-border: #66ccff;
-  --link-hover-bg: #1e1e1e;            /* Чуть светлее фон при ховере */
-  --link-focus-shadow: rgba(102, 204, 255, 0.4); /* Чёткий фокус */
-  --link-info-color: #bbbbbb;          /* Яснее, чем #aaa для слабого текста */
+
 }

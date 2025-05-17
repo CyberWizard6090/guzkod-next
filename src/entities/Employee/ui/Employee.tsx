@@ -28,12 +28,10 @@ export const Employee = ({ id, url, fullName, position, departments, education }
           <div className="employee-card__info">
             <h3 className="employee-card__name">{fullName}</h3>
             <p className="employee-card__position">{position}</p>
-            {departments?.map((department, index) => (
-              <Link key={index} href={'/departments/' + department.id}>
-                <p key={department.id} className="employee-card__department">
-                  {department.name}
-                </p>
-              </Link>
+            {departments?.map((department) => (
+              <p key={department.id} className="employee-card__department">
+                {department.name}
+              </p>
             ))}
             {education ? <p className="employee-card__education">{education}</p> : <></>}
           </div>

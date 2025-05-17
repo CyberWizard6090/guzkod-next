@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { getDepartments } from 'shared/api/departments';
 import { DepartmentCard } from 'entities/department';
+import { Loader } from 'shared/ui/loader';
 
 export default function DepartmentsPage() {
   const [loading, setLoading] = useState(true);
@@ -11,33 +12,25 @@ export default function DepartmentsPage() {
   useEffect(() => {
     (async () => {
       const result = await getDepartments();
-      setData(result.data);
+      setData(result.data ?? []);
       setError(result.error);
       setLoading(result.loading);
     })();
   }, []);
 
   if (loading) {
-    return (
-      <div className="DepartmentsPage animation-reveal">
-        <h2>Загрузка...</h2>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (error) {
-    return (
-      <div className="DepartmentsPage animation-reveal">
-        <h2>Ошибка загрузки: {error.message}</h2>
-      </div>
-    );
+    return <h2>Ошибка загрузки: {error.message}</h2>;
   }
 
   return (
-    <div className="DepartmentsPage animation-reveal">
+    <>
       {data.map((department, index) => (
         <DepartmentCard key={index} department={department} />
       ))}
-    </div>
+    </>
   );
 }

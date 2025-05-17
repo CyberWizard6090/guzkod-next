@@ -9,5 +9,7 @@ export const getAllArticles = async () => {
 };
 
 export const getArticleById = async (pageId: string) => {
-  return fetchApi(`http://localhost:4000/api/article/${pageId}?locale=undefined&draft=false&depth=1`);
+  return fetchApi(
+    `http://localhost:4000/api/article/${pageId}?locale=undefined&draft=false&depth=1`,
+  );
 };

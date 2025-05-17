@@ -1,12 +1,10 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
-// import './homePage.scss';
 import { NewsBlock } from 'widgets/newsBlock';
 import { Carousel } from 'widgets/carousel';
 import { Banner, SimpleRichText } from 'shared/ui/blocks';
 import { Block } from 'shared/ui/block';
 import { Page } from 'shared/ui/page';
+import 'shared/styles/pages/home-page.scss';
+import { getHomePage } from 'shared/api/home';
 
 type TextBlock = {
   blockType: 'text';
@@ -48,6 +46,7 @@ type PageBlock = {
   content: BlockContent[];
 };
 
+// eslint-disable-next-line react/prop-types
 const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
   return (
     <Page>
@@ -101,28 +100,13 @@ const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
   );
 };
 
-const HomePage = () => {
-  const [pageData, setPageData] = useState<PageBlock[]>([]);
-
-  useEffect(() => {
-    fetch('/api/globals/home-page')
-      .then((res) => res.json())
-      .then((data) => {
-        setPageData(data.blocks || []);
-      })
-      .catch((err) => {
-        console.error('Ошибка загрузки страницы:', err);
-      });
-  }, []);
+export default async function HomePage() {
+  const data = await getHomePage();
 
   return (
-    <div className="home animation-reveal">
-      <div className="home__content">
-        <RenderBlocks blocks={pageData} />
-        <NewsBlock />
-      </div>
-    </div>
+    <Page>
+      <RenderBlocks blocks={data.blocks} />
+      <NewsBlock />
+    </Page>
   );
-};
-
-export default HomePage;
+}

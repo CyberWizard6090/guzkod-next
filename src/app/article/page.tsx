@@ -33,7 +33,6 @@ export default function ArticlePage() {
     };
     loadArticles();
   }, []);
-  console.log(articles);
   if (loading)
     return (
       <>

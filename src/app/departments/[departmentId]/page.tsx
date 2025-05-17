@@ -18,7 +18,7 @@ export default async function DepartmentPage({ params }: Props) {
       <h1>{data.name}</h1>
 
       <Block>
-        {data.image ? <ImageView url={data.image.sizes.thumbnail.url} /> : <></>}
+        {data.image ? <ImageView url={data.image.sizes.tablet.url} /> : <></>}
         <SimpleRichText body={data.description} />
       </Block>
       {data.employee && (

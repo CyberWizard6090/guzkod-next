@@ -18,15 +18,17 @@ const Notification: React.FC<NotificationProps> = ({ notification }) => {
   const Icon = Icons[notification.type] || Icons.info;
   return (
     <output className={`notification ${notification.type} `}>
-      <div className="notification__title">
-        <Icon />
-        <div></div>
+      <div className="notification__header">
         <button className="close-btn" onClick={handleClose}>
           <Cross />
         </button>
       </div>
-
-      <span>{notification.message}</span>
+      <div className="notification__container">
+        <div className="notification__icon">
+          <Icon />
+        </div>
+        <div className="notification__message">{notification.message} </div>
+      </div>
     </output>
   );
 };

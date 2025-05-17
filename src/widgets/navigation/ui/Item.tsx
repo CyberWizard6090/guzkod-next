@@ -6,10 +6,11 @@ type Props = {
 };
 
 export const Item = ({ label, link }: Props) => {
+  const normalizedLink = link.startsWith('/') ? link : `/${link}`;
   return (
     <li>
       <Link
-        href={link}
+        href={normalizedLink}
         className="navigation__link"
         //   onClick={() => isMobile && setMobileMenuVisible(false)}
       >

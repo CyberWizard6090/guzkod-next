@@ -1,6 +1,7 @@
+'use client';
 import { useEffect, useState } from 'react';
 import './NewsBlock.scss';
-import { CardRead } from 'entities/card-read';
+import { CardRead, CardReadSkeleton } from 'entities/card-read';
 import { Article } from 'shared/types/article';
 import { getArticles } from 'shared/api/articles';
 
@@ -25,7 +26,11 @@ export const NewsBlock = () => {
     <div className="NewsBlock">
       <h2>Новости</h2>
       {isLoading ? (
-        <p>Загрузка...</p>
+        <>
+          <CardReadSkeleton />
+          <CardReadSkeleton />
+          <CardReadSkeleton />
+        </>
       ) : error ? (
         <p className="NewsBlock_error">{error}</p>
       ) : (

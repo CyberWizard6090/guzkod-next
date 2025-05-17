@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, ReactNode } from 'react';
 import List from 'shared/assets/svg/bootstrap-icons-1.11.2/list.svg';
 import Cross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';

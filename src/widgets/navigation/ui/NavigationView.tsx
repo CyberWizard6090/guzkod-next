@@ -1,3 +1,4 @@
+'use client';
 import { useDeviceDetect } from 'shared/lib/hooks/useDeviceDetect';
 import { TreeItem } from './TreeItem';
 import { Separator } from './Separator';

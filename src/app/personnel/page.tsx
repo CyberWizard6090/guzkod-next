@@ -24,25 +24,24 @@ export default function PersonnelPage() {
 
   if (loading) {
     return (
-      <div className="Personnel animation-reveal">
-        <h2>Загрузка...</h2>
+      <>
         <EmployeeSkeletonList count={8} />
-      </div>
+      </>
     );
   }
 
   if (error) {
     return (
-      <div className="Personnel animation-reveal">
+      <>
         <h2>Ошибка: {error.message}</h2>
-      </div>
+      </>
     );
   }
   console.log(data);
   return (
-    <div className="Personnel animation-reveal">
+    <>
       <h2>Список сотрудников</h2>
       <EmployeeList List={data} />
-    </div>
+    </>
   );
 }
