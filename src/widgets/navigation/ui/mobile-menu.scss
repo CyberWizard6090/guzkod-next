@@ -9,6 +9,7 @@
     justify-content: end;
     color: var(--font-color-gray);
     gap: var(--spacing-xs);
+    border-radius: var(--radius-md);
   }
   &__logo {
     border-radius: var(--radius-md);
@@ -42,10 +43,7 @@
       border: none;
       cursor: pointer;
 
-      &:hover {
-        background-color: var(--accent-color-hover);
-        color: var(--button-text);
-      }
+    
     }
   }
 

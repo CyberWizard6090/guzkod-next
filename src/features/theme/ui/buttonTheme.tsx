@@ -24,10 +24,10 @@ export const ButtonTheme = () => {
   const Label: string =
     theme === 'light' ? 'Светлый режим' : theme === 'dark' ? 'Темный режим' : 'Специальный режим';
   if (isMobile) {
-    return <IconButton theme={'mono'} Icon={Icon} onClick={handleToggle} />;
+    return <IconButton  Icon={Icon} onClick={handleToggle} />;
   } else {
     return (
-      <Button Icon={Icon} theme={'mono'} onClick={handleToggle}>
+      <Button Icon={Icon}  onClick={handleToggle}>
         {Label}
       </Button>
     );

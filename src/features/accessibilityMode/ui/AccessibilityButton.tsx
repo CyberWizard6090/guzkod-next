@@ -18,10 +18,10 @@ export const AccessibilityButton = () => {
   const active = useSelector((state: RootState) => SelectState(state));
   if (!active) {
     if (isMobile) {
-      return <IconButton Icon={Logo} theme={'mono'} onClick={handleToggleMode} />;
+      return <IconButton Icon={Logo} variant={'secondary'} onClick={handleToggleMode} />;
     } else {
       return (
-        <Button Icon={Logo} theme={'mono'} onClick={handleToggleMode}>
+        <Button Icon={Logo} variant={'secondary'} onClick={handleToggleMode}>
           Версия для слабовидящих
         </Button>
       );

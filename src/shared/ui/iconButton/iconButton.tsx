@@ -1,48 +1,27 @@
-import { FC } from 'react';
 import clsx from 'clsx';
 
 import './iconButton.scss';
 
-interface IIconComponent {
-  /** Icon component. */
+type PropsIconButton = {
   readonly Icon: React.FunctionComponent<
     React.SVGProps<SVGSVGElement> & {
       title?: string | undefined;
     }
   >;
-  readonly isCounterVisible?: boolean;
-  /** Counter theme for displaying the number of products. */
-  readonly theme?: 'grey' | 'accent' | 'mono';
-  /** Number of products. */
-  readonly counterValue?: number;
-  /** Event handler when the button is clicked. */
-  readonly onClick?: (() => void) | ((event: React.MouseEvent<HTMLButtonElement>) => void);
-  /** Additional styles. */
-  readonly className?: string;
-}
+  isCounterVisible?: boolean;
+  variant?: 'primary' | 'secondary';
+  counterValue?: number;
+  onClick?: (() => void) | ((event: React.MouseEvent<HTMLButtonElement>) => void);
+  className?: string;
+};
 
-export const IconButton: FC<IIconComponent> = (props) => {
-  const {
-    Icon,
-
-    theme = 'accent',
-
-    onClick,
-    className,
-  } = props;
-
+export const IconButton = ({ Icon, variant = 'primary', onClick, className }: PropsIconButton) => {
   return (
     <button
       type="button"
-      className={clsx(`icon-button icon-button-theme__${theme}`, className)}
+      className={clsx(`icon-button icon-button-${variant}`, className)}
       onClick={onClick}
     >
-      {/* {isCounterVisible && (
-                <div
-                    className={`icon-button__counter icon-button__counter_theme_${counterTheme}`}>
-                    {counterValue}
-                </div>
-            )} */}
       <Icon className="icon-button__icon" />
     </button>
   );

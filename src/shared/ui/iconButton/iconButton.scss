@@ -1,65 +1,31 @@
 .icon-button {
-    display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-    position: relative;
-    background: none;
+  position: relative;
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-s);
+  &:hover {
+    cursor: pointer;
+  }
+  &-primary {
+    color: var(--button-text);
     border: none;
-    border-radius: var(--radius-md);
-    padding: var(--spacing-s);
-    // height: 34px;
-    &:hover {
-        cursor: pointer;
-      }
-    &_theme_grey {
-        background: var(--cart-bg);
-        color: var(--text-primary);
-    }
-
-    &-theme__accent {
-        color: var(--button-text);
-        background-color: var(--accent-color);
-        // background: var(--red);
-        // color: var(--white);
-        &:hover{
-            background-color: var(--accent-color-hover);
-        }
-    }
-    &-theme__mono {
-        color: var( --btn-text-alt);
-        border: none;
-        background-color: var(--btn-color-alt);
-    
-        &:hover {
-          background-color: var(--btn-color-alt-hover);
-        }
-      }
-    &__counter {
-        position: absolute;
-        top: -5px;
-        right: -3px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        width: 20px;
-        height: 20px;
-
-        border-radius: 50%;
-        font-size: 9px;
-
-      
-    }
-
-    &__icon {
-      
-        width: 20px;
-        height: 20px;
-    }
+    background-color: var(--accent-color);
 
     &:hover {
-        fill: var(--primary-bg);
-        cursor: pointer;
+      background-color: var(--accent-color-hover);
     }
+  }
+  &-secondary {
+    color: var(--btn-text-alt);
+    border: none;
+    background-color: var(--btn-color-alt);
+
+    &:hover {
+      background-color: var(--btn-color-alt-hover);
+    }
+  }
 }
