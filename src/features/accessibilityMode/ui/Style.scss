@@ -1,25 +1,19 @@
-.AccessibilityUI{
-width: 100%;
-min-height: 200px;
-background-color: rgb(245, 240, 240);
-padding: var(--spacing-l);
-position: relative;
-display: flex;
+.AccessibilityUI {
+  width: 100%;
+  min-height: 200px;
+  background-color: rgb(245, 240, 240);
+  padding: var(--spacing-l);
+  position: relative;
+  display: flex;
 
-&__block-wrap{
+  &__block-wrap {
     width: 100%;
     display: flex;
     gap: var(--spacing-xs);
     align-items: center;
-    @media (max-width: 767px) {
-        flex-direction: column;
-        align-items: start;
-    }
-}
-}
+  }
 
-// .btn__exit{
-//     position: absolute;
-//     right: var(--spacing-l);
-//     bottom: var(--spacing-l);
-// }
+  &__button-exit {
+    font-size: 16px !important;
+  }
+}

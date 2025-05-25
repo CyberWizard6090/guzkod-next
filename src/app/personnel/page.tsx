@@ -37,7 +37,7 @@ export default function PersonnelPage() {
       </>
     );
   }
-  console.log(data);
+
   return (
     <>
       <h2>Список сотрудников</h2>

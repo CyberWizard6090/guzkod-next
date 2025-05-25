@@ -1,0 +1,115 @@
+.accessibility {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+
+  &__block-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__exit-btn {
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: #ccc;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+
+    &:hover {
+      background: #bbb;
+    }
+  }
+}
+
+.accessibility-selector {
+  padding: var(--spacing-xs);
+  height: 120px;
+  &__title {
+    font-size: 20px;
+    margin-bottom:var(--spacing-m);
+  }
+
+  &__options {
+    display: flex;
+    gap: var(--spacing-m);
+    flex-wrap: wrap;
+  }
+
+  &__option {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    padding: var(--spacing-s) var(--spacing-m);
+    border: 5px solid transparent;
+    border-radius: var(--radius-md);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+
+    input {
+      display: none;
+    }
+
+    &--active {
+      border-color: #ff0000;
+    //   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+    }
+    span {
+      font-size: 14px !important;
+    }
+
+    &--font-small span {
+      font-size: 14px!important;;
+    }
+
+    &--font-medium span {
+      font-size: 18px!important;;
+    }
+
+    &--font-large span {
+      font-size: 24px!important;;
+    }
+
+    &--font-x-large span {
+      font-size: 30px!important;;
+    }
+
+    &--font-xx-large span {
+      font-size: 36px!important;;
+    }
+
+
+
+    &--theme-black-white {
+      background-color: #000;
+      color: #fff;
+    }
+
+    &--theme-brown-beige {
+      background-color: #d2b48c;
+      color: #3b2f2f;
+    }
+
+    &--theme-dark-blue-sky {
+      background-color: #87ceeb;
+      color: #001f3f;
+    }
+
+    &--theme-green-brown {
+      background-color: #4b2e2e;
+      color: #7fff7f;
+    }
+
+    &--theme-white-black {
+      background-color: #fff;
+      color: #000;
+    }
+  }
+}

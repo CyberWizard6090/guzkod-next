@@ -5,13 +5,18 @@ import { Button } from 'shared/ui/button';
 import { RootState } from 'app/stores';
 import { SelectState } from '../model/selectors';
 import { FontSize, setFontSize, toggleMode } from '../model/accessibilityModeSlice';
-import { RadioGroup } from 'shared/ui/radioGroup';
+
 import { setTheme, Theme } from 'features/theme/model/themeSlice';
+import FontSizeSelector from './selector/FontSizeSelector';
+import ThemeSelector from './selector/ThemeSelector';
+import './selector/accessibility.scss';
 
 export const AccessibilityUI = () => {
   const dispatch = useDispatch();
   const handleToggleMode = () => dispatch(toggleMode());
   const active = useSelector((state: RootState) => SelectState(state));
+  const fontSize = useSelector((state: RootState) => state.accessibilityMode.fontSize);
+  const theme = useSelector((state: RootState) => state.theme.theme);
 
   const handleRadioChangeFont = (value: string) => {
     if (['small', 'medium', 'large', 'x-large', 'xx-large'].includes(value)) {
@@ -20,6 +25,7 @@ export const AccessibilityUI = () => {
       console.error('Некорректное значение размера шрифта:', value);
     }
   };
+
   const handleRadioChangeTheme = (value: string) => {
     if (
       [
@@ -37,40 +43,19 @@ export const AccessibilityUI = () => {
       console.error('Некорректное значение размера шрифта:', value);
     }
   };
-  if (active) {
-    return (
-      <div className="AccessibilityUI">
-        <div className="AccessibilityUI__block-wrap">
-          <RadioGroup
-            name="fontSize"
-            options={[
-              { label: 'Маленький', value: 'small' },
-              { label: 'Средний', value: 'medium' },
-              { label: 'Большой', value: 'large' },
-              { label: 'Очень большой', value: 'x-large' },
-            ]}
-            onChange={handleRadioChangeFont}
-          />
+  if (!active) return null;
 
-          <RadioGroup
-            name="theme"
-            options={[
-              { label: 'Черно-белый', value: 'black-white' },
-              { label: 'Коричневый на бежевом', value: 'brown-beige' },
-              { label: 'Темно-синий на голубом', value: 'dark-blue-sky' },
-              { label: 'Зеленый на темно-коричневом', value: 'green-brown' },
-              { label: 'Бело-черный', value: 'white-black' },
-            ]}
-            onChange={handleRadioChangeTheme}
-          />
-          {/* <Toggle /> */}
-        </div>
-        <Button className="btn__exit" onClick={handleToggleMode}>
+  return (
+    <div className="AccessibilityUI">
+      <div className="AccessibilityUI__block-wrap">
+        <FontSizeSelector value={fontSize} onChange={handleRadioChangeFont} />
+        <ThemeSelector value={theme} onChange={handleRadioChangeTheme} />
+      </div>
+      <div>
+        <Button className="AccessibilityUI__button-exit" onClick={handleToggleMode}>
           Обычный режим
         </Button>
       </div>
-    );
-  } else {
-    return <></>;
-  }
+    </div>
+  );
 };

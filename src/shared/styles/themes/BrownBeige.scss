@@ -1,47 +1,61 @@
 [data-theme='brown-beige'] {
-  // Коричневый на бежевом
-  /* Основные цвета */
-  --red: #9b592a; /* Основной красный */
-  --dark-red: #6d3c15; /* Темный красный */
+  /* 🍂 Коричневый на бежевом */
 
-  /* Цвета для кнопок */
-  --accent-color: #d9a56d; /* Фон кнопки */
-  --button-text: #ffffff; /* Текст на кнопке */
-  --accent-color-hover: #c48c56; /* Фон кнопки при наведении */
+  /* 🔴 Основные акценты */
+  --red: #9b592a;
+  --dark-red: #6d3c15;
 
-  // моно цвета
+  /* 🟫 Кнопки */
+  --accent-color: #d9a56d;
+  --accent-color-hover: #c48c56;
+  --button-text: #ffffff;
+
+  /* 🟤 Альтернативные кнопки */
   --btn-color-alt: #1c1c1e;
   --btn-color-alt-hover: #000000;
   --btn-text-alt: #e4dbdb;
 
+  /* 🧱 Границы */
   --border-color1: #000000;
   --border-color2: #5acc18;
-  --border-color3: #000;
-  /* Цвета меню */
-  --menu-item-text: #5d4037; /* Цвет текста элементов меню */
+  --border-color3: #000000;
 
-  /* Цвета списков */
-  --list-item-text: #15088b; /* Цвет текста в списках */
+  /* 🧩 Меню и списки */
+  --menu-item-text: #5d4037;
+  --list-item-text: #15088b;
 
-  /* Фоны */
-  --background-main:#c48c56; /* Основной фон */
-  --background-alt: #f0e6d9; /* Альтернативный фон */
-  --panel-bg: #f0f0f0; /* Фон панели */
-  --panel-item-bg: #ffffff; /* Фон элементов панели */
-  --block-bg: #ffffff; /* Фон блоков */
+  /* ⚪ Фоны */
+  --background-main: #c48c56;
+  --background-alt: #f0e6d9;
+  --panel-bg: #f0f0f0;
+  --panel-item-bg: #ffffff;
+  --block-bg: #ffffff;
 
-  /* Тени */
+  /* 🌓 Тени */
   --shadow-color-1: rgba(60, 64, 67, 0.3);
   --shadow-color-2: rgba(9, 36, 51, 0.12);
+  --shadow-color-3: rgba(0, 0, 0, 0.08); /* чуть мягче */
 
-  /* Цвета текста */
+  /* ⚫ Тексты */
   --font-color-light: #000000;
-  --font-color-gray:#444444;
-  /* Цвета input */
+  --font-color-gray: #444444;
+
+  /* 🖊 Формы */
   --color-form-input: #ffffff;
   --color-form-input-text: #000000;
+  --form-text: #6b6b6c;
 
-  --link-color: rgb(0, 0, 0);
-  /* Цвет для QR кодов */
-  --qr-color: rgb(0, 0, 0); /* Цвет QR кода */
+  /* 🔗 Ссылки */
+  --link-color: #4e342e;
+  --link-bg: #f8f3ef;
+  --link-border: transparent;
+  --link-hover-border: #4e342e;
+  --link-hover-bg: #f1e2d2;
+  --link-focus-shadow: rgba(155, 89, 42, 0.4);
+  --link-info-color: #6b6b6c;
+
+  /* ⬛ QR и Скелетон */
+  --qr-color: #000000;
+  --skeleton-base: #d6c7ba;
+  --skeleton-highlight: #e8d9cb;
 }
