@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>README - Frontend Project (Dark)</title>
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -66,51 +63,51 @@
       background-color: #334155;
     }
     .contact-section {
-  background-color: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-top: 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
+        background-color: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-top: 1rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
 
-.contact-section h2 {
-  margin-bottom: 1rem;
-  color: #e2e8f0;
-}
+    .contact-section h2 {
+        margin-bottom: 1rem;
+        color: #e2e8f0;
+    }
 
-.contact-list {
-  list-style: none;
-  padding-left: 0;
-}
+    .contact-list {
+        list-style: none;
+        padding-left: 0;
+    }
 
-.contact-list li {
-  margin-bottom: 0.75rem;
-}
+    .contact-list li {
+        margin-bottom: 0.75rem;
+    }
 
-.contact-list a {
-  display: inline-block;
-  padding: 0.5rem 0.75rem;
-  border-radius: 8px;
-  background-color: #0f172a;
-  color: #93c5fd;
-  text-decoration: none;
-  transition: background 0.3s, color 0.3s;
-  font-weight: 500;
-}
+    .contact-list a {
+        display: inline-block;
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        background-color: #0f172a;
+        color: #93c5fd;
+        text-decoration: none;
+        transition: background 0.3s, color 0.3s;
+        font-weight: 500;
+    }
 
-.contact-list a span {
-  color: #e0f2fe;
-}
+    .contact-list a span {
+        color: #e0f2fe;
+    }
 
-.contact-list a:hover {
-  background-color: #2563eb;
-  color: #ffffff;
-}
+    .contact-list a:hover {
+        background-color: #2563eb;
+        color: #ffffff;
+    }
 
-.contact-list a:hover span {
-  color: #ffffff;
-}
+    .contact-list a:hover span {
+        color: #ffffff;
+    }
 
 
     .footer {
@@ -119,7 +116,7 @@
       color: #94a3b8;
     }
   </style>
-</head>
+
 <body>
 
   <h1>🧩 Frontend</h1>
@@ -143,11 +140,11 @@
     <h2>📁 Архитектура (FSD)</h2>
     <div class="file-structure">
 src/
-├── app/            # Роутинг и страницы (App Router)
-├── shared/         # Общие компоненты, стили, утилиты
-├── entities/       # Базовые доменные сущности
-├── features/       # Модули пользовательских фич
-├── widgets/        # Интерфейсные секции и блоки
+├── app/            # Роутинг и страницы (App Router)<br>
+├── shared/         # Общие компоненты, стили, утилиты<br>
+├── entities/       # Базовые доменные сущности<br>
+├── features/       # Модули пользовательских фич<br>
+├── widgets/        # Интерфейсные секции и блоки<br>
     </div>
   </div>
 
