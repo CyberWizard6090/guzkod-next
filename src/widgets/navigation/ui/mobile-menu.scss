@@ -1,4 +1,7 @@
 .mobile-menu {
+  a{
+    border-radius: var(--radius-md);
+  }
   &__item {
     height: 100%;
     width: 100%;

@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './dropdown.scss';
 import Up from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-up.svg';
 import Down from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-down.svg';
+import Cross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
 
 type DropdownOption = {
   value: string;
@@ -75,18 +76,52 @@ export const Dropdown = ({ options, label, onSelect, fieldName, valueRef }: Drop
   return (
     <div className="dropdown" ref={dropdownRef}>
       {label && <label className="dropdown__label">{label}</label>}
-      <div className="dropdown__control" onClick={toggleDropdown}>
+      <button
+        className="dropdown__control"
+        onClick={toggleDropdown}
+        role="button"
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleDropdown();
+          }
+        }}
+      >
         {selectedOption || 'Выберите значения'}
         <span className="dropdown__arrow">{isOpen ? <Up /> : <Down />}</span>
-      </div>
+      </button>
       {isOpen && (
         <div className={`dropdown__menu ${isMobile ? 'dropdown__menu--mobile' : ''}`}>
-          <ul>
+          <div className="dropdown__header">
+            <button
+              className="dropdown__close-button"
+              type="button"
+              onClick={() => toggleDropdown()}
+            >
+              Закрыть
+              <Cross />
+            </button>
+          </div>
+          <ul className="dropdown__list" role="listbox" aria-label={label || 'Выбор значения'}>
             {options.map((option, index) => (
               <li
                 key={index}
-                className="dropdown__option"
+                className={`dropdown__option ${
+                  selectedOption === option.label ? 'dropdown__option--selected' : ''
+                }`}
                 onClick={() => handleOptionClick(option)}
+                role="option"
+                aria-selected={selectedOption === option.label}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleOptionClick(option);
+                  }
+                }}
               >
                 {option.label}
               </li>

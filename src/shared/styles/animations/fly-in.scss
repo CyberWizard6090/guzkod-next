@@ -1,0 +1,11 @@
+.fly-in {
+  position: relative;
+  transform: translateX(100%);
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+  }
+}

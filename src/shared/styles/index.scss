@@ -1,36 +1,35 @@
-@import "themes/light.scss";
-@import "themes/dark.scss";
-@import "themes/BlackWhite.scss";
-@import "themes/WhiteBlack.scss";
-@import "themes/BrownBeige.scss";
-@import "themes/DarkBlueSky.scss";
-@import "themes/GreenBrown.scss";
-@import "animations/reveal.scss";
-@import "whitespace.scss";
-@import "font-size.scss";
-@import "layout.scss";
+@import 'themes/light.scss';
+@import 'themes/dark.scss';
+@import 'themes/BlackWhite.scss';
+@import 'themes/WhiteBlack.scss';
+@import 'themes/BrownBeige.scss';
+@import 'themes/DarkBlueSky.scss';
+@import 'themes/GreenBrown.scss';
+@import 'animations/index.scss';
+@import 'whitespace.scss';
+@import 'font-size.scss';
+@import 'layout.scss';
 
-@import "kern.scss";
+@import 'kern.scss';
 @font-face {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   src: url(./../../shared/assets/fonts/Inter/Inter-Medium.otf);
 }
 /* Safari */
 *::selection {
-  background: var(--accent-color-hover); 
+  background: var(--accent-color-hover);
   color: var(--button-text);
 }
 /* Firefox */
 *::-moz-selection {
-  background: var(--accent-color-hover); 
+  background: var(--accent-color-hover);
   color: var(--button-text);
 }
 /* Стилизация скроллинга */
 
 *::-webkit-scrollbar {
-  width: 3px;
-  height: 3px;
- 
+  width: 10px;
+  height: 10px;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -47,18 +46,13 @@
 }
 
 body {
-  // font-family: 'Open Sans', sans-serif;
-  // line-height: 1.5;
-  // font-weight: 400;
   margin: 0;
-
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
-
   overflow-x: hidden;
   background-color: var(--background-main);
-   transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 h1 {
@@ -90,7 +84,7 @@ h6 {
 .shadow__style {
   // -webkit-box-shadow: 0 1px 1px var(--shadow-color-1), 0 2px 4px var(--shadow-color-2);
   // box-shadow: 0 1px 1px var(--shadow-color-1), 0 2px 4px var(--shadow-color-2);
-  border: 0.0625rem solid var(    --border-color3);
+  border: 0.0625rem solid var(--border-color3);
 }
 
 *,
@@ -99,12 +93,6 @@ h6 {
   font-family: Montserrat;
   box-sizing: border-box;
 }
-
-/* ol,
-ul {
-    list-style: none;
-    padding: 0;
-} */
 
 body,
 h1,
@@ -125,14 +113,6 @@ dd {
   padding: 0;
 }
 
-// h1,
-// h2,
-// h3,
-// h4,
-// h5 {
-//     font-weight: 400;
-// }
-
 input,
 button {
   outline: none;
@@ -145,17 +125,17 @@ a {
 * {
   font-size: var(--font-size-medium);
 }
-.app{
+.app {
   position: relative;
   height: max-content;
 }
 // /* для Chrome/Edge/Safari */
-.content-container{
+.content-container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   @media screen and (max-width: 1220px) {
-    padding:0 20px  ;
+    padding: 0 20px;
   }
 }

@@ -3,13 +3,12 @@ import { useRef } from 'react';
 import { Organization } from './const/Organization';
 import { Button } from 'shared/ui/button';
 import { Department } from 'pages/feedbackPage/const/Department';
-import './feedback_form.scss';
-
 import { Dropdown } from 'shared/ui/dropdown';
 import { useAddNotification } from 'features/notifications';
 import { RadioGroup } from 'shared/ui/radioGroup';
 import { Input, InputPhone, InputText } from 'shared/ui/input';
 import { Block } from 'shared/ui/block';
+import './feedback_form.scss';
 
 type FieldType = {
   fio?: string;
@@ -20,14 +19,15 @@ type FieldType = {
   type_appeal?: string;
   messages?: string;
 };
-// const { TextArea } = Input;
 
 export const FormFeedback = () => {
-  // const { notification } = App.useApp();
-  // AddNotification("Привет мир", "info");
   const addNotification = useAddNotification();
 
   const Push = () => {
+    if (!inputRef.current.fio || !inputRef.current.phone || !inputRef.current.messages) {
+      addNotification({ message: 'Пожалуйста, заполните все обязательные поля', type: 'error' });
+      return;
+    }
     fetch('http://localhost:4000/api/FeedbackMessages', {
       method: 'POST',
       body: JSON.stringify(inputRef.current),
@@ -39,9 +39,18 @@ export const FormFeedback = () => {
       .then((data) => {
         console.log('Статус:', data);
         addNotification({ message: 'Отправлено успешно', type: 'success' });
+        inputRef.current = {
+          fio: '',
+          phone: '',
+          organization: '',
+          department: '',
+          doctor: '',
+          type_appeal: '',
+          messages: '',
+        };
       })
       .catch((error) => {
-        console.error('Ошибка при отправке запроса:', error);
+        console.error('Ошибка при отправке:', error);
         addNotification({ message: 'Ошибка при отправке сообщения', type: 'error' });
       });
   };
