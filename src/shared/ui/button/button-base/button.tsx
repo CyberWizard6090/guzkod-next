@@ -26,7 +26,8 @@ export const Button = ({
     <button
       type={type}
       onClick={onClick}
-      className={clsx('button', `button-${variant}`, disabled && 'button_disabled', className)}
+      className={clsx('button', `button-${variant}`, disabled && 'button__disabled', className)}
+      disabled={disabled}
     >
       {Icon && <Icon />}
       {children}

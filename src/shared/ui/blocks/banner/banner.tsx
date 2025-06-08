@@ -16,7 +16,7 @@ export const Banner = ({ image, link, title, buttonDisabled = false, altText }: 
 
   return (
     <div className="banner">
-      {title?.trim() && <h2 className="banner__title">{title}</h2>}
+      {title?.trim() && <h4 className="banner__title">{title}</h4>}
 
       <div className="banner__image-wrapper">
         {image && <ImageView url={image} alt={alt} className="banner__image" loading="lazy" />}

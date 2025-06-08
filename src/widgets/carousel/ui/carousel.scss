@@ -3,7 +3,7 @@
   --dot-size: 20px;
   --dot-active-width: 30px;
   --bottom-bar-height: 60px;
-  
+
   position: relative;
   width: 100%;
   display: grid;
@@ -16,8 +16,12 @@
 
   // Адаптивные высоты
   min-height: 450px;
-  @media screen and (min-width: 768px) { min-height: 550px; }
-  @media screen and (min-width: 1024px) { min-height: 650px; }
+  @media screen and (min-width: 768px) {
+    min-height: 550px;
+  }
+  @media screen and (min-width: 1024px) {
+    min-height: 650px;
+  }
 
   &__bottom-bar {
     display: flex;
@@ -25,6 +29,27 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 var(--spacing-l);
+  }
+  &__count {
+    display: grid;
+    grid-template-columns: 1fr 15px 1fr;
+    width: 100px;
+    padding: Var(--spacing-xs) var(--spacing-s);
+  
+    span {
+      font-size: var(--font-size-large);
+      &:nth-child(1) {
+        text-align: right;
+      }
+
+      &:nth-child(2) {
+        text-align: center;
+      }
+
+      &:nth-child(3) {
+        text-align: left;
+      }
+    }
   }
 }
 
@@ -63,7 +88,7 @@
 
 .carousel-button {
   --icon-size: 25px;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,7 +109,9 @@
 
   &:hover {
     background: var(--accent-color-hover);
-    svg { transform: scale(1.1); }
+    svg {
+      transform: scale(1.1);
+    }
   }
 
   &:focus-visible {
@@ -95,34 +122,12 @@
 
 .carousel-dots {
   display: flex;
-  flex: 1; 
+  flex: 1;
   gap: 8px;
-  align-items: center; 
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
   padding: 10px;
   height: 100%;
-}
-
-.dot {
-  width: var(--dot-size);
-  height: var(--dot-size);
-  border-radius: var(--dot-size);
-  background: var(--dot-inactive-color, #bbb);
-  cursor: pointer;
-  transition: {
-    property: width, background;
-    duration: 0.3s;
-    timing-function: ease-out;
-  }
-
-  &.active {
-    width: var(--dot-active-width);
-    background: var(--accent-color);
-  }
-
-  &:hover:not(.active) {
-    background: var(--dot-hover-color, #999);
-  }
 }
 
 .button__group {

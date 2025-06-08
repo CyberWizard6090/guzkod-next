@@ -108,15 +108,12 @@ export const Carousel = ({ children, interval = 30000, enableDragging = true }: 
         ))}
       </div>
       <div className="carousel__bottom-bar">
-        <div className="carousel-dots">
-          {items.map((_, index) => (
-            <span
-              key={index}
-              className={`dot ${index === currentIndex ? 'active' : ''}`}
-              onClick={() => setCurrentIndex(index)}
-            ></span>
-          ))}
+        <div className="carousel__count" aria-live="polite">
+          <span>{currentIndex + 1}</span>
+          <span> / </span>
+          <span>{items.length}</span>
         </div>
+
         <div className="button__group">
           <button className="carousel-button carousel-button-left" onClick={handlePrev}>
             <Left />

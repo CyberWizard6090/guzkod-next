@@ -15,6 +15,7 @@ import { StateTheme } from 'features/theme';
 import { Providers } from './providers';
 import 'shared/styles/index.scss';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from 'shared/consts/site.constants';
+import LoadingOverlay from './loading-overlay';
 // import { Breadcrumbs } from 'widgets/breadcrumbs';
 
 export const metadata = {
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru">
       <body>
+        <LoadingOverlay />
         <Providers>
           <AccessibilityUI />
           <Header />

@@ -5,18 +5,19 @@ import './ImageViewerModal.scss';
 import { RootState } from 'app/stores';
 import { useDisableScroll } from 'shared/lib/hooks/useDisableScroll';
 
-import { Button } from 'shared/ui/button';
 import ZoomIn from 'shared/assets/svg/bootstrap-icons-1.11.2/zoom-in.svg';
 import ZoomOut from 'shared/assets/svg/bootstrap-icons-1.11.2/zoom-out.svg';
 import Cross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
 import Reset from 'shared/assets/svg/bootstrap-icons-1.11.2/arrow-counterclockwise.svg';
-import { IconButton } from 'shared/ui/iconButton';
-import { closeImage } from '../model/imageViewerSlice ';
+import ChevronLeft from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-left.svg';
+import ChevronRight from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-right.svg';
+import { closeImage, setCurrentIndex } from '../model/imageViewerSlice ';
+import ImageViewerIconButton from './ImageViewerIconButton';
 
 export const ImageViewerModal: React.FC = () => {
   const dispatch = useDispatch();
-  const { isOpen, imageUrl } = useSelector((state: RootState) => state.imageViewer);
-
+  const { isOpen, images, currentIndex } = useSelector((state: RootState) => state.imageViewer);
+  const imageUrl = images.length > 0 ? images[currentIndex] : null;
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -43,6 +44,24 @@ export const ImageViewerModal: React.FC = () => {
   useEffect(() => {
     if (scale === 1) setPosition({ x: 0, y: 0 });
   }, [scale]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: { key: string }) => {
+      if (!showNavigation) return;
+
+      if (e.key === 'ArrowLeft') {
+        dispatch(setCurrentIndex((currentIndex - 1 + images.length) % images.length));
+      } else if (e.key === 'ArrowRight') {
+        dispatch(setCurrentIndex((currentIndex + 1) % images.length));
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [currentIndex]);
 
   // Обработчик колесика для увеличения
   const handleWheel = (e: React.WheelEvent) => {
@@ -124,36 +143,58 @@ export const ImageViewerModal: React.FC = () => {
     setIsDragging(false);
   };
 
-  if (!isOpen || !imageUrl) return null;
+  const handlePrev = (e: { stopPropagation: () => void }) => {
+    e.stopPropagation();
+    dispatch(setCurrentIndex((currentIndex - 1 + images.length) % images.length));
+  };
 
+  const handleNext = (e: { stopPropagation: () => void }) => {
+    e.stopPropagation();
+    dispatch(setCurrentIndex((currentIndex + 1) % images.length));
+  };
+
+  if (!isOpen || !imageUrl) return null;
+  const showNavigation = images.length > 1;
   return (
     <div className="image-viewer-modal">
+      {showNavigation && (
+        <div className="image-viewer__navigation">
+          <ImageViewerIconButton onClick={handlePrev} Icon={ChevronLeft} />
+          <ImageViewerIconButton onClick={handleNext} Icon={ChevronRight} />
+        </div>
+      )}
+
       <div className="image-viewer__controls">
-        <IconButton
-          onClick={(e) => {
-            e.stopPropagation();
-            setScale(Math.min(scale + 0.5, 3));
-          }}
-          Icon={ZoomIn}
-        />
-        <IconButton
-          onClick={(e) => {
-            e.stopPropagation();
-            setScale(Math.max(scale - 0.5, 0.5));
-          }}
-          Icon={ZoomOut}
-        />
-        <Button
-          Icon={Reset}
-          onClick={(e) => {
-            e.stopPropagation();
-            setScale(1);
-            setPosition({ x: 0, y: 0 });
-          }}
-        >
-          Сбросить
-        </Button>
-        <IconButton
+        <div className="image-viewer__zoom-group">
+          <ImageViewerIconButton
+            onClick={(e) => {
+              e.stopPropagation();
+              setScale(Math.min(scale + 0.5, 3));
+            }}
+            Icon={ZoomIn}
+          />
+
+          <ImageViewerIconButton
+            onClick={(e) => {
+              e.stopPropagation();
+              setScale(Math.max(scale - 0.5, 0.5));
+            }}
+            Icon={ZoomOut}
+          />
+
+          <ImageViewerIconButton
+            onClick={(e) => {
+              e.stopPropagation();
+              setScale(1);
+              setPosition({ x: 0, y: 0 });
+            }}
+            Icon={Reset}
+          >
+            Сбросить
+          </ImageViewerIconButton>
+        </div>
+
+        <ImageViewerIconButton
           className="close-button"
           onClick={(e) => {
             e.stopPropagation();
@@ -182,6 +223,23 @@ export const ImageViewerModal: React.FC = () => {
           onTouchEnd={handleTouchEnd}
         />
       </div>
+
+      {showNavigation && (
+        <div className="image-viewer-thumbnails">
+          {images.map((img, idx) => (
+            <img
+              key={idx}
+              src={img}
+              alt={`Thumbnail ${idx}`}
+              className={`thumbnail ${idx === currentIndex ? 'active' : ''}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                dispatch(setCurrentIndex(idx));
+              }}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

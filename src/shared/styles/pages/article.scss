@@ -1,0 +1,19 @@
+.content-block {
+  padding-top:var(--radius-lg); ;
+}
+
+.date-text {
+  color: var(--font-color-gray);
+  font-size: 14px;
+  margin-bottom: var(--spacing-xs);
+  display: inline-block;
+  border-radius: var(--radius-sm);
+}
+
+.title-heading {
+  font-size: 32px;
+  margin: var(--spacing-xs) 0 0 0;
+  color: var(--font-color-light);
+  font-weight: bold;
+  border-radius: var(--radius-md);
+}

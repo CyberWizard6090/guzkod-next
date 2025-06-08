@@ -3,6 +3,9 @@ import { Metadata } from 'next';
 import { getArticleById } from 'shared/api/articles';
 import { SITE_HOST, SITE_NAME } from 'shared/consts/site.constants';
 import { Block } from 'shared/ui/block';
+import 'shared/styles/pages/article.scss';
+import { ShareButton } from 'features/share';
+import AlignWrapper from 'shared/ui/align-wrapper';
 
 type Props = {
   params: { articleId: string };
@@ -11,11 +14,11 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await getArticleById(params.articleId);
   return {
-    title: data.title || data.namepage || 'Страница',
-    description: data.text || 'Описание страницы',
+    title: data.title || data.namepage,
+    description: data.text,
     openGraph: {
-      title: data.title || data.namepage || 'Страница',
-      description: data.text || 'Описание страницы',
+      title: data.title || data.namepage,
+      description: data.text,
       url: `${SITE_HOST}/article/${params.articleId}`,
       siteName: SITE_NAME,
       images: [
@@ -41,12 +44,15 @@ export default async function DefaultPage({ params }: Props) {
   return (
     <Block>
       {data.title && (
-        <div>
-          <span>{date}</span>
-          <h1>{data.title}</h1>
+        <div className="content-block">
+          <span className="date-text">{date}</span>
+          <h1 className="title-heading">{data.title}</h1>
         </div>
       )}
       <RenderBlocks layout={data.layout} />
+      <AlignWrapper align="right">
+        <ShareButton title={'data.title'} />
+      </AlignWrapper>
     </Block>
   );
 }

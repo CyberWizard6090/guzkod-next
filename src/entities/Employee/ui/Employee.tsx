@@ -18,11 +18,12 @@ type Props = {
 };
 
 export const Employee = ({ id, url, fullName, position, departments, education }: Props) => {
+  console.log(url);
   return (
     <Block>
       <div className="employee-card">
         <div className="employee-card__photo">
-          <ImageView url={url ? url : DefaultPhoto} />
+          <ImageView url={url ? url : DefaultPhoto.src} />
         </div>
         <Link href={'/personnel/' + id}>
           <div className="employee-card__info">

@@ -1,46 +1,104 @@
 .image-viewer-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(55px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-  
-  .image-viewer-content {
-    max-width: 90%;
-    max-height: 90%;
-  width: 90%;
-  height: 90%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-   
-  }
-  
-  .image-viewer-image {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.15s ease-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
  
-  }
-  .image-viewer{
-  &__controls{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.image-viewer-content {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.image-viewer-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+
+  transition: transform 0.15s ease-out;
+}
+.image-viewer {
+  &__controls {
     z-index: 99;
     display: flex;
     position: absolute;
     gap: var(--spacing-m);
-    top: 20px;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
-  }}
+    padding: var(--spacing-m);
+  
+  }
+}
+.image-viewer__navigation{
+  display: flex;
+  gap: var(--spacing-m);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  justify-content: space-between;
+    z-index: 999;
+}
+.image-viewer__zoom-group{
+  display: flex;
+  gap: var(--spacing-m);
+  margin-right: auto;
+  margin-left: auto;
+
+
+}
+
+.image-viewer-thumbnails {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  gap: 8px;
+  padding:var(--spacing-m);
+  
+  overflow-x: auto;
+
+  .thumbnail {
+   
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    // opacity: 0.6;
+    cursor: pointer;
+    transition:
+      opacity 0.3s,
+      transform 0.2s;
+
+    &.active {
+      opacity: 1;
+      transform: scale(1.3);
+      border: 2px solid #fff;
+      margin: 0 var(--spacing-m);
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

@@ -3,8 +3,6 @@ import { Navigation } from 'widgets/navigation';
 import { Header } from 'widgets/header';
 import { Footer } from 'widgets/footer';
 
-
-
 import { NotificationContainer } from 'features/notifications';
 import { AccessibilityStyles, AccessibilityUI } from 'features/accessibilityMode';
 import { ImageViewerModal } from 'features/imageViewer';

@@ -19,7 +19,8 @@ export const getDepartments = async () => {
   return result;
 };
 
-
 export const getDepartmentById = async (departmentID: string) => {
-  return fetchApi(`http://localhost:4000/api/departments/${departmentID}?locale=undefined&draft=false&depth=2`);
+  return fetchApi(
+    `http://localhost:4000/api/departments/${departmentID}?locale=undefined&draft=false&depth=2`,
+  );
 };

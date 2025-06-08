@@ -1,0 +1,32 @@
+/* styles/ImageViewerIconButton.css */
+.image-viewer-icon-button {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+  font-size: 14px;
+  color: #fff;
+  height: 60px;
+ 
+  padding: var(--spacing-xs);
+  svg{
+    width: 40px;
+    height: 40px;
+      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.6));
+  }
+  &:hover {
+    
+    
+  }
+}
+
+.image-viewer-icon-button
+
+.image-viewer-icon-button:focus {
+  outline: none;
+}

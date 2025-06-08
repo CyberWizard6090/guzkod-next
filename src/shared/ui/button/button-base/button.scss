@@ -37,4 +37,21 @@
       background-color: var(--btn-color-alt-hover);
     }
   }
+
+  &-tertiary {
+    background-color: transparent;
+    color: var(--btn-text-alt);
+    // border: 1px solid var(--border-color2);
+    border: none;
+
+    &:hover {
+      background-color: var(--btn-color-alt-hover);
+    }
+  }
+
+  &__disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
 }

@@ -1,8 +1,11 @@
-import { ImageView } from 'shared/ui/imageView';
+'use client';
 import './Images.scss';
+import { useDispatch } from 'react-redux';
+import { handleImageClick } from 'features/imageViewer';
 type ImageItem = {
   image: {
     url: string;
+    alt?: string;
   };
 };
 
@@ -11,11 +14,23 @@ type Props = {
 };
 
 export const Images = ({ images }: Props) => {
+  const dispatch = useDispatch();
+  const onImageClick = (index: number) => {
+    const urls = images.map(({ image }) => image.url);
+    handleImageClick(urls, dispatch, index);
+  };
   return (
-    <div className="block__images">
-      {images.map((item: any, index) => {
-        return <ImageView key={index} url={item.image.url} />;
-      })}
+    <div className="gallery">
+      {images.map(({ image }, index) => (
+        <img
+          key={index}
+          src={image.url}
+          alt={image.alt || `image-${index}`}
+          className="gallery__item"
+          loading="lazy"
+          onClick={() => onImageClick(index)}
+        />
+      ))}
     </div>
   );
 };

@@ -1,0 +1,61 @@
+.page-skeleton {
+  padding: var(--spacing-xl);
+
+  .skeleton-line,
+  .skeleton-box {
+    background-color: var(--skeleton-base);
+    border-radius: var(--radius-sm);
+    animation: shimmer 1.5s infinite linear;
+    background-image: linear-gradient(
+      to right,
+      var(--skeleton-base) 0%,
+      var(--skeleton-highlight) 20%,
+      var(--skeleton-base) 40%,
+      var(--skeleton-base) 100%
+    );
+    background-size: 200% 100%;
+    margin-bottom: var(--spacing-s);
+  }
+
+  .skeleton-title {
+    width: 50%;
+    height: 32px;
+    margin-bottom: var(--spacing-m);
+  }
+
+  .skeleton-subtitle {
+    width: 30%;
+    height: 20px;
+    margin-bottom: var(--spacing-l);
+  }
+
+  .skeleton-section {
+    display: flex;
+    gap: var(--spacing-m);
+    margin-bottom: var(--spacing-xl);
+
+    .skeleton-block {
+      flex: 1;
+      padding-top: 75%; // aspect ratio 4:3
+    }
+  }
+
+  .skeleton-paragraph {
+    .skeleton-line {
+      height: 16px;
+    }
+
+    .short {
+      width: 40%;
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

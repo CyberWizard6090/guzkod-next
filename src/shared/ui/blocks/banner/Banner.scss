@@ -33,10 +33,14 @@
   }
 
   &__title {
-    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Ограничение на 2 строки */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__link {

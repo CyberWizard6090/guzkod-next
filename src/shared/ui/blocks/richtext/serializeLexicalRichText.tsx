@@ -1,9 +1,5 @@
 import escapeHTML from 'escape-html';
 import React, { Fragment } from 'react';
-
-import IconLink from 'shared/assets/svg/bootstrap-icons-1.11.2/link-45deg.svg';
-import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
-// import { QR } from "shared/ui/QR";
 import { ExtractHostname } from 'shared/lib/extractHostname';
 import { ImageView } from 'shared/ui/imageView';
 
@@ -96,9 +92,6 @@ export default function serializeLexicalRichText({ children, parentNode = {} }: 
       if (node.type === 'listitem' && node.checked) {
         return (
           <li className={`${classNames.li} flex gap-1`} key={i}>
-            <div>
-              <MdCheckBox className="w-4 h-4 text-green-500" />
-            </div>
             <div className="line-through">
               {serializeLexicalRichText({ children: node.children })}
             </div>
@@ -107,9 +100,6 @@ export default function serializeLexicalRichText({ children, parentNode = {} }: 
       } else if (node.type === 'listitem' && parentNode.listType === 'check') {
         return (
           <li className={`${classNames.li} flex gap-1`} key={i}>
-            <div>
-              <MdCheckBoxOutlineBlank className="w-4 h-4 text-green-500" />
-            </div>
             <div>{serializeLexicalRichText({ children: node.children })}</div>
           </li>
         );
@@ -141,16 +131,11 @@ export default function serializeLexicalRichText({ children, parentNode = {} }: 
               title={node.fields?.url}
               key={i}
             >
-              <span className="link__wrap">
-                <span className="link__icon">
-                  <IconLink />
-                </span>
-                <span className="link__text">
-                  {serializeLexicalRichText({ children: node.children })}
-                </span>
-                <span className="link__info" aria-hidden="true">
-                  [{ExtractHostname(node.fields?.url || '')}]
-                </span>
+              <span className="link__text">
+                {serializeLexicalRichText({ children: node.children })}
+              </span>
+              <span className="link__info" aria-hidden="true">
+                [{ExtractHostname(node.fields?.url || '')}]
               </span>
             </a>
           );

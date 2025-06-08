@@ -1,14 +1,15 @@
 'use client';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Organization } from './const/Organization';
 import { Button } from 'shared/ui/button';
-import { Department } from 'pages/feedbackPage/const/Department';
 import { Dropdown } from 'shared/ui/dropdown';
 import { useAddNotification } from 'features/notifications';
 import { RadioGroup } from 'shared/ui/radioGroup';
 import { Input, InputPhone, InputText } from 'shared/ui/input';
 import { Block } from 'shared/ui/block';
 import './feedback_form.scss';
+import { Department } from './const/Department';
+import Checkbox from 'shared/checkbox';
 
 type FieldType = {
   fio?: string;
@@ -64,7 +65,7 @@ export const FormFeedback = () => {
     type_appeal: '',
     messages: '',
   });
-
+  const [isChecked, setIsChecked] = useState(false);
   return (
     <Block>
       <div className="Feedback">
@@ -108,7 +109,10 @@ export const FormFeedback = () => {
           valueRef={inputRef}
         />
         <InputText maxLength={600} label={'Сообщение'} fieldName="messages" valueRef={inputRef} />
-        <Button onClick={Push}>Отправить</Button>
+        <Checkbox label="Согласен с условиями" checked={isChecked} onChange={setIsChecked} />
+        <Button onClick={Push} disabled={!isChecked}>
+          Отправить
+        </Button>
       </div>
     </Block>
   );

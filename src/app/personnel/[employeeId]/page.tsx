@@ -12,7 +12,7 @@ type Props = {
 
 export default async function EmployeePage({ params }: Props) {
   const data = await getEmployeeById(params.employeeId);
-  const Photo = data.photo?.sizes.card.url ?? DefaultPhoto;
+  const Photo = data.photo?.sizes.card.url ?? DefaultPhoto.src;
 
   return (
     <div className="employee-page animation-reveal">

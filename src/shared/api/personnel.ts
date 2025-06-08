@@ -1,6 +1,6 @@
 import { fetchApi } from './api';
 
-export const getPersonnel = async () => {
+export const getPersonnel = async (page = 1, limit = 10) => {
   const result = {
     data: null as any[] | null,
     error: null as Error | null,
@@ -8,7 +8,8 @@ export const getPersonnel = async () => {
   };
 
   try {
-    const response = await fetchApi(`/api/employee/`);
+    // Пример запроса к payload cms с пагинацией
+    const response = await fetchApi(`/api/employee?page=${page}&limit=${limit}`);
     result.data = response?.docs ?? [];
   } catch (err: any) {
     result.error = err;
