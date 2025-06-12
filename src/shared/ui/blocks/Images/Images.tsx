@@ -1,7 +1,7 @@
 'use client';
 import './Images.scss';
 import { useDispatch } from 'react-redux';
-import { handleImageClick } from 'features/imageViewer';
+import { handleImageClick } from 'features/image-viewer';
 type ImageItem = {
   image: {
     url: string;

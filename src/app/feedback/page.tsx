@@ -1,4 +1,4 @@
-import { FormFeedback } from 'widgets/feedback_form';
+import { FormFeedback } from 'widgets/feedback-form';
 export default function FeedbackPage() {
   return <FormFeedback />;
 }

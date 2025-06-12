@@ -1,7 +1,7 @@
 import escapeHTML from 'escape-html';
 import React, { Fragment } from 'react';
 import { ExtractHostname } from 'shared/lib/extractHostname';
-import { ImageView } from 'shared/ui/imageView';
+import { ImageView } from 'shared/ui/image';
 
 export const IS_BOLD = 1;
 export const IS_ITALIC = 1 << 1;

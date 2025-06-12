@@ -1,11 +1,11 @@
 import { Block } from 'shared/ui/block';
 import { SimpleRichText } from 'shared/ui/blocks';
-import { ImageView } from 'shared/ui/imageView';
-import { EmployeeList } from 'widgets/EmployeeList';
+import { EmployeeList } from 'widgets/employee-list';
 // import './departmentPage.scss';
 
 import { getDepartmentById } from 'shared/api/departments';
 import { Page } from 'shared/ui/page';
+import { ImageView } from 'shared/ui/image';
 
 type Props = {
   params: { departmentId: string };

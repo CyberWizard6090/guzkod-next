@@ -1,4 +1,4 @@
-import { NewsBlock } from 'widgets/newsBlock';
+import { NewsBlock } from 'widgets/news-block';
 import { Carousel } from 'widgets/carousel';
 import { Banner, SimpleRichText } from 'shared/ui/blocks';
 import { Block } from 'shared/ui/block';
@@ -46,7 +46,6 @@ type PageBlock = {
   content: BlockContent[];
 };
 
-// eslint-disable-next-line react/prop-types
 const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
   return (
     <Page>

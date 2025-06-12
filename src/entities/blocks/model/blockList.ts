@@ -1,6 +1,6 @@
 import { Files, Heading, Image, Images, SimpleRichText } from 'shared/ui/blocks';
 
-export const blocks: any = {
+export const blocks = {
   heading: Heading,
   image: Image,
   images: Images,

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { EmployeeList, EmployeeSkeletonList } from 'widgets/EmployeeList';
+import { EmployeeList, EmployeeSkeletonList } from 'widgets/employee-list';
 import { getPersonnel } from 'shared/api/personnel';
 
 const PAGE_SIZE = 10;

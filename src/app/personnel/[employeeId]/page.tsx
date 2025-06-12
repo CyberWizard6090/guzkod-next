@@ -1,6 +1,6 @@
 import React from 'react';
 import { Block } from 'shared/ui/block';
-import { ImageView } from 'shared/ui/imageView';
+import { ImageView } from 'shared/ui/image';
 import DefaultPhoto from 'shared/assets/image/400x300.png';
 import 'shared/styles/pages/employee-page.scss';
 import { getEmployeeById } from 'shared/api/personnel';

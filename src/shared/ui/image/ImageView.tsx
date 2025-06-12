@@ -1,10 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
 import './ImageView.scss';
-// import { useFullScreen } from "features/FullScreenView";
+
 import { Loader } from '../loader';
 import { useDispatch } from 'react-redux';
-import { handleImageClick } from 'features/imageViewer';
+import { handleImageClick } from 'features/image-viewer';
 
 type Props = {
   url: string;
@@ -14,7 +14,7 @@ type Props = {
 };
 
 export const ImageView = ({ url, alt, className, loading = undefined }: Props) => {
-  // const { toggleState,setChildren } = useFullScreen();
+  console.log('ImageView', url);
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const handleImageLoad = () => {

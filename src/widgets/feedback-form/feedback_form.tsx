@@ -4,12 +4,12 @@ import { Organization } from './const/Organization';
 import { Button } from 'shared/ui/button';
 import { Dropdown } from 'shared/ui/dropdown';
 import { useAddNotification } from 'features/notifications';
-import { RadioGroup } from 'shared/ui/radioGroup';
+import { RadioGroup } from 'shared/ui/radio-group';
 import { Input, InputPhone, InputText } from 'shared/ui/input';
 import { Block } from 'shared/ui/block';
 import './feedback_form.scss';
 import { Department } from './const/Department';
-import Checkbox from 'shared/checkbox';
+import { Checkbox } from 'shared/ui/checkbox';
 
 type FieldType = {
   fio?: string;
@@ -109,7 +109,13 @@ export const FormFeedback = () => {
           valueRef={inputRef}
         />
         <InputText maxLength={600} label={'Сообщение'} fieldName="messages" valueRef={inputRef} />
-        <Checkbox label="Согласен с условиями" checked={isChecked} onChange={setIsChecked} />
+        <Checkbox checked={isChecked} onChange={setIsChecked}>
+          Согласен с условиями политики обработки
+          <a href="/privacy-policy" target="_blank">
+            {' '}
+            персональных данных
+          </a>
+        </Checkbox>
         <Button onClick={Push} disabled={!isChecked}>
           Отправить
         </Button>

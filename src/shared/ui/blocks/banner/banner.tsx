@@ -1,6 +1,6 @@
+import { ImageView } from 'shared/ui/image';
 import './Banner.scss';
 import { Button } from 'shared/ui/button';
-import { ImageView } from 'shared/ui/imageView';
 
 type Props = {
   image?: string;

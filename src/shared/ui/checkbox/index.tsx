@@ -2,13 +2,13 @@ import React from 'react';
 import './Checkbox.scss';
 
 type CheckboxProps = {
-  label: string;
+  children?: React.ReactNode;
   checked: boolean;
   onChange: (checked: boolean) => void;
   disabled?: boolean;
 };
 
-const Checkbox: React.FC<CheckboxProps> = ({ label, checked, onChange, disabled = false }) => {
+export const Checkbox = ({ children, checked, onChange, disabled = false }: CheckboxProps) => {
   const handleChange = () => {
     if (!disabled) {
       onChange(!checked);
@@ -21,9 +21,7 @@ const Checkbox: React.FC<CheckboxProps> = ({ label, checked, onChange, disabled 
     >
       <input type="checkbox" checked={checked} onChange={handleChange} disabled={disabled} />
       <span className="checkbox__custom" />
-      <span className="checkbox__label">{label}</span>
+      <span className="checkbox__label">{children}</span>
     </label>
   );
 };
-
-export default Checkbox;

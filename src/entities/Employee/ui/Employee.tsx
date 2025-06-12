@@ -1,8 +1,8 @@
 import './EmployeeCard.scss';
 import { Block } from 'shared/ui/block';
-import { ImageView } from 'shared/ui/imageView';
 import Link from 'next/link';
 import DefaultPhoto from 'shared/assets/image/400x300.png';
+import { ImageView } from 'shared/ui/image';
 type PropsDepartment = {
   id: string;
   name: string;

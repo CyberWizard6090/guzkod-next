@@ -1,5 +1,5 @@
-import { ImageView } from 'shared/ui/imageView';
-import './Image.scss';
+import { ImageView } from 'shared/ui/image';
+
 type Props = {
   image: any;
 };

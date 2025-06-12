@@ -1,5 +1,5 @@
 import './header.scss';
-import { AccessibilityButton } from 'features/accessibilityMode';
+import { AccessibilityButton } from 'features/accessibility-mode';
 import { ButtonTheme } from 'features/theme/ui/buttonTheme';
 
 export const Header = () => {

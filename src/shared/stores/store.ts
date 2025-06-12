@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import notificationReducer from 'features/notifications/model/notificationSlice';
 import themeReducer from 'features/theme/model/themeSlice';
-import accessibilityModeReducer from 'features/accessibilityMode/model/accessibilityModeSlice';
-import imageViewerReducer from 'features/imageViewer/model/imageViewerSlice ';
+import accessibilityModeReducer from 'features/accessibility-mode/model/accessibilityModeSlice';
+import imageViewerReducer from 'features/image-viewer/model/imageViewerSlice ';
 import searchReducer from 'features/search/model/searchSlice';
 export const store = configureStore({
   reducer: {
