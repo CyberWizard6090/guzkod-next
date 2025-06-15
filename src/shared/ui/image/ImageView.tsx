@@ -14,7 +14,6 @@ type Props = {
 };
 
 export const ImageView = ({ url, alt, className, loading = undefined }: Props) => {
-  console.log('ImageView', url);
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const handleImageLoad = () => {

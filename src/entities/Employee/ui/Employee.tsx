@@ -2,7 +2,6 @@ import './EmployeeCard.scss';
 import { Block } from 'shared/ui/block';
 import Link from 'next/link';
 import DefaultPhoto from 'shared/assets/image/400x300.png';
-import { ImageView } from 'shared/ui/image';
 type PropsDepartment = {
   id: string;
   name: string;
@@ -18,12 +17,11 @@ type Props = {
 };
 
 export const Employee = ({ id, url, fullName, position, departments, education }: Props) => {
-  console.log(url);
   return (
     <Block>
       <div className="employee-card">
         <div className="employee-card__photo">
-          <ImageView url={url ? url : DefaultPhoto.src} />
+          <img src={url ? url : DefaultPhoto.src} alt={'фото ' + fullName}></img>
         </div>
         <Link href={'/personnel/' + id}>
           <div className="employee-card__info">

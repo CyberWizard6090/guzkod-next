@@ -8,11 +8,11 @@
     width: 100%;
     display: block;
     margin-bottom: 16px;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     break-inside: avoid;
     transition: transform 0.3s ease;
     object-fit: cover;
-    сursor: pointer;
+    cursor: zoom-in;
 
     &:hover {
       transform: scale(1.02);

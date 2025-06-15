@@ -4,10 +4,12 @@
   justify-content: center;
   padding: var(--spacing-s) var(--spacing-l);
   font-size: var(--font-size-medium);
-  transition: all 0.15s linear;
+  transition: all 0.3s linear;
   line-height: 1;
   white-space: nowrap;
   border-radius: var(--radius-md);
+  cursor: pointer;
+   user-select: none;
 
   svg {
     width: 20px;
@@ -15,8 +17,8 @@
     margin-right: var(--spacing-xs);
   }
 
-  &:hover {
-    cursor: pointer;
+  &:active {
+    transform: scale(0.98);
   }
 
   &-primary {

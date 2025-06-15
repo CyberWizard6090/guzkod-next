@@ -1,107 +1,151 @@
 .image-viewer-modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgb(0, 0, 0);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  inset: 0;
   z-index: 1000;
-}
-
-.image-viewer-content {
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-  height: 100%;
-
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   overflow: hidden;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
 
-.image-viewer-image {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 8px;
-
-  transition: transform 0.15s ease-out;
-}
-.image-viewer {
-  &__controls {
-    z-index: 99;
-    display: flex;
+  &__navigation {
     position: absolute;
-    gap: var(--spacing-m);
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 24px;
+    pointer-events: none;
+    z-index: 1000;
+
+    .image-viewer-icon-button {
+      pointer-events: auto;
+    }
+  }
+
+  &__controls {
+    position: absolute;
     top: 0;
     width: 100%;
+    padding: 16px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1001;
+    gap: 16px;
+  }
 
-    background-color: #00000091;
-    backdrop-filter: blur(10px);
+  &__counter {
+    height: 60px;
+    min-width: 60px;
+
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    &-text {
+      color: white;
+    }
+  }
+
+  &__zoom-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__container {
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+    user-select: none;
+  }
+
+  &__image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: center center;
+    transition: transform 0.2s ease-out;
+    border-radius: 12px;
+    pointer-events: none;
+    user-select: none;
+
+    &.dragging {
+      transition: none;
+      cursor: grabbing;
+    }
+  }
+
+  &__thumbnails {
+    display: flex;
+    gap: 8px;
+    margin: 16px auto;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    z-index: 10000;
+    height: 100px;
+    align-items: center;
+
+    .thumbnail {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 6px;
+      opacity: 0.9;
+      transition: all 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      &.active {
+        opacity: 1;
+        border: 2px solid white;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .close-button {
+    margin-left: auto;
   }
 }
-.image-viewer__navigation {
-  display: flex;
-  gap: var(--spacing-m);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
-  justify-content: space-between;
-  z-index: 999;
-}
-.image-viewer__zoom-group {
-  display: flex;
-  gap: var(--spacing-m);
-  margin-right: auto;
-  margin-left: auto;
-}
+@media screen and (max-width: 768px) {
+  .image-viewer-modal {
+    &__thumbnails {
+      margin: 0;
+      border-radius: 0;
+      overflow-x: auto;
 
+      /* Для Firefox */
+      scrollbar-width: thin;
 
+      /* Для WebKit (Chrome, Safari) */
+      &::-webkit-scrollbar {
+        height: 6px; /* горизонтальная полоса */
+      }
 
-.image-viewer-thumbnails {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  display: flex;
-  gap: 8px;
-  background-color: #00000091;
-  backdrop-filter: blur(10px);
-  padding: var(--spacing-xs) var(--spacing-m);
-  border-radius: var(--radius-md);
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
 
-  overflow-x: auto;
-
-  .thumbnail {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 4px;
-    // opacity: 0.6;
-    cursor: pointer;
-    transition:
-      opacity 0.3s,
-      transform 0.2s;
-
-    &.active {
-      opacity: 1;
-
-      border: 2px solid #fff;
-      margin: 0 var(--spacing-m);
-    }
-
-    &:hover {
-      opacity: 1;
+      &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+      }
     }
   }
 }

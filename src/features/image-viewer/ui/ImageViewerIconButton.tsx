@@ -1,20 +1,18 @@
-// components/ImageViewerIconButton.tsx
-import React from 'react';
 import './ImageViewerIconButton.scss';
 
-interface ImageViewerIconButtonProps {
+type ImageViewerIconButtonProps = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   Icon?: React.ElementType;
   children?: React.ReactNode;
   className?: string;
-}
+};
 
-const ImageViewerIconButton: React.FC<ImageViewerIconButtonProps> = ({
+const ImageViewerIconButton = ({
   onClick,
   Icon,
   children,
   className = '',
-}) => {
+}: ImageViewerIconButtonProps) => {
   return (
     <button onClick={onClick} className={`image-viewer-icon-button ${className}`}>
       {Icon && <Icon />}

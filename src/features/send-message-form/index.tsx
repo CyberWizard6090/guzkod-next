@@ -11,15 +11,12 @@ export const SendMessageForm = ({ onSend }: SendMessageFormProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault(); // Prevent form from reloading the page
-    console.log('1');
+    event.preventDefault(); 
     if (inputRef.current) {
       const trimmedMessage = inputRef.current.value.trim();
       if (trimmedMessage) {
         onSend(trimmedMessage);
-        console.log(trimmedMessage);
-        inputRef.current.value = ''; // Clear the input field after sending
-      }
+        inputRef.current.value = ''; 
     }
   };
 

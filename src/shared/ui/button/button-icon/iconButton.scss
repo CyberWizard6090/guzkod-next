@@ -7,8 +7,11 @@
   border: none;
   border-radius: var(--radius-md);
   padding: var(--spacing-s);
-  &:hover {
-    cursor: pointer;
+  user-select: none;
+  cursor: pointer;
+    transition: all 0.3s linear;
+  &:active {
+    transform: scale(0.98);
   }
   &-primary {
     color: var(--button-text);

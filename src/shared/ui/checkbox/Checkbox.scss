@@ -1,6 +1,6 @@
 .checkbox {
   display: flex;
-  align-items: center;
+  align-items: start;
   cursor: pointer;
   user-select: none;
   font-size: var(--font-size-medium);
@@ -17,6 +17,7 @@
     margin-right: var(--spacing-xs);
     position: relative;
     transition: background-color 0.15s linear, border-color 0.15s linear;
+    flex-shrink: 0;
 
     &::after {
       content: '';
@@ -33,9 +34,7 @@
     }
   }
 
-  &__label {
-    white-space: nowrap;
-  }
+
 
   &--checked &__custom {
     background-color: var(--accent-color);

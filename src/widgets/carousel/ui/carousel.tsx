@@ -4,6 +4,7 @@ import './carousel.scss';
 
 import Left from 'shared/assets/svg/bootstrap-icons-1.11.2/arrow-left-short.svg';
 import Right from 'shared/assets/svg/bootstrap-icons-1.11.2/arrow-right-short.svg';
+import { IconButton } from 'shared/ui/button';
 
 type Props = {
   children: React.ReactNode | React.ReactNode[];
@@ -115,12 +116,8 @@ export const Carousel = ({ children, interval = 30000, enableDragging = true }: 
         </div>
 
         <div className="button__group">
-          <button className="carousel-button carousel-button-left" onClick={handlePrev}>
-            <Left />
-          </button>
-          <button className="carousel-button carousel-button-right" onClick={handleNext}>
-            <Right />
-          </button>
+          <IconButton Icon={Left} variant={'primary'} onClick={handlePrev} />
+          <IconButton Icon={Right} variant={'primary'} onClick={handleNext} />
         </div>
       </div>
     </div>
