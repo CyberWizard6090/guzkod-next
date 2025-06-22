@@ -25,10 +25,13 @@
 
 .accessibility-selector {
   padding: var(--spacing-xs);
-  height: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: var(--radius-md);
   &__title {
     font-size: 20px;
-    margin-bottom:var(--spacing-m);
+    margin-bottom: var(--spacing-m);
   }
 
   &__options {
@@ -59,33 +62,30 @@
 
     &--active {
       border-color: #ff0000;
-    //   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
     }
     span {
       font-size: 14px !important;
     }
 
     &--font-small span {
-      font-size: 14px!important;;
+      font-size: 14px !important;
     }
 
     &--font-medium span {
-      font-size: 18px!important;;
+      font-size: 18px !important;
     }
 
     &--font-large span {
-      font-size: 24px!important;;
+      font-size: 24px !important;
     }
 
     &--font-x-large span {
-      font-size: 30px!important;;
+      font-size: 30px !important;
     }
 
     &--font-xx-large span {
-      font-size: 36px!important;;
+      font-size: 36px !important;
     }
-
-
 
     &--theme-black-white {
       background-color: #000;

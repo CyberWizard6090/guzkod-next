@@ -9,11 +9,11 @@
   white-space: nowrap;
   border-radius: var(--radius-md);
   cursor: pointer;
-   user-select: none;
+  user-select: none;
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     margin-right: var(--spacing-xs);
   }
 
@@ -32,7 +32,7 @@
   }
   &-secondary {
     color: var(--btn-text-alt);
-    border: none;
+    border: 1px solid var(--border-color2);
     background-color: var(--btn-color-alt);
 
     &:hover {
@@ -43,7 +43,7 @@
   &-tertiary {
     background-color: transparent;
     color: var(--btn-text-alt);
-    // border: 1px solid var(--border-color2);
+
     border: none;
 
     &:hover {

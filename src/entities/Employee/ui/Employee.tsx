@@ -18,7 +18,7 @@ type Props = {
 
 export const Employee = ({ id, url, fullName, position, departments, education }: Props) => {
   return (
-    <Block>
+    <Block className="employee-card__block animation-reveal">
       <div className="employee-card">
         <div className="employee-card__photo">
           <img src={url ? url : DefaultPhoto.src} alt={'фото ' + fullName}></img>

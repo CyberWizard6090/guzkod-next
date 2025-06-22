@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { toggleMode, toggleImagesHidden } from '../model/accessibilityModeSlice';
-import { RootState } from 'app/stores';
+import { RootState } from 'shared/stores';
 
 export const AccessibilityToggle: React.FC = () => {
   const dispatch = useDispatch();

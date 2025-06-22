@@ -9,10 +9,16 @@
   padding: var(--spacing-s);
   user-select: none;
   cursor: pointer;
-    transition: all 0.3s linear;
+  transition: all 0.3s linear;
   &:active {
     transform: scale(0.98);
   }
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+
   &-primary {
     color: var(--button-text);
     border: none;
@@ -24,8 +30,8 @@
   }
   &-secondary {
     color: var(--btn-text-alt);
-    border: none;
     background-color: var(--btn-color-alt);
+    border: 1px solid var(--border-color2);
 
     &:hover {
       background-color: var(--btn-color-alt-hover);

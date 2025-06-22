@@ -10,10 +10,12 @@ import { ImageViewerModal } from 'features/image-viewer';
 import { SearchModal } from 'features/search';
 import { StateTheme } from 'features/theme';
 
-import 'shared/styles/index.scss';
+
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from 'shared/consts/site.constants';
 import LoadingOverlay from './loading-overlay';
 import { Providers } from 'shared/providers';
+import 'shared/styles/index.scss';
+import 'shared/styles/pages/error.scss';
 // import { Breadcrumbs } from 'widgets/breadcrumbs';
 
 export const metadata = {
@@ -40,12 +42,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <LoadingOverlay />
         <Providers>
-          <AccessibilityUI />
           <Header />
           <div className="content-container">
             <div className="layout layout__wrapper">
               <NotificationContainer />
               <ImageViewerModal />
+              <AccessibilityUI />
               <AccessibilityStyles />
               <StateTheme />
               <SearchModal />

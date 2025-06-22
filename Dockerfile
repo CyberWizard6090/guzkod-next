@@ -1,29 +1,23 @@
-# Base image
-FROM node:18 as build-stage
+# Базовый образ с Node.js
+FROM node:20-alpine
 
-# Set working directory
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Копируем package.json и package-lock.json
 COPY package*.json ./
 
-# Install dependencies
+# Устанавливаем зависимости
 RUN npm install
 
-# Copy the rest of the app's source code
-COPY . ./
+# Копируем весь проект
+COPY . .
 
-# Build the React app
+# Собираем Next.js проект
 RUN npm run build
 
-# Use nginx to serve the React app
-FROM nginx:stable-alpine as production-stage
+# Указываем порт
+EXPOSE 3000
 
-# Copy built files from the build stage
-COPY --from=build-stage /app/build /usr/share/nginx/html
-
-# Expose port 80
-EXPOSE 80
-
-# Start nginx server
-CMD ["nginx", "-g", "daemon off;"]
+# Запуск приложения в production режиме
+CMD ["npm", "start"]

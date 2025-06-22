@@ -31,12 +31,10 @@ export default function PersonnelPage() {
       return;
     }
 
-    // Если пришло меньше данных, значит это последняя страница
     if (newData.length < PAGE_SIZE) {
       setHasMore(false);
     }
 
-    // Добавляем новые данные
     setData((prev) => {
       const existingIds = new Set(prev.map((item) => item.id));
       const uniqueNew = newData.filter((item) => !existingIds.has(item.id));
@@ -45,12 +43,10 @@ export default function PersonnelPage() {
     setLoading(false);
   }, []);
 
-  // Загрузка первой страницы при монтировании
   useEffect(() => {
     loadPage(1);
   }, [loadPage]);
 
-  // Подгрузка следующей страницы при достижении низа страницы
   useEffect(() => {
     const onScroll = () => {
       if (
@@ -66,9 +62,8 @@ export default function PersonnelPage() {
     return () => window.removeEventListener('scroll', onScroll);
   }, [loading, hasMore]);
 
-  // Загружаем данные при смене страницы
   useEffect(() => {
-    if (page === 1) return; // Первую страницу уже загрузили
+    if (page === 1) return;
     loadPage(page);
   }, [page, loadPage]);
 
@@ -85,7 +80,6 @@ export default function PersonnelPage() {
       <h2>Список сотрудников</h2>
       <EmployeeList List={data} />
       {loading && <EmployeeSkeletonList count={3} />}
-      {!hasMore && <p>Больше данных нет</p>}
     </>
   );
 }
