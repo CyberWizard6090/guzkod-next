@@ -10,13 +10,13 @@ import { ImageViewerModal } from 'features/image-viewer';
 import { SearchModal } from 'features/search';
 import { StateTheme } from 'features/theme';
 
-
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from 'shared/consts/site.constants';
-import LoadingOverlay from './loading-overlay';
 import { Providers } from 'shared/providers';
+import { inter } from 'shared/fonts';
+
+import { cookies } from 'next/headers';
 import 'shared/styles/index.scss';
 import 'shared/styles/pages/error.scss';
-// import { Breadcrumbs } from 'widgets/breadcrumbs';
 
 export const metadata = {
   title: SITE_NAME,
@@ -34,27 +34,38 @@ export const metadata = {
       },
     ],
   },
+  viewport: 'width=device-width, initial-scale=1',
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get('theme')?.value ?? 'light';
+
+  if (!theme) {
+    cookieStore.set('theme', 'light', {
+      path: '/',
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: 'lax',
+    });
+  }
   return (
-    <html lang="ru">
+    <html lang="ru" className={inter.variable} data-theme={theme}>
       <body>
-        <LoadingOverlay />
         <Providers>
           <Header />
-          <div className="content-container">
-            <div className="layout layout__wrapper">
-              <NotificationContainer />
-              <ImageViewerModal />
-              <AccessibilityUI />
-              <AccessibilityStyles />
-              <StateTheme />
-              <SearchModal />
-              <Navigation />
-              <main className="layout__content">{children}</main>
-              <Footer />
-            </div>
+
+          <div className="layout layout__wrapper content-container">
+            <NotificationContainer />
+            <ImageViewerModal />
+            <AccessibilityUI />
+            <AccessibilityStyles />
+            <StateTheme />
+            <SearchModal />
+            <Navigation />
+
+            <main className="layout__content">{children}</main>
+
+            <Footer />
           </div>
         </Providers>
       </body>

@@ -1,62 +1,53 @@
-:root{
---header-height: 70px;
+:root {
+  --header-height: 70px;
 }
 .layout {
-    // background-color: var(--background-main);
-    min-height: 100vh;
-    width: 100vw;
-    align-items: start;
-    display: grid;
-    position: relative;
-    row-gap:var(--spacing-m);
-    column-gap: var(--spacing-l);
+  width: 100vw;
+  align-items: start;
+  display: grid;
+  position: relative;
+  row-gap: var(--spacing-m);
+  column-gap: var(--spacing-l);
+  flex: 1;
+
+  img {
+    max-width: 100%;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 350px 1fr;
+    grid-template-areas:
+      'nav main '
+      'nav main '
+      '. footer ';
+
     &__content {
-      min-height: 100vh;
-    }
-    img{
-      max-width: 100%;
-      // border-radius: var(--radius-lg);
-  }
-  
-  
-    @media (min-width: 1200px) {
-      grid-template-columns: 350px 1fr;
-      grid-template-areas:
-      
-        "nav main "
-        "nav main "
-        ". footer ";
-      
-      &__content {
-        width: 100%;
-        grid-area: main;
-        
-      }
-    }
-    @media (min-width: 768px) and (max-width: 1199px) {
-      grid-template-columns: 350px 1fr;
-      grid-template-areas:
-      
-        "nav main "
-        "nav main "
-        ". footer ";
-      &__content {
-        width: 100%;
-        grid-area: main;
-       
-      }
-    }
-    @media (max-width: 767px) {
-      grid-template-columns: 1fr;
-      grid-template-areas:
-      
-        "main "
-        "main "
-        "footer ";
-      &__content {
-        width: 100%;
-        grid-area: main;
-      
-      }
+      width: 100%;
+      grid-area: main;
     }
   }
+  @media (min-width: 768px) and (max-width: 1199px) {
+    grid-template-columns: 350px 1fr;
+    grid-template-areas:
+      'nav main '
+      'nav main '
+      '. footer ';
+    &__content {
+      width: 100%;
+      grid-area: main;
+    }
+  }
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'main '
+      'main '
+      'footer ';
+    &__content {
+      width: 100%;
+      grid-area: main;
+      overflow: hidden;
+      max-width: 100vw;
+    }
+  }
+}

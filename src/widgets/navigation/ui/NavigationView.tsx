@@ -34,18 +34,14 @@ export const NavigationView = ({ items }: Props) => {
       </nav>
     );
   };
-
-  return (
-    <>
-      {isMobile ? (
-        <MobileMenu>
-          <Navigate />
-        </MobileMenu>
-      ) : (
-        <aside className={'navigation'}>
-          <Navigate />
-        </aside>
-      )}
-    </>
+  if (isMobile === undefined) return null;
+  return !isMobile ? (
+    <aside className={'navigation shadow__style'}>
+      <Navigate />
+    </aside>
+  ) : (
+    <MobileMenu>
+      <Navigate />
+    </MobileMenu>
   );
 };

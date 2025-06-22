@@ -3,8 +3,8 @@ import { Carousel } from 'widgets/carousel';
 import { Banner, SimpleRichText } from 'shared/ui/blocks';
 import { Block } from 'shared/ui/block';
 import { Page } from 'shared/ui/page';
-import 'shared/styles/pages/home-page.scss';
 import { getHomePage } from 'shared/api/home';
+import 'shared/styles/pages/home-page.scss';
 
 type TextBlock = {
   blockType: 'text';
@@ -62,7 +62,14 @@ const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
                   </Block>
                 );
               case 'image':
-                return <img key={i} src={item.image.url} alt={item.altText || 'Изображение'} />;
+                return (
+                  <img
+                    key={i}
+                    className="shadow__style"
+                    src={item.image.url}
+                    alt={item.altText || 'Изображение'}
+                  />
+                );
               case 'banner-block':
                 return (
                   <Carousel key={i}>

@@ -143,14 +143,13 @@ export const ImageViewerModal: React.FC = () => {
       )}
 
       <div className="image-viewer-modal__controls">
-        <div className="image-viewer-modal__counter">
-          {showNavigation && (
+        {showNavigation && (
+          <div className="image-viewer-modal__counter">
             <span className="image-viewer-modal__counter-text">
               {currentIndex + 1} из {images.length}
             </span>
-          )}
-        </div>
-
+          </div>
+        )}
         <div className="image-viewer-modal__zoom-group">
           <ImageViewerIconButton
             onClick={() => setScale((s) => Math.min(s + 0.2, 3))}

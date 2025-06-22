@@ -5,8 +5,7 @@ import { Button, IconButton } from 'shared/ui/button';
 import { RootState } from 'shared/stores';
 import { SelectIsModalOpen } from '../model/selectors';
 
-import { setModalOpen, setMode } from '../model/accessibilityModeSlice';
-import { FontSize, setFontSize } from '../model/accessibilityModeSlice';
+import { setModalOpen, setMode, FontSize, setFontSize } from '../model/accessibilityModeSlice';
 
 import { setTheme, Theme } from 'features/theme/model/themeSlice';
 import FontSizeSelector from './selector/FontSizeSelector';

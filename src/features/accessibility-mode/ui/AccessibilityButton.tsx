@@ -18,7 +18,9 @@ export const AccessibilityButton = () => {
 
     dispatch(setModalOpen(true));
   };
-
+  if (typeof isMobile === 'undefined' || isMobile === null) {
+    return <IconButton Icon={Logo} variant="secondary" onClick={handleClick} />;
+  }
   if (isMobile) {
     return <IconButton Icon={Logo} variant="secondary" onClick={handleClick} />;
   } else {

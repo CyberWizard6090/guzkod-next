@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { store } from '../stores/store';
 
 type PropsProviders = {
-  readonly children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 };
 
 export const Providers = ({ children }: PropsProviders) => {

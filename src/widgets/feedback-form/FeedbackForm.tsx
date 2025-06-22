@@ -112,8 +112,7 @@ export const FormFeedback = () => {
         <Checkbox checked={isChecked} onChange={setIsChecked}>
           Согласен с условиями политики обработки
           <a href="/privacy-policy" target="_blank">
-            {' '}
-            персональных данных
+            {' персональных данных'}
           </a>
         </Checkbox>
         <Button onClick={Push} disabled={!isChecked}>

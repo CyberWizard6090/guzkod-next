@@ -1,39 +1,31 @@
 'use client';
+
 import React, { useEffect, useState } from 'react';
+import { FooterSkeleton } from './FooterSkeleton';
+import { getFooterData } from 'shared/api/footer';
 import './footer.scss';
 
-interface Link {
+type Link = {
   text: string;
   href: string;
   id: string;
-}
+};
 
-interface Column {
+type Column = {
   title: string;
   List: Link[];
   id: string;
-}
-
-interface FooterData {
-  List: Column[];
-}
+};
 
 export const Footer = () => {
-  const url = '/api/globals/footer?locale=undefined&draft=false&depth=0';
   const [pageData, setPageData] = useState<Column[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch footer data');
-        }
-        return response.json();
-      })
-      .then((data: FooterData) => {
-        setPageData(data.List || []);
+    getFooterData()
+      .then((data) => {
+        setPageData(data.List ?? []);
         setLoading(false);
       })
       .catch((err) => {
@@ -42,17 +34,8 @@ export const Footer = () => {
       });
   }, []);
 
-  if (loading) {
-    return <div>Loading footer...</div>;
-  }
-
-  if (error) {
-    return <div>Error loading footer: {error}</div>;
-  }
-
-  if (pageData.length === 0) {
-    return <div>No footer data available</div>;
-  }
+  if (loading) return <FooterSkeleton />;
+  if (error || pageData.length === 0) return;
 
   return (
     <footer className="footer shadow__style">
