@@ -5,6 +5,7 @@ import { Block } from 'shared/ui/block';
 import { Page } from 'shared/ui/page';
 import { getHomePage } from 'shared/api/home';
 import 'shared/styles/pages/home-page.scss';
+import { GosuslugiWidget } from 'widgets/gosuslugi-widget';
 
 type TextBlock = {
   blockType: 'text';
@@ -112,6 +113,7 @@ export default async function HomePage() {
   return (
     <Page>
       <RenderBlocks blocks={data.blocks} />
+      <GosuslugiWidget />
       <NewsBlock />
     </Page>
   );
