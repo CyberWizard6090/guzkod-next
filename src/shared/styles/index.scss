@@ -50,6 +50,7 @@ body {
   text-rendering: optimizeSpeed;
   overflow-x: hidden;
   background-color: var(--background-main);
+  font-size: var(--font-size-medium);
 }
 
 h1 {
@@ -80,7 +81,9 @@ h6 {
 }
 .shadow__style {
   border: 0.0625rem solid var(--border-color3);
-box-shadow: var(--shadow-color-1) 0px 1px 3px, var(--shadow-color-2) 0px 1px 2px;
+  box-shadow:
+    var(--shadow-color-1) 0px 1px 3px,
+    var(--shadow-color-2) 0px 1px 2px;
 }
 
 *,
@@ -116,10 +119,6 @@ button {
 
 a {
   text-decoration: none;
-}
-
-* {
-  font-size: var(--font-size-medium);
 }
 
 // /* для Chrome/Edge/Safari */

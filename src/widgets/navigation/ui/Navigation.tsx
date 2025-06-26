@@ -27,7 +27,7 @@ export const Navigation = async () => {
         {
           label: 'Персонал',
           link: '/personnel',
-          id: 'personnel-id', // Укажи реальные ID, если нужно
+          id: 'personnel-id',
         },
         {
           label: 'Отделения',
@@ -35,6 +35,11 @@ export const Navigation = async () => {
           id: 'departments-id',
         },
       ],
+    },
+    {
+      label: 'Вакансии',
+      link: '/vacancies',
+      blockType: 'navitem',
     },
   ];
 
