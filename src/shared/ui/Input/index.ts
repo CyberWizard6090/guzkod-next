@@ -1,4 +1,4 @@
-export { InputPhone } from './inputPhone/inputPhone';
+export { InputPhone } from './input-phone/inputPhone';
 export { Input } from './input/input';
-export { InputText } from './inputText/inputText';
+export { Textarea } from './text-area/inputText';
 export { VoiceInput } from './voiceInput/VoiceInput';

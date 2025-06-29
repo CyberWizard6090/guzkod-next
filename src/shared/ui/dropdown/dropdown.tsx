@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './dropdown.scss';
 import Up from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-up.svg';
 import Down from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-down.svg';
@@ -13,16 +13,16 @@ type DropdownOption = {
 type DropdownProps = {
   options: DropdownOption[];
   label?: string;
-  onSelect?: (value: string) => void;
-  fieldName: keyof any;
-  valueRef: React.MutableRefObject<any>;
+  value: string;
+  onChange: (value: string) => void;
 };
 
-export const Dropdown = ({ options, label, onSelect, fieldName, valueRef }: DropdownProps) => {
+export const Dropdown = ({ options, label, value, onChange }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const selectedLabel = options.find((opt) => opt.value === value)?.label;
 
   const checkMobile = () => window.innerWidth <= 768;
 
@@ -32,18 +32,15 @@ export const Dropdown = ({ options, label, onSelect, fieldName, valueRef }: Drop
     } else {
       document.body.style.overflow = '';
     }
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
 
-  const handleOptionClick = (option: DropdownOption) => {
-    setSelectedOption(option.label);
+  const handleOptionClick = (newValue: string) => {
+    onChange(newValue);
     setIsOpen(false);
     document.body.style.overflow = '';
-    onSelect?.(option.value);
-    valueRef.current[fieldName] = option.value;
   };
 
-  // Обработчик клика вне области
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -55,12 +52,9 @@ export const Dropdown = ({ options, label, onSelect, fieldName, valueRef }: Drop
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen]);
 
-  // Обработчик изменения размера окна
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(checkMobile());
@@ -69,6 +63,7 @@ export const Dropdown = ({ options, label, onSelect, fieldName, valueRef }: Drop
       }
     };
 
+    handleResize(); // начальное состояние
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -79,47 +74,34 @@ export const Dropdown = ({ options, label, onSelect, fieldName, valueRef }: Drop
       <button
         className="dropdown__control"
         onClick={toggleDropdown}
-        role="button"
         aria-haspopup="listbox"
         aria-expanded={isOpen}
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggleDropdown();
-          }
-        }}
       >
-        {selectedOption || 'Выберите значения'}
+        {selectedLabel || 'Выберите значение'}
         <span className="dropdown__arrow">{isOpen ? <Up /> : <Down />}</span>
       </button>
       {isOpen && (
         <div className={`dropdown__menu ${isMobile ? 'dropdown__menu--mobile' : ''}`}>
           <div className="dropdown__header">
-            <button
-              className="dropdown__close-button"
-              type="button"
-              onClick={() => toggleDropdown()}
-            >
-              Закрыть
-              <Cross />
+            <button className="dropdown__close-button" onClick={toggleDropdown}>
+              Закрыть <Cross />
             </button>
           </div>
-          <ul className="dropdown__list" role="listbox" aria-label={label || 'Выбор значения'}>
-            {options.map((option, index) => (
+          <ul className="dropdown__list" role="listbox" aria-label={label ?? 'Выбор значения'}>
+            {options.map((option) => (
               <li
-                key={index}
+                key={option.value}
                 className={`dropdown__option ${
-                  selectedOption === option.label ? 'dropdown__option--selected' : ''
+                  value === option.value ? 'dropdown__option--selected' : ''
                 }`}
-                onClick={() => handleOptionClick(option)}
+                onClick={() => handleOptionClick(option.value)}
                 role="option"
-                aria-selected={selectedOption === option.label}
+                aria-selected={value === option.value}
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    handleOptionClick(option);
+                    handleOptionClick(option.value);
                   }
                 }}
               >
