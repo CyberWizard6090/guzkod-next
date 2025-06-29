@@ -12,6 +12,7 @@
   border-radius: var(--radius-lg);
   background: var(--block-bg);
   border: 1px solid var(--border-color3);
+  font-size: var(--font-size-medium);
   ul {
     list-style: none;
     display: flex;
@@ -70,6 +71,7 @@
       border: none;
       cursor: pointer;
       color: var(--font-color-light);
+      font-size: var(--font-size-medium);
 
       &:hover {
         background-color: var(--accent-color-hover);

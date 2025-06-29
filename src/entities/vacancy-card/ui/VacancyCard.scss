@@ -1,0 +1,120 @@
+.vacancy-card__block {
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+
+}
+
+.vacancy-card__link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.vacancy-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-m);
+  gap: var(--spacing-s);
+  background: var(--block-bg);
+}
+
+.vacancy-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--font-color-gray);
+  margin-bottom: var(--spacing-xs);
+}
+
+.vacancy-card__date {
+  opacity: 0.8;
+}
+
+.vacancy-card__status {
+  font-weight: bold;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xs) var(--spacing-s);
+  color: #fff;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+
+  &.active {
+    background-color: #2e7d32;
+  }
+
+  &.inactive {
+    background-color: #c62828;
+  }
+}
+
+.vacancy-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--font-color-light);
+  margin-bottom: var(--spacing-xs);
+}
+
+.vacancy-card__department,
+.vacancy-card__location,
+.vacancy-card__salary,
+.vacancy-card__description {
+  font-size: var(--font-size-medium);
+  color: var(--font-color-gray);
+  line-height: 1.4;
+}
+
+.vacancy-card__description {
+  margin-top: var(--spacing-xs);
+  max-height: 4.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Скелетон-эффект
+.skeleton-line {
+  background-color: var(--skeleton-base);
+  border-radius: var(--radius-md);
+  height: 16px;
+  width: 100%;
+  animation: shimmer 1.5s infinite linear;
+  margin-bottom: 8px;
+  background-image: linear-gradient(
+    to right,
+    var(--skeleton-base) 0%,
+    var(--skeleton-highlight) 20%,
+    var(--skeleton-base) 40%,
+    var(--skeleton-base) 100%
+  );
+  background-size: 200% 100%;
+}
+
+.skeleton-title {
+  width: 60%;
+  height: 24px;
+}
+
+.skeleton-department {
+  width: 50%;
+}
+
+.skeleton-location {
+  width: 40%;
+}
+
+.skeleton-salary {
+  width: 45%;
+}
+
+.skeleton-description {
+  width: 80%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
