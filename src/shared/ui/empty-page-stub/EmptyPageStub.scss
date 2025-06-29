@@ -1,0 +1,27 @@
+.empty-page-stub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: var(--font-color-gray);
+  min-height: 60vh;
+
+  &__icon {
+    font-size: var(--size-svg-icon);
+    margin-bottom: var(--spacing-m);
+  }
+
+  &__title {
+    font-size: var(--font-size-xl);
+    color: var(--font-color-light);
+    margin-bottom: var(--spacing-s);
+  }
+
+  &__description {
+    font-size: var(--font-size-medium);
+    max-width: 500px;
+    color: var(--font-color-gray);
+  }
+}

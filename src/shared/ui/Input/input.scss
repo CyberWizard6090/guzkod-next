@@ -1,7 +1,5 @@
 .input {
   border: 1px solid var(--border-color2);
-  padding: 8px;
-  border-radius: 4px;
   width: 100%;
   padding: var(--spacing-xs) var(--spacing-m);
   background-color: var(--color-form-input);
@@ -25,9 +23,9 @@
     padding-left: var(--spacing-xs);
   }
 }
-.input{
-&__info-message{
-  color:var(--red);
-  font-size: var(--font-size-small);
-}
+.input {
+  &__info-message {
+    color: var(--red);
+    font-size: var(--font-size-small);
+  }
 }

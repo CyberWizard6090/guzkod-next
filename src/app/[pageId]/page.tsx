@@ -2,6 +2,7 @@ import { RenderBlocks } from 'entities/blocks';
 import { Metadata } from 'next';
 import { getPageById } from 'shared/api/pages';
 import { Block } from 'shared/ui/block';
+import { EmptyPageStub } from 'shared/ui/empty-page-stub';
 
 type Props = {
   params: { pageId: string };
@@ -10,10 +11,10 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await getPageById(params.pageId);
   return {
-    title: data.title ?? data.namepage ?? 'Страница',
+    title: data.namepage,
 
     openGraph: {
-      title: data.title ?? data.namepage ?? 'Страница',
+      title: data.namepage,
     },
   };
 }
@@ -21,21 +22,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function DefaultPage({ params }: Readonly<Props>) {
   const data = await getPageById(params.pageId);
 
-  const date = new Date(data.date).toLocaleString('ru-DE', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-
   return (
     <Block>
-      {data.title && (
-        <div>
-          <span>{date}</span>
-          <h1>{data.title}</h1>
-        </div>
+      {data.layout && data.layout.length > 0 ? (
+        <RenderBlocks layout={data.layout} />
+      ) : (
+        <EmptyPageStub />
       )}
-      <RenderBlocks layout={data.layout} />
     </Block>
   );
 }

@@ -1,49 +1,36 @@
-import React from 'react';
-
+import './../input.scss';
 type Props = {
   label: string;
-  placeholder: string;
-  fieldName?: keyof any;
-  valueRef: React.MutableRefObject<any>;
+  placeholder?: string;
+  name: string;
+  value: string;
+  onChange: (value: string) => void;
   type?: string;
-  inputmode?:
-    | 'search'
-    | 'text'
-    | 'email'
-    | 'tel'
-    | 'url'
-    | 'none'
-    | 'numeric'
-    | 'decimal'
-    | undefined;
+  inputMode?: 'search' | 'text' | 'email' | 'tel' | 'url' | 'none' | 'numeric' | 'decimal';
 };
 
 export const Input = ({
   label,
   placeholder,
-  fieldName,
-  valueRef,
+  name,
+  value,
+  onChange,
   type = 'text',
-  inputmode = 'text',
+  inputMode = 'text',
 }: Props) => {
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (fieldName) {
-      valueRef.current[fieldName] = event.target.value;
-    } else {
-      valueRef.current = event.target.value;
-    }
-  };
   return (
     <div className="input__container">
-      {label ? <label>{label}</label> : <></>}
+      {label && <label htmlFor={name}>{label}</label>}
 
       <input
+        id={name}
+        name={name}
         type={type}
-        inputMode={inputmode}
+        inputMode={inputMode}
         className="input"
-        defaultValue={''}
+        value={value}
         placeholder={placeholder}
-        onChange={handleChange}
+        onChange={(e) => onChange(e.target.value)}
       />
     </div>
   );
