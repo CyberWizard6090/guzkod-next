@@ -3,6 +3,8 @@
 import { VacancyCard, VacancySkeleton } from 'entities/vacancy-card';
 import { useEffect, useState, useCallback } from 'react';
 import { getVacancies } from 'shared/api/vacancies';
+import { Block } from 'shared/ui/block';
+import { EmptyPageStub } from 'shared/ui/empty-page-stub';
 
 const PAGE_SIZE = 10;
 
@@ -67,18 +69,19 @@ export default function VacanciesPage() {
     loadPage(page);
   }, [page, loadPage]);
 
-  if (error) {
-    return <h2>Ошибка: {error.message}</h2>;
-  }
-
-  if (loading && vacancies.length === 0) {
-    return <p>Загрузка вакансий...</p>;
-  }
-
   return (
     <>
       <h2>Вакансии</h2>
-      {vacancies.length === 0 && <p>Вакансии не найдены.</p>}
+      {vacancies.length === 0 && (
+        <Block>
+          <EmptyPageStub
+            title={'Новых вакансий пока нет'}
+            description={
+              'В настоящий момент вакансии не размещены. Следите за обновлениями — мы обязательно сообщим, когда они появятся.'
+            }
+          />
+        </Block>
+      )}
       {vacancies.map((vacancy) => (
         <VacancyCard key={vacancy.id} {...vacancy} />
       ))}
