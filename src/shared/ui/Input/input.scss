@@ -22,6 +22,9 @@
     font-size: var(--font-size-medium);
     padding-left: var(--spacing-xs);
   }
+  input {
+    font-size: var(--font-size-medium);
+  }
 }
 .input {
   &__info-message {
