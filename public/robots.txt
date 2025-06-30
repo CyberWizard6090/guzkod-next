@@ -1,3 +1,12 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /search/
+Disallow: /login/
+Disallow: /register/
+Disallow: /personal/
+Disallow: /*?*
+Allow: /
+
+Sitemap: https://www.guzkod.ru/sitemap.xml
+Host: www.guzkod.ru

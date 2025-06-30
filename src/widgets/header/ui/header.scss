@@ -9,32 +9,40 @@
   margin-bottom: var(--spacing-m);
   border-bottom: 1px solid var(--border-color2);
 
-&__logo{
-  user-select: none;
-  &-wrap{
-    width: 100%;
+  &__logo {
+    user-select: none;
+    &-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: start;
+    }
+    padding: var(--spacing-m);
+
+    span {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--font-color-light);
+    }
+    .first {
+      color: var(--accent-color);
+    }
+  }
+  .content-container {
+    height: 100%;
     display: flex;
-    justify-content: start;
-  }
-  padding:var(--spacing-m) ;
+    align-items: center;
 
-  span{
-    font-size: 36px;
-    font-weight: bold;
-    color: var(--font-color-light);
+    justify-content: end;
+    gap: var(--spacing-m);
   }
-  .first{
-    color: var(--accent-color);
-  }
- 
-}
-.content-container{
-  height: 100%;
-  display: flex;
-  align-items: center;
-  
-  justify-content: end;
-  gap: var(--spacing-m);
 }
 
+@media screen and (max-width: 768px) {
+  .Header {
+    &__logo {
+      span {
+        font-size: 16px;
+      }
+    }
+  }
 }

@@ -28,7 +28,7 @@ export const metadata = {
     siteName: SITE_NAME,
     images: [
       {
-        url: 'https://example.com/image.jpg',
+        url: SITE_URL + 'photo.jpg',
         width: 800,
         height: 600,
       },
