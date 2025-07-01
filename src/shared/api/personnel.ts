@@ -1,3 +1,4 @@
+import { SITE_URL } from 'shared/consts/site.constants';
 import { fetchApi } from './api';
 
 export const getPersonnel = async (page = 1, limit = 10) => {
@@ -20,7 +21,5 @@ export const getPersonnel = async (page = 1, limit = 10) => {
   return result;
 };
 export const getEmployeeById = async (employeeID: string) => {
-  return fetchApi(
-    `http://localhost:4000/api/employee/${employeeID}?locale=undefined&draft=false&depth=1`,
-  );
+  return fetchApi(SITE_URL + `api/employee/${employeeID}?locale=undefined&draft=false&depth=1`);
 };

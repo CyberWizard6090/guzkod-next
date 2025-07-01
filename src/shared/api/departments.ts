@@ -1,3 +1,4 @@
+import { SITE_URL } from 'shared/consts/site.constants';
 import { fetchApi } from './api';
 
 export const getDepartments = async () => {
@@ -21,6 +22,6 @@ export const getDepartments = async () => {
 
 export const getDepartmentById = async (departmentID: string) => {
   return fetchApi(
-    `http://localhost:4000/api/departments/${departmentID}?locale=undefined&draft=false&depth=2`,
+    SITE_URL + `api/departments/${departmentID}?locale=undefined&draft=false&depth=2`,
   );
 };

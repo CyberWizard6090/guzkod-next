@@ -1,3 +1,4 @@
+import { SITE_URL } from 'shared/consts/site.constants';
 import { fetchApi } from './api';
 
 export const getVacancies = async (page = 1, limit = 10) => {
@@ -20,7 +21,5 @@ export const getVacancies = async (page = 1, limit = 10) => {
   return result;
 };
 export const getVacanciesById = async (vacanciesId: string) => {
-  return fetchApi(
-    `http://localhost:4000/api/vacancies/${vacanciesId}?locale=undefined&draft=false&depth=1`,
-  );
+  return fetchApi(SITE_URL + `api/vacancies/${vacanciesId}?locale=undefined&draft=false&depth=1`);
 };

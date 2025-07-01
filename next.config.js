@@ -30,11 +30,11 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://localhost:4000/api/:path*',
+        destination: 'https://www.guzkod.ru/api/:path*',
       },
       {
         source: '/media/:path*',
-        destination: 'http://localhost:4000/media/:path*',
+        destination: 'https://www.guzkod.ru/media/:path*',
       },
     ];
   },

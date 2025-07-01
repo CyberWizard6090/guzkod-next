@@ -1,3 +1,4 @@
+import { SITE_URL } from 'shared/consts/site.constants';
 import { fetchApi } from './api';
 
 export const getArticles = async () => {
@@ -9,7 +10,5 @@ export const getAllArticles = async () => {
 };
 
 export const getArticleById = async (pageId: string) => {
-  return fetchApi(
-    `http://localhost:4000/api/article/${pageId}?locale=undefined&draft=false&depth=1`,
-  );
+  return fetchApi(SITE_URL + `api/article/${pageId}?locale=undefined&draft=false&depth=1`);
 };
