@@ -10,7 +10,7 @@ export const Navigation = async () => {
       blockType: 'navitem',
     },
     {
-      label: 'Отзыв',
+      label: 'Обращение',
       link: '/feedback',
       blockType: 'navitem',
     },

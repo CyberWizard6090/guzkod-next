@@ -1,3 +1,4 @@
+'use client';
 import DownloadIcon from 'shared/assets/svg/bootstrap-icons-1.11.2/download.svg';
 import Excel from 'shared/assets/svg/SVG-DOCS-ICONS/excel-document-svgrepo-com.svg';
 import Powerpoint from 'shared/assets/svg/SVG-DOCS-ICONS/ppt-document-svgrepo-com.svg';
@@ -15,6 +16,7 @@ import { getType } from 'shared/lib/getType';
 import { GetFile } from 'shared/lib/getFile';
 import { FormatFile } from 'shared/consts';
 import { Key } from 'react';
+import { SITE_HOST } from 'shared/consts/site.constants';
 
 type Props = {
   files: any;
@@ -55,19 +57,13 @@ export const Files = ({ files }: Props) => {
             </div>
             <div className="name-file">{item.file.name}</div>
             <div className="btn__wrap">
-              {/* {getType(item.file.filename) === "pdf" ? (
-              <Link to={""}>
-                <Button Icon={ReadIcon} theme="transparent-blue">
-                  Читать
-                </Button>
-                </Link>
-              ) : (
-                <></>
-              )} */}
               <Button
                 Icon={DownloadIcon}
                 onClick={() =>
-                  GetFile(item.file.url, item.file.name + '.' + getType(item.file.filename))
+                  GetFile(
+                    SITE_HOST + item.file.url, // путь к файлу
+                    `${item.file.name}.${getType(item.file.filename)}`, // имя при сохранении
+                  )
                 }
               >
                 Скачать
