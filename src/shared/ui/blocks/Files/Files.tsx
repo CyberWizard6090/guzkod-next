@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 import DownloadIcon from 'shared/assets/svg/bootstrap-icons-1.11.2/download.svg';
 import Excel from 'shared/assets/svg/SVG-DOCS-ICONS/excel-document-svgrepo-com.svg';
@@ -19,10 +20,12 @@ import { Key } from 'react';
 import { SITE_HOST } from 'shared/consts/site.constants';
 
 type Props = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   files: any;
 };
 
 export const Files = ({ files }: Props) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const LogoView = ({ FileType }: any) => {
     if (FormatFile.word.includes(FileType)) {
       return <Word />;

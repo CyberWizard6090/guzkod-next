@@ -1,5 +1,5 @@
 'use client';
-import { RootState } from 'app/stores';
+import { RootState } from 'shared/stores';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { closeSearch } from '../model/searchSlice';

@@ -6,6 +6,7 @@ import { Loader } from 'shared/ui/loader';
 
 export default function DepartmentsPage() {
   const [loading, setLoading] = useState(true);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<any[]>([]);
   const [error, setError] = useState<Error | null>(null);
 

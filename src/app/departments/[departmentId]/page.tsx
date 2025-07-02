@@ -8,11 +8,7 @@ import { Page } from 'shared/ui/page';
 import { ImageView } from 'shared/ui/image';
 import { EmptyPageStub } from 'shared/ui/empty-page-stub';
 
-type Props = {
-  params: { departmentId: string };
-};
-
-export default async function DepartmentPage({ params }: Props) {
+export default async function DepartmentPage({ params }: any) {
   const data = await getDepartmentById(params.departmentId);
   return (
     <Page>

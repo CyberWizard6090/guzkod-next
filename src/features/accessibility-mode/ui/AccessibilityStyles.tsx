@@ -1,9 +1,10 @@
 'use client';
-import { RootState } from 'app/stores';
+
 import { setTheme, Theme } from 'features/theme/model/themeSlice';
 import { useLayoutEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'shared/stores';
 
 export const AccessibilityStyles = () => {
   const { isActive, fontSize, imagesHidden } = useSelector(
@@ -28,6 +29,7 @@ export const AccessibilityStyles = () => {
         dispatch(setTheme('light'));
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isActive, fontSize, imagesHidden]);
 
   return null;
