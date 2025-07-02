@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import './../input.scss';
+import '../input.scss';
 type TextareaProps = {
   label: string;
   value: string;

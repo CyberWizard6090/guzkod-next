@@ -1,4 +1,4 @@
-import './../input.scss';
+import '../input.scss';
 type Props = {
   label: string;
   placeholder?: string;
