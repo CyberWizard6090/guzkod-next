@@ -10,20 +10,30 @@ type SendMessageFormProps = {
 export const SendMessageForm = ({ onSend }: SendMessageFormProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault(); 
+    event.preventDefault();
     if (inputRef.current) {
       const trimmedMessage = inputRef.current.value.trim();
       if (trimmedMessage) {
         onSend(trimmedMessage);
-        inputRef.current.value = ''; 
+        inputRef.current.value = '';
+      }
     }
-  };
 
-  return (
-    <form className="send-message-form" onSubmit={handleSubmit}>
-      <Input placeholder="ваше сообщение ...." label={''} valueRef={inputRef} />
-      <Button type="submit">Отправить</Button>
-    </form>
-  );
+    return (
+      <form className="send-message-form" onSubmit={handleSubmit}>
+        <Input
+          placeholder="ваше сообщение ...."
+          label={''}
+          name={''}
+          value={''}
+          onChange={function (): void {
+            throw new Error('Function not implemented.');
+          }}
+        />
+        <Button type="submit">Отправить</Button>
+      </form>
+    );
+  };
 };

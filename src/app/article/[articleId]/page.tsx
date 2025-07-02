@@ -1,48 +1,32 @@
 import { RenderBlocks } from 'entities/blocks';
-import { Metadata } from 'next';
-import { getArticleById } from 'shared/api/articles';
-import { SITE_HOST } from 'shared/consts/site.constants';
+import type { Metadata } from 'next';
+import { getPageById } from 'shared/api/pages';
 import { Block } from 'shared/ui/block';
-import 'shared/styles/pages/article.scss';
-import { ShareButton } from 'features/share';
-import AlignWrapper from 'shared/ui/align-wrapper';
-import { cleanMetaDescription } from 'shared/lib/seo/cleanMetaDescription';
-import { formatDate } from 'shared/lib/format';
+import { EmptyPageStub } from 'shared/ui/empty-page-stub';
 
-type Props = {
-  params: { articleId: string };
-};
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const data = await getPageById(params.pageId);
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const data = await getArticleById(params.articleId);
-  const title = `Вакансия: ${data.title ?? data.namepage}`;
-  const description = cleanMetaDescription({ text: data.text });
   return {
-    title: title,
-    description: description,
+    title: data.namepage,
     openGraph: {
-      title: title,
-      description: data.text,
-      url: `${SITE_HOST}/article/${params.articleId}`,
+      title: data.namepage,
     },
   };
 }
 
-export default async function DefaultPage({ params }: Props) {
-  const data = await getArticleById(params.articleId);
+const DefaultPage = async ({ params }: any) => {
+  const data = await getPageById(params.pageId);
 
   return (
     <Block>
-      {data.title && (
-        <div className="content-block">
-          <span className="date-text">{formatDate(data.date)}</span>
-          <h1 className="title-heading">{data.title}</h1>
-        </div>
+      {data.layout && data.layout.length > 0 ? (
+        <RenderBlocks layout={data.layout} />
+      ) : (
+        <EmptyPageStub />
       )}
-      <RenderBlocks layout={data.layout} />
-      <AlignWrapper align="right">
-        <ShareButton title={'data.title'} />
-      </AlignWrapper>
     </Block>
   );
-}
+};
+
+export default DefaultPage;

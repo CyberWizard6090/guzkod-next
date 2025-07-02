@@ -17,13 +17,13 @@ export const useSpeechRecognition = (): UseSpeechRecognitionResult => {
   useEffect(() => {
     if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
       setError('Ваш браузер не поддерживает голосовой ввод');
-      return;
     }
   }, []);
 
   const startListening = () => {
     const SpeechRecognition =
-      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (window as any).SpeechRecognition ?? (window as any).webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
       setError('Ваш браузер не поддерживает голосовой ввод');
@@ -40,12 +40,14 @@ export const useSpeechRecognition = (): UseSpeechRecognitionResult => {
       setError(null);
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     recognition.onresult = (event: any) => {
       const result = event.results[0][0].transcript;
       setTranscript(result);
       setIsListening(false);
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     recognition.onerror = (event: any) => {
       setError(event.error);
       setIsListening(false);

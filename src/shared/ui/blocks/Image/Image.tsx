@@ -1,6 +1,7 @@
 import { ImageView } from 'shared/ui/image';
 
 type Props = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   image: any;
 };
 

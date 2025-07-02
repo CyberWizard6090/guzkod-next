@@ -1,25 +1,21 @@
 import { RenderBlocks } from 'entities/blocks';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { getPageById } from 'shared/api/pages';
 import { Block } from 'shared/ui/block';
 import { EmptyPageStub } from 'shared/ui/empty-page-stub';
 
-type Props = {
-  params: { pageId: string };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: any): Promise<Metadata> {
   const data = await getPageById(params.pageId);
+
   return {
     title: data.namepage,
-
     openGraph: {
       title: data.namepage,
     },
   };
 }
 
-export default async function DefaultPage({ params }: Readonly<Props>) {
+const DefaultPage = async ({ params }: any) => {
   const data = await getPageById(params.pageId);
 
   return (
@@ -31,4 +27,6 @@ export default async function DefaultPage({ params }: Readonly<Props>) {
       )}
     </Block>
   );
-}
+};
+
+export default DefaultPage;

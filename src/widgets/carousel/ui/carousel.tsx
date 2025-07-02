@@ -22,6 +22,7 @@ export const Carousel = ({ children, interval = 30000, enableDragging = true }: 
   useEffect(() => {
     startAutoSlide();
     return stopAutoSlide;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
 
   const startAutoSlide = () => {

@@ -1,13 +1,16 @@
 import { blocks } from '../model/blockList';
+
+type BlockType = keyof typeof blocks;
+
 type Props = {
-  layout: any;
+  layout: Array<{ blockType: BlockType } & Record<string, any>>;
 };
 
 export const RenderBlocks = ({ layout }: Props) => {
   return (
     <>
       {layout &&
-        layout?.map((block: { blockType: string }, i: number) => {
+        layout.map((block, i) => {
           const Block = blocks[block.blockType];
 
           if (Block) {

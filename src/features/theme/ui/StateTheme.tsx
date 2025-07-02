@@ -1,5 +1,5 @@
 'use client';
-import { RootState } from 'app/stores';
+import { RootState } from 'shared/stores';
 import { useLayoutEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { SelectTheme } from '../model/selectors';

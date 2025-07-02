@@ -6,11 +6,7 @@ import 'shared/styles/pages/employee-page.scss';
 import { getEmployeeById } from 'shared/api/personnel';
 import Link from 'next/link';
 
-type Props = {
-  params: { employeeId: string };
-};
-
-export default async function EmployeePage({ params }: Props) {
+export default async function EmployeePage({ params }: any) {
   const data = await getEmployeeById(params.employeeId);
   const Photo = data.photo?.sizes.card.url ?? DefaultPhoto.src;
 

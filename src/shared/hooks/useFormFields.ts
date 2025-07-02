@@ -1,11 +1,13 @@
 import { useCallback, useRef, useState } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type FieldsState = Record<string, any>;
 
 export const useFormFields = (initial: FieldsState = {}) => {
   const [state, setState] = useState(initial);
   const ref = useRef(initial);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const setValue = useCallback((name: string, value: any) => {
     ref.current[name] = value;
     setState((prev) => ({ ...prev, [name]: value }));
@@ -30,6 +32,7 @@ export const useFormFields = (initial: FieldsState = {}) => {
     }),
     getSelectProps: (name: string) => ({
       value: state[name],
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       onChange: (value: any) => setValue(name, value),
     }),
     getCheckboxProps: (name: string) => ({
