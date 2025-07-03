@@ -14,13 +14,20 @@ type DropdownProps = {
   options: DropdownOption[];
   label?: string;
   value: string;
+  defaultValue?: string;
   onChange: (value: string) => void;
 };
 
-export const Dropdown = ({ options, label, value, onChange }: DropdownProps) => {
+export const Dropdown = ({ options, label, value, defaultValue, onChange }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!value && defaultValue) {
+      onChange(defaultValue);
+    }
+  }, [defaultValue, onChange, value]);
 
   const selectedLabel = options.find((opt) => opt.value === value)?.label;
 
@@ -77,7 +84,7 @@ export const Dropdown = ({ options, label, value, onChange }: DropdownProps) => 
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
-        {selectedLabel || 'Выберите значение'}
+        {selectedLabel ?? defaultValue ?? 'Выберите значение'}
         <span className="dropdown__arrow">{isOpen ? <Up /> : <Down />}</span>
       </button>
       {isOpen && (

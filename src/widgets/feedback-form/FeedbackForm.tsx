@@ -116,6 +116,7 @@ export const FormFeedback = () => {
           label="Выберите учреждение"
           options={Organization}
           value={formData.organization}
+          defaultValue={'ntc'}
           onChange={(val: string) => updateField('organization', val)}
         />
 
