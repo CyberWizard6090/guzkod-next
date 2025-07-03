@@ -2,6 +2,7 @@ import { fetchApi } from './api';
 
 export const getDepartments = async () => {
   const result = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     data: null as any[] | null,
     error: null as Error | null,
     loading: true,
@@ -10,6 +11,7 @@ export const getDepartments = async () => {
   try {
     const response = await fetchApi('/api/departments?limit=100');
     result.data = response?.docs ?? [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     result.error = err;
   } finally {

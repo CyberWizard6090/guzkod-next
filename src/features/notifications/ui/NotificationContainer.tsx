@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from 'app/stores';
+import { RootState } from 'shared/stores';
 import { removeNotification } from '../model/notificationSlice';
 import Notification from './Notification';
 

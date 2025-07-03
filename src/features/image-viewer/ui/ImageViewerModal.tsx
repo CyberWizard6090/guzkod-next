@@ -58,7 +58,7 @@ export const ImageViewerModal: React.FC = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [dispatch, currentIndex, images.length]);
+  }, [dispatch, currentIndex, images.length, showNavigation]);
 
   const handleWheel = (e: React.WheelEvent) => {
     // e.preventDefault();
@@ -96,7 +96,7 @@ export const ImageViewerModal: React.FC = () => {
       };
     } else if (e.touches.length === 2) {
       setIsDragging(false);
-      startTouchDistance.current = getDistance(e.touches);
+      startTouchDistance.current = getDistance(e.touches as unknown as TouchList);
       startScale.current = scale;
     }
   };
@@ -108,7 +108,7 @@ export const ImageViewerModal: React.FC = () => {
         y: e.touches[0].clientY - startDrag.current.y,
       });
     } else if (e.touches.length === 2 && startTouchDistance.current) {
-      const newDistance = getDistance(e.touches);
+      const newDistance = getDistance(e.touches as unknown as TouchList);
       const newScale = (newDistance / startTouchDistance.current) * startScale.current;
       setScale(Math.min(Math.max(newScale, 1), 3));
     }

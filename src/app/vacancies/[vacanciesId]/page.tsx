@@ -9,11 +9,7 @@ import { Metadata } from 'next';
 import { SITE_HOST } from 'shared/consts/site.constants';
 import { cleanMetaDescription } from 'shared/lib/seo/cleanMetaDescription';
 
-type Props = {
-  params: { vacanciesId: string };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: any): Promise<Metadata> {
   const data = await getVacanciesById(params.vacanciesId);
 
   const title = `Вакансия: ${data.title}`;
@@ -30,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function EmployeePage({ params }: Readonly<Props>) {
+export default async function EmployeePage({ params }: any) {
   const data = await getVacanciesById(params.vacanciesId);
   return (
     <Block>

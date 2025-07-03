@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './../input.scss';
+import '../input.scss';
 type Props = {
   label: string;
   name: string;

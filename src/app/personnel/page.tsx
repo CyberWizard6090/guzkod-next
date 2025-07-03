@@ -7,6 +7,7 @@ import { getPersonnel } from 'shared/api/personnel';
 const PAGE_SIZE = 10;
 
 export default function PersonnelPage() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<any[]>([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);

@@ -1,4 +1,4 @@
-import { FontSize } from 'features/accessibilityMode/types/accessibility';
+import { FontSize } from 'features/accessibility-mode/types/accessibility';
 
 type FontSizeSelectorProps = {
   value: FontSize;

@@ -9,20 +9,18 @@ import { EmptyPageStub } from 'shared/ui/empty-page-stub';
 const PAGE_SIZE = 10;
 
 export default function VacanciesPage() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [vacancies, setVacancies] = useState<any[]>([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<Error | null>(null);
 
   const loadPage = useCallback(async (pageNum: number) => {
     setLoading(true);
-    setError(null);
 
     const { data: newData, error: loadError } = await getVacancies(pageNum, PAGE_SIZE);
 
     if (loadError) {
-      setError(loadError);
       setLoading(false);
       return;
     }
@@ -39,6 +37,7 @@ export default function VacanciesPage() {
 
     setVacancies((prev) => {
       const existingIds = new Set(prev.map((v) => v.id));
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const uniqueNew = newData.filter((item: any) => !existingIds.has(item.id));
       return [...prev, ...uniqueNew];
     });
