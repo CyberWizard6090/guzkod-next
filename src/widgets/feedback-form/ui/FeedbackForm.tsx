@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import { Organization } from './const/Organization';
-import { Department } from './const/Department';
+import { Organization } from '../const/Organization';
+import { Department } from '../const/Department';
 import { Button } from 'shared/ui/button';
 import { Dropdown } from 'shared/ui/dropdown';
 import { useAddNotification } from 'features/notifications';
@@ -117,6 +117,7 @@ export const FormFeedback = () => {
           label="Выберите учреждение"
           options={Organization}
           value={formData.organization}
+          defaultValue={'ntc'}
           onChange={(val: string) => updateField('organization', val)}
         />
 

@@ -1,9 +1,9 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import './dropdown.scss';
-import Up from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-up.svg';
-import Down from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-down.svg';
-import Cross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
+import IconUp from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-up.svg';
+import IconDown from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-down.svg';
+import IconCross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
+import './Dropdown.scss';
 
 type DropdownOption = {
   value: string;
@@ -14,13 +14,20 @@ type DropdownProps = {
   options: DropdownOption[];
   label?: string;
   value: string;
+  defaultValue?: string;
   onChange: (value: string) => void;
 };
 
-export const Dropdown = ({ options, label, value, onChange }: DropdownProps) => {
+export const Dropdown = ({ options, label, value, defaultValue, onChange }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!value && defaultValue) {
+      onChange(defaultValue);
+    }
+  }, [defaultValue, onChange, value]);
 
   const selectedLabel = options.find((opt) => opt.value === value)?.label;
 
@@ -77,14 +84,16 @@ export const Dropdown = ({ options, label, value, onChange }: DropdownProps) => 
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
-        {selectedLabel || 'Выберите значение'}
-        <span className="dropdown__arrow">{isOpen ? <Up /> : <Down />}</span>
+        {selectedLabel ?? defaultValue ?? 'Выберите значение'}
+        <span className="dropdown__arrow">{isOpen ? <IconUp /> : <IconDown />}</span>
       </button>
       {isOpen && (
-        <div className={`dropdown__menu ${isMobile ? 'dropdown__menu--mobile' : ''}`}>
+        <div
+          className={`dropdown__menu ${isMobile ? 'dropdown__menu--mobile' : ''}  shadow__style`}
+        >
           <div className="dropdown__header">
             <button className="dropdown__close-button" onClick={toggleDropdown}>
-              Закрыть <Cross />
+              Закрыть <IconCross />
             </button>
           </div>
           <ul className="dropdown__list" role="listbox" aria-label={label ?? 'Выбор значения'}>

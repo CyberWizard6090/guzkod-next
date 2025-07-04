@@ -1,0 +1,7 @@
+.review-form {
+  &__button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-m);
+  }
+}

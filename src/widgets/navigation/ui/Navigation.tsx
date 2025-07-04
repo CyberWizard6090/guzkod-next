@@ -15,6 +15,11 @@ export const Navigation = async () => {
       blockType: 'navitem',
     },
     {
+      label: 'Отзыв',
+      link: '/reviews',
+      blockType: 'navitem',
+    },
+    {
       label: 'Новости и профилактика',
       link: '/article',
       blockType: 'navitem',
