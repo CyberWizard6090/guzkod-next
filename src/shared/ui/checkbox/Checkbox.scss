@@ -16,7 +16,9 @@
     border-radius: var(--radius-sm);
     margin-right: var(--spacing-xs);
     position: relative;
-    transition: background-color 0.15s linear, border-color 0.15s linear;
+    transition:
+      background-color 0.15s linear,
+      border-color 0.15s linear;
     flex-shrink: 0;
 
     &::after {
@@ -33,8 +35,6 @@
       transition: opacity 0.15s ease-in-out;
     }
   }
-
-
 
   &--checked &__custom {
     background-color: var(--accent-color);

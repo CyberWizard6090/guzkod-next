@@ -19,7 +19,7 @@
   }
 
   .file__icon {
- flex-shrink: 0; // Prevent icon from shrinking
+    flex-shrink: 0; // Prevent icon from shrinking
     width: 40px;
     height: 100%;
     display: flex;
@@ -27,15 +27,13 @@
     svg {
       width: 40px;
       height: 40px;
-    
     }
     @media (max-width: 768px) {
-     width: 100%;
-     svg {
-      width: 70px;
-      height: 70px;
-    
-    }
+      width: 100%;
+      svg {
+        width: 70px;
+        height: 70px;
+      }
     }
   }
 
