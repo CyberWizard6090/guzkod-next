@@ -1,1 +1,1 @@
-export { FormFeedback } from './FeedbackForm';
+export { FormFeedback } from './ui/FeedbackForm';

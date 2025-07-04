@@ -1,9 +1,9 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import './dropdown.scss';
-import Up from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-up.svg';
-import Down from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-down.svg';
-import Cross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
+import IconUp from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-up.svg';
+import IconDown from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-down.svg';
+import IconCross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
+import './Dropdown.scss';
 
 type DropdownOption = {
   value: string;
@@ -85,13 +85,15 @@ export const Dropdown = ({ options, label, value, defaultValue, onChange }: Drop
         aria-expanded={isOpen}
       >
         {selectedLabel ?? defaultValue ?? 'Выберите значение'}
-        <span className="dropdown__arrow">{isOpen ? <Up /> : <Down />}</span>
+        <span className="dropdown__arrow">{isOpen ? <IconUp /> : <IconDown />}</span>
       </button>
       {isOpen && (
-        <div className={`dropdown__menu ${isMobile ? 'dropdown__menu--mobile' : ''}`}>
+        <div
+          className={`dropdown__menu ${isMobile ? 'dropdown__menu--mobile' : ''}  shadow__style`}
+        >
           <div className="dropdown__header">
             <button className="dropdown__close-button" onClick={toggleDropdown}>
-              Закрыть <Cross />
+              Закрыть <IconCross />
             </button>
           </div>
           <ul className="dropdown__list" role="listbox" aria-label={label ?? 'Выбор значения'}>
