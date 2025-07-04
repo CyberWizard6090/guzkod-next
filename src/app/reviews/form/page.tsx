@@ -1,5 +1,5 @@
-import { ReviewForm } from "widgets/review-form";
+import { ReviewForm } from 'widgets/review-form';
 
 export default function ReviewsPage() {
-  return <ReviewForm/>;
+  return <ReviewForm />;
 }

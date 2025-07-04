@@ -218,7 +218,11 @@ export const DatePicker = ({
 
   return (
     <div className="calendar__container" ref={ref}>
-      {label && <label className={'calendar__label'} htmlFor={name}>{label}</label>}
+      {label && (
+        <label className={'calendar__label'} htmlFor={name}>
+          {label}
+        </label>
+      )}
       <input
         type="text"
         id={name}

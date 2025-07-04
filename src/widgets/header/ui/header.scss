@@ -8,37 +8,34 @@
   z-index: 99;
   margin-bottom: var(--spacing-m);
   border-bottom: 1px solid var(--border-color2);
-.content-container{
-  width: 100%;
-  display: flex;
-
-}
-&__logo{
-  user-select: none;
-  &-wrap{
+  .content-container {
     width: 100%;
     display: flex;
-    justify-content: start;
   }
-  padding:var(--spacing-m) ;
+  &__logo {
+    user-select: none;
+    &-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: start;
+    }
+    padding: var(--spacing-m);
 
-  span{
-    font-size: 36px;
-    font-weight: bold;
-    color: var(--font-color-light);
+    span {
+      font-size: 36px;
+      font-weight: bold;
+      color: var(--font-color-light);
+    }
+    .first {
+      color: var(--accent-color);
+    }
   }
-  .first{
-    color: var(--accent-color);
-  }
- 
-}
-.content-container{
-  height: 100%;
-  display: flex;
-  align-items: center;
-  
-  justify-content: end;
-  gap: var(--spacing-m);
-}
+  .content-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
 
+    justify-content: end;
+    gap: var(--spacing-m);
+  }
 }

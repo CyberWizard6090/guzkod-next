@@ -18,14 +18,14 @@
       border-radius: calc(var(--radius-sm));
     }
   }
-  a{
+  a {
     color: var(--font-color-light);
   }
   &__info {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-s);
-   
+
     &__name {
       font-size: 1.5rem;
       font-weight: bold;

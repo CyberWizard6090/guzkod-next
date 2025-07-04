@@ -145,7 +145,7 @@
 .link {
   //  display: inline-flex;
   // align-items: center;
-  
+
   border-radius: var(--radius-sm);
   padding: 0 var(--spacing-xs);
   margin-right: var(--spacing-xs);
@@ -163,7 +163,6 @@
     align-items: center;
     gap: 8px;
   }
-
 
   &__text {
     font-weight: 500;

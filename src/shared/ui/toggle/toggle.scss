@@ -1,73 +1,71 @@
-.Toggle{
-display: flex;
-align-items: center;
+.Toggle {
+  display: flex;
+  align-items: center;
 }
-.checkbox_item .title{
-	padding-bottom: 15px;
-	border-bottom: 1px solid #e5e9ec;
-	font-size: var(--font-size-large);
-	font-weight: bold;
-	letter-spacing: 3px;
-	margin-bottom: 25px;
-	text-align: center;
-}
-
-.checkbox_item .checkbox_wrap{
-	position: relative;
-	display: block;
-	cursor: pointer;
-	width: 50px;
-	// margin: 0 auto 50px;
+.checkbox_item .title {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e9ec;
+  font-size: var(--font-size-large);
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
-.checkbox_item:last-child .checkbox_wrap{
-	margin-bottom: 0;
+.checkbox_item .checkbox_wrap {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  width: 50px;
+  // margin: 0 auto 50px;
 }
 
-.checkbox_item .checkbox_wrap .checkbox_inp{
-	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: 0;
-	z-index: 1;
+.checkbox_item:last-child .checkbox_wrap {
+  margin-bottom: 0;
 }
 
-.checkbox_item .checkbox_wrap .checkbox_mark{
-	display: inline-block;
-	position: relative;
-	border-radius: 25px;
+.checkbox_item .checkbox_wrap .checkbox_inp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+.checkbox_item .checkbox_wrap .checkbox_mark {
+  display: inline-block;
+  position: relative;
+  border-radius: 25px;
 }
 
 .checkbox_item .checkbox_wrap .checkbox_mark:before,
-.checkbox_item .checkbox_wrap .checkbox_mark:after{
-	content: "";
-	position: absolute;
-	transition: all 0.5s ease;
+.checkbox_item .checkbox_wrap .checkbox_mark:after {
+  content: '';
+  position: absolute;
+  transition: all 0.5s ease;
 }
-
-
 
 /* basic styles */
-.checkbox_item.citem_1 .checkbox_wrap .checkbox_mark{
-	background: #777070;
-	width: 80px;
-	height: 35px;
-	padding: 2px;
+.checkbox_item.citem_1 .checkbox_wrap .checkbox_mark {
+  background: #777070;
+  width: 80px;
+  height: 35px;
+  padding: 2px;
 }
 
-.checkbox_item.citem_1 .checkbox_wrap .checkbox_mark:before{
-	top: 2px;
-	left: 2px;
-	width: 31px;
-	height: 31px;
-	background: #fff;
-	border-radius: 50%;
+.checkbox_item.citem_1 .checkbox_wrap .checkbox_mark:before {
+  top: 2px;
+  left: 2px;
+  width: 31px;
+  height: 31px;
+  background: #fff;
+  border-radius: 50%;
 }
 
-.checkbox_item.citem_1 .checkbox_wrap .checkbox_inp:checked ~ .checkbox_mark{
-	background: #3460bf;
+.checkbox_item.citem_1 .checkbox_wrap .checkbox_inp:checked ~ .checkbox_mark {
+  background: #3460bf;
 }
 
-.checkbox_item.citem_1 .checkbox_wrap .checkbox_inp:checked ~ .checkbox_mark:before{
-	left: 47px;
+.checkbox_item.citem_1 .checkbox_wrap .checkbox_inp:checked ~ .checkbox_mark:before {
+  left: 47px;
 }

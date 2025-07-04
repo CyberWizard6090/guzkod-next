@@ -28,44 +28,44 @@ export const NavigationView = ({ items }: Props) => {
     }
   };
 
-const Navigate = () => {
-  const listRef = useRef<HTMLUListElement | null>(null);
-  const [hasScroll, setHasScroll] = useState(false);
+  const Navigate = () => {
+    const listRef = useRef<HTMLUListElement | null>(null);
+    const [hasScroll, setHasScroll] = useState(false);
 
-  useEffect(() => {
-    const el = listRef.current;
-    if (!el) return;
+    useEffect(() => {
+      const el = listRef.current;
+      if (!el) return;
 
-    const checkScroll = () => {
-      const isScrollable = el.scrollHeight > el.clientHeight;
-      setHasScroll(isScrollable);
-    };
+      const checkScroll = () => {
+        const isScrollable = el.scrollHeight > el.clientHeight;
+        setHasScroll(isScrollable);
+      };
 
-    checkScroll();
+      checkScroll();
 
-    const observer = new ResizeObserver(checkScroll);
-    observer.observe(el);
+      const observer = new ResizeObserver(checkScroll);
+      observer.observe(el);
 
-    const mutationObserver = new MutationObserver(checkScroll);
-    mutationObserver.observe(el, { childList: true, subtree: true });
+      const mutationObserver = new MutationObserver(checkScroll);
+      mutationObserver.observe(el, { childList: true, subtree: true });
 
-    return () => {
-      observer.disconnect();
-      mutationObserver.disconnect();
-    };
-  }, []);
+      return () => {
+        observer.disconnect();
+        mutationObserver.disconnect();
+      };
+    }, []);
 
-  return (
-    <nav className="navigation__content" role="navigation" aria-label="Основное меню">
-      <ul
-        className={`navigation__list ${hasScroll ? 'navigation__list--padded' : ''}`}
-        ref={listRef}
-      >
-        {items.map(renderItem)}
-      </ul>
-    </nav>
-  );
-};
+    return (
+      <nav className="navigation__content" role="navigation" aria-label="Основное меню">
+        <ul
+          className={`navigation__list ${hasScroll ? 'navigation__list--padded' : ''}`}
+          ref={listRef}
+        >
+          {items.map(renderItem)}
+        </ul>
+      </nav>
+    );
+  };
 
   if (isMobile === undefined) return null;
   return !isMobile ? (

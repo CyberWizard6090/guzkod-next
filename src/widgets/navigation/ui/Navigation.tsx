@@ -14,7 +14,7 @@ export const Navigation = async () => {
       link: '/feedback',
       blockType: 'navitem',
     },
-       {
+    {
       label: 'Отзыв',
       link: '/reviews',
       blockType: 'navitem',
