@@ -17,6 +17,8 @@ import { inter } from 'shared/fonts';
 import { cookies } from 'next/headers';
 import 'shared/styles/index.scss';
 import 'shared/styles/pages/error.scss';
+import { GosuslugiWidget } from 'widgets/gosuslugi-widget';
+import { MedicalReviewWidget } from 'widgets/medical-review-widget';
 
 export const metadata = {
   title: SITE_NAME,
@@ -64,7 +66,10 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             <Navigation />
 
             <main className="layout__content">{children}</main>
-
+            <aside className='layout__sidebar'>
+              <GosuslugiWidget />
+              <MedicalReviewWidget />
+            </aside>
             <Footer />
           </div>
         </Providers>

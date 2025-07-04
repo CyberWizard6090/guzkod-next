@@ -38,7 +38,7 @@ export const MobileMenu = ({ children }: MobileMenuProps) => {
           <MobileMenuItem label={'Главная'} logo={Home} />
         </Link>
         <Link href="/feedback">
-          <MobileMenuItem label={'Обращение'} logo={Chat} />
+          <MobileMenuItem label={'Форма обратной связи'} logo={Chat} />
         </Link>
         <button
           onClick={toggleMenu}
