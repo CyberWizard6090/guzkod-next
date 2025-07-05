@@ -1,7 +1,7 @@
 .calendar {
   position: absolute;
   background: var(--block-bg);
-  border: 1px solid var(--border-color2);
+  border: 1px solid var(--border-tertiary);
   border-radius: var(--radius-md);
   padding: var(--spacing-s);
   margin-top: var(--spacing-xs);
@@ -22,7 +22,7 @@
     background-color: var(--color-form-input);
     font-size: var(--font-size-medium);
     color: var(--color-form-input-text);
-    border: 1px solid var(--border-color2);
+    border: 1px solid var(--border-tertiary);
     border-radius: var(--radius-md);
     cursor: pointer;
     -webkit-user-select: none;
