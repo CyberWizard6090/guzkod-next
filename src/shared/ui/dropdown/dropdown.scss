@@ -17,7 +17,7 @@
     background-color: var(--color-form-input);
     font-size: var(--font-size-medium);
     color: var(--color-form-input-text);
-    border: 1px solid var(--border-color2);
+    border: 1px solid var(--border-tertiary);
     border-radius: var(--radius-md);
     cursor: pointer;
     user-select: none;
@@ -32,7 +32,7 @@
     margin-top: var(--spacing-m);
     background-color: var(--color-form-input);
     color: var(--color-form-input-text);
-    border: 1px solid var(--border-color2);
+    border: 1px solid var(--border-tertiary);
     border-radius: var(--radius-md);
     z-index: 10;
     list-style: none;
@@ -50,7 +50,7 @@
   }
 
   &__list &__option:not(:last-child) {
-    border-bottom: 1px solid var(--border-color2);
+    border-bottom: 1px solid var(--border-tertiary);
   }
 
   &__option {
@@ -69,7 +69,7 @@
     width: 100%;
     display: flex;
     justify-content: end;
-    border-bottom: 1px solid var(--border-color2);
+    border-bottom: 1px solid var(--border-tertiary);
   }
 
   &__close-button {
