@@ -1,0 +1,38 @@
+.expandable-block {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+
+  &__content {
+    position: relative;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    &--collapsed {
+      overflow: hidden;
+    }
+
+    &--sm.expandable-block__content--collapsed {
+      max-height: 100px;
+    }
+
+    &--md.expandable-block__content--collapsed {
+      max-height: 160px;
+    }
+
+    &--lg.expandable-block__content--collapsed {
+      max-height: 240px;
+    }
+  }
+
+  &__fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3em;
+    width: 100%;
+    background: linear-gradient(transparent, var(--block-bg));
+    pointer-events: none;
+  }
+}

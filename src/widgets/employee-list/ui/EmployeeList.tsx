@@ -1,4 +1,4 @@
-import { Employee } from 'entities/employee';
+import { Employee } from 'entities/employee-card';
 import { EmployeeType } from 'shared/types/employee';
 import './EmployeeList.scss';
 type Props = {

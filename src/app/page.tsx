@@ -71,7 +71,7 @@ const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
                     key={i}
                     className="shadow__style"
                     src={item.image.url}
-                    alt={item.altText || 'Изображение'}
+                    alt={item.altText ?? 'Изображение'}
                   />
                 );
               case 'banner-block':

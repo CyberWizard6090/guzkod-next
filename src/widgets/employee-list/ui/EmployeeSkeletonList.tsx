@@ -1,4 +1,4 @@
-import { EmployeeSkeleton } from 'entities/employee';
+import { EmployeeSkeleton } from 'entities/employee-card';
 import React from 'react';
 
 type Props = {

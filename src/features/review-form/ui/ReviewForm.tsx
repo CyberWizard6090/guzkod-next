@@ -10,6 +10,7 @@ import { Button } from 'shared/ui/button';
 import './ReviewForm.scss';
 import { DatePicker } from 'shared/ui/day-picker';
 import AlignWrapper from 'shared/ui/align-wrapper';
+import { useAddNotification } from 'features/notifications';
 
 type Props = {};
 
@@ -27,46 +28,48 @@ type FieldType = {
   allow_publication: boolean; // Разрешение на публикацию (checkbox)
 };
 
+const initialFormData: FieldType = {
+  date_of_visit: '',
+  department: '',
+  doctor_name: '',
+  rating: 0,
+  positive_feedback: '',
+  negative_feedback: '',
+  is_anonymous: false,
+  user_name: '',
+  contact_info: '',
+  consent: false,
+  allow_publication: true,
+};
+
 export const ReviewForm = (props: Props) => {
-  const [formData, setFormData] = useState<FieldType>({
-    date_of_visit: '',
-    department: '',
-    doctor_name: '',
-    rating: 0,
-    positive_feedback: '',
-    negative_feedback: '',
-    is_anonymous: true,
-    user_name: '',
-    contact_info: '',
-    consent: false,
-    allow_publication: true,
-  });
+  const addNotification = useAddNotification();
+  const [formData, setFormData] = useState<FieldType>(initialFormData);
 
   const updateField = <K extends keyof FieldType>(field: K, value: FieldType[K]) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleReset = () => {
-    setFormData({
-      date_of_visit: '',
-      department: '',
-      doctor_name: '',
-      rating: 0,
-      positive_feedback: '',
-      negative_feedback: '',
-      is_anonymous: true,
-      user_name: '',
-      contact_info: '',
-      consent: false,
-      allow_publication: false,
-    });
+    setFormData(initialFormData);
   };
 
   const handleSubmit = () => {
     if (!formData.consent) return;
-
-    console.log('Отправляем данные:', formData);
-    handleReset();
+    fetch('http://localhost:4000/api/reviews', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((r) => r.json())
+      .then(() => {
+        addNotification({ message: 'Ваш отзыв успешно отправлен', type: 'success' });
+        handleReset();
+      })
+      .catch((err) => {
+        console.error('Ошибка при отправке:', err);
+        addNotification({ message: 'Ошибка при отправке отзыва', type: 'error' });
+      });
   };
 
   return (
