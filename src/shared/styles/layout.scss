@@ -19,7 +19,7 @@
   }
   &__sidebar {
     width: 100%;
-    height: calc(100vh - var(--header-height));
+    min-height: calc(100vh - var(--header-height));
     grid-area: sidebar;
     display: flex;
     flex-direction: column;

@@ -19,6 +19,9 @@ import 'shared/styles/index.scss';
 import 'shared/styles/pages/error.scss';
 import { GosuslugiWidget } from 'widgets/gosuslugi-widget';
 import { MedicalReviewWidget } from 'widgets/medical-review-widget';
+import { ZabaikalmedstrakhWidget } from 'widgets/zabaikalmedstrakh-widget';
+import { NationalProjectsWidget } from 'widgets/national-projects-widget';
+import { TakzdorovoWidget } from 'widgets/takzdorovo-widget';
 
 export const metadata = {
   title: SITE_NAME,
@@ -69,6 +72,9 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             <aside className='layout__sidebar'>
               <GosuslugiWidget />
               <MedicalReviewWidget />
+              <TakzdorovoWidget/>
+              <NationalProjectsWidget />
+              <ZabaikalmedstrakhWidget/>
             </aside>
             <Footer />
           </div>
