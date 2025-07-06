@@ -1,7 +1,6 @@
-import { SITE_URL } from 'shared/consts/site.constants';
-import { fetchApi } from './api';
+import { fetchApi } from "./api";
 
-export const getPersonnel = async (page = 1, limit = 10) => {
+export const getReviews = async (page = 1, limit = 10) => {
   const result = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     data: null as any[] | null,
@@ -10,7 +9,7 @@ export const getPersonnel = async (page = 1, limit = 10) => {
   };
 
   try {
-    const response = await fetchApi(`/api/employee?page=${page}&limit=${limit}`);
+    const response = await fetchApi(`/api/reviews?page=${page}&limit=${limit}`);
     result.data = response?.docs ?? [];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
@@ -20,8 +19,4 @@ export const getPersonnel = async (page = 1, limit = 10) => {
   }
 
   return result;
-};
-
-export const getEmployeeById = async (employeeID: string) => {
-  return fetchApi(SITE_URL + `api/employee/${employeeID}?locale=undefined&draft=false&depth=1`);
 };
