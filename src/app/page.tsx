@@ -7,7 +7,6 @@ import { Page } from 'shared/ui/page';
 import { getHomePage } from 'shared/api/home';
 import 'shared/styles/pages/home-page.scss';
 
-
 type TextBlock = {
   blockType: 'text';
   text: string;

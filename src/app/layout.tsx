@@ -69,12 +69,12 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             <Navigation />
 
             <main className="layout__content">{children}</main>
-            <aside className='layout__sidebar'>
+            <aside className="layout__sidebar">
               <GosuslugiWidget />
               <MedicalReviewWidget />
-              <TakzdorovoWidget/>
+              <TakzdorovoWidget />
               <NationalProjectsWidget />
-              <ZabaikalmedstrakhWidget/>
+              <ZabaikalmedstrakhWidget />
             </aside>
             <Footer />
           </div>

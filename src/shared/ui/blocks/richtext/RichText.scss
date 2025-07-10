@@ -132,18 +132,13 @@
       text-decoration: underline;
     }
   }
-
-
 }
 
 .link {
-
-
   border-radius: var(--radius-sm);
   padding: 0 var(--spacing-xs);
   margin-right: var(--spacing-xs);
   outline: none;
-
 
   &:hover,
   &:focus-visible {

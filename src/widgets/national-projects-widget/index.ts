@@ -1,1 +1,1 @@
-export {NationalProjectsWidget} from './ui/NationalProjectsWidget';
+export { NationalProjectsWidget } from './ui/NationalProjectsWidget';

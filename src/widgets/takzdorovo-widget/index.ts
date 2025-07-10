@@ -1,1 +1,1 @@
-export {TakzdorovoWidget} from './ui/TakzdorovoWidget'
+export { TakzdorovoWidget } from './ui/TakzdorovoWidget';

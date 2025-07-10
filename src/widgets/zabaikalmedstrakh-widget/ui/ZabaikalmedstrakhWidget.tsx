@@ -10,4 +10,4 @@ export const ZabaikalmedstrakhWidget = (props: Props) => {
       <img src={Image.src} alt="Изображение Забайкалмедстрах" />
     </Block>
   );
-}
+};

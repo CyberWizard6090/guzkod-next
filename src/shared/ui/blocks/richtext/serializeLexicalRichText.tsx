@@ -44,7 +44,11 @@ export default function serializeLexicalRichText({ children, parentNode = {} }: 
         if (!node) return null;
 
         if (node.type === 'text') {
-          let text = node.text ? <span>{node.text}</span> : <span className="opacity-0">&nbsp;</span>;
+          let text = node.text ? (
+            <span>{node.text}</span>
+          ) : (
+            <span className="opacity-0">&nbsp;</span>
+          );
 
           if (node.format & IS_BOLD) {
             text = <strong>{text}</strong>;
