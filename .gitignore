@@ -2,3 +2,5 @@
 /src/widgets/gosuslugi
 /build
 /.next
+.env.production
+.env.development
