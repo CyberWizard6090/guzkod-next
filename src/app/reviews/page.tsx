@@ -27,12 +27,20 @@ export default function ReviewsPage() {
 
     if (loadError) {
       setError(loadError);
+      setHasMore(false);
       setLoading(false);
       return;
     }
 
-    if (!newData) {
+    if (!newData || !Array.isArray(newData)) {
       setError(new Error('No data received'));
+      setHasMore(false);
+      setLoading(false);
+      return;
+    }
+
+    if (newData.length === 0) {
+      setHasMore(false);
       setLoading(false);
       return;
     }
@@ -56,11 +64,9 @@ export default function ReviewsPage() {
 
   useEffect(() => {
     const onScroll = () => {
-      if (
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 200 &&
-        !loading &&
-        hasMore
-      ) {
+      if (!hasMore || loading) return;
+
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
         setPage((prev) => prev + 1);
       }
     };
@@ -74,16 +80,7 @@ export default function ReviewsPage() {
     loadPage(page);
   }, [page, loadPage]);
 
-  if (loading && data.length === 0) {
-    return (
-      <>
-        <h2>Отзывы</h2>
-        {[...Array(8)].map((_, i) => (
-          <ReviewSkeleton key={i} />
-        ))}
-      </>
-    );
-  }
+
 
   return (
     <Page>
@@ -97,18 +94,21 @@ export default function ReviewsPage() {
         </AlignWrapper>
       </Block>
 
-      {data.length === 0 && !loading && (
+      {data.length === 0 && !loading ? (
         <Block>
           <EmptyPageStub
             title="Мы ценим ваше мнение"
             description="На этой странице пока нет отзывов, но мы будем рады, если вы станете первым, кто поделится своим опытом получения медицинской помощи в нашем учреждении."
           />
         </Block>
+      ) : (
+        <h2>Отзывы</h2>
       )}
-      <h2>Отзывы</h2>
+
       {data.map((review) => (
         <ReviewCard key={review.id} {...review} />
       ))}
+
       {loading && [...Array(3)].map((_, i) => <ReviewSkeleton key={`skeleton-${i}`} />)}
     </Page>
   );
