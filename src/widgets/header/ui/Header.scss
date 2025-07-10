@@ -11,6 +11,13 @@
 
   &__logo {
     user-select: none;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-m);
+    svg{
+      width: 100px;
+      height: 48px;
+    }
     &-wrap {
       width: 100%;
       display: flex;
