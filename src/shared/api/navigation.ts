@@ -1,6 +1,5 @@
-import { SITE_URL } from 'shared/consts/site.constants';
-import { fetchApi } from './api';
+import { API_BASE, fetchApi } from './api';
 
 export const getNavigation = () => {
-  return fetchApi(SITE_URL + 'api/globals/home-page');
+  return fetchApi(`${API_BASE}/api/globals/home-page`);
 };

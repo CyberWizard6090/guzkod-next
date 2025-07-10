@@ -10,3 +10,6 @@ export const fetchApi = async (url: string, options?: RequestInit) => {
     throw error;
   }
 };
+
+
+export const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
