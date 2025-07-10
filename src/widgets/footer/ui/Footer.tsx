@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { FooterSkeleton } from './FooterSkeleton';
 import { getFooterData } from 'shared/api/footer';
-import './footer.scss';
+import './Footer.scss';
 
 type Link = {
   text: string;

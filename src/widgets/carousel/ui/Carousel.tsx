@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import './carousel.scss';
+import './Carousel.scss';
 
 import Left from 'shared/assets/svg/bootstrap-icons-1.11.2/arrow-left-short.svg';
 import Right from 'shared/assets/svg/bootstrap-icons-1.11.2/arrow-right-short.svg';
