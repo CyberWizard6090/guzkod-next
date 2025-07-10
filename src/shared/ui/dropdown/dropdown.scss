@@ -102,10 +102,11 @@
   @media (max-width: 768px) {
     &__menu {
       position: fixed;
-      top: var(--spacing-s);
-      left: var(--spacing-s);
-      right: var(--spacing-s);
-      bottom: var(--spacing-s);
+border-radius: var(--radius-md);
+      height: 90vh;
+      left: 0;
+      bottom: 0;
+      right: 0;
       max-height: none;
       margin-top: 0;
       z-index: 1001;

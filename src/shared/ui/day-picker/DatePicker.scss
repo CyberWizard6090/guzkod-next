@@ -176,10 +176,11 @@
 
 @media (max-width: 768px) {
   .calendar {
+    width: 100vw;
     position: fixed;
     top: auto;
-    left: var(--spacing-s);
-    right: var(--spacing-s);
-    bottom: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 }
