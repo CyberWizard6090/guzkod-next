@@ -80,8 +80,6 @@ export default function ReviewsPage() {
     loadPage(page);
   }, [page, loadPage]);
 
-
-
   return (
     <Page>
       <Block>

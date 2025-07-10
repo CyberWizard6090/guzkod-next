@@ -40,9 +40,9 @@
   }
 }
 
-.review-card__text-desc{
-    font-weight: 400;
-    margin-left: var(--spacing-m);
+.review-card__text-desc {
+  font-weight: 400;
+  margin-left: var(--spacing-m);
 }
 
 .review-card__user-row {
@@ -51,10 +51,10 @@
   gap: var(--spacing-xs);
 }
 
-.review-card__star-rating{
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
+.review-card__star-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
 }
 .review-card__author {
   font-size: var(--font-size-xl);

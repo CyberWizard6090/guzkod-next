@@ -16,7 +16,7 @@ export const ExpandableBlock = ({ children, size = 'md', className }: Props) => 
   const [canExpand, setCanExpand] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const toggle = () => setExpanded(prev => !prev);
+  const toggle = () => setExpanded((prev) => !prev);
 
   useEffect(() => {
     if (contentRef.current) {
@@ -29,11 +29,9 @@ export const ExpandableBlock = ({ children, size = 'md', className }: Props) => 
     <div className={clsx('expandable-block', className)}>
       <div
         ref={contentRef}
-        className={clsx(
-          'expandable-block__content',
-          `expandable-block__content--${size}`,
-          { 'expandable-block__content--collapsed': !expanded }
-        )}
+        className={clsx('expandable-block__content', `expandable-block__content--${size}`, {
+          'expandable-block__content--collapsed': !expanded,
+        })}
       >
         {children}
         {!expanded && <div className="expandable-block__fade" />}

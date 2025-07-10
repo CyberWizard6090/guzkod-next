@@ -1,1 +1,1 @@
-export {ExpandableBlock} from './ui/ExpandableBlock';
+export { ExpandableBlock } from './ui/ExpandableBlock';

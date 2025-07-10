@@ -1,4 +1,4 @@
-import { fetchApi } from "./api";
+import { fetchApi } from './api';
 
 export const getReviews = async (page = 1, limit = 10) => {
   const result = {
