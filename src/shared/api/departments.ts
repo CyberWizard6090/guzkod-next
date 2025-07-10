@@ -1,4 +1,4 @@
-import { fetchApi } from './api';
+import { API_BASE, fetchApi } from './api';
 
 export const getDepartments = async () => {
   const result = {
@@ -23,6 +23,6 @@ export const getDepartments = async () => {
 
 export const getDepartmentById = async (departmentID: string) => {
   return fetchApi(
-    `http://localhost:4000/api/departments/${departmentID}?locale=undefined&draft=false&depth=2`,
+    `${API_BASE}/api/departments/${departmentID}?locale=undefined&draft=false&depth=2`,
   );
 };

@@ -1,4 +1,4 @@
-import { fetchApi } from './api';
+import { API_BASE, fetchApi } from './api';
 
 export const getVacancies = async (page = 1, limit = 10) => {
   const result = {
@@ -23,6 +23,6 @@ export const getVacancies = async (page = 1, limit = 10) => {
 };
 export const getVacanciesById = async (vacanciesId: string) => {
   return fetchApi(
-    `http://localhost:4000/api/vacancies/${vacanciesId}?locale=undefined&draft=false&depth=1`,
+    `${API_BASE}/api/vacancies/${vacanciesId}?locale=undefined&draft=false&depth=1`,
   );
 };

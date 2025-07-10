@@ -1,4 +1,4 @@
-import { fetchApi } from './api';
+import { API_BASE, fetchApi } from './api';
 
 export const getPersonnel = async (page = 1, limit = 10) => {
   const result = {
@@ -23,6 +23,6 @@ export const getPersonnel = async (page = 1, limit = 10) => {
 
 export const getEmployeeById = async (employeeID: string) => {
   return fetchApi(
-    `http://localhost:4000/api/employee/${employeeID}?locale=undefined&draft=false&depth=1`,
+    `${API_BASE}/api/employee/${employeeID}?locale=undefined&draft=false&depth=1`,
   );
 };

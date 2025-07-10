@@ -2,10 +2,10 @@
   "name": "frontend",
   "version": "4.0.0",
   "private": true,
-  "proxy": "http://localhost:4000/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
     "clsx": "^2.1.1",
+    "dotenv": "^17.2.0",
     "escape-html": "^1.0.3",
     "install": "^0.13.0",
     "npm": "^10.8.2",

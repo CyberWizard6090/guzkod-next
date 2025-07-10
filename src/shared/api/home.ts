@@ -1,5 +1,5 @@
-import { fetchApi } from './api';
+import { API_BASE, fetchApi } from './api';
 
 export const getHomePage = () => {
-  return fetchApi('http://localhost:4000/api/globals/home-page');
+  return fetchApi(`${API_BASE}/api/globals/home-page`);
 };
