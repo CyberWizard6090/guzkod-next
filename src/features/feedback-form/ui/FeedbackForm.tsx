@@ -117,7 +117,7 @@ export const FormFeedback = () => {
           label="Выберите учреждение"
           options={Organization}
           value={formData.organization}
-          defaultValue={'ntc'}
+          defaultValue={'Забайкальский краевой онкологический диспансер'}
           onChange={(val: string) => updateField('organization', val)}
         />
 
