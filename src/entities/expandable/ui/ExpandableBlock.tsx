@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, ReactNode, useRef, useEffect, useState as ReactState } from 'react';
+import { useState, ReactNode, useRef, useEffect } from 'react';
 import './ExpandableBlock.scss';
 import clsx from 'clsx';
 import { Button } from 'shared/ui/button';

@@ -3,9 +3,8 @@ import Image from 'shared/assets/image/takzdorovo-widget-img.png';
 import AlignWrapper from 'shared/ui/align-wrapper';
 import { Block } from 'shared/ui/block';
 import { Button } from 'shared/ui/button';
-type Props = {};
 
-export const TakzdorovoWidget = (props: Props) => {
+export const TakzdorovoWidget = () => {
   return (
     <Block>
       <img src={Image.src} alt="Так здорово" />

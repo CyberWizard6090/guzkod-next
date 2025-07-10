@@ -6,11 +6,12 @@ import { Button } from 'shared/ui/button';
 import { Dropdown } from 'shared/ui/dropdown';
 import { useAddNotification } from 'features/notifications';
 import { RadioGroup } from 'shared/ui/radio-group';
-import { Input, InputPhone, Textarea } from 'shared/ui/input';
+
 import { Block } from 'shared/ui/block';
 import { Checkbox } from 'shared/ui/checkbox';
 import './FeedbackForm.scss';
 import { SITE_URL } from 'shared/consts/site.constants';
+import { Input, InputPhone, Textarea } from 'shared/ui/input';
 
 type FieldType = {
   fio: string;
@@ -89,14 +90,14 @@ export const FormFeedback = () => {
           label="Ваше Фамилия Имя Отчество (при наличии)"
           placeholder="Фамилия Имя Отчество"
           value={formData.fio}
-          onChange={(val) => updateField('fio', val)}
+          onChange={(val: string) => updateField('fio', val)}
           name={''}
         />
 
         <InputPhone
           label="Номер телефона"
           value={formData.phone}
-          onChange={(val) => updateField('phone', val)}
+          onChange={(val: string) => updateField('phone', val)}
           name={''}
         />
 
@@ -132,7 +133,7 @@ export const FormFeedback = () => {
           label="Выберите врача"
           placeholder="Фамилия Имя Отчество"
           value={formData.doctor}
-          onChange={(val) => updateField('doctor', val)}
+          onChange={(val: string) => updateField('doctor', val)}
           name={''}
         />
 
