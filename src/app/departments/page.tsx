@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { getDepartments } from 'shared/api/departments';
-import { DepartmentCard } from 'entities/department';
+import { DepartmentCard } from 'entities/department-card';
 import { Loader } from 'shared/ui/loader';
 
 export default function DepartmentsPage() {

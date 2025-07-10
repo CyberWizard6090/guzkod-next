@@ -3,7 +3,6 @@
   top: var(--spacing-m);
   right: var(--spacing-m);
   z-index: 1000;
-
 }
 @media (min-width: 1200px) {
   .notification {
@@ -31,7 +30,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--border-color2);
+  border: 1px solid var(--border-tertiary);
   color: #fff;
 
   &__container {
@@ -46,7 +45,7 @@
   &__ring {
     padding: var(--spacing-s);
     border-radius: var(--radius-circle);
-    background-color: rgba(255, 255, 255, 0.28);
+
     display: flex;
     align-items: center;
     justify-content: center;

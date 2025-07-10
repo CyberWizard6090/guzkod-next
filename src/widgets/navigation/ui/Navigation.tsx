@@ -10,8 +10,13 @@ export const Navigation = async () => {
       blockType: 'navitem',
     },
     {
-      label: 'Обращение',
+      label: 'Форма обратной связи',
       link: '/feedback',
+      blockType: 'navitem',
+    },
+    {
+      label: 'Отзыв',
+      link: '/reviews',
       blockType: 'navitem',
     },
     {
@@ -20,7 +25,7 @@ export const Navigation = async () => {
       blockType: 'navitem',
     },
     {
-      label: 'Персонал и отделения',
+      label: 'Структура и персонал',
       link: '',
       blockType: 'navdropdown',
       list: [

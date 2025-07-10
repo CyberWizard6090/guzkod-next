@@ -1,30 +1,30 @@
-[data-theme="black-white"] {
-  /* 🔴 Основные цвета */
+[data-theme='black-white'] {
+  /*Основные цвета */
   --red: #ff0000;
   --dark-red: #ffffff;
 
-  /* 🔳 Кнопки */
+  /*Кнопки */
   --accent-color: #ffffff;
   --accent-color-hover: #e6e6e6;
   --button-text: #000000;
 
-  /* 🟪 Альтернативные кнопки */
+  /*Альтернативные кнопки */
   --btn-color-alt: #e5e5ec;
   --btn-color-alt-hover: #e2dede;
   --btn-text-alt: #000000;
 
-  /* ⚪ Фоны */
+  /*Фоны */
   --background-main: #000000;
   --background-alt: #000000;
   --panel-bg: #000000;
   --panel-item-bg: #ffffff;
   --block-bg: #000000;
 
-  /* ⚫ Текст */
+  /*Текст */
   --font-color-light: #ffffff;
   --font-color-gray: #ffffff;
 
-  /* 🔗 Ссылки */
+  /*Ссылки */
   --link-color: #ffffff;
   --link-bg: #111111;
   --link-border: transparent;
@@ -33,26 +33,26 @@
   --link-focus-shadow: rgba(255, 255, 255, 0.4);
   --link-info-color: #cccccc;
 
-  /* 🖊 Формы */
+  /*Формы */
   --color-form-input: #000000;
   --color-form-input-text: #ffffff;
   --form-text: #cccccc;
 
-  /* 🧱 Границы */
-  --border-color1: #000000;
-  --border-color2: #ffffff;
-  --border-color3: #ffffff;
+  /*Границы */
+  --border-secondary: #000000;
+  --border-tertiary: #ffffff;
+  --border-primary: #ffffff;
 
-  /* 🧩 Меню и списки */
+  /*Меню и списки */
   --menu-item-text: #ffffff;
   --list-item-text: #ffffff;
 
-  /* 🌓 Тени */
+  /*Тени */
   --shadow-color-1: rgba(255, 255, 255, 0.12);
   --shadow-color-2: rgba(255, 255, 255, 0.18);
   --shadow-color-3: rgba(255, 255, 255, 0.1);
 
-  /* ⬛ QR и Скелетон */
+  /*QR и Скелетон */
   --qr-color: #ffffff;
   --skeleton-base: #444444;
   --skeleton-highlight: #666666;

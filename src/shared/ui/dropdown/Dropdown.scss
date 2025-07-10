@@ -1,0 +1,118 @@
+.dropdown {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+
+  &__label {
+    font-size: var(--font-size-medium);
+    padding-left: var(--spacing-xs);
+  }
+
+  &__control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: var(--color-form-input);
+    font-size: var(--font-size-medium);
+    color: var(--color-form-input-text);
+    border: 1px solid var(--border-tertiary);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__arrow {
+    margin-left: 8px;
+    font-size: 12px;
+  }
+
+  &__menu {
+    margin-top: var(--spacing-m);
+    background-color: var(--color-form-input);
+    color: var(--color-form-input-text);
+    border: 1px solid var(--border-tertiary);
+    border-radius: var(--radius-md);
+    z-index: 10;
+    list-style: none;
+    padding: var(--spacing-m);
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: var(--radius-md);
+    overflow: hidden;
+  }
+
+  &__list {
+    flex: 1;
+    overflow: auto;
+  }
+
+  &__list &__option:not(:last-child) {
+    border-bottom: 1px solid var(--border-tertiary);
+  }
+
+  &__option {
+    padding: var(--spacing-m) var(--spacing-l);
+    margin-right: var(--spacing-m);
+    cursor: pointer;
+
+    &--selected {
+      border-left: 4px solid var(--accent-color); // синий индикатор слева
+      padding-left: calc(1rem - 4px); // немного компенсируем смещение
+    }
+  }
+
+  &__header {
+    position: static;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    border-bottom: 1px solid var(--border-tertiary);
+  }
+
+  &__close-button {
+    padding: 0 0 var(--spacing-m) 0;
+    border: none;
+    background: none;
+    color: var(--color-text);
+    display: flex;
+    gap: var(--spacing-m);
+    align-items: center;
+    font-size: var(--font-size-medium);
+
+    svg {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    position: relative;
+    &__menu {
+      position: absolute;
+      height: 400px;
+      top: 100%;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__menu {
+      position: fixed;
+      border-radius: var(--radius-md);
+      height: 90vh;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      max-height: none;
+      margin-top: 0;
+      z-index: 1001;
+      box-shadow:
+        0 60px 80px rgba(0, 0, 0, 0.6),
+        0 45px 26px rgba(0, 0, 0, 0.14);
+    }
+  }
+}

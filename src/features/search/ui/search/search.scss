@@ -1,22 +1,22 @@
-.nav-search{
+.nav-search {
   flex: auto;
-  &__btn{
+  &__btn {
     border: none;
     display: flex;
     background-color: var(--btn-color-alt);
-   
+
     color: var(--font-color-light);
-    gap: var( --spacing-xs);
-    kbd{
+    gap: var(--spacing-xs);
+    kbd {
       color: var(--form-text);
       font-size: var(--font-size-small);
     }
-    svg{
+    svg {
       fill: var(--form-text);
-width: 18px;
-height: 18px;
+      width: 18px;
+      height: 18px;
     }
-    span{
+    span {
       font-size: var(--font-size-small);
     }
   }

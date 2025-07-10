@@ -6,7 +6,6 @@ import { Block } from 'shared/ui/block';
 import { Page } from 'shared/ui/page';
 import { getHomePage } from 'shared/api/home';
 import 'shared/styles/pages/home-page.scss';
-import { GosuslugiWidget } from 'widgets/gosuslugi-widget';
 
 type TextBlock = {
   blockType: 'text';
@@ -72,7 +71,7 @@ const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
                     key={i}
                     className="shadow__style"
                     src={item.image.url}
-                    alt={item.altText || 'Изображение'}
+                    alt={item.altText ?? 'Изображение'}
                   />
                 );
               case 'banner-block':
@@ -117,7 +116,6 @@ export default async function HomePage() {
   return (
     <Page>
       <RenderBlocks blocks={data.blocks} />
-      <GosuslugiWidget />
       <NewsBlock />
     </Page>
   );

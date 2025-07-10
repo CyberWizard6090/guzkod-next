@@ -1,0 +1,1 @@
+export { TakzdorovoWidget } from './ui/TakzdorovoWidget';

@@ -97,6 +97,9 @@ export default function serializeLexicalRichText({ children, parentNode = {} }: 
             </Tag>
           );
         }
+        if (node.type === 'linebreak') {
+          return <br key={i} />;
+        }
 
         if (node.type === 'listitem' && node.checked) {
           return (

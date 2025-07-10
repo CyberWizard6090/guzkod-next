@@ -80,10 +80,14 @@ h6 {
   height: 100%;
 }
 .shadow__style {
-  border: 0.0625rem solid var(--border-color3);
+  border: 0.0625rem solid var(--border-primary);
   box-shadow:
     var(--shadow-color-1) 0px 1px 3px,
     var(--shadow-color-2) 0px 1px 2px;
+
+  box-shadow:
+    rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
 }
 
 *,
@@ -123,7 +127,7 @@ a {
 
 // /* для Chrome/Edge/Safari */
 .content-container {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   @media screen and (max-width: 1220px) {
     padding: 0 20px;

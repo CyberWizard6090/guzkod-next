@@ -1,24 +1,24 @@
 .employee-list {
-    display: grid;
-    gap: var(--spacing-m);
+  display: grid;
+  gap: var(--spacing-m);
 
-    /* Для мобильных устройств (до 600px) - 1 колонка */
-    @media screen and (max-width: 600px) {
-        grid-template-columns: 1fr;
-    }
+  /* Для мобильных устройств (до 600px) - 1 колонка */
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 
-    /* Для небольших планшетов (от 601px до 1024px) - 2 колонки */
-    @media screen and (min-width: 601px) and (max-width: 1024px) {
-        grid-template-columns: 1fr 1fr;
-    }
+  /* Для небольших планшетов (от 601px до 1024px) - 2 колонки */
+  @media screen and (min-width: 601px) and (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
-    /* Для ноутбуков и небольших экранов (от 1025px до 1440px) - 3 колонки */
-    @media screen and (min-width: 1025px) and (max-width: 1440px) {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
+  /* Для ноутбуков и небольших экранов (от 1025px до 1440px) - 3 колонки */
+  @media screen and (min-width: 1025px) and (max-width: 1440px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
-    /* Для больших экранов (от 1441px и выше) - 4 колонки */
-    @media screen and (min-width: 1441px) {
-        grid-template-columns:  1fr 1fr 1fr;
-    }
+  /* Для больших экранов (от 1441px и выше) - 4 колонки */
+  @media screen and (min-width: 1441px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

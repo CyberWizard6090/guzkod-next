@@ -1,34 +1,33 @@
 .employee-page {
-   
-    &__block{
-        @media screen and (max-width: 768px) {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-          }
-        
-          /* Для планшетов */
-          @media screen and (min-width: 768px) and (max-width: 1024px) {
-            display: flex;
-            justify-content: center;
-          }
-        
-          /* Для ПК */
-          @media screen and (min-width: 1200px) {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            align-items: start;
-            // width: 800px;
-          }
-          gap: var(--spacing-m);
+  &__block {
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
     }
-    &__info{
-        justify-content: start;
-        display: flex;
-        flex-direction: column;
-        row-gap: var(--spacing-m);
+
+    /* Для планшетов */
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      display: flex;
+      justify-content: center;
     }
-&__header {
+
+    /* Для ПК */
+    @media screen and (min-width: 1200px) {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      align-items: start;
+      // width: 800px;
+    }
+    gap: var(--spacing-m);
+  }
+  &__info {
+    justify-content: start;
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacing-m);
+  }
+  &__header {
     margin-bottom: 10px;
   }
   &__name {
@@ -36,14 +35,12 @@
     font-weight: bold;
   }
   &__photo {
-   
-    img{
-        border-radius: var(--radius-sm);
+    img {
+      border-radius: var(--radius-sm);
     }
   }
   &__position {
     font-size: var(-font-size-large);
-  
   }
 
   &__department-link:hover {
@@ -51,8 +48,5 @@
   }
   &__education {
     font-style: italic;
-   
   }
-  
-  }
-  
+}
