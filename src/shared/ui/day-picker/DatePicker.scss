@@ -39,10 +39,10 @@
     justify-content: center;
     border-radius: var(--radius-md);
     background: var(--background-alt);
+    color: var(--font-color);
     transition: background 0.2s ease;
 
-    &:hover,
-    &:focus {
+    &:hover {
       background: var(--accent-color-hover);
       color: var(--button-text);
     }

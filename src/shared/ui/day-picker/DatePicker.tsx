@@ -76,7 +76,12 @@ export const DatePicker = ({
   const handleDayClick = (day: number) => {
     const date = new Date(selectedDate);
     date.setDate(day);
-    const iso = date.toISOString().split('T')[0];
+    const iso =
+      date.getFullYear().toString().padStart(4, '0') +
+      '-' +
+      (date.getMonth() + 1).toString().padStart(2, '0') +
+      '-' +
+      date.getDate().toString().padStart(2, '0');
     onChange(iso);
     setIsOpen(false);
     setMode('day');
@@ -120,7 +125,9 @@ export const DatePicker = ({
     }
     for (let d = 1; d <= daysInMonth; d++) {
       const date = new Date(year, month, d);
-      const iso = date.toISOString().split('T')[0];
+      const iso =  date.getFullYear().toString().padStart(4, '0') + '-' +
+             (date.getMonth() + 1).toString().padStart(2, '0') + '-' +
+             date.getDate().toString().padStart(2, '0');
       const selected = iso === value;
       grid.push(
         <div
