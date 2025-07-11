@@ -11,6 +11,7 @@ import { Block } from 'shared/ui/block';
 import { Checkbox } from 'shared/ui/checkbox';
 import './FeedbackForm.scss';
 import { API_BASE } from 'shared/api/api';
+import { Input, InputPhone, Textarea } from 'shared/ui/input';
 
 type FieldType = {
   fio: string;
