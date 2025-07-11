@@ -11,7 +11,7 @@ import { DatePicker } from 'shared/ui/day-picker';
 import AlignWrapper from 'shared/ui/align-wrapper';
 import { useAddNotification } from 'features/notifications';
 import './ReviewForm.scss';
-
+import { API_BASE } from 'shared/api/api';
 
 type FieldType = {
   date_of_visit: string; // Дата посещения
@@ -55,7 +55,7 @@ export const ReviewForm = () => {
 
   const handleSubmit = () => {
     if (!formData.consent) return;
-    fetch('http://localhost:4000/api/reviews', {
+    fetch(`${API_BASE}/api/reviews`, {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: { 'Content-Type': 'application/json' },
