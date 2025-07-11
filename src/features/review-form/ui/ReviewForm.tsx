@@ -7,12 +7,11 @@ import { Department } from '../const/Department';
 import { Dropdown } from 'shared/ui/dropdown';
 import { Checkbox } from 'shared/ui/checkbox';
 import { Button } from 'shared/ui/button';
-import './ReviewForm.scss';
 import { DatePicker } from 'shared/ui/day-picker';
 import AlignWrapper from 'shared/ui/align-wrapper';
 import { useAddNotification } from 'features/notifications';
-
-type Props = {};
+import './ReviewForm.scss';
+import { API_BASE } from 'shared/api/api';
 
 type FieldType = {
   date_of_visit: string; // Дата посещения
@@ -42,7 +41,7 @@ const initialFormData: FieldType = {
   allow_publication: true,
 };
 
-export const ReviewForm = (props: Props) => {
+export const ReviewForm = () => {
   const addNotification = useAddNotification();
   const [formData, setFormData] = useState<FieldType>(initialFormData);
 
@@ -56,7 +55,7 @@ export const ReviewForm = (props: Props) => {
 
   const handleSubmit = () => {
     if (!formData.consent) return;
-    fetch('http://localhost:4000/api/reviews', {
+    fetch(`${API_BASE}/api/reviews`, {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: { 'Content-Type': 'application/json' },
@@ -143,7 +142,7 @@ export const ReviewForm = (props: Props) => {
       <InputPhone
         label="Контакт (телефон или email, опционально)"
         value={formData.contact_info}
-        onChange={(val) => updateField('contact_info', val)}
+        onChange={(val: string) => updateField('contact_info', val)}
         name="contact_info"
       />
 

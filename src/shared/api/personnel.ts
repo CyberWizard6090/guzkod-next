@@ -22,7 +22,5 @@ export const getPersonnel = async (page = 1, limit = 10) => {
 };
 
 export const getEmployeeById = async (employeeID: string) => {
-  return fetchApi(
-    `${API_BASE}/api/employee/${employeeID}?locale=undefined&draft=false&depth=1`,
-  );
+  return fetchApi(`${API_BASE}/api/employee/${employeeID}?locale=undefined&draft=false&depth=1`);
 };

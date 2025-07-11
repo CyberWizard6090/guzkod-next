@@ -1,4 +1,5 @@
-import './footer.scss';
+'use client';
+import './Footer.scss';
 import clsx from 'clsx';
 
 export const FooterSkeleton = () => {

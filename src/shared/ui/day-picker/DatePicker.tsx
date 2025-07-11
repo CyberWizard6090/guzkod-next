@@ -57,7 +57,7 @@ export const DatePicker = ({
   const parseDate = (str: string): Date | null => {
     const match = str.match(/^(\d{4})-(\d{2})-(\d{2})$/);
     if (!match) return null;
-    const [_, y, m, d] = match;
+    const [, y, m, d] = match;
     const date = new Date(+y, +m - 1, +d);
     return isNaN(date.getTime()) ? null : date;
   };
