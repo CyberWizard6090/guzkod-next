@@ -21,7 +21,8 @@
     "@typescript-eslint/no-explicit-any": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "@next/next/no-img-element": "off"
   },
   "env": {
     "browser": true,

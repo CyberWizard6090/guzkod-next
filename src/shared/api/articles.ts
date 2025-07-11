@@ -9,7 +9,5 @@ export const getAllArticles = async () => {
 };
 
 export const getArticleById = async (pageId: string) => {
-  return fetchApi(
-    `${API_BASE}/api/article/${pageId}?locale=undefined&draft=false&depth=1`,
-  );
+  return fetchApi(`${API_BASE}/api/article/${pageId}?locale=undefined&draft=false&depth=1`);
 };

@@ -10,6 +10,7 @@ import { Input, InputPhone, Textarea } from 'shared/ui/input';
 import { Block } from 'shared/ui/block';
 import { Checkbox } from 'shared/ui/checkbox';
 import './FeedbackForm.scss';
+import { API_BASE } from 'shared/api/api';
 
 type FieldType = {
   fio: string;
@@ -41,7 +42,7 @@ export const FormFeedback = () => {
   };
 
   const Push = () => {
-    fetch('http://localhost:4000/api/FeedbackMessages', {
+    fetch(`${API_BASE}/api/FeedbackMessages`, {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: { 'Content-Type': 'application/json' },

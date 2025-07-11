@@ -70,6 +70,7 @@ export default function ReviewsPage() {
         setPage((prev) => prev + 1);
       }
     };
+    console.error('error', error);
 
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);

@@ -22,7 +22,5 @@ export const getVacancies = async (page = 1, limit = 10) => {
   return result;
 };
 export const getVacanciesById = async (vacanciesId: string) => {
-  return fetchApi(
-    `${API_BASE}/api/vacancies/${vacanciesId}?locale=undefined&draft=false&depth=1`,
-  );
+  return fetchApi(`${API_BASE}/api/vacancies/${vacanciesId}?locale=undefined&draft=false&depth=1`);
 };

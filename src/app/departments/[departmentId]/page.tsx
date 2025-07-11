@@ -1,7 +1,6 @@
 import { Block } from 'shared/ui/block';
 import { SimpleRichText } from 'shared/ui/blocks';
 import { EmployeeList } from 'widgets/employee-list';
-// import './departmentPage.scss';
 
 import { getDepartmentById } from 'shared/api/departments';
 import { Page } from 'shared/ui/page';

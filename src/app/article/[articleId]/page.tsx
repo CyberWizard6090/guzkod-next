@@ -9,11 +9,7 @@ import AlignWrapper from 'shared/ui/align-wrapper';
 import { cleanMetaDescription } from 'shared/lib/seo/cleanMetaDescription';
 import { formatDate } from 'shared/lib/format';
 
-type Props = {
-  params: { articleId: string };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: any): Promise<Metadata> {
   const data = await getArticleById(params.articleId);
   const title = `Вакансия: ${data.title ?? data.namepage}`;
   const description = cleanMetaDescription({ text: data.text });
@@ -28,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function DefaultPage({ params }: Props) {
+export default async function DefaultPage({ params }: any) {
   const data = await getArticleById(params.articleId);
 
   return (
