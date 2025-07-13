@@ -9,7 +9,6 @@
     "escape-html": "^1.0.3",
     "install": "^0.13.0",
     "npm": "^10.8.2",
-    "react-collapse": "^5.1.1",
     "react-redux": "^9.2.0",
     "sass": "^1.77.8",
     "web-vitals": "^2.1.4"

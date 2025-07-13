@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 
-import { Navigation } from 'widgets/navigation';
 import { Header } from 'widgets/header';
 import { Footer } from 'widgets/footer';
 
@@ -17,6 +16,7 @@ import { inter } from 'shared/fonts';
 import { cookies } from 'next/headers';
 import 'shared/styles/index.scss';
 import 'shared/styles/pages/error.scss';
+import { Navigation } from 'features/navigation';
 
 export const metadata = {
   title: SITE_NAME,
