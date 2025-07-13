@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 export const FooterSkeleton = () => {
   return (
-    <footer className={clsx('footer', 'shadow__style')}>
+    <footer className={clsx('footer', 'shadow')}>
       <div className="footer-container">
         {[1, 2, 3].map((col) => (
           <div key={col} className="footer-column">

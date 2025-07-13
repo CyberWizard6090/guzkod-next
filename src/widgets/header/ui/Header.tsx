@@ -6,7 +6,7 @@ import './Header.scss';
 
 export const Header = () => {
   return (
-    <header className="header shadow__style">
+    <header className="header shadow">
       <div className="content-container">
         <div className="header__logo-wrap">
           <div className="header__logo">

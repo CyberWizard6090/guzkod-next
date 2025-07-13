@@ -1,0 +1,22 @@
+// _overrides.scss
+
+/* ::selection */
+*::selection,
+*::-moz-selection {
+  background: var(--accent-color-hover);
+  color: var(--button-text);
+}
+
+/* Scrollbars */
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--accent-color-hover);
+  border-radius: 5px;
+}
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track-piece {
+  background: var(--background-primary);
+}

@@ -14,11 +14,11 @@
   --btn-text-alt: #ffffff;
 
   /*Цвета фонов */
-  --background-main: #111113;
-  --background-alt: #18181a;
-  --panel-bg: #151516;
-  --panel-item-bg: #202022;
-  --block-bg: #1c1c1e;
+  --background-primary: #111113;
+  --background-secondary: #18181a;
+  ---background-panel: #151516;
+  --background-panel-item: #202022;
+  --background-block: #1c1c1e;
 
   /*Текстовые цвета */
   --font-color-light: #e6e6eb;
@@ -46,8 +46,8 @@
   --color-form-input-text: #ffffff;
 
   /* Тени */
-  --shadow-color-1: rgba(255, 165, 0, 0.15); /* мягкий оранжевый */
-  --shadow-color-2: rgba(255, 64, 64, 0.12); /* красноватый для акцентов */
+  --shadow-primary: rgba(255, 165, 0, 0.15); /* мягкий оранжевый */
+  --shadow-secondary: rgba(255, 64, 64, 0.12); /* красноватый для акцентов */
 
   /* QR и Skeleton */
   --qr-color: #ffffff;

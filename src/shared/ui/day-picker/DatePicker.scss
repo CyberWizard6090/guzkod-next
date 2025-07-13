@@ -1,6 +1,6 @@
 .calendar {
   position: absolute;
-  background: var(--block-bg);
+  background: var(--background-block);
   border: 1px solid var(--border-tertiary);
   border-radius: var(--radius-md);
   padding: var(--spacing-s);
@@ -38,7 +38,7 @@
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-md);
-    background: var(--background-alt);
+    background: var(--background-secondary);
     color: var(--font-color);
     transition: background 0.2s ease;
 
@@ -79,7 +79,7 @@
     justify-content: center;
     min-height: 45px;
     min-width: 45px;
-    background: var(--background-alt);
+    background: var(--background-secondary);
     transition: background 0.2s ease;
 
     &:hover {
@@ -125,7 +125,7 @@
   justify-content: center;
   min-height: 45px;
   min-width: 45px;
-  background: var(--background-alt);
+  background: var(--background-secondary);
   transition:
     background-color 0.2s ease,
     color 0.2s ease;

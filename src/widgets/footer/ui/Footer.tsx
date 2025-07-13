@@ -38,7 +38,7 @@ export const Footer = () => {
   if (error || pageData.length === 0) return;
 
   return (
-    <footer className="footer shadow__style">
+    <footer className="footer shadow">
       <div className="footer-container">
         {pageData.map((column) => (
           <div key={column.id} className="footer-column">

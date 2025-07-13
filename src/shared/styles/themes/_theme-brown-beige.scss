@@ -23,16 +23,16 @@
   --list-item-text: #15088b;
 
   /*Фоны */
-  --background-main: #c48c56;
-  --background-alt: #f0e6d9;
-  --panel-bg: #f0f0f0;
-  --panel-item-bg: #ffffff;
-  --block-bg: #ffffff;
+  --background-primary: #c48c56;
+  --background-secondary: #f0e6d9;
+  ---background-panel: #f0f0f0;
+  --background-panel-item: #ffffff;
+  --background-block: #ffffff;
 
   /*Тени */
-  --shadow-color-1: rgba(60, 64, 67, 0.3);
-  --shadow-color-2: rgba(9, 36, 51, 0.12);
-  --shadow-color-3: rgba(0, 0, 0, 0.08); /* чуть мягче */
+  --shadow-primary: rgba(60, 64, 67, 0.3);
+  --shadow-secondary: rgba(9, 36, 51, 0.12);
+  --shadow-tertiary: rgba(0, 0, 0, 0.08); /* чуть мягче */
 
   /*Тексты */
   --font-color-light: #000000;

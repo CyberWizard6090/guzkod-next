@@ -89,7 +89,7 @@ export const Dropdown = ({ options, label, value, defaultValue, onChange }: Drop
       </button>
       {isOpen && (
         <div
-          className={`dropdown__menu ${isMobile ? 'dropdown__menu--mobile' : ''}  shadow__style`}
+          className={`dropdown__menu ${isMobile ? 'dropdown__menu--mobile' : ''}  shadow`}
         >
           <div className="dropdown__header">
             <button className="dropdown__close-button" onClick={toggleDropdown}>
