@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 export const CardReadSkeleton = () => {
   return (
-    <div className={clsx('CardRead', 'CardRead--skeleton', 'shadow__style')}>
+    <div className={clsx('CardRead', 'CardRead--skeleton', 'shadow')}>
       <div className="CardRead__img-wrap CardRead__img-wrap--skeleton" />
       <div className="CardRead__content CardRead__content--skeleton">
         <div className="CardRead__top-bar CardRead__top-bar--skeleton">

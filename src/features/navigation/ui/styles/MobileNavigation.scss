@@ -29,7 +29,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: var(--background-alt);
+    background-color: var(--background-secondary);
     color: var(--font-color-light);
     border-top: 1px solid var(--border-tertiary);
     z-index: 100;
@@ -81,7 +81,7 @@
     right: 0;
     width: 75%;
     height: 100%;
-    background-color: var(--background-main);
+    background-color: var(--background-primary);
   }
 
   &__content {

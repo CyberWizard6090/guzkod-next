@@ -14,7 +14,7 @@ export const CardRead = ({ article }: CardReadProps) => {
   } as const;
   return (
     <Link href={`/article/${article.id}`} className="CardRead__link">
-      <div className="CardRead shadow__style">
+      <div className="CardRead shadow">
         <div className="CardRead__img__wrap">
           <img
             className="CardRead__img"

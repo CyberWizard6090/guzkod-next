@@ -6,5 +6,5 @@ type Props = {
 };
 
 export const Block = ({ children, className }: Props) => {
-  return <div className={`block shadow__style ${className}`}>{children}</div>;
+  return <div className={`block shadow ${className}`}>{children}</div>;
 };

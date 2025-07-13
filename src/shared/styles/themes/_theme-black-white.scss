@@ -14,11 +14,11 @@
   --btn-text-alt: #000000;
 
   /*Фоны */
-  --background-main: #000000;
-  --background-alt: #000000;
-  --panel-bg: #000000;
-  --panel-item-bg: #ffffff;
-  --block-bg: #000000;
+  --background-primary: #000000;
+  --background-secondary: #000000;
+  ---background-panel: #000000;
+  --background-panel-item: #ffffff;
+  --background-block: #000000;
 
   /*Текст */
   --font-color-light: #ffffff;
@@ -48,9 +48,9 @@
   --list-item-text: #ffffff;
 
   /*Тени */
-  --shadow-color-1: rgba(255, 255, 255, 0.12);
-  --shadow-color-2: rgba(255, 255, 255, 0.18);
-  --shadow-color-3: rgba(255, 255, 255, 0.1);
+  --shadow-primary: rgba(255, 255, 255, 0.12);
+  --shadow-secondary: rgba(255, 255, 255, 0.18);
+  --shadow-tertiary: rgba(255, 255, 255, 0.1);
 
   /*QR и Скелетон */
   --qr-color: #ffffff;

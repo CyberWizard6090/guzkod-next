@@ -12,12 +12,13 @@
   --btn-color-alt-hover: #ebebeb; /* Hover для вторичной */
   --btn-text-alt: #26262f; /* Текст на альтернативной */
 
+   --background-panel-item: #ffffff; /* Элементы в панели (кнопки, карточки) */
+
   /*Фоновые цвета */
-  --background-main: #eff0f2; /* Основной фон, слегка холодный */
-  --background-alt: #d7d7d8; /* Альт. фон — заметнее отличается от основного */
-  --panel-bg: #ffffff; /* Панели — выделяются, но мягко */
-  --panel-item-bg: #ffffff; /* Элементы в панели (кнопки, карточки) */
-  --block-bg: #ffffff; /* Общие блоки, отделяются от чисто белого */
+  --background-primary: #eff0f2; /* Основной фон, слегка холодный */
+  --background-secondary: #efefef; /* Альт. фон — заметнее отличается от основного */
+  ---background-panel: #ffffff; /* Панели — выделяются, но мягко */
+  --background-block: #ffffff; /* Общие блоки, отделяются от чисто белого */
 
   /*Цвета текста */
   --font-color-light: #000000; /* Основной текст */
@@ -47,9 +48,9 @@
   --list-item-text: #754c00; /* Коричневатый для списков */
 
   /*Тени */
-  --shadow-color-1: rgba(0, 0, 0, 0.12);
-  --shadow-color-2: rgba(0, 0, 0, 0.18);
-  --shadow-color-3: rgba(0, 0, 0, 0.1);
+  --shadow-primary: rgba(0, 0, 0, 0.12);
+  --shadow-secondary: rgba(0, 0, 0, 0.18);
+  --shadow-tertiary: rgba(0, 0, 0, 0.1);
 
   /*QR / Скелетон */
   --qr-color: #000000;

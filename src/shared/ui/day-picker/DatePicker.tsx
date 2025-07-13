@@ -172,7 +172,7 @@ export const DatePicker = ({
   };
 
   const renderPicker = () => (
-    <div className="calendar shadow__style">
+    <div className="calendar shadow">
       <div className="calendar__header">
         {mode === 'day' && (
           <>

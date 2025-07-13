@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between; // Элементы равномерно распределяются
   padding: var(--spacing-m) var(--spacing-l);
-  background-color: var(--block-bg);
+  background-color: var(--background-block);
   color: var(--font-color-light);
   gap: var(--spacing-m);
   &__image-wrapper {

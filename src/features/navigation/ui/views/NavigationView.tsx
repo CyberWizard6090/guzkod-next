@@ -26,7 +26,7 @@ export const NavigationView = ({ items, error, loading }: Props) => {
   return isMobile ? (
     <MobileMenu>{content}</MobileMenu>
   ) : (
-    <aside className="navigation shadow__style">
+    <aside className="navigation shadow">
       {loading ? (
         <Loader />
       ) : error ? (

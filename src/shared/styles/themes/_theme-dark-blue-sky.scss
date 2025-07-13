@@ -25,16 +25,16 @@
   --list-item-text: #1a1a99;
 
   /* ⚪ Фоны */
-  --background-main: #e6e6ff;
-  --background-alt: #dfe6fa;
-  --panel-bg: #e6e6ff;
-  --panel-item-bg: #ffffff;
-  --block-bg: #ffffff;
+  --background-primary: #e6e6ff;
+  --background-secondary: #dfe6fa;
+  ---background-panel: #e6e6ff;
+  --background-panel-item: #ffffff;
+  --background-block: #ffffff;
 
   /* 🌓 Тени */
-  --shadow-color-1: rgba(60, 64, 67, 0.3);
-  --shadow-color-2: rgba(9, 36, 51, 0.12);
-  --shadow-color-3: rgba(0, 0, 0, 0.08);
+  --shadow-primary: rgba(60, 64, 67, 0.3);
+  --shadow-secondary: rgba(9, 36, 51, 0.12);
+  --shadow-tertiary: rgba(0, 0, 0, 0.08);
 
   /* ⚫ Тексты */
   --font-color-light: #000000;

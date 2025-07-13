@@ -9,7 +9,7 @@
   display: grid;
   grid-template-rows: 1fr var(--bottom-bar-height);
   overflow: hidden;
-  background: var(--block-bg);
+  background: var(--background-block);
   border-radius: var(--radius-lg);
   user-select: none;
   box-sizing: border-box;
