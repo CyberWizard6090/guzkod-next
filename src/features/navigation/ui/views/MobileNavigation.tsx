@@ -5,7 +5,7 @@ import Cross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
 import Home from 'shared/assets/svg/bootstrap-icons-1.11.2/house-fill.svg';
 import Chat from 'shared/assets/svg/bootstrap-icons-1.11.2/chat-dots-fill.svg';
 import { useDisableScroll } from 'shared/lib/hooks/useDisableScroll';
-import './mobile-menu.scss';
+import 'features/navigation/ui/styles/MobileNavigation.scss';
 import Link from 'next/link';
 type MobileMenuProps = {
   children: ReactNode;
@@ -50,15 +50,16 @@ export const MobileMenu = ({ children }: MobileMenuProps) => {
         </button>
       </div>
       <div
-        className={`mobile-menu__overlay ${isOpen ? 'mobile-menu__overlay--active' : ''}`}
+        className={`mobile-menu__overlay ${isOpen ? 'mobile-menu__overlay--open' : ''}`}
         onClick={closeMenu}
       >
+        <div className="mobile-menu__backdrop" />
         <div
           id="mobileMenuPanel"
           role="dialog"
           aria-modal="true"
           aria-label="Навигационное меню"
-          className={`mobile-menu__panel ${isOpen ? 'mobile-menu__panel--open' : ''}`}
+          className={'mobile-menu__panel '}
           onClick={(e) => e.stopPropagation()}
         >
           <div

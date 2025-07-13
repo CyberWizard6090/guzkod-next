@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 
-import { Navigation } from 'widgets/navigation';
 import { Header } from 'widgets/header';
 import { Footer } from 'widgets/footer';
 
@@ -17,11 +16,14 @@ import { inter } from 'shared/fonts';
 import { cookies } from 'next/headers';
 import 'shared/styles/index.scss';
 import 'shared/styles/pages/error.scss';
+
 import { GosuslugiWidget } from 'widgets/gosuslugi-widget';
 import { MedicalReviewWidget } from 'widgets/medical-review-widget';
 import { ZabaikalmedstrakhWidget } from 'widgets/zabaikalmedstrakh-widget';
 import { NationalProjectsWidget } from 'widgets/national-projects-widget';
 import { TakzdorovoWidget } from 'widgets/takzdorovo-widget';
+
+import { Navigation } from 'features/navigation';
 
 export const metadata = {
   title: SITE_NAME,
