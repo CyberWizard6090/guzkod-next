@@ -1,6 +1,6 @@
 .footer {
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  padding: 20px 0;
+padding: var(--spacing-l);
   grid-area: footer;
   width: 100%;
   background-color: var(--background-secondary);
@@ -12,7 +12,7 @@
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 var(--spacing-m);
     gap: var(--spacing-m);
   }
   &-column {
@@ -69,28 +69,4 @@
       flex: 1 1 30%;
     }
   }
-}
-
-.skeleton-box {
-  height: 1em;
-  background-color: var(--skeleton-base);
-  border-radius: var(--radius-sm);
-  animation: shimmer 1.5s infinite linear;
-  background-image: linear-gradient(
-    to right,
-    var(--skeleton-base) 0%,
-    var(--skeleton-highlight) 20%,
-    var(--skeleton-base) 40%,
-    var(--skeleton-base) 100%
-  );
-  background-size: 200% 100%;
-  margin-bottom: 10px;
-}
-.footer-title.skeleton-box {
-  height: 1.5em;
-  width: 50%;
-}
-.footer-link.skeleton-box {
-  height: 1em;
-  width: 70%;
 }

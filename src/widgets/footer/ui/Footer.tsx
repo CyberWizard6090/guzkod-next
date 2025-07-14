@@ -1,9 +1,6 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
-import { FooterSkeleton } from './FooterSkeleton';
 import { getFooterData } from 'shared/api/footer';
-import './Footer.scss';
+import styles from './footer.module.scss';
+import clsx from 'clsx';
 
 type Link = {
   text: string;
@@ -17,36 +14,27 @@ type Column = {
   id: string;
 };
 
-export const Footer = () => {
-  const [pageData, setPageData] = useState<Column[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+export const Footer = async () => {
+  let pageData: Column[] = [];
 
-  useEffect(() => {
-    getFooterData()
-      .then((data) => {
-        setPageData(data.List ?? []);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <FooterSkeleton />;
-  if (error || pageData.length === 0) return;
+  const data = await getFooterData();
+  pageData = data.List ?? [];
 
   return (
-    <footer className="footer shadow">
-      <div className="footer-container">
+    <footer className={clsx(styles.footer, 'shadow')}>
+      <div className={styles['footer-container']}>
         {pageData.map((column) => (
-          <div key={column.id} className="footer-column">
-            <h4 className="footer-title">{column.title}</h4>
-            <ul className="footer-links">
+          <div key={column.id} className={styles['footer-column']}>
+            <h4 className={styles['footer-title']}>{column.title}</h4>
+            <ul className={styles['footer-links']}>
               {column.List.map((link) => (
                 <li key={link.id}>
-                  <a href={link.href} className="footer-link">
+                  <a
+                    href={link.href}
+                    className={styles['footer-link']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {link.text}
                   </a>
                 </li>
