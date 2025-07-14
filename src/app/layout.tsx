@@ -24,6 +24,7 @@ import { NationalProjectsWidget } from 'widgets/national-projects-widget';
 import { TakzdorovoWidget } from 'widgets/takzdorovo-widget';
 
 import { Navigation } from 'features/navigation';
+import { PdfViewerModal } from 'features/pdf-viewer';
 
 export const metadata = {
   title: SITE_NAME,
@@ -68,6 +69,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             <AccessibilityStyles />
             <StateTheme />
             <SearchModal />
+            <PdfViewerModal />
             <Navigation />
 
             <main className="layout__content">{children}</main>
