@@ -1,42 +1,18 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
-import { getNavigation } from '../../model/api/navigation.api';
-import { NavigationItem } from '../../model/types/navigation';
 import { NavigationView } from '../views/NavigationView';
-import { sidebarData } from '../../model/utils/navigation-data';
+import { fetchNavigation } from '../../model/slice/navigationSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'shared/stores';
 
 export const NavigationContainer = () => {
-  const [items, setItems] = useState<NavigationItem[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
+  const dispatch = useDispatch();
+  const { items, loading, error } = useSelector((state: RootState) => state.navigation);
 
   useEffect(() => {
-    let isMounted = true;
+    dispatch(fetchNavigation());
+  }, [dispatch]);
 
-    const fetchData = async () => {
-      setLoading(true);
-      const { data, error } = await getNavigation();
-
-      if (!isMounted) return;
-
-      if (error) {
-        console.error('Ошибка загрузки навигации:', error);
-        setError(error);
-      } else if (data) {
-        setItems([...sidebarData, ...data.layout]);
-        setError(null);
-      }
-
-      setLoading(false);
-    };
-
-    fetchData();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  return <NavigationView items={items} error={error} loading={loading} />;
+  return <NavigationView items={items} error={error ? new Error(error) : null} loading={loading} />;
 };

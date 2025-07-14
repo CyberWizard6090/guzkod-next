@@ -5,6 +5,7 @@ import accessibilityModeReducer from 'features/accessibility-mode/model/accessib
 import imageViewerReducer from 'features/image-viewer/model/imageViewerSlice ';
 import searchReducer from 'features/search/model/searchSlice';
 import pdfViewerReducer from 'features/pdf-viewer/model/slice';
+import navigationReducer from 'features/navigation/model/slice/navigationSlice';
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     imageViewer: imageViewerReducer,
     pdfViewer: pdfViewerReducer,
     search: searchReducer,
+    navigation: navigationReducer,
   },
 });
 
