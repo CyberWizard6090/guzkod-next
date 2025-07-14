@@ -17,6 +17,7 @@ import { cookies } from 'next/headers';
 import 'shared/styles/index.scss';
 import 'shared/styles/pages/error.scss';
 import { Navigation } from 'features/navigation';
+import { PdfViewerModal } from 'features/pdf-viewer';
 
 export const metadata = {
   title: SITE_NAME,
@@ -61,6 +62,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             <AccessibilityStyles />
             <StateTheme />
             <SearchModal />
+            <PdfViewerModal />
             <Navigation />
 
             <main className="layout__content">{children}</main>
