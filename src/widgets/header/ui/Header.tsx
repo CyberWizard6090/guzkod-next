@@ -1,6 +1,7 @@
 import { AccessibilityButton } from 'features/accessibility-mode';
 import { ButtonTheme } from 'features/theme/ui/buttonTheme';
 import './Header.scss';
+import { Search } from 'features/search';
 
 export const Header = () => {
   return (
@@ -11,6 +12,7 @@ export const Header = () => {
             <span>Cyber Wizard</span>
           </div>
         </div>
+        <Search/>
         <AccessibilityButton />
         <ButtonTheme />
       </div>

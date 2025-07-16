@@ -64,6 +64,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             <SearchModal />
             <PdfViewerModal />
             <Navigation />
+            <SearchModal/>
 
             <main className="layout__content">{children}</main>
 
