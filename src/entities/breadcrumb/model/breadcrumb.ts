@@ -64,6 +64,7 @@ export async function buildBreadcrumbs(path: string, navItems: NavItem[]): Promi
         label = await getDynamicLabel('page', segments[i]);
       }
     }
+    
 
     if (!label) {
       label = segments[i].replace(/[-_]/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());

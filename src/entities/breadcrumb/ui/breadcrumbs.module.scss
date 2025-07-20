@@ -19,7 +19,6 @@
 
     a {
       color: var(--link-color);
-      background-color: var(--link-bg);
       padding: 2px 6px;
       border-radius: var(--radius-sm);
       text-decoration: none;
@@ -30,12 +29,12 @@
         background-color: var(--link-hover-bg);
         color: var(--link-color);
         outline: none;
-        box-shadow: 0 0 6px var(--link-focus-shadow);
+      
       }
     }
 
     span {
-      margin: 0 8px;
+      margin: 0 var(--spacing-s);
       color: var(--font-color-gray);
       user-select: none;
       font-weight: 600;
