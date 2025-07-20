@@ -2,16 +2,7 @@
 
 .shadow {
   border: 0.0625rem solid var(--border-primary);
-  box-shadow:
-    var(--shadow-primary) 0px 1px 3px,
-    var(--shadow-secondary) 0px 1px 2px;
-}
-
-.content-container {
-  max-width: 1200px;
-  margin: 0 auto;
-
-  @media screen and (max-width: 1220px) {
-    padding: 0 20px;
-  }
+  // box-shadow:
+  //   var(--shadow-primary) 0px 1px 3px,
+  //   var(--shadow-secondary) 0px 1px 2px;
 }

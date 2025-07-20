@@ -8,18 +8,17 @@ type Props = {
 export const EmployeeList = ({ List }: Props) => {
   return (
     <div className="employee-list">
-      {List &&
-        List.map((employee: EmployeeType) => (
-          <Employee
-            key={employee.id}
-            id={employee.id}
-            url={employee.photo?.sizes?.thumbnail?.url || ''}
-            fullName={employee.fullName}
-            position={employee.position}
-            departments={employee.departments}
-            // education={employee.education}
-          />
-        ))}
+      {List?.map((employee: EmployeeType) => (
+        <Employee
+          key={employee.id}
+          id={employee.id}
+          url={employee.photo?.sizes?.thumbnail?.url || ''}
+          fullName={employee.fullName}
+          position={employee.position}
+          departments={employee.departments}
+          // education={employee.education}
+        />
+      ))}
     </div>
   );
 };

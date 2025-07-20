@@ -8,13 +8,20 @@
   z-index: 99;
   margin-bottom: var(--spacing-m);
   border-bottom: 1px solid var(--border-color2);
-  .content-container {
+  &__container {
+    height: 100%;
     width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: end;
+    margin: 0 auto;
+    padding: 0 var(--spacing-m);
+    gap: var(--spacing-m);
   }
   &__logo {
     user-select: none;
-    &-wrap {
+
+    &_wrap {
       width: 100%;
       display: flex;
       justify-content: start;
@@ -29,13 +36,5 @@
     .first {
       color: var(--accent-color);
     }
-  }
-  .content-container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-
-    justify-content: end;
-    gap: var(--spacing-m);
   }
 }

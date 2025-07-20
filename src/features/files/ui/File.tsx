@@ -1,6 +1,5 @@
 'use client';
 
-
 import { getType } from 'shared/lib/getType';
 import { GetFile } from 'shared/lib/getFile';
 import { useOpenPdf } from 'features/pdf-viewer';
@@ -35,11 +34,7 @@ export const File = ({ name, filename, url }: Props) => {
 
       <div className={styles.buttons}>
         {fileType === 'pdf' && !isMobile && (
-          <Button
-            Icon={ReadIcon}
-            onClick={() => openPdf(fileUrl, name)}
-            variant="secondary"
-          >
+          <Button Icon={ReadIcon} onClick={() => openPdf(fileUrl, name)} variant="secondary">
             Читать
           </Button>
         )}

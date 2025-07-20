@@ -18,7 +18,10 @@ import 'shared/styles/index.scss';
 import 'shared/styles/pages/error.scss';
 import { Navigation } from 'features/navigation';
 import { PdfViewerModal } from 'features/pdf-viewer';
+
 import { Breadcrumbs } from 'entities/breadcrumb';
+
+import { ContentContainer } from 'shared/ui/content-container';
 
 export const metadata = {
   title: SITE_NAME,
@@ -55,8 +58,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <body>
         <Providers>
           <Header />
-
-          <div className="layout layout__wrapper content-container">
+          <ContentContainer className="layout layout__wrapper ">
             <NotificationContainer />
             <ImageViewerModal />
             <AccessibilityUI />
@@ -67,11 +69,12 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             <Navigation />
 
             <main className="layout__content">
-              <Breadcrumbs/>
-              {children}</main>
+              <Breadcrumbs />
+              {children}
+            </main>
 
             <Footer />
-          </div>
+          </ContentContainer>
         </Providers>
       </body>
     </html>

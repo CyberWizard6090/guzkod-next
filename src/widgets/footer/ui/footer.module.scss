@@ -1,9 +1,9 @@
 .footer {
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-padding: var(--spacing-l);
+  padding: var(--spacing-l);
   grid-area: footer;
   width: 100%;
-  background-color: var(--background-secondary);
+  background-color: var(--background-panel);
   margin-top: auto;
 
   &-container {

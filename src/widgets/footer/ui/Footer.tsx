@@ -1,5 +1,5 @@
 import { getFooterData } from 'shared/api/footer';
-import styles from './footer.module.scss';
+import styles from './Footer.module.scss';
 import clsx from 'clsx';
 
 type Link = {
