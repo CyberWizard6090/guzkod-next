@@ -1,19 +1,20 @@
 import { AccessibilityButton } from 'features/accessibility-mode';
 import { ButtonTheme } from 'features/theme/ui/buttonTheme';
-import './Header.scss';
+import { ContentContainer } from 'shared/ui/content-container';
+import styles from './Header.module.scss';
 
 export const Header = () => {
   return (
-    <header className="header shadow">
-      <div className="content-container">
-        <div className="header__logo-wrap">
-          <div className="header__logo">
+    <header className={`${styles.header} shadow`}>
+      <ContentContainer className={styles.header__container}>
+        <div className={styles.header__logo_wrap}>
+          <div className={styles.header__logo}>
             <span>Cyber Wizard</span>
           </div>
         </div>
         <AccessibilityButton />
         <ButtonTheme />
-      </div>
+      </ContentContainer>
     </header>
   );
 };

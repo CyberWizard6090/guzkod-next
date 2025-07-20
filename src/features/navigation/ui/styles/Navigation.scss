@@ -12,6 +12,7 @@
   background: var(--background-block);
   border: 1px solid var(--border-primary);
   font-size: var(--font-size-medium);
+  font-weight: 700;
 
   ul {
     height: 100%;
@@ -66,9 +67,10 @@
     align-items: center;
     justify-content: flex-start;
     padding: var(--spacing-s) var(--spacing-m);
-    background-color: var(---background-panel);
+    background-color: transparent;
     color: var(--font-color-gray);
     font-size: var(--font-size-medium);
+    font-weight: 700;
     border-bottom: 1px solid var(--border-secondary);
 
     &-label {
@@ -89,6 +91,7 @@
       cursor: pointer;
       color: var(--font-color-light);
       font-size: var(--font-size-medium);
+      font-weight: 700;
       text-align: left;
 
       &:hover {
@@ -131,7 +134,7 @@
     &__list {
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-s);
+      gap: var(--spacing-xs);
     }
     &__link {
       background-color: var(--background-secondary);
@@ -147,8 +150,7 @@
 }
 @media (hover: none) and (pointer: coarse) {
   .navigation__link:hover,
-  .navigation__tree-header:hover,
-  .navigation__sublink:hover {
+  .navigation__tree-header:hover {
     background-color: transparent !important;
     color: var(--font-color-light) !important;
   }

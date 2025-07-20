@@ -1,6 +1,5 @@
 'use client';
 
-
 import { File } from './File';
 import styles from './files.module.scss';
 
@@ -20,12 +19,7 @@ export const Files = ({ files }: Props) => {
   return (
     <div className={styles.files}>
       {files.map(({ file }) => (
-        <File
-          key={file.url}
-          name={file.name}
-          filename={file.filename}
-          url={file.url}
-        />
+        <File key={file.url} name={file.name} filename={file.filename} url={file.url} />
       ))}
     </div>
   );
