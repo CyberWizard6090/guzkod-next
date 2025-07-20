@@ -9,13 +9,9 @@ import AlignWrapper from 'shared/ui/align-wrapper';
 import { cleanMetaDescription } from 'shared/lib/seo/cleanMetaDescription';
 import { formatDate } from 'shared/lib/format';
 
-type Props = {
-  params: { articleId: string };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: any): Promise<Metadata> {
   const data = await getArticleById(params.articleId);
-  const title = `Вакансия: ${data.title ?? data.namepage}`;
+  const title = `${data.type === 'News' ? 'Новость' : 'Профилактика'}: ${data.title ?? data.namepage}`;
   const description = cleanMetaDescription({ text: data.text });
   return {
     title: title,
@@ -28,15 +24,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function DefaultPage({ params }: Props) {
+export default async function DefaultPage({ params }: any) {
   const data = await getArticleById(params.articleId);
 
   return (
     <Block>
       {data.title && (
-        <div className="content-block">
-          <span className="date-text">{formatDate(data.date)}</span>
-          <h1 className="title-heading">{data.title}</h1>
+        <div className="article">
+          <div className="article__header">
+            <div className="article__type">{data.type === 'News' ? 'Новость' : 'Профилактика'}</div>
+            <span className="article__date">{formatDate(data.date)}</span>
+          </div>
+          <h1 className="article__title">{data.title}</h1>
         </div>
       )}
       <RenderBlocks layout={data.layout} />

@@ -91,7 +91,7 @@ export const Carousel = ({ children, interval = 30000, enableDragging = true }: 
   };
   return (
     <div
-      className="carousel shadow__style"
+      className="carousel shadow"
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={() => isDragging && setIsDragging(false)}

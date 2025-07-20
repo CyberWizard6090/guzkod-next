@@ -1,0 +1,56 @@
+[data-theme='dark'] {
+  /*Красные акценты */
+  --red: #cb0e4e;
+  --dark-red: #a00c3d;
+
+  /*Основной акцент — оранжевый */
+  --accent-color: #e9540d; /* Кнопка и акценты */
+  --accent-color-hover: #d88d1a; /* Hover-состояние */
+  --button-text: #f9f5f2; /* Светлый текст на кнопках */
+
+  /*Альтернативные кнопки (тёмные) */
+  --btn-color-alt: #272729;
+  --btn-color-alt-hover: #2a2a2d;
+  --btn-text-alt: #ffffff;
+
+  /*Цвета фонов */
+  --background-primary: #111113;
+  --background-secondary: #18181a;
+  --background-panel: #151516;
+  --background-panel-item: #202022;
+  --background-block: #1c1c1e;
+
+  /*Текстовые цвета */
+  --font-color-light: #e6e6eb;
+  --font-color-gray: #b3b3ba;
+  --form-text: #999ca3;
+  --menu-item-text: #f8f0f0;
+  --list-item-text: #f4ad47;
+
+  /*Ссылки */
+  --link-color: #f7a723;
+  --link-bg: #121212;
+  --link-hover-bg: #1e1e1e;
+  --link-border: transparent;
+  --link-hover-border: #f7a723;
+  --link-focus-shadow: rgba(255, 165, 0, 0.4);
+  --link-info-color: #aaaaaa;
+
+  /*Границы */
+  --border-primary: transparent;
+  --border-secondary: #2e2e30;
+  --border-tertiary: rgba(241, 241, 241, 0.051);
+
+  /*Цвета форм */
+  --color-form-input: #2d2d2f;
+  --color-form-input-text: #ffffff;
+
+  /* Тени */
+  --shadow-primary: rgba(255, 165, 0, 0.15); /* мягкий оранжевый */
+  --shadow-secondary: rgba(255, 64, 64, 0.12); /* красноватый для акцентов */
+
+  /* QR и Skeleton */
+  --qr-color: #ffffff;
+  --skeleton-base: #444;
+  --skeleton-highlight: #666;
+}

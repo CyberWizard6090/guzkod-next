@@ -1,10 +1,12 @@
 import React from 'react';
-import './block.scss';
+import styles from './block.module.scss';
+
+import clsx from 'clsx';
 type Props = {
   className?: string;
   children: React.ReactNode | React.ReactNode[];
 };
 
 export const Block = ({ children, className }: Props) => {
-  return <div className={`block shadow__style ${className}`}>{children}</div>;
+  return <div className={clsx(styles.block, 'shadow', className)}>{children}</div>;
 };

@@ -1,0 +1,59 @@
+[data-theme='light'] {
+  /*Красные акценты */
+  --red: #cb0e4e;
+  --dark-red: #a00c3d;
+  /*Основные акценты */
+  --accent-color: #e9540d; /* Основной оранжевый */
+  --accent-color-hover: #b5740f; /* Оранжевый при наведении */
+  --button-text: #ffffff; /* Текст на кнопке */
+
+  /*Альтернативные кнопки */
+  --btn-color-alt: #e9eaed; /* Вторичный оранжевый */
+  --btn-color-alt-hover: #ebebeb; /* Hover для вторичной */
+  --btn-text-alt: #26262f; /* Текст на альтернативной */
+
+  --background-panel-item: #ffffff; /* Элементы в панели (кнопки, карточки) */
+
+  /*Фоновые цвета */
+  --background-primary: #eff0f2; /* Основной фон, слегка холодный */
+  --background-secondary: #ffffff; /* Альт. фон — заметнее отличается от основного */
+  --background-panel: #cbe3f7; /* Панели — выделяются, но мягко */
+  --background-block: #ffffff; /* Общие блоки, отделяются от чисто белого */
+
+  /*Цвета текста */
+  --font-color-light: #000000; /* Основной текст */
+  --font-color-gray: #5a5959; /* Вторичный текст */
+
+  /*Ссылки */
+  --link-color: #b45309; /* Тёплый оранжево-коричневый */
+  --link-bg: #fff8ed; /* Фон ссылки */
+  --link-border: transparent;
+  --link-hover-border: #b45309;
+  --link-hover-bg: #fef3c7; /* Очень светлый жёлтый */
+  --link-focus-shadow: rgba(181, 116, 15, 0.4); /* Оранжевый фокус */
+  --link-info-color: #6b6b6c; /* Инфо-ссылки */
+
+  /*Цвета для форм */
+  --color-form-input: #eff0f2; /* Фон input */
+  --color-form-input-text: #000000; /* Текст input */
+  --form-text: #6b6b6c; /* Подписи, плейсхолдеры */
+
+  /*Границы */
+  --border-primary: transparent;
+  --border-secondary: #000000; /* Чёткие границы */
+  --border-tertiary: #cccccc83; /* Мягкие границы */
+
+  /*Меню и списки */
+  --menu-item-text: #000000; /* Текст в меню */
+  --list-item-text: #754c00; /* Коричневатый для списков */
+
+  /*Тени */
+  --shadow-primary: rgba(0, 0, 0, 0.12);
+  --shadow-secondary: rgba(0, 0, 0, 0.18);
+  --shadow-tertiary: rgba(0, 0, 0, 0.1);
+
+  /*QR / Скелетон */
+  --qr-color: #000000;
+  --skeleton-base: #ccc;
+  --skeleton-highlight: #e0e0e0;
+}

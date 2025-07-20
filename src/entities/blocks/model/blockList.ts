@@ -1,4 +1,5 @@
-import { Files, Heading, Image, Images, SimpleRichText } from 'shared/ui/blocks';
+import { Files } from 'features/files';
+import { Heading, Image, Images, SimpleRichText } from 'shared/ui/blocks';
 
 export const blocks = {
   heading: Heading,

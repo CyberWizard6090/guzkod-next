@@ -69,7 +69,7 @@ const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
                 return (
                   <img
                     key={i}
-                    className="shadow__style"
+                    className="shadow"
                     src={item.image.url}
                     alt={item.altText ?? 'Изображение'}
                   />

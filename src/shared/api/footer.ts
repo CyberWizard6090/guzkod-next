@@ -1,5 +1,5 @@
-import { fetchApi } from './api';
+import { API_BASE, fetchApi } from './api';
 
 export const getFooterData = async () => {
-  return fetchApi('/api/globals/footer?locale=undefined&draft=false&depth=0');
+  return fetchApi(`${API_BASE}/api/globals/footer?locale=undefined&draft=false&depth=0`);
 };

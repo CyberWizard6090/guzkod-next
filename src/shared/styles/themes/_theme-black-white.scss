@@ -1,0 +1,59 @@
+[data-theme='black-white'] {
+  /*Основные цвета */
+  --red: #ff0000;
+  --dark-red: #ffffff;
+
+  /*Кнопки */
+  --accent-color: #ffffff;
+  --accent-color-hover: #e6e6e6;
+  --button-text: #000000;
+
+  /*Альтернативные кнопки */
+  --btn-color-alt: #e5e5ec;
+  --btn-color-alt-hover: #e2dede;
+  --btn-text-alt: #000000;
+
+  /*Фоны */
+  --background-primary: #000000;
+  --background-secondary: #000000;
+  --background-panel: #000000;
+  --background-panel-item: #ffffff;
+  --background-block: #000000;
+
+  /*Текст */
+  --font-color-light: #ffffff;
+  --font-color-gray: #ffffff;
+
+  /*Ссылки */
+  --link-color: #ffffff;
+  --link-bg: #111111;
+  --link-border: transparent;
+  --link-hover-border: #ffffff;
+  --link-hover-bg: #1a1a1a;
+  --link-focus-shadow: rgba(255, 255, 255, 0.4);
+  --link-info-color: #cccccc;
+
+  /*Формы */
+  --color-form-input: #000000;
+  --color-form-input-text: #ffffff;
+  --form-text: #cccccc;
+
+  /*Границы */
+  --border-secondary: #000000;
+  --border-tertiary: #ffffff;
+  --border-primary: #ffffff;
+
+  /*Меню и списки */
+  --menu-item-text: #ffffff;
+  --list-item-text: #ffffff;
+
+  /*Тени */
+  --shadow-primary: rgba(255, 255, 255, 0.12);
+  --shadow-secondary: rgba(255, 255, 255, 0.18);
+  --shadow-tertiary: rgba(255, 255, 255, 0.1);
+
+  /*QR и Скелетон */
+  --qr-color: #ffffff;
+  --skeleton-base: #444444;
+  --skeleton-highlight: #666666;
+}

@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 
-import { Navigation } from 'widgets/navigation';
 import { Header } from 'widgets/header';
 import { Footer } from 'widgets/footer';
 
@@ -17,11 +16,19 @@ import { inter } from 'shared/fonts';
 import { cookies } from 'next/headers';
 import 'shared/styles/index.scss';
 import 'shared/styles/pages/error.scss';
+
 import { GosuslugiWidget } from 'widgets/gosuslugi-widget';
 import { MedicalReviewWidget } from 'widgets/medical-review-widget';
 import { ZabaikalmedstrakhWidget } from 'widgets/zabaikalmedstrakh-widget';
 import { NationalProjectsWidget } from 'widgets/national-projects-widget';
 import { TakzdorovoWidget } from 'widgets/takzdorovo-widget';
+
+import { Navigation } from 'features/navigation';
+import { PdfViewerModal } from 'features/pdf-viewer';
+
+import { Breadcrumbs } from 'entities/breadcrumb';
+
+import { ContentContainer } from 'shared/ui/content-container';
 
 export const metadata = {
   title: SITE_NAME,
@@ -58,17 +65,20 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <body>
         <Providers>
           <Header />
-
-          <div className="layout layout__wrapper content-container">
+          <ContentContainer className="layout layout__wrapper ">
             <NotificationContainer />
             <ImageViewerModal />
             <AccessibilityUI />
             <AccessibilityStyles />
             <StateTheme />
             <SearchModal />
+            <PdfViewerModal />
             <Navigation />
 
-            <main className="layout__content">{children}</main>
+            <main className="layout__content">
+              <Breadcrumbs />
+              {children}
+            </main>
             <aside className="layout__sidebar">
               <GosuslugiWidget />
               <MedicalReviewWidget />
@@ -76,8 +86,9 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
               <NationalProjectsWidget />
               <ZabaikalmedstrakhWidget />
             </aside>
+
             <Footer />
-          </div>
+          </ContentContainer>
         </Providers>
       </body>
     </html>
