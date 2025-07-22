@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Block } from 'shared/ui/block';
 import { Button } from 'shared/ui/button';
 import { VoiceInput } from 'shared/ui/input';
-import { Page } from 'shared/ui/page';
+import { VerticalContainer } from 'shared/ui/vertical-container';
 import { getSearchResults } from 'shared/api/search';
 import AlignWrapper from 'shared/ui/align-wrapper';
 
@@ -21,20 +21,19 @@ const SearchPage = () => {
       });
   };
   return (
-    <Page>
+    <VerticalContainer>
       <Block>
         <AlignWrapper align={'left'}>
-        <VoiceInput
-          placeholder="Поиск"
-          name="search"
-          value={searchValue}
-          onChange={setSearchValue}
-        />
-        <Button onClick={handleSearch}>Поиск</Button>
+          <VoiceInput
+            placeholder="Поиск"
+            name="search"
+            value={searchValue}
+            onChange={setSearchValue}
+          />
+          <Button onClick={handleSearch}>Поиск</Button>
         </AlignWrapper>
       </Block>
-
-    </Page>
+    </VerticalContainer>
   );
 };
 

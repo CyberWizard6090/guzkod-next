@@ -3,7 +3,7 @@ import { NewsBlock } from 'widgets/news-block';
 import { Carousel } from 'widgets/carousel';
 import { Banner, SimpleRichText } from 'shared/ui/blocks';
 import { Block } from 'shared/ui/block';
-import { Page } from 'shared/ui/page';
+import { VerticalContainer } from 'shared/ui/vertical-container';
 import { getHomePage } from 'shared/api/home';
 import 'shared/styles/pages/home-page.scss';
 
@@ -52,7 +52,7 @@ type PageBlock = {
 // eslint-disable-next-line react/prop-types
 const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
   return (
-    <Page>
+    <VerticalContainer>
       {blocks.map((block, index) => (
         <div key={index} className="Cell" style={{ width: `${block.width}%` }}>
           {block.title?.trim() && <h2>{block.title}</h2>}
@@ -106,7 +106,7 @@ const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
           })}
         </div>
       ))}
-    </Page>
+    </VerticalContainer>
   );
 };
 
@@ -114,9 +114,9 @@ export default async function HomePage() {
   const data = await getHomePage();
 
   return (
-    <Page>
+    <VerticalContainer>
       <RenderBlocks blocks={data.blocks} />
       <NewsBlock />
-    </Page>
+    </VerticalContainer>
   );
 }

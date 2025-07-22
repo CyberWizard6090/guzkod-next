@@ -68,32 +68,31 @@ export const BottomSheet = ({ isOpen, onClose, children }: BottomSheetProps) => 
     }
   };
 
-const handleTouchEnd = () => {
-  const shouldClose = currentY.current > 100;
+  const handleTouchEnd = () => {
+    const shouldClose = currentY.current > 100;
 
-  if (sheetRef.current) {
-    if (shouldClose) {
-      sheetRef.current.style.transform = '';
-      setIsTransitionEnabled(true);
-      onClose();
-    } else {
-      sheetRef.current.style.transform = `translateY(0)`;
-      setIsTransitionEnabled(true);
+    if (sheetRef.current) {
+      if (shouldClose) {
+        sheetRef.current.style.transform = '';
+        setIsTransitionEnabled(true);
+        onClose();
+      } else {
+        sheetRef.current.style.transform = `translateY(0)`;
+        setIsTransitionEnabled(true);
 
-      const cleanup = () => {
-        if (sheetRef.current) {
-          sheetRef.current.style.transform = '';
-          sheetRef.current.removeEventListener('transitionend', cleanup);
-        }
-      };
-      sheetRef.current.addEventListener('transitionend', cleanup);
+        const cleanup = () => {
+          if (sheetRef.current) {
+            sheetRef.current.style.transform = '';
+            sheetRef.current.removeEventListener('transitionend', cleanup);
+          }
+        };
+        sheetRef.current.addEventListener('transitionend', cleanup);
+      }
     }
-  }
 
-  startY.current = null;
-  currentY.current = 0;
-};
-
+    startY.current = null;
+    currentY.current = 0;
+  };
 
   if (!isVisible) return null;
 

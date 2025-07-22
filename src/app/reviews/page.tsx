@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Block } from 'shared/ui/block';
 import { Button } from 'shared/ui/button';
 import { EmptyPageStub } from 'shared/ui/empty-page-stub';
-import { Page } from 'shared/ui/page';
+import { VerticalContainer } from 'shared/ui/vertical-container';
 import AlignWrapper from 'shared/ui/align-wrapper';
 
 const PAGE_SIZE = 10;
@@ -82,7 +82,7 @@ export default function ReviewsPage() {
   }, [page, loadPage]);
 
   return (
-    <Page>
+    <VerticalContainer>
       <Block>
         <h2>Оставьте свой отзыв</h2>
         <p>Нам важно ваше мнение! Пожалуйста, поделитесь своим опытом.</p>
@@ -109,6 +109,6 @@ export default function ReviewsPage() {
       ))}
 
       {loading && [...Array(3)].map((_, i) => <ReviewSkeleton key={`skeleton-${i}`} />)}
-    </Page>
+    </VerticalContainer>
   );
 }

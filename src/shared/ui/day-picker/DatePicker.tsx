@@ -15,8 +15,6 @@ type Props = {
   placeholder?: string;
 };
 
-
-
 export const DatePicker = ({
   label,
   name,
@@ -235,13 +233,13 @@ export const DatePicker = ({
         readOnly
         onChange={handleInputChange}
       />
-       {    (isMobile ? (
-                <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                  {renderPicker()}
-                </BottomSheet>
-              ) : isOpen && (
-                renderPicker()
-              ))}
+      {isMobile ? (
+        <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          {renderPicker()}
+        </BottomSheet>
+      ) : (
+        isOpen && renderPicker()
+      )}
     </div>
   );
 };

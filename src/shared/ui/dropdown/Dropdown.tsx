@@ -99,14 +99,13 @@ export const Dropdown = ({ options, label, value, defaultValue, onChange }: Drop
         <span className={cls['dropdown__arrow']}>{isOpen ? <IconUp /> : <IconDown />}</span>
       </button>
 
-      {
-        (isMobile ? (
-          <BottomSheet isOpen={isOpen} onClose={closeDropdown}>
-            {DropdownList}
-          </BottomSheet>
-        ) : isOpen && (
-          DropdownList
-        ))}
+      {isMobile ? (
+        <BottomSheet isOpen={isOpen} onClose={closeDropdown}>
+          {DropdownList}
+        </BottomSheet>
+      ) : (
+        isOpen && DropdownList
+      )}
     </div>
   );
 };
