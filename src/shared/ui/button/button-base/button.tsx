@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import './button.scss';
 
 type PropsButton = {
-  children: string | string[];
+  children: string | string[] | React.ReactNode;
   Icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
   variant?: 'primary' | 'secondary' | 'tertiary';
   type?: 'button' | 'submit';

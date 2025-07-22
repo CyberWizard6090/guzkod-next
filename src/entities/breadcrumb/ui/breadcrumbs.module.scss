@@ -22,14 +22,15 @@
       padding: 2px 6px;
       border-radius: var(--radius-sm);
       text-decoration: none;
-      transition: background-color 0.2s ease, color 0.2s ease;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 
       &:hover,
       &:focus {
         background-color: var(--link-hover-bg);
         color: var(--link-color);
         outline: none;
-      
       }
     }
 

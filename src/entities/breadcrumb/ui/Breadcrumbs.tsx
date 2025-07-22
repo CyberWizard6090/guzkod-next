@@ -22,15 +22,17 @@ export const Breadcrumbs = () => {
   }, [pathname, navItems]);
 
   return (
-  <nav aria-label="breadcrumbs" className={`${styles.breadcrumbs} mb-4`}>
-  <ol>
-    {breadcrumbs.map(({ label, href }, idx) => (
-      <li key={idx} className={styles['breadcrumb-item']}>
-        <Link href={href} className={styles.link}>{label}</Link>
-        {idx < breadcrumbs.length - 1 && <span>/</span>}
-      </li>
-    ))}
-  </ol>
-</nav>
+    <nav aria-label="breadcrumbs" className={`${styles.breadcrumbs} mb-4`}>
+      <ol>
+        {breadcrumbs.map(({ label, href }, idx) => (
+          <li key={idx} className={styles['breadcrumb-item']}>
+            <Link href={href} className={styles.link}>
+              {label}
+            </Link>
+            {idx < breadcrumbs.length - 1 && <span>/</span>}
+          </li>
+        ))}
+      </ol>
+    </nav>
   );
 };

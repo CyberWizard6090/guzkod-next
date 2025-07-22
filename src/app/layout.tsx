@@ -6,7 +6,7 @@ import { Footer } from 'widgets/footer';
 import { NotificationContainer } from 'features/notifications';
 import { AccessibilityStyles, AccessibilityUI } from 'features/accessibility-mode';
 import { ImageViewerModal } from 'features/image-viewer';
-import { SearchModal } from 'features/search';
+
 import { StateTheme } from 'features/theme';
 
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from 'shared/consts/site.constants';
@@ -71,10 +71,9 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             <AccessibilityUI />
             <AccessibilityStyles />
             <StateTheme />
-            <SearchModal />
+
             <PdfViewerModal />
             <Navigation />
-            <SearchModal/>
 
             <main className="layout__content">
               <Breadcrumbs />

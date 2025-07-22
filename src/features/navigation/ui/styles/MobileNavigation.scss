@@ -34,7 +34,7 @@
     border-top: 1px solid var(--border-tertiary);
     z-index: 100;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     padding: var(--spacing-xs) 0;
 
     button,

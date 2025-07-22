@@ -12,15 +12,15 @@ export function buildBreadcrumbs(pathname: string, items: NavigationItem[]): Bre
   let href = '';
 
   for (const segment of segments) {
-    const match = currentItems.find(item => {
+    const match = currentItems.find((item) => {
       if (item.blockType === 'navitem') {
         return item.link?.split('/').filter(Boolean).pop() === segment;
       }
       if (item.blockType === 'navdropdown') {
         return item.list.some(
-          subItem =>
+          (subItem) =>
             subItem.blockType === 'navitem' &&
-            subItem.link?.split('/').filter(Boolean).pop() === segment
+            subItem.link?.split('/').filter(Boolean).pop() === segment,
         );
       }
       return false;
@@ -33,7 +33,8 @@ export function buildBreadcrumbs(pathname: string, items: NavigationItem[]): Bre
       breadcrumbs.push({ label: match.label, href });
     } else if (match.blockType === 'navdropdown') {
       const found = match.list.find(
-        sub => sub.blockType === 'navitem' && sub.link?.split('/').filter(Boolean).pop() === segment
+        (sub) =>
+          sub.blockType === 'navitem' && sub.link?.split('/').filter(Boolean).pop() === segment,
       ) as NavigationItem;
 
       if (found) {

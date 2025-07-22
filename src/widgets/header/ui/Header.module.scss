@@ -7,7 +7,7 @@
   position: sticky;
   z-index: 99;
   margin-bottom: var(--spacing-m);
- border-bottom: 1px solid var(--border-tertiary);
+  border-bottom: 1px solid var(--border-tertiary);
   &__container {
     height: 100%;
     width: 100%;
@@ -19,7 +19,6 @@
     gap: var(--spacing-m);
   }
 
-
   &__logo {
     user-select: none;
     display: flex;
@@ -29,22 +28,21 @@
       width: 100px;
       height: 48px;
     }
-      width: 100%;
-      display: flex;
-      justify-content: start;
-    }
-    padding: var(--spacing-m);
-
-    span {
-      font-size: 24px;
-      font-weight: bold;
-      color: var(--font-color-light);
-    }
-    .first {
-      color: var(--accent-color);
-    }
+    width: 100%;
+    display: flex;
+    justify-content: start;
   }
+  padding: var(--spacing-m);
 
+  span {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--font-color-light);
+  }
+  .first {
+    color: var(--accent-color);
+  }
+}
 
 @media screen and (max-width: 768px) {
   .header {

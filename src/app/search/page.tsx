@@ -5,6 +5,7 @@ import { Button } from 'shared/ui/button';
 import { VoiceInput } from 'shared/ui/input';
 import { Page } from 'shared/ui/page';
 import { getSearchResults } from 'shared/api/search';
+import AlignWrapper from 'shared/ui/align-wrapper';
 
 const SearchPage = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -22,6 +23,7 @@ const SearchPage = () => {
   return (
     <Page>
       <Block>
+        <AlignWrapper align={'left'}>
         <VoiceInput
           placeholder="Поиск"
           name="search"
@@ -29,10 +31,11 @@ const SearchPage = () => {
           onChange={setSearchValue}
         />
         <Button onClick={handleSearch}>Поиск</Button>
+        </AlignWrapper>
       </Block>
+
     </Page>
   );
 };
 
 export default SearchPage;
-

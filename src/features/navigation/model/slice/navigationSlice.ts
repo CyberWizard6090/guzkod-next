@@ -8,7 +8,7 @@ type NavigationState = {
   items: NavigationItem[];
   loading: boolean;
   error: string | null;
-}
+};
 
 const initialState: NavigationState = {
   items: [],

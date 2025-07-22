@@ -1,9 +1,10 @@
 'use client';
 import React, { useState, ReactNode } from 'react';
 import List from 'shared/assets/svg/bootstrap-icons-1.11.2/list.svg';
-import Cross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
-import Home from 'shared/assets/svg/bootstrap-icons-1.11.2/house-fill.svg';
-import Chat from 'shared/assets/svg/bootstrap-icons-1.11.2/chat-dots-fill.svg';
+import IconCross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
+import IconHome from 'shared/assets/svg/bootstrap-icons-1.11.2/house-fill.svg';
+import IconChat from 'shared/assets/svg/bootstrap-icons-1.11.2/chat-dots-fill.svg';
+import IconSearch from 'shared/assets/svg/bootstrap-icons-1.11.2/search.svg';
 import { useDisableScroll } from 'shared/lib/hooks/useDisableScroll';
 import 'features/navigation/ui/styles/MobileNavigation.scss';
 import Link from 'next/link';
@@ -35,10 +36,13 @@ export const MobileMenu = ({ children }: MobileMenuProps) => {
     <>
       <div className="mobile-menu__toggle">
         <Link href="/">
-          <MobileMenuItem label={'Главная'} logo={Home} />
+          <MobileMenuItem label={'Главная'} logo={IconHome} />
         </Link>
         <Link href="/feedback">
-          <MobileMenuItem label={'Форма обратной связи'} logo={Chat} />
+          <MobileMenuItem label={'обратной связи'} logo={IconChat} />
+        </Link>
+        <Link href="/search">
+          <MobileMenuItem label={'Поиск'} logo={IconSearch} />
         </Link>
         <button
           onClick={toggleMenu}
@@ -46,7 +50,7 @@ export const MobileMenu = ({ children }: MobileMenuProps) => {
           aria-controls="mobileMenuPanel"
           aria-label="Открыть меню"
         >
-          <MobileMenuItem label={'Меню'} logo={isOpen ? Cross : List} />
+          <MobileMenuItem label={'Меню'} logo={isOpen ? IconCross : List} />
         </button>
       </div>
       <div

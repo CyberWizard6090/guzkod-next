@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import './CardRead.scss';
 import { Article } from 'shared/types/article';
-import clsx from 'clsx';
 import { formatDate } from 'shared/lib/format';
+import './CardRead.scss';
+
 type CardReadProps = {
   article: Article;
 };
