@@ -24,6 +24,7 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-m);
+    flex: 1;
     svg {
       width: 100px;
       height: 48px;
@@ -49,6 +50,7 @@
     &__logo {
       span {
         font-size: 16px;
+        display: none;
       }
     }
   }

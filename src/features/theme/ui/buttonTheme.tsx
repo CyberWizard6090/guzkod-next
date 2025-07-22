@@ -1,7 +1,7 @@
 'use client';
 import Moon from 'shared/assets/svg/bootstrap-icons-1.11.2/moon-stars-fill.svg';
 import Sun from 'shared/assets/svg/bootstrap-icons-1.11.2/sun-fill.svg';
-import Special from 'shared/assets/svg/bootstrap-icons-1.11.2/eyeglasses.svg';
+import Special from 'shared/assets/svg/bootstrap-icons-1.11.2/eye.svg';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { SelectTheme } from '../model/selectors';

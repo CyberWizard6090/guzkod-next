@@ -2,6 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import IconArrowRight from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-right.svg';
 import IconArrowLeft from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-left.svg';
 import './DatePicker.scss';
+import { MONTHS } from 'shared/consts/date-constants.constants';
+import { BottomSheet } from '../bottom-sheet';
+import { useDeviceDetect } from 'shared/lib/hooks/useDeviceDetect';
+import { DEVICE_BREAKPOINTS } from 'shared/consts/device-breakpoints.constants';
 
 type Props = {
   label: string;
@@ -11,20 +15,7 @@ type Props = {
   placeholder?: string;
 };
 
-const MONTHS = [
-  'Январь',
-  'Февраль',
-  'Март',
-  'Апрель',
-  'Май',
-  'Июнь',
-  'Июль',
-  'Август',
-  'Сентябрь',
-  'Октябрь',
-  'Ноябрь',
-  'Декабрь',
-];
+
 
 export const DatePicker = ({
   label,
@@ -38,7 +29,7 @@ export const DatePicker = ({
   const [selectedDate, setSelectedDate] = useState(() => (value ? new Date(value) : new Date()));
   const [inputValue, setInputValue] = useState(value);
   const ref = useRef<HTMLDivElement>(null);
-
+  const { isMobile } = useDeviceDetect(DEVICE_BREAKPOINTS.MOBILE);
   useEffect(() => {
     setInputValue(value);
   }, [value]);
@@ -241,9 +232,16 @@ export const DatePicker = ({
         placeholder={placeholder}
         value={inputValue}
         onFocus={() => setIsOpen(true)}
+        readOnly
         onChange={handleInputChange}
       />
-      {isOpen && renderPicker()}
+       {    (isMobile ? (
+                <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                  {renderPicker()}
+                </BottomSheet>
+              ) : isOpen && (
+                renderPicker()
+              ))}
     </div>
   );
 };

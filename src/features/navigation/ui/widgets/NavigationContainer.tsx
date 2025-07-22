@@ -4,10 +4,10 @@ import React, { useEffect } from 'react';
 import { NavigationView } from '../views/NavigationView';
 import { fetchNavigation } from '../../model/slice/navigationSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'shared/stores';
+import { RootState, AppDispatch } from 'shared/stores';
 
 export const NavigationContainer = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { items, loading, error } = useSelector((state: RootState) => state.navigation);
 
   useEffect(() => {

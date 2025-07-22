@@ -1,9 +1,10 @@
 'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
+import { BottomSheet } from 'shared/ui/bottom-sheet';
 import IconUp from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-up.svg';
 import IconDown from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-down.svg';
-import IconCross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
-import './Dropdown.scss';
+import cls from './Dropdown.module.scss';
 
 type DropdownOption = {
   value: string;
@@ -29,95 +30,83 @@ export const Dropdown = ({ options, label, value, defaultValue, onChange }: Drop
     }
   }, [defaultValue, onChange, value]);
 
-  const selectedLabel = options.find((opt) => opt.value === value)?.label;
-
-  const checkMobile = () => window.innerWidth <= 768;
-
-  const toggleDropdown = () => {
-    if (!isOpen && checkMobile()) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    setIsOpen((prev) => !prev);
-  };
-
-  const handleOptionClick = (newValue: string) => {
-    onChange(newValue);
-    setIsOpen(false);
-    document.body.style.overflow = '';
-  };
-
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-        document.body.style.overflow = '';
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isOpen]);
-
-  useEffect(() => {
+    const checkMobile = () => window.innerWidth <= 768;
     const handleResize = () => {
       setIsMobile(checkMobile());
       if (!checkMobile()) {
         document.body.style.overflow = '';
       }
     };
-
-    handleResize(); // начальное состояние
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const selectedLabel = options.find((opt) => opt.value === value)?.label;
+
+  const toggleDropdown = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  const closeDropdown = () => {
+    setIsOpen(false);
+  };
+
+  const handleOptionClick = (newValue: string) => {
+    onChange(newValue);
+    closeDropdown();
+  };
+
+  const DropdownList = (
+    <div className={cls['dropdown__menu']}>
+      <ul className={cls['dropdown__list']} role="listbox" aria-label={label ?? 'Выбор значения'}>
+        {options.map((option) => (
+          <li
+            key={option.value}
+            className={`${cls['dropdown__option']} ${
+              value === option.value ? cls['dropdown__option--selected'] : ''
+            }`}
+            onClick={() => handleOptionClick(option.value)}
+            role="option"
+            aria-selected={value === option.value}
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleOptionClick(option.value);
+              }
+            }}
+          >
+            {option.label}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
   return (
-    <div className="dropdown" ref={dropdownRef}>
-      {label && <label className="dropdown__label">{label}</label>}
+    <div className={cls.dropdown} ref={dropdownRef}>
+      {label && <label className={cls['dropdown__label']}>{label}</label>}
+
       <button
-        className="dropdown__control"
+        className={cls['dropdown__control']}
         onClick={toggleDropdown}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
         {selectedLabel ?? defaultValue ?? 'Выберите значение'}
-        <span className="dropdown__arrow">{isOpen ? <IconUp /> : <IconDown />}</span>
+        <span className={cls['dropdown__arrow']}>{isOpen ? <IconUp /> : <IconDown />}</span>
       </button>
-      {isOpen && (
-        <div className={`dropdown__menu ${isMobile ? 'dropdown__menu--mobile' : ''}  shadow`}>
-          <div className="dropdown__header">
-            <button className="dropdown__close-button" onClick={toggleDropdown}>
-              Закрыть <IconCross />
-            </button>
-          </div>
-          <ul className="dropdown__list" role="listbox" aria-label={label ?? 'Выбор значения'}>
-            {options.map((option) => (
-              <li
-                key={option.value}
-                className={`dropdown__option ${
-                  value === option.value ? 'dropdown__option--selected' : ''
-                }`}
-                onClick={() => handleOptionClick(option.value)}
-                role="option"
-                aria-selected={value === option.value}
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    handleOptionClick(option.value);
-                  }
-                }}
-              >
-                {option.label}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+
+      {
+        (isMobile ? (
+          <BottomSheet isOpen={isOpen} onClose={closeDropdown}>
+            {DropdownList}
+          </BottomSheet>
+        ) : isOpen && (
+          DropdownList
+        ))}
     </div>
   );
 };

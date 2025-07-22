@@ -9,13 +9,11 @@ import { ButtonSearch } from 'features/search';
 
 export const Header = () => {
   return (
-    <header className={`${styles.header} shadow`}>
+    <header className={styles.header}>
       <ContentContainer className={styles.header__container}>
-        <div className={styles.header__logo_wrap}>
-          <div className={styles.header__logo}>
-            <IconLogo />
-            <span>ГУЗ «Забайкальский краевой онкологический диспансер»</span>
-          </div>
+        <div className={styles.header__logo}>
+          <IconLogo />
+          <span>ГУЗ «Забайкальский краевой онкологический диспансер»</span>
         </div>
 
         <ButtonSearch />
