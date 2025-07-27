@@ -35,7 +35,13 @@
 .name {
   flex-grow: 1;
   font-size: var(--font-size-m);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 
 .buttons {
   display: flex;

@@ -6,6 +6,7 @@ import { Block } from 'shared/ui/block';
 import { VerticalContainer } from 'shared/ui/vertical-container';
 import { getHomePage } from 'shared/api/home';
 import 'shared/styles/pages/home-page.scss';
+import { SectionTitle } from 'shared/ui/section-title';
 
 type TextBlock = {
   blockType: 'text';
@@ -55,7 +56,7 @@ const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
     <VerticalContainer>
       {blocks.map((block, index) => (
         <div key={index} className="Cell" style={{ width: `${block.width}%` }}>
-          {block.title?.trim() && <h2>{block.title}</h2>}
+          {block.title?.trim() && <SectionTitle>{block.title}</SectionTitle>}
 
           {block.content.map((item, i) => {
             switch (item.blockType) {

@@ -5,5 +5,5 @@ type Props = {
 };
 
 export const VerticalContainer = ({ children }: Props) => {
-  return <div className="vertical-container animation-reveal">{children}</div>;
+  return <div className="vertical-container">{children}</div>;
 };

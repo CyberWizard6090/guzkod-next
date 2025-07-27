@@ -39,7 +39,7 @@ export const MobileMenu = ({ children }: MobileMenuProps) => {
           <MobileMenuItem label={'Главная'} logo={IconHome} />
         </Link>
         <Link href="/feedback">
-          <MobileMenuItem label={'обратной связи'} logo={IconChat} />
+          <MobileMenuItem label={'Обратная связь'} logo={IconChat} />
         </Link>
         <Link href="/search">
           <MobileMenuItem label={'Поиск'} logo={IconSearch} />
