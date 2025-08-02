@@ -1,9 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
-import './NewsBlock.scss';
 import { CardRead, CardReadSkeleton } from 'entities/card-read';
 import { Article } from 'shared/types/article';
 import { getArticles } from 'shared/api/articles';
+import { SectionTitle } from 'shared/ui/section-title';
+import './NewsBlock.scss';
 
 export const NewsBlock = () => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -24,7 +25,7 @@ export const NewsBlock = () => {
 
   return (
     <div className="NewsBlock">
-      <h2>Новости</h2>
+      <SectionTitle>Новости</SectionTitle>
       {isLoading ? (
         <>
           <CardReadSkeleton />
