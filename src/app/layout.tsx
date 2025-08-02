@@ -9,7 +9,7 @@ import { ImageViewerModal } from 'features/image-viewer';
 
 import { StateTheme } from 'features/theme';
 
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from 'shared/consts/site.constants';
+import { KEYWORDS, OG_IMAGE, SITE_AUTHOR, SITE_DESCRIPTION, SITE_LANGUAGE, SITE_LOCALE, SITE_NAME, SITE_URL } from 'shared/consts/site.constants';
 import { Providers } from 'shared/providers';
 import { inter } from 'shared/fonts';
 
@@ -33,21 +33,72 @@ import { ContentContainer } from 'shared/ui/content-container';
 export const metadata = {
   title: SITE_NAME,
   description: SITE_DESCRIPTION,
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  generator: 'Next.js',
+  keywords: KEYWORDS,
+  authors: [{ name: SITE_AUTHOR, url: SITE_URL }],
+  creator: SITE_AUTHOR,
+  publisher: SITE_AUTHOR,
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+    },
+  },
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
+  alternates: {
+    canonical: SITE_URL,
+    languages: {
+      [SITE_LANGUAGE]: SITE_URL,
+    },
+  },
   openGraph: {
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     siteName: SITE_NAME,
+    locale: SITE_LOCALE,
+    type: 'website',
     images: [
       {
-        url: SITE_URL + 'photo.jpg',
-        width: 800,
-        height: 600,
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: SITE_NAME,
+        type: 'image/jpeg',
       },
     ],
   },
-  viewport: 'width=device-width, initial-scale=1',
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE],
+  },
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon-96x96.png',
+    apple: '/apple-touch-icon.png',
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/safari-pinned-tab.svg',
+        color: '#5bbad5',
+      },
+    ],
+  },
+  manifest: '/site.webmanifest',
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+  ],
 };
+
 
 export default async function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   const cookieStore = await cookies();

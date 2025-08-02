@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { NewsBlock } from 'widgets/news-block';
 import { Carousel } from 'widgets/carousel';
 import { Banner, SimpleRichText } from 'shared/ui/blocks';
@@ -23,7 +22,6 @@ type BannerBlock = {
   blockType: 'banner-block';
   selectedBanners: {
     id: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image: { sizes: any; url: string };
     text?: string;
     buttonLink?: string;
@@ -38,7 +36,6 @@ type CodeBlock = {
 
 type RichTextBlock = {
   blockType: 'simpleRichText';
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body: any;
 };
 
@@ -50,7 +47,6 @@ type PageBlock = {
   content: BlockContent[];
 };
 
-// eslint-disable-next-line react/prop-types
 const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
   return (
     <VerticalContainer>
