@@ -13,10 +13,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    
   }
   &__img {
-    width: 100%;
-    height: 100%;
+   width: 400px;
+   height: 300px;
     object-fit: cover;
     border-radius: var(--radius-lg);
   }
@@ -39,9 +41,6 @@
   &_title {
     font-weight: bold;
     margin-bottom: var(--spacing-m);
-  }
-  img {
-    width: 100%;
   }
 
   &_bottom-bar {
@@ -128,6 +127,11 @@
     flex-direction: column;
     justify-content: space-between;
     padding: var(--spacing-m);
+  }
+  .card-read__img-wrap--skeleton {
+    width: 400px;
+    height: 300px;
+
   }
 
   .card-read__wrap-date--skeleton {
