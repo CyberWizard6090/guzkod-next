@@ -2,6 +2,7 @@ import './EmployeeCard.scss';
 import { Block } from 'shared/ui/block';
 import Link from 'next/link';
 import DefaultPhoto from 'shared/assets/image/400x300.png';
+import Image from 'next/image';
 type PropsDepartment = {
   id: string;
   name: string;
@@ -21,7 +22,12 @@ export const Employee = ({ id, url, fullName, position, departments, education }
     <Block className="employee-card__block animation-reveal">
       <div className="employee-card">
         <div className="employee-card__photo">
-          <img src={url ? url : DefaultPhoto.src} alt={'фото ' + fullName}></img>
+          <Image
+            src={url ? url : DefaultPhoto.src}
+            alt={'фото ' + fullName}
+            width={400}
+            height={300}
+          />
         </div>
         <Link href={'/personnel/' + id}>
           <div className="employee-card__info">

@@ -4,6 +4,10 @@
   flex-direction: column;
   gap: var(--spacing-xs);
 
+  @media (min-width: 769px) {
+    position: relative;
+  }
+
   &__label {
     font-size: var(--font-size-medium);
     padding-left: var(--spacing-xs);
@@ -21,6 +25,15 @@
     border-radius: var(--radius-md);
     cursor: pointer;
     user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__value {
+    flex: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   &__arrow {
@@ -36,14 +49,18 @@
     overflow: hidden;
     max-height: calc(80vh - 200px);
 
-    // Только для десктопа
     @media (min-width: 769px) {
-      background-color: var(--color-form-input);
+      width: 100%;
+      position: absolute;
+      top: 100%;
+      margin-top: var(--spacing-xs);
+      background-color: var(--background-block);
       color: var(--color-form-input-text);
       border: 1px solid var(--border-tertiary);
       border-radius: var(--radius-md);
       padding: var(--spacing-m);
       max-height: 400px;
+      z-index: 1001;
     }
   }
 

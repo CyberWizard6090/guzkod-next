@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useDisableScroll } from 'shared/lib/hooks/useDisableScroll';
+import IconCross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
 import cls from './BottomSheet.module.scss';
 
 type BottomSheetProps = {
@@ -12,7 +14,7 @@ type BottomSheetProps = {
 export const BottomSheet = ({ isOpen, onClose, children }: BottomSheetProps) => {
   const sheetRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(isOpen);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(true);
   const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
 
   const startY = useRef<number | null>(null);
@@ -21,12 +23,23 @@ export const BottomSheet = ({ isOpen, onClose, children }: BottomSheetProps) => 
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true);
-      setTimeout(() => {
-        setIsAnimating(true);
-        setIsTransitionEnabled(true);
-      }, 10);
+      setIsAnimating(false);
+      setIsTransitionEnabled(false);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsAnimating(true);
+          setIsTransitionEnabled(true);
+        });
+      });
     } else {
       setIsAnimating(false);
+      setIsTransitionEnabled(true);
+
+      const timeout = setTimeout(() => {
+        setIsVisible(false);
+      }, 300);
+      return () => clearTimeout(timeout);
     }
   }, [isOpen]);
 
@@ -45,18 +58,16 @@ export const BottomSheet = ({ isOpen, onClose, children }: BottomSheetProps) => 
 
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
-      document.body.style.overflow = 'hidden';
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
-      document.body.style.overflow = '';
     };
   }, [isOpen, onClose]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     startY.current = e.touches[0].clientY;
-    setIsTransitionEnabled(false); // отключаем анимацию при движении
+    setIsTransitionEnabled(false);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
@@ -94,6 +105,16 @@ export const BottomSheet = ({ isOpen, onClose, children }: BottomSheetProps) => 
     currentY.current = 0;
   };
 
+  const handleClose = () => {
+    setIsAnimating(false);
+    setIsTransitionEnabled(true);
+    setTimeout(() => {
+      onClose();
+    }, 300);
+  };
+
+  useDisableScroll(isOpen);
+
   if (!isVisible) return null;
 
   const containerClassNames = [
@@ -106,14 +127,19 @@ export const BottomSheet = ({ isOpen, onClose, children }: BottomSheetProps) => 
 
   return (
     <div className={cls['bottom-sheet']}>
-      <div className={cls['bottom-sheet__backdrop']} onClick={onClose} />
+      <div className={cls['bottom-sheet__backdrop']} onClick={handleClose} />
       <div className={containerClassNames} ref={sheetRef} onTransitionEnd={handleTransitionEnd}>
         <div
           className={cls['bottom-sheet__handle']}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-        />
+        >
+          <span></span>
+          <button className={cls['bottom-sheet__button-close']} onClick={handleClose}>
+            <IconCross />
+          </button>
+        </div>
         <div className={cls['bottom-sheet__content']}>{children}</div>
       </div>
     </div>

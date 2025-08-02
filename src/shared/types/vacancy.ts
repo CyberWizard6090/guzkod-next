@@ -8,4 +8,4 @@ export type Vacancy = {
   publishedDate: string; // ISO string
   createdAt: string;
   updatedAt: string;
-}
+};

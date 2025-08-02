@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { TabItem } from '../model/types';
+
 import styles from './Tabs.module.scss';
 import clsx from 'clsx';
-
+import { TabItem } from '../model/types';
 
 type TabsProps = {
   tabs: TabItem[];
@@ -13,7 +13,7 @@ type TabsProps = {
 };
 
 export const Tabs = ({ tabs, defaultActiveId, className }: TabsProps) => {
-  const initialTab = tabs.find(tab => tab.id === defaultActiveId) ?? tabs[0];
+  const initialTab = tabs.find((tab) => tab.id === defaultActiveId) ?? tabs[0];
   const [activeTabId, setActiveTabId] = useState(initialTab.id);
 
   return (
@@ -32,9 +32,7 @@ export const Tabs = ({ tabs, defaultActiveId, className }: TabsProps) => {
         ))}
       </div>
 
-      <div className={styles.tabContent}>
-        {tabs.find((tab) => tab.id === activeTabId)?.content}
-      </div>
+      <div className={styles.tabContent}>{tabs.find((tab) => tab.id === activeTabId)?.content}</div>
     </div>
   );
 };

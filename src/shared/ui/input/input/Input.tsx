@@ -18,7 +18,7 @@ export const Input = ({
   onChange,
   type = 'text',
   inputMode = 'text',
-  onKeyDown
+  onKeyDown,
 }: Props) => {
   return (
     <div className="input__container">

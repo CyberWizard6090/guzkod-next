@@ -58,77 +58,76 @@ const SearchPage = () => {
     </Block>
   );
 
-const allResults = (
-  <VerticalContainer>
-    {isLoading && <Loader />}
+  const allResults = (
+    <VerticalContainer>
+      {isLoading && <Loader />}
 
-    {results?.results?.vacancies?.length > 0 && (
-      <>
-        <SectionTitle>Вакансии</SectionTitle>
-        {results.results.vacancies.map((vacancy) => (
-          <VacancyCard key={vacancy.id} {...vacancy} />
-        ))}
-      </>
-    )}
+      {results?.results?.vacancies?.length > 0 && (
+        <>
+          <SectionTitle>Вакансии</SectionTitle>
+          {results.results.vacancies.map((vacancy) => (
+            <VacancyCard key={vacancy.id} {...vacancy} />
+          ))}
+        </>
+      )}
 
-    {results?.results?.article?.length > 0 && (
-      <>
-        <SectionTitle>Новости и профилактика</SectionTitle>
-        {results.results.article.map((article) => (
-          <CardRead key={article.id} article={article} />
-        ))}
-      </>
-    )}
+      {results?.results?.article?.length > 0 && (
+        <>
+          <SectionTitle>Новости и профилактика</SectionTitle>
+          {results.results.article.map((article) => (
+            <CardRead key={article.id} article={article} />
+          ))}
+        </>
+      )}
 
-    {results?.results?.departments?.length > 0 && (
-      <>
-        <SectionTitle>Отделения</SectionTitle>
-        {results.results.departments.map((department) => (
-          <DepartmentCard key={department.id} department={department} />
-        ))}
-      </>
-    )}
+      {results?.results?.departments?.length > 0 && (
+        <>
+          <SectionTitle>Отделения</SectionTitle>
+          {results.results.departments.map((department) => (
+            <DepartmentCard key={department.id} department={department} />
+          ))}
+        </>
+      )}
 
-    {results?.results?.Filesbox?.length > 0 && (
-      <>
-        <SectionTitle>Файлы</SectionTitle>
-        <Block>
-        {results.results.Filesbox.map((file) => (
-          <File key={file.url} name={file.name} filename={file.filename} url={file.url} />
-        ))}
-        </Block>
-      </>
-    )}
+      {results?.results?.Filesbox?.length > 0 && (
+        <>
+          <SectionTitle>Файлы</SectionTitle>
+          <Block>
+            {results.results.Filesbox.map((file) => (
+              <File key={file.url} name={file.name} filename={file.filename} url={file.url} />
+            ))}
+          </Block>
+        </>
+      )}
 
-    {results?.results?.employee?.length > 0 && (
-      <>
-        <SectionTitle>Сотрудники</SectionTitle>
-        {results.results.employee.map((employee) => (
-          <Employee
-            key={employee.id}
-            id={employee.id}
-            url={employee.photo?.sizes?.thumbnail?.url || ''}
-            fullName={employee.fullName}
-            position={employee.position}
-            departments={employee.departments}
-          />
-        ))}
-      </>
-    )}
+      {results?.results?.employee?.length > 0 && (
+        <>
+          <SectionTitle>Сотрудники</SectionTitle>
+          {results.results.employee.map((employee) => (
+            <Employee
+              key={employee.id}
+              id={employee.id}
+              url={employee.photo?.sizes?.thumbnail?.url || ''}
+              fullName={employee.fullName}
+              position={employee.position}
+              departments={employee.departments}
+            />
+          ))}
+        </>
+      )}
 
-    {results?.results?.pages?.length > 0 && (
-      <>
-        <SectionTitle>Страницы</SectionTitle>
-        {results.results.pages.map((page) => (
-          <Link key={page.id} href={page.id}>
-            <Block>{page.namepage}</Block>
-          </Link>
-        ))}
-      </>
-    )}
-  </VerticalContainer>
-);
-
+      {results?.results?.pages?.length > 0 && (
+        <>
+          <SectionTitle>Страницы</SectionTitle>
+          {results.results.pages.map((page) => (
+            <Link key={page.id} href={page.id}>
+              <Block>{page.namepage}</Block>
+            </Link>
+          ))}
+        </>
+      )}
+    </VerticalContainer>
+  );
 
   const tabs: TabItem[] = [
     {

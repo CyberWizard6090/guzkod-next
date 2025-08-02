@@ -1,39 +1,12 @@
 .accessibility-modal {
-  position: fixed;
-  z-index: 1000;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.3); // затемнение фона
+  width: 600px;
 
-  &__dialog {
-    width: 100%;
-    max-width: 600px;
-    min-height: 200px;
-    margin: auto;
-    background-color: rgb(245, 240, 240);
-    padding: var(--spacing-m);
-    border: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    top: 50%;
-    transform: translateY(-50%);
-    position: relative;
-    border-radius: var(--radius-lg);
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
   }
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacing-m);
-
-    h2 {
-      font-size: 24px;
-      margin: 0;
-    }
+  &__button-exit {
+    font-size: 16px;
   }
 
   &__controls {
@@ -45,32 +18,6 @@
   }
 
   &__footer {
-    display: flex;
-    justify-content: flex-end;
     margin-top: var(--spacing-m);
-  }
-
-  &__button-exit {
-    font-size: 16px !important;
-  }
-
-  // 📱 Мобильная адаптация
-  @media (max-width: 480px) {
-    &__dialog {
-      width: 90%;
-      padding: var(--spacing-s);
-      transform: translateY(-50%) scale(0.98); // немного уменьшаем
-      border-radius: var(--radius-sm);
-    }
-
-    &__header {
-      h2 {
-        font-size: 18px;
-      }
-    }
-
-    &__button-exit {
-      font-size: 14px !important;
-    }
   }
 }

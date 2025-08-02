@@ -1,11 +1,14 @@
-import { useState, useRef, useEffect } from 'react';
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
 import { BottomSheet } from 'shared/ui/bottom-sheet';
 import { useDeviceDetect } from 'shared/lib/hooks/useDeviceDetect';
 import { DEVICE_BREAKPOINTS } from 'shared/consts/device-breakpoints.constants';
 import { Calendar } from './Calendar';
-import { parseDate } from '../lib/helpers';
+import { parseDate, formatDate } from '../lib/helpers'; // formatDate — нужная тебе функция
 import cls from './DatePicker.module.scss';
 import { DatePickerProps } from '../model/types';
+import IconCalendar from 'shared/assets/svg/bootstrap-icons-1.11.2/calendar.svg';
 
 export const DatePicker = ({
   label,
@@ -17,12 +20,16 @@ export const DatePicker = ({
   const [isOpen, setIsOpen] = useState(false);
   const [mode, setMode] = useState<'day' | 'month' | 'year'>('day');
   const [selectedDate, setSelectedDate] = useState(() => (value ? new Date(value) : new Date()));
-  const [inputValue, setInputValue] = useState(value);
   const ref = useRef<HTMLDivElement>(null);
   const { isMobile } = useDeviceDetect(DEVICE_BREAKPOINTS.MOBILE);
 
   useEffect(() => {
-    setInputValue(value);
+    if (value) {
+      const parsed = parseDate(value);
+      if (parsed) {
+        setSelectedDate(parsed);
+      }
+    }
   }, [value]);
 
   useEffect(() => {
@@ -32,60 +39,66 @@ export const DatePicker = ({
         setMode('day');
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
+
+    if (!isMobile && isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  }, [isMobile, isOpen]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newVal = e.target.value;
-    setInputValue(newVal);
-
-    const parsed = parseDate(newVal);
+  const handleDateChange = (newValue: string) => {
+    const parsed = parseDate(newValue);
     if (parsed) {
       setSelectedDate(parsed);
-      onChange(newVal);
+      onChange(newValue);
+      setIsOpen(false);
+      setMode('day');
     }
   };
+
+  const formattedDate = value ? formatDate(selectedDate) : placeholder;
+
+  const CalendarContent = (
+    <Calendar
+      value={value}
+      selectedDate={selectedDate}
+      setSelectedDate={setSelectedDate}
+      onChange={handleDateChange}
+      mode={mode}
+      setMode={setMode}
+    />
+  );
 
   return (
     <div className={cls['calendar__container']} ref={ref}>
       {label && (
-        <label className={cls['calendar__label']} htmlFor={name}>
+        <label htmlFor={name} className={cls['calendar__label']}>
           {label}
         </label>
       )}
-      <input
-        type="text"
+
+      <button
         id={name}
         name={name}
-        className={cls['calendar__input']}
-        placeholder={placeholder}
-        value={inputValue}
-        onFocus={() => setIsOpen(true)}
-        onChange={handleInputChange}
-      />
+        type="button"
+        className={cls['calendar__control']}
+        onClick={() => setIsOpen(true)}
+        aria-haspopup="dialog"
+        aria-expanded={isOpen}
+      >
+        <span className={cls['calendar__value']}> {formattedDate}</span>
+        <span className={cls['calendar__icon']}>
+          <IconCalendar />
+        </span>
+      </button>
+
       {isMobile ? (
         <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
-          <Calendar
-            value={value}
-            selectedDate={selectedDate}
-            setSelectedDate={setSelectedDate}
-            onChange={onChange}
-            mode={mode}
-            setMode={setMode}
-          />
+          {CalendarContent}
         </BottomSheet>
       ) : (
-        isOpen && (
-          <Calendar
-            value={value}
-            selectedDate={selectedDate}
-            setSelectedDate={setSelectedDate}
-            onChange={onChange}
-            mode={mode}
-            setMode={setMode}
-          />
-        )
+        isOpen && <div className={cls['calendar__dropdown']}>{CalendarContent}</div>
       )}
     </div>
   );

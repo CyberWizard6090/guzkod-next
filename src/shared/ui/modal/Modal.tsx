@@ -19,7 +19,12 @@ export const Modal = ({ isOpen, onClose, children, className, title }: ModalProp
       <div className={clsx(styles.content, className)} onClick={(e) => e.stopPropagation()}>
         <div className={styles.header}>
           <h2 className={styles.title}>{title}</h2>
-          <IconButton onClick={onClose} Icon={IconCross} className={styles.closeButton} />
+          <IconButton
+            onClick={onClose}
+            variant={'secondary'}
+            Icon={IconCross}
+            className={styles.closeButton}
+          />
         </div>
 
         {children}

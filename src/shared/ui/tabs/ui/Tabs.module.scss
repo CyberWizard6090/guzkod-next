@@ -6,8 +6,12 @@
 
 .tabList {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--spacing-s);
   margin-bottom: var(--spacing-m);
+  @media (max-width: 768px) {
+    padding: 0 var(--spacing-m);
+  }
 }
 
 .tabButton {
@@ -27,13 +31,7 @@
 .active {
   background: var(--accent-color);
   color: var(--button-text);
-    &:hover {
+  &:hover {
     background: var(--accent-color-hover);
   }
-}
-.tabContent {
-  // background: var(--background-panel-item);
-  // padding: var(--spacing-m);
-  // border-radius: var(--radius-sm);
-  // border: 1px solid var(--border-tertiary);
 }

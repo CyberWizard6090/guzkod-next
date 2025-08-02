@@ -5,6 +5,8 @@ import { BottomSheet } from 'shared/ui/bottom-sheet';
 import IconUp from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-up.svg';
 import IconDown from 'shared/assets/svg/bootstrap-icons-1.11.2/chevron-down.svg';
 import cls from './Dropdown.module.scss';
+import { useDeviceDetect } from 'shared/lib/hooks/useDeviceDetect';
+import { DEVICE_BREAKPOINTS } from 'shared/consts/device-breakpoints.constants';
 
 type DropdownOption = {
   value: string;
@@ -21,9 +23,8 @@ type DropdownProps = {
 
 export const Dropdown = ({ options, label, value, defaultValue, onChange }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
+  const { isMobile } = useDeviceDetect(DEVICE_BREAKPOINTS.MOBILE);
   useEffect(() => {
     if (!value && defaultValue) {
       onChange(defaultValue);
@@ -31,17 +32,20 @@ export const Dropdown = ({ options, label, value, defaultValue, onChange }: Drop
   }, [defaultValue, onChange, value]);
 
   useEffect(() => {
-    const checkMobile = () => window.innerWidth <= 768;
-    const handleResize = () => {
-      setIsMobile(checkMobile());
-      if (!checkMobile()) {
-        document.body.style.overflow = '';
+    if (isMobile || !isOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        closeDropdown();
       }
     };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isMobile, isOpen]);
 
   const selectedLabel = options.find((opt) => opt.value === value)?.label;
 
@@ -60,7 +64,12 @@ export const Dropdown = ({ options, label, value, defaultValue, onChange }: Drop
 
   const DropdownList = (
     <div className={cls['dropdown__menu']}>
-      <ul className={cls['dropdown__list']} role="listbox" aria-label={label ?? 'Выбор значения'}>
+      <ul
+        className={cls['dropdown__list']}
+        role="listbox"
+        tabIndex={0}
+        aria-label={label ?? 'Выбор значения'}
+      >
         {options.map((option) => (
           <li
             key={option.value}
@@ -95,7 +104,10 @@ export const Dropdown = ({ options, label, value, defaultValue, onChange }: Drop
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
-        {selectedLabel ?? defaultValue ?? 'Выберите значение'}
+        <span className={cls['dropdown__value']}>
+          {selectedLabel ?? defaultValue ?? 'Выберите значение'}
+        </span>
+
         <span className={cls['dropdown__arrow']}>{isOpen ? <IconUp /> : <IconDown />}</span>
       </button>
 
