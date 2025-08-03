@@ -38,14 +38,15 @@
     grid-template-areas:
       'nav main '
       'nav main '
+      'nav sidebar'
       '. footer ';
   }
   @media (max-width: 767px) {
     grid-template-columns: 1fr;
     grid-template-areas:
-      'main '
-      'sidebar '
-      'footer ';
+      'main'
+      'sidebar'
+      'footer';
     &__content {
       width: 100%;
       grid-area: main;

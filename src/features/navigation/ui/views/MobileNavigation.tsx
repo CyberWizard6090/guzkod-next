@@ -5,9 +5,11 @@ import IconCross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
 import IconHome from 'shared/assets/svg/bootstrap-icons-1.11.2/house-fill.svg';
 import IconChat from 'shared/assets/svg/bootstrap-icons-1.11.2/chat-dots-fill.svg';
 import IconSearch from 'shared/assets/svg/bootstrap-icons-1.11.2/search.svg';
+
 import { useDisableScroll } from 'shared/lib/hooks/useDisableScroll';
 import 'features/navigation/ui/styles/MobileNavigation.scss';
 import Link from 'next/link';
+import { Button } from 'shared/ui/button';
 type MobileMenuProps = {
   children: ReactNode;
 };
@@ -77,7 +79,9 @@ export const MobileMenu = ({ children }: MobileMenuProps) => {
           >
             {children}
           </div>
+           <Button Icon={IconCross} onClick={closeMenu}>Закрыть</Button>
         </div>
+       
       </div>
     </>
   );
