@@ -1,34 +1,35 @@
 import { ReactNode } from 'react';
-
 import { Header } from 'widgets/header';
 import { Footer } from 'widgets/footer';
-
 import { NotificationContainer } from 'features/notifications';
 import { AccessibilityStyles, AccessibilityUI } from 'features/accessibility-mode';
 import { ImageViewerModal } from 'features/image-viewer';
-
 import { StateTheme } from 'features/theme';
-
-import { KEYWORDS, OG_IMAGE, SITE_AUTHOR, SITE_DESCRIPTION, SITE_LANGUAGE, SITE_LOCALE, SITE_NAME, SITE_URL } from 'shared/consts/site.constants';
 import { Providers } from 'shared/providers';
 import { inter } from 'shared/fonts';
-
 import { cookies } from 'next/headers';
-import 'shared/styles/index.scss';
-import 'shared/styles/pages/error.scss';
-
 import { GosuslugiWidget } from 'widgets/gosuslugi-widget';
 import { MedicalReviewWidget } from 'widgets/medical-review-widget';
 import { ZabaikalmedstrakhWidget } from 'widgets/zabaikalmedstrakh-widget';
 import { NationalProjectsWidget } from 'widgets/national-projects-widget';
 import { TakzdorovoWidget } from 'widgets/takzdorovo-widget';
-
 import { Navigation } from 'features/navigation';
 import { PdfViewerModal } from 'features/pdf-viewer';
-
-import { Breadcrumbs } from 'entities/breadcrumb';
-
 import { ContentContainer } from 'shared/ui/content-container';
+
+import 'shared/styles/index.scss';
+import 'shared/styles/pages/error.scss';
+
+import {
+  KEYWORDS,
+  OG_IMAGE,
+  SITE_AUTHOR,
+  SITE_DESCRIPTION,
+  SITE_LANGUAGE,
+  SITE_LOCALE,
+  SITE_NAME,
+  SITE_URL,
+} from 'shared/consts/site.constants';
 
 export const metadata = {
   title: SITE_NAME,
@@ -98,7 +99,6 @@ export const metadata = {
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
   ],
 };
-
 
 export default async function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   const cookieStore = await cookies();

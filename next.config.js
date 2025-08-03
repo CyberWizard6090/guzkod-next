@@ -42,29 +42,28 @@ const nextConfig = {
     });
 
     // Настраиваем css-loader для CSS Modules с кастомным префиксом
-config.module.rules.forEach(rule => {
-  if (!rule.oneOf) return;
-  rule.oneOf.forEach(one => {
-    if (!one.use) return;
+    config.module.rules.forEach((rule) => {
+      if (!rule.oneOf) return;
+      rule.oneOf.forEach((one) => {
+        if (!one.use) return;
 
-    // Приводим к массиву, если use не массив
-    const uses = Array.isArray(one.use) ? one.use : [one.use];
+        const uses = Array.isArray(one.use) ? one.use : [one.use];
 
-    uses.forEach(u => {
-      if (u.loader && u.loader.includes('css-loader') && u.options && u.options.modules) {
-        u.options.modules.getLocalIdent = (context, localIdentName, localName, options) => {
-          const prefix = 'guzkod';
-          const hash = Buffer.from(context.resourcePath)
-            .toString('base64')
-            .replace(/[^a-zA-Z0-9]/g, '')
-            .slice(0, 5);
+        uses.forEach((u) => {
+          if (u.loader && u.loader.includes('css-loader') && u.options && u.options.modules) {
+            u.options.modules.getLocalIdent = (context, localIdentName, localName, options) => {
+              const prefix = 'guzkod';
+              const hash = Buffer.from(context.resourcePath)
+                .toString('base64')
+                .replace(/[^a-zA-Z0-9]/g, '')
+                .slice(0, 5);
 
-          return `${prefix}_${localName}__${hash}`;
-        };
-      }
+              return `${prefix}-${localName}__${hash}`;
+            };
+          }
+        });
+      });
     });
-  });
-});
 
     return config;
   },

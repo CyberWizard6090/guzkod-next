@@ -1,7 +1,6 @@
 import { getFooterData } from 'shared/api/footer';
 import styles from './Footer.module.scss';
 import clsx from 'clsx';
-import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode } from 'react';
 
 type Link = {
   text: string;
@@ -22,11 +21,11 @@ export const Footer = async () => {
   return (
     <footer className={clsx(styles['footer'], 'shadow')}>
       <div className={styles['footer__container']}>
-        {pageData.map((column: { id: Key | null | undefined; title: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; List: any[]; }) => (
+        {pageData.map((column: Column) => (
           <div key={column.id} className={styles['footer__column']}>
             <h4 className={styles['footer__title']}>{column.title}</h4>
             <ul className={styles['footer__links']}>
-              {column.List.map((link: { id: Key | null | undefined; href: string | undefined; text: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; }) => (
+              {column.List.map((link: Link) => (
                 <li key={link.id}>
                   <a
                     href={link.href}

@@ -15,7 +15,8 @@ import { CardRead } from 'entities/card-read';
 import { DepartmentCard } from 'entities/department-card';
 import { File } from 'features/files';
 import { Employee } from 'entities/employee-card';
-import { Tabs, TabItem } from 'shared/ui/Tabs'; // добавим Tabs
+import { Tabs } from 'shared/ui/tabs';
+export type { TabItem } from 'shared/ui/tabs';
 import { SectionTitle } from 'shared/ui/section-title';
 
 const SearchPage = () => {

@@ -1,0 +1,37 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  &__content {
+    background: white;
+    padding: var(--spacing-m);
+    border-radius: var(--radius-lg);
+    max-width: 100%;
+    max-height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-m);
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  &__body {
+    height: 100%;
+  }
+}

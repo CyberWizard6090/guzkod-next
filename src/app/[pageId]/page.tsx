@@ -9,19 +9,11 @@ import {
   SITE_URL,
   SITE_LOCALE,
   OG_IMAGE,
-
 } from 'shared/consts/site.constants';
 
 import type { Metadata } from 'next';
 
-type Params = {
-  params: {
-    pageId: string;
-  };
-};
-
-
-export const generateMetadata = async ({ params }: Params): Promise<Metadata> => {
+export const generateMetadata = async ({ params }: any): Promise<Metadata> => {
   const data = await getPageById(params.pageId);
 
   const pageTitle = data.namepage ?? SITE_NAME;
@@ -59,8 +51,7 @@ export const generateMetadata = async ({ params }: Params): Promise<Metadata> =>
   };
 };
 
-
-export const DefaultPage = async ({ params }: Params) => {
+const DefaultPage = async ({ params }: any) => {
   const data = await getPageById(params.pageId);
 
   return (

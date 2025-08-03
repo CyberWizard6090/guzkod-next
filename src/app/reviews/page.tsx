@@ -80,6 +80,10 @@ export default function ReviewsPage() {
     loadPage(page);
   }, [page, loadPage]);
 
+  if (error) {
+    console.error(error);
+  }
+
   return (
     <VerticalContainer>
       <Block>

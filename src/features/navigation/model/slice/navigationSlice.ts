@@ -1,4 +1,3 @@
-// features/navigation/model/slice/navigationSlice.ts
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { NavigationItem } from '../types/navigation';
 import { getNavigation } from '../api/navigation.api';
@@ -26,7 +25,7 @@ export const fetchNavigation = createAsyncThunk(
         return rejectWithValue(error.message);
       }
       return [...sidebarData, ...data.layout];
-    } catch (e) {
+    } catch {
       return rejectWithValue('Ошибка загрузки навигации');
     }
   },
