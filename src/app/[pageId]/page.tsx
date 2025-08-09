@@ -1,7 +1,7 @@
 import { RenderBlocks } from 'entities/blocks';
 import { getPageById } from 'shared/api/pages';
 import { Block } from 'shared/ui/block';
-import { EmptyPageStub } from 'shared/ui/empty-page-stub';
+import { EmptyState } from 'shared/ui/empty-state';
 
 import {
   SITE_NAME,
@@ -55,13 +55,15 @@ const DefaultPage = async ({ params }: any) => {
   const data = await getPageById(params.pageId);
 
   return (
-    <Block>
+    <>
       {data.layout && data.layout.length > 0 ? (
-        <RenderBlocks layout={data.layout} />
+        <Block>
+          <RenderBlocks layout={data.layout} />
+        </Block>
       ) : (
-        <EmptyPageStub />
+        <EmptyState />
       )}
-    </Block>
+    </>
   );
 };
 

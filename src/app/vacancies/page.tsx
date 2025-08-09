@@ -3,8 +3,8 @@
 import { VacancyCard, VacancySkeleton } from 'entities/vacancy-card';
 import { useEffect, useState, useCallback } from 'react';
 import { getVacancies } from 'shared/api/vacancies';
-import { Block } from 'shared/ui/block';
-import { EmptyPageStub } from 'shared/ui/empty-page-stub';
+
+import { EmptyState } from 'shared/ui/empty-state';
 
 const PAGE_SIZE = 10;
 
@@ -72,14 +72,12 @@ export default function VacanciesPage() {
     <>
       <h2>Вакансии</h2>
       {vacancies.length === 0 && (
-        <Block>
-          <EmptyPageStub
-            title={'Новых вакансий пока нет'}
-            description={
-              'В настоящий момент вакансии не размещены. Следите за обновлениями — мы обязательно сообщим, когда они появятся.'
-            }
-          />
-        </Block>
+        <EmptyState
+          title={'Новых вакансий пока нет'}
+          description={
+            'В настоящий момент вакансии не размещены. Следите за обновлениями — мы обязательно сообщим, когда они появятся.'
+          }
+        />
       )}
       {vacancies.map((vacancy) => (
         <VacancyCard key={vacancy.id} {...vacancy} />

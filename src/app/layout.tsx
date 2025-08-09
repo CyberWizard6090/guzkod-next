@@ -126,10 +126,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             <PdfViewerModal />
             <Navigation />
 
-            <main className="layout__content">
-              {/* <Breadcrumbs /> */}
-              {children}
-            </main>
+            <main className="layout__content">{children}</main>
             <aside className="layout__sidebar">
               <GosuslugiWidget />
               <MedicalReviewWidget />

@@ -5,7 +5,7 @@ import { EmployeeList } from 'widgets/employee-list';
 import { getDepartmentById } from 'shared/api/departments';
 import { VerticalContainer } from 'shared/ui/vertical-container';
 import { ImageView } from 'shared/ui/image';
-import { EmptyPageStub } from 'shared/ui/empty-page-stub';
+import { EmptyState } from 'shared/ui/empty-state';
 
 export default async function DepartmentPage({ params }: any) {
   const data = await getDepartmentById(params.departmentId);
@@ -18,7 +18,7 @@ export default async function DepartmentPage({ params }: any) {
         {data.description && data.description.length !== 0 ? (
           <SimpleRichText body={data.description} />
         ) : (
-          <EmptyPageStub
+          <EmptyState
             title={'Информация о подразделении'}
             description={
               'Описание данного подразделения пока не добавлено. Скоро здесь появится подробная информация о его деятельности и функциях.'

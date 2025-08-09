@@ -24,6 +24,9 @@ export const fetchNavigation = createAsyncThunk(
       if (error) {
         return rejectWithValue(error.message);
       }
+      if (!data?.layout) {
+        return rejectWithValue('Некорректный ответ от сервера');
+      }
       return [...sidebarData, ...data.layout];
     } catch {
       return rejectWithValue('Ошибка загрузки навигации');
