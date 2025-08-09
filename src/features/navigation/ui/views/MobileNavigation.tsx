@@ -79,9 +79,10 @@ export const MobileMenu = ({ children }: MobileMenuProps) => {
           >
             {children}
           </div>
-           <Button Icon={IconCross} onClick={closeMenu}>Закрыть</Button>
+          <Button Icon={IconCross} onClick={closeMenu}>
+            Закрыть
+          </Button>
         </div>
-       
       </div>
     </>
   );

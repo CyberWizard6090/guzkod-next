@@ -45,7 +45,7 @@
   &__link {
     display: flex;
     align-items: center;
-    padding: var(--spacing-m);
+    padding: var(--spacing-s) var(--spacing-m);
     border-radius: var(--radius-md);
     color: var(--font-color-light);
     text-decoration: none;
@@ -86,7 +86,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: var(--spacing-m);
+      padding: var(--spacing-s) var(--spacing-m);
       border-radius: var(--radius-md);
       background: none;
       border: none;
@@ -134,6 +134,7 @@
       max-height: 10000px;
       opacity: 1;
       pointer-events: auto;
+      margin: var(--spacing-s) 0 var(--spacing-s) var(--spacing-s);
     }
   }
 }
