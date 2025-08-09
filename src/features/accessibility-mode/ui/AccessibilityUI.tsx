@@ -1,18 +1,18 @@
 'use client';
 import { useDispatch, useSelector } from 'react-redux';
-import './Style.scss';
-import { Button, IconButton } from 'shared/ui/button';
+
+import { Button } from 'shared/ui/button';
 import { RootState } from 'shared/stores';
 import { SelectIsModalOpen } from '../model/selectors';
-
 import { setModalOpen, setMode, FontSize, setFontSize } from '../model/accessibilityModeSlice';
-
 import { setTheme, Theme } from 'features/theme/model/themeSlice';
 import FontSizeSelector from './selector/FontSizeSelector';
 import ThemeSelector from './selector/ThemeSelector';
-import './selector/accessibility.scss';
-import Cross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
 import { useDisableScroll } from 'shared/lib/hooks/useDisableScroll';
+import { Modal } from 'shared/ui/modal';
+
+import './Style.scss';
+import './selector/accessibility.scss';
 
 export const AccessibilityUI = () => {
   const dispatch = useDispatch();
@@ -54,26 +54,21 @@ export const AccessibilityUI = () => {
   if (!isModalOpen) return null;
 
   return (
-    <div className="accessibility-modal">
-      <dialog className="accessibility-modal__dialog">
-        <div className="accessibility-modal__header">
-          <h2 className="accessibility-modal__title">Настройки доступности</h2>
-          <IconButton
-            className="accessibility-modal__button-close"
-            onClick={handleCloseModal}
-            Icon={Cross}
-          />
-        </div>
-        <div className="accessibility-modal__controls">
-          <FontSizeSelector value={fontSize} onChange={handleRadioChangeFont} />
-          <ThemeSelector value={theme} onChange={handleRadioChangeTheme} />
-        </div>
-        <div className="accessibility-modal__footer">
-          <Button className="accessibility-modal__button-exit" onClick={handleToggleMode}>
-            Обычный режим
-          </Button>
-        </div>
-      </dialog>
-    </div>
+    <Modal
+      className="accessibility-modal"
+      title="Настройки доступности"
+      isOpen={isModalOpen}
+      onClose={handleCloseModal}
+    >
+      <div className="accessibility-modal__controls">
+        <FontSizeSelector value={fontSize} onChange={handleRadioChangeFont} />
+        <ThemeSelector value={theme} onChange={handleRadioChangeTheme} />
+      </div>
+      <div className="accessibility-modal__footer">
+        <Button className="accessibility-modal__button-exit" onClick={handleToggleMode}>
+          Обычный режим
+        </Button>
+      </div>
+    </Modal>
   );
 };

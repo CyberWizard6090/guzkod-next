@@ -6,8 +6,8 @@ import { Review, ReviewCard, ReviewSkeleton } from 'entities/review-card';
 import Link from 'next/link';
 import { Block } from 'shared/ui/block';
 import { Button } from 'shared/ui/button';
-import { EmptyPageStub } from 'shared/ui/empty-page-stub';
-import { Page } from 'shared/ui/page';
+import { EmptyState } from 'shared/ui/empty-state';
+import { VerticalContainer } from 'shared/ui/vertical-container';
 import AlignWrapper from 'shared/ui/align-wrapper';
 
 const PAGE_SIZE = 10;
@@ -70,7 +70,6 @@ export default function ReviewsPage() {
         setPage((prev) => prev + 1);
       }
     };
-    console.error('error', error);
 
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
@@ -81,8 +80,12 @@ export default function ReviewsPage() {
     loadPage(page);
   }, [page, loadPage]);
 
+  if (error) {
+    console.error(error);
+  }
+
   return (
-    <Page>
+    <VerticalContainer>
       <Block>
         <h2>Оставьте свой отзыв</h2>
         <p>Нам важно ваше мнение! Пожалуйста, поделитесь своим опытом.</p>
@@ -94,12 +97,10 @@ export default function ReviewsPage() {
       </Block>
 
       {data.length === 0 && !loading ? (
-        <Block>
-          <EmptyPageStub
-            title="Мы ценим ваше мнение"
-            description="На этой странице пока нет отзывов, но мы будем рады, если вы станете первым, кто поделится своим опытом получения медицинской помощи в нашем учреждении."
-          />
-        </Block>
+        <EmptyState
+          title="Мы ценим ваше мнение"
+          description="На этой странице пока нет отзывов, но мы будем рады, если вы станете первым, кто поделится своим опытом получения медицинской помощи в нашем учреждении."
+        />
       ) : (
         <h2>Отзывы</h2>
       )}
@@ -109,6 +110,6 @@ export default function ReviewsPage() {
       ))}
 
       {loading && [...Array(3)].map((_, i) => <ReviewSkeleton key={`skeleton-${i}`} />)}
-    </Page>
+    </VerticalContainer>
   );
 }

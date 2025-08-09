@@ -1,4 +1,4 @@
-.CardRead {
+.card-read {
   background-color: var(--background-block);
   display: grid;
   grid-template-columns: 400px 1fr;
@@ -6,34 +6,6 @@
   overflow: hidden;
   row-gap: 10px;
   border-radius: var(--radius-lg);
-
-  @media screen and (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    &_content {
-      flex-grow: 1;
-      width: 100%;
-      justify-content: start;
-      padding: 0 var(--spacing-l) var(--spacing-l) var(--spacing-l);
-    }
-  }
-
-  /* Для планшетов */
-  // @media screen and (min-width: 768px) and (max-width: 1024px) {
-
-  // }
-
-  /* Для ПК */
-  @media screen and (min-width: 767px) {
-    &_content {
-      flex-grow: 1;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: start;
-      padding: var(--spacing-m) var(--spacing-l);
-    }
-  }
 
   &__img__wrap {
     width: 100%;
@@ -43,8 +15,8 @@
     justify-content: center;
   }
   &__img {
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 300px;
     object-fit: cover;
     border-radius: var(--radius-lg);
   }
@@ -55,35 +27,31 @@
     margin-bottom: var(--spacing-m);
   }
   &__type {
-    border-radius: var(--spacing-xs);
+    border-radius: var(--spacing-m);
 
     padding: var(--spacing-xxs) var(--spacing-m);
-    &--news {
-      background-color: #ff0000;
-      color: white;
-    }
-    &--prevention {
-      background-color: #7705e2;
-      color: white;
-    }
+    background-color: var(--accent-color);
+    color: var(--button-text);
+    letter-spacing: 0.05em;
+    font-size: var(--font-size-small);
   }
+
   &_title {
     font-weight: bold;
     margin-bottom: var(--spacing-m);
   }
-  img {
-    width: 100%;
-  }
+
   &_bottom-bar {
     padding: var(--spacing-xs);
 
     display: flex;
     justify-content: end;
   }
-  &_wrap_date {
-    height: 100%;
-    display: flex;
-    align-items: center;
+  &__date {
+    display: block;
+    font-size: var(--font-size-medium);
+    font-weight: bold;
+    color: var(--font-color-gray);
   }
   &_text-container {
     width: 100%;
@@ -97,6 +65,32 @@
       height: 6.5em;
     }
   }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+    &_content {
+      flex-grow: 1;
+      width: 100%;
+      justify-content: start;
+      padding: 0 var(--spacing-l) var(--spacing-l) var(--spacing-l);
+    }
+    &__img {
+      border-radius: 0;
+    }
+  }
+
+  @media screen and (min-width: 767px) {
+    &_content {
+      flex-grow: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      padding: var(--spacing-m) var(--spacing-l);
+    }
+  }
 }
 
 @keyframes shimmer {
@@ -108,12 +102,12 @@
   }
 }
 
-.CardRead--skeleton {
-  .CardRead__img-wrap--skeleton,
-  .CardRead__wrap-date--skeleton,
-  .CardRead__type--skeleton,
-  .CardRead__title--skeleton,
-  .CardRead__text-line--skeleton {
+.card-read--skeleton {
+  .card-read__img-wrap--skeleton,
+  .card-read__wrap-date--skeleton,
+  .card-read__type--skeleton,
+  .card-read__title--skeleton,
+  .card-read__text-line--skeleton {
     background-color: var(--skeleton-base);
     border-radius: var(--radius-md);
     animation: shimmer 1.5s infinite linear;
@@ -126,36 +120,40 @@
     );
     background-size: 200% 100%;
   }
-  .CardRead__content--skeleton {
+  .card-read__content--skeleton {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: var(--spacing-m);
   }
+  .card-read__img-wrap--skeleton {
+    width: 400px;
+    height: 300px;
+  }
 
-  .CardRead__wrap-date--skeleton {
+  .card-read__wrap-date--skeleton {
     width: 180px;
     height: 1.2em;
   }
 
-  .CardRead__top-bar--skeleton {
+  .card-read__top-bar--skeleton {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: var(--spacing-m);
   }
-  .CardRead__type--skeleton {
+  .card-read__type--skeleton {
     width: 160px;
     height: 30px;
   }
 
-  .CardRead__title--skeleton {
+  .card-read__title--skeleton {
     height: 30px;
     width: 100%;
     margin-bottom: var(--spacing-m);
   }
 
-  .CardRead__text-line--skeleton {
+  .card-read__text-line--skeleton {
     height: 1em;
     width: 100%;
     margin-bottom: 0.5em;

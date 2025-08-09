@@ -5,9 +5,9 @@ import { MobileMenu } from './MobileNavigation';
 import { DEVICE_BREAKPOINTS } from 'shared/consts/device-breakpoints.constants';
 import { NavigationItem } from '../../model/types/navigation';
 import { Navigate } from './Navigate';
-import { Loader } from 'shared/ui/loader';
 
 import 'features/navigation/ui/styles/Navigation.scss';
+import { NavigateSkeleton } from './NavigateSkeleton';
 
 type Props = {
   items: NavigationItem[];
@@ -28,7 +28,7 @@ export const NavigationView = ({ items, error, loading }: Props) => {
   ) : (
     <aside className="navigation shadow">
       {loading ? (
-        <Loader />
+        <NavigateSkeleton />
       ) : error ? (
         <div className="navigation__error">Ошибка загрузки меню</div>
       ) : (

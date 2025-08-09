@@ -1,0 +1,78 @@
+.bottom-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    transition: opacity 0.3s ease;
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    max-height: 80vh;
+    background: var(--background-block);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(100%);
+    border: 1px solid var(--border-primary);
+    &--open {
+      transform: translateY(0);
+    }
+
+    &--animated {
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &__handle {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding: var(--spacing-s) var(--spacing-s) var(--spacing-s) 0;
+
+    cursor: grab;
+    &::before {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 6px;
+      background-color: var(--gray);
+      border-radius: var(--radius-sm);
+      margin: var(--spacing-s) auto 0 auto;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    border-bottom: 1px solid var(--border-tertiary);
+  }
+
+  &__button-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+
+    svg {
+      width: 40px;
+      height: 40px;
+      fill: var(--gray);
+    }
+  }
+
+  &__content {
+    padding: var(--spacing-s);
+    overflow-y: hidden;
+    max-height: calc(80vh - 30px);
+  }
+}

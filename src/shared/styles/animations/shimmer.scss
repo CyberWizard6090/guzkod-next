@@ -1,0 +1,22 @@
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background-color: var(--skeleton-base);
+  border-radius: var(--radius-md);
+  animation: shimmer 1.5s infinite linear;
+  background-image: linear-gradient(
+    to right,
+    var(--skeleton-base) 0%,
+    var(--skeleton-highlight) 20%,
+    var(--skeleton-base) 40%,
+    var(--skeleton-base) 100%
+  );
+  background-size: 200% 100%;
+}

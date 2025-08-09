@@ -1,46 +1,36 @@
 import Link from 'next/link';
-import './CardRead.scss';
 import { Article } from 'shared/types/article';
-import clsx from 'clsx';
+import { formatDate } from 'shared/lib/format';
+import './CardRead.scss';
+
 type CardReadProps = {
   article: Article;
 };
 export const CardRead = ({ article }: CardReadProps) => {
-  const date = new Date(article.date);
-  const options = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  } as const;
   return (
-    <Link href={`/article/${article.id}`} className="CardRead__link">
-      <div className="CardRead shadow">
-        <div className="CardRead__img__wrap">
+    <Link href={`/article/${article.id}`} className="card-read__link">
+      <div className="card-read">
+        <div className="card-read__img__wrap">
           <img
-            className="CardRead__img"
-            src={article.wallpaper.sizes.tablet.url || ''}
+            className="card-read__img"
+            src={article.wallpaper.sizes.tablet.url ?? ''}
             alt={article.title}
             loading="lazy"
           />
         </div>
-        <div className="CardRead_content">
-          <div className="CardRead_top-bar">
-            <div className="CardRead_wrap_date">
-              <span>{date.toLocaleString('ru-DE', options)}</span>
+        <div className="card-read_content">
+          <div className="card-read_top-bar">
+            <div className="card-read__date">
+              <span>{formatDate(article.date)}</span>
             </div>
-            <div
-              className={clsx('CardRead__type', {
-                'CardRead__type--news': article.type === 'News',
-                'CardRead__type--prevention': article.type !== 'News',
-              })}
-            >
-              #{article.type === 'News' ? 'Новость' : 'Профилактика'}
+            <div className={'card-read__type'}>
+              {article.type === 'News' ? 'Новость' : 'Профилактика'}
             </div>
           </div>
-          <div className={'CardRead_title'}>
+          <div className={'card-read_title'}>
             <h3>{article.title}</h3>
           </div>
-          <div className="CardRead_text-container">
+          <div className="card-read_text-container">
             <div className="truncate-text">{article.text}</div>
           </div>
         </div>

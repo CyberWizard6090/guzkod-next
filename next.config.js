@@ -1,9 +1,7 @@
-// next.config.js
 const fs = require('fs');
 const path = require('path');
 const dotenv = require('dotenv');
 
-// Загружаем переменные из нужного env файла
 const envFile = `.env.${process.env.NODE_ENV || 'development'}`;
 const envPath = path.resolve(__dirname, envFile);
 
@@ -41,6 +39,30 @@ const nextConfig = {
           },
         },
       ],
+    });
+
+    // Настраиваем css-loader для CSS Modules с кастомным префиксом
+    config.module.rules.forEach((rule) => {
+      if (!rule.oneOf) return;
+      rule.oneOf.forEach((one) => {
+        if (!one.use) return;
+
+        const uses = Array.isArray(one.use) ? one.use : [one.use];
+
+        uses.forEach((u) => {
+          if (u.loader && u.loader.includes('css-loader') && u.options && u.options.modules) {
+            u.options.modules.getLocalIdent = (context, localIdentName, localName, options) => {
+              const prefix = 'guzkod';
+              const hash = Buffer.from(context.resourcePath)
+                .toString('base64')
+                .replace(/[^a-zA-Z0-9]/g, '')
+                .slice(0, 5);
+
+              return `${prefix}-${localName}__${hash}`;
+            };
+          }
+        });
+      });
     });
 
     return config;

@@ -1,24 +1,30 @@
 .employee-card {
   display: flex;
-
+  flex-direction: row; // горизонтально: текст слева, фото справа
   width: 100%;
-  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-l); // расстояние между текстом и фото
 
   &__photo {
     flex-shrink: 0;
-    width: 100%;
-    margin-bottom: var(--spacing-l);
-
+    width: 40%; // ширина фото блока (можно подогнать под макет)
+    margin-bottom: 0;
     object-fit: cover;
 
     img {
-      border-radius: calc(var(--radius-sm));
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-sm);
     }
   }
+
   a {
     color: var(--font-color-light);
+    text-decoration: none;
   }
+
   &__info {
+    flex: 1; // текст занимает оставшееся пространство
     display: flex;
     flex-direction: column;
     gap: var(--spacing-s);
@@ -44,79 +50,16 @@
   }
 
   @media (max-width: 768px) {
-    flex-direction: column;
+    flex-direction: column; // мобильный вид — вертикально
     text-align: center;
 
     &__photo {
-      margin-right: 0;
+      width: 100%;
       margin-bottom: 16px;
     }
-  }
-}
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
 
-.skeleton-box {
-  background-color: var(--skeleton-base);
-  border-radius: var(--radius-sm);
-  width: 100%;
-  padding-top: 75%; // сохраняет пропорции 4:3
-  animation: shimmer 1.5s infinite linear;
-  background-image: linear-gradient(
-    to right,
-    var(--skeleton-base) 0%,
-    var(--skeleton-highlight) 20%,
-    var(--skeleton-base) 40%,
-    var(--skeleton-base) 100%
-  );
-  background-size: 200% 100%;
-}
-
-.skeleton-line {
-  background-color: var(--skeleton-base);
-  border-radius: 4px;
-  height: 16px;
-  width: 100%;
-  animation: shimmer 1.5s infinite linear;
-  margin-bottom: 8px;
-  background-image: linear-gradient(
-    to right,
-    var(--skeleton-base) 0%,
-    var(--skeleton-highlight) 20%,
-    var(--skeleton-base) 40%,
-    var(--skeleton-base) 100%
-  );
-  background-size: 200% 100%;
-}
-
-.skeleton-name {
-  width: 60%;
-  height: 24px;
-}
-
-.skeleton-position {
-  width: 40%;
-}
-
-.skeleton-department {
-  width: 50%;
-}
-
-.skeleton-education {
-  width: 30%;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
+    &__info {
+      align-items: center;
+    }
   }
 }

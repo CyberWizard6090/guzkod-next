@@ -10,8 +10,10 @@ import { RadioGroup } from 'shared/ui/radio-group';
 import { Block } from 'shared/ui/block';
 import { Checkbox } from 'shared/ui/checkbox';
 import './FeedbackForm.scss';
-import { API_BASE } from 'shared/api/api';
+
 import { Input, InputPhone, Textarea } from 'shared/ui/input';
+
+import { API_BASE } from 'shared/api/api';
 
 type FieldType = {
   fio: string;

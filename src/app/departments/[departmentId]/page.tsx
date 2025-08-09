@@ -3,14 +3,14 @@ import { SimpleRichText } from 'shared/ui/blocks';
 import { EmployeeList } from 'widgets/employee-list';
 
 import { getDepartmentById } from 'shared/api/departments';
-import { Page } from 'shared/ui/page';
+import { VerticalContainer } from 'shared/ui/vertical-container';
 import { ImageView } from 'shared/ui/image';
-import { EmptyPageStub } from 'shared/ui/empty-page-stub';
+import { EmptyState } from 'shared/ui/empty-state';
 
 export default async function DepartmentPage({ params }: any) {
   const data = await getDepartmentById(params.departmentId);
   return (
-    <Page>
+    <VerticalContainer>
       <h1>{data.name}</h1>
 
       <Block>
@@ -18,7 +18,7 @@ export default async function DepartmentPage({ params }: any) {
         {data.description && data.description.length !== 0 ? (
           <SimpleRichText body={data.description} />
         ) : (
-          <EmptyPageStub
+          <EmptyState
             title={'Информация о подразделении'}
             description={
               'Описание данного подразделения пока не добавлено. Скоро здесь появится подробная информация о его деятельности и функциях.'
@@ -32,6 +32,6 @@ export default async function DepartmentPage({ params }: any) {
           <EmployeeList List={data.employee} />
         </>
       )}
-    </Page>
+    </VerticalContainer>
   );
 }

@@ -9,7 +9,7 @@ export const sidebarData: NavigationItem[] = [
   },
   {
     id: 'nav-feedback',
-    label: 'Отзыв',
+    label: 'Форма обратной связи',
     link: '/feedback',
     blockType: 'navitem',
   },

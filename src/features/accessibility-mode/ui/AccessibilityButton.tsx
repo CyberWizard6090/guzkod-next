@@ -1,6 +1,6 @@
 'use client';
 import { useDispatch, useSelector } from 'react-redux';
-import Logo from 'shared/assets/svg/bootstrap-icons-1.11.2/eyeglasses.svg';
+import Logo from 'shared/assets/svg/bootstrap-icons-1.11.2/eye.svg';
 import { Button, IconButton } from 'shared/ui/button';
 import { setModalOpen, setMode } from '../model/accessibilityModeSlice';
 
@@ -25,7 +25,7 @@ export const AccessibilityButton = () => {
     return <IconButton Icon={Logo} variant="secondary" onClick={handleClick} />;
   } else {
     return (
-      <Button Icon={Logo} variant="secondary" onClick={handleClick}>
+      <Button Icon={Logo} variant={'tertiary'} onClick={handleClick}>
         Версия для слабовидящих
       </Button>
     );

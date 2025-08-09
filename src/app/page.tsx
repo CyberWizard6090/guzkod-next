@@ -1,11 +1,11 @@
-/* eslint-disable react/prop-types */
 import { NewsBlock } from 'widgets/news-block';
 import { Carousel } from 'widgets/carousel';
 import { Banner, SimpleRichText } from 'shared/ui/blocks';
 import { Block } from 'shared/ui/block';
-import { Page } from 'shared/ui/page';
+import { VerticalContainer } from 'shared/ui/vertical-container';
 import { getHomePage } from 'shared/api/home';
 import 'shared/styles/pages/home-page.scss';
+import { SectionTitle } from 'shared/ui/section-title';
 
 type TextBlock = {
   blockType: 'text';
@@ -22,7 +22,6 @@ type BannerBlock = {
   blockType: 'banner-block';
   selectedBanners: {
     id: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image: { sizes: any; url: string };
     text?: string;
     buttonLink?: string;
@@ -37,7 +36,6 @@ type CodeBlock = {
 
 type RichTextBlock = {
   blockType: 'simpleRichText';
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body: any;
 };
 
@@ -49,13 +47,12 @@ type PageBlock = {
   content: BlockContent[];
 };
 
-// eslint-disable-next-line react/prop-types
 const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
   return (
-    <Page>
+    <VerticalContainer>
       {blocks.map((block, index) => (
         <div key={index} className="Cell" style={{ width: `${block.width}%` }}>
-          {block.title?.trim() && <h2>{block.title}</h2>}
+          {block.title?.trim() && <SectionTitle>{block.title}</SectionTitle>}
 
           {block.content.map((item, i) => {
             switch (item.blockType) {
@@ -106,7 +103,7 @@ const RenderBlocks: React.FC<{ blocks: PageBlock[] }> = ({ blocks }) => {
           })}
         </div>
       ))}
-    </Page>
+    </VerticalContainer>
   );
 };
 
@@ -114,9 +111,9 @@ export default async function HomePage() {
   const data = await getHomePage();
 
   return (
-    <Page>
+    <VerticalContainer>
       <RenderBlocks blocks={data.blocks} />
       <NewsBlock />
-    </Page>
+    </VerticalContainer>
   );
 }

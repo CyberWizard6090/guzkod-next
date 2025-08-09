@@ -31,21 +31,22 @@
     grid-template-areas:
       'nav main sidebar'
       'nav main sidebar'
-      'nav footer .';
+      'nav footer footer';
   }
   @media (min-width: 768px) and (max-width: 1199px) {
     grid-template-columns: 350px 1fr;
     grid-template-areas:
       'nav main '
       'nav main '
+      'nav sidebar'
       '. footer ';
   }
   @media (max-width: 767px) {
     grid-template-columns: 1fr;
     grid-template-areas:
-      'main '
-      'sidebar '
-      'footer ';
+      'main'
+      'sidebar'
+      'footer';
     &__content {
       width: 100%;
       grid-area: main;

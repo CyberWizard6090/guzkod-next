@@ -1,1 +1,1 @@
-export { DatePicker } from './DatePicker';
+export { DatePicker } from './ui/DatePicker';

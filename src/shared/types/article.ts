@@ -10,3 +10,12 @@ export type Article = {
   text: string;
   layout: LayoutBlock[];
 };
+
+export type ArticleResponse = {
+  length: number;
+  docs: Article[];
+  globalType: string;
+  createdAt: string;
+  updatedAt: string;
+  id: string;
+};

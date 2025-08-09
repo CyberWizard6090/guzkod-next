@@ -15,6 +15,12 @@
   cursor: pointer;
 }
 
+#js-iframe-wrapper {
+  padding: var(--spacing-m);
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden;
+}
+
 #js-show-iframe-wrapper .pos-banner-fluid * {
   box-sizing: border-box;
 }

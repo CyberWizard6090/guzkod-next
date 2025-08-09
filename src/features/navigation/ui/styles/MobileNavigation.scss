@@ -11,19 +11,26 @@
     align-items: center;
     justify-content: end;
     color: var(--font-color-gray);
-    gap: var(--spacing-xs);
+    gap: var(--spacing-xxs);
     border-radius: var(--radius-md);
+    padding: var(--spacing-xs);
   }
   &__logo {
     border-radius: var(--radius-md);
     svg {
-      width: 30px;
-      height: 30px;
+      width: 20px;
+      height: 20px;
     }
   }
   &__title {
     font-size: var(--font-size-small);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
   }
+
   &__toggle {
     position: fixed;
     bottom: 0;
@@ -34,7 +41,7 @@
     border-top: 1px solid var(--border-tertiary);
     z-index: 100;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     padding: var(--spacing-xs) 0;
 
     button,
@@ -79,13 +86,16 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 75%;
+    width: 70%;
     height: 100%;
     background-color: var(--background-primary);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-xs);
+    gap: var(--spacing-xs);
   }
 
   &__content {
-    padding: var(--spacing-m);
     height: 100%;
     overflow-y: auto;
   }

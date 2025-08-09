@@ -6,6 +6,7 @@ type Props = {
   value: string;
   onChange: (value: string) => void;
   type?: string;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   inputMode?: 'search' | 'text' | 'email' | 'tel' | 'url' | 'none' | 'numeric' | 'decimal';
 };
 
@@ -17,6 +18,7 @@ export const Input = ({
   onChange,
   type = 'text',
   inputMode = 'text',
+  onKeyDown,
 }: Props) => {
   return (
     <div className="input__container">
@@ -30,6 +32,7 @@ export const Input = ({
         className="input"
         value={value}
         placeholder={placeholder}
+        onKeyDown={(e) => onKeyDown && onKeyDown(e)}
         onChange={(e) => onChange(e.target.value)}
       />
     </div>

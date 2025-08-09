@@ -11,7 +11,7 @@ import { formatDate } from 'shared/lib/format';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const data = await getArticleById(params.articleId);
-  const title = `Вакансия: ${data.title ?? data.namepage}`;
+  const title = `${data.type === 'News' ? 'Новость' : 'Профилактика'}: ${data.title ?? data.namepage}`;
   const description = cleanMetaDescription({ text: data.text });
   return {
     title: title,
@@ -30,9 +30,12 @@ export default async function DefaultPage({ params }: any) {
   return (
     <Block>
       {data.title && (
-        <div className="content-block">
-          <span className="date-text">{formatDate(data.date)}</span>
-          <h1 className="title-heading">{data.title}</h1>
+        <div className="article">
+          <div className="article__header">
+            <div className="article__type">{data.type === 'News' ? 'Новость' : 'Профилактика'}</div>
+            <span className="article__date">{formatDate(data.date)}</span>
+          </div>
+          <h1 className="article__title">{data.title}</h1>
         </div>
       )}
       <RenderBlocks layout={data.layout} />

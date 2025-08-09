@@ -1,11 +1,19 @@
-import { API_BASE, fetchApi } from './api';
+import { ArticleResponse } from 'shared/types/article';
+import { API_BASE, fetchApi, fetchApiWithState } from './api';
 
 export const getArticles = async () => {
   return fetchApi('/api/article?limit=3');
 };
 
-export const getAllArticles = async () => {
-  return fetchApi('/api/article');
+export const getAllArticles = async (
+  page = 1,
+  limit = 10,
+): Promise<{
+  data: ArticleResponse | null;
+  error: Error | null;
+  loading: boolean;
+}> => {
+  return fetchApiWithState(`/api/article?page=${page}&limit=${limit}`);
 };
 
 export const getArticleById = async (pageId: string) => {
