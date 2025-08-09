@@ -28,13 +28,12 @@ export const NavigationView = ({ items, error, loading }: Props) => {
   ) : (
     <aside className="navigation shadow">
       {loading ? (
-         <NavigateSkeleton/>
+        <NavigateSkeleton />
       ) : error ? (
         <div className="navigation__error">Ошибка загрузки меню</div>
       ) : (
         content
       )}
-    
     </aside>
   );
 };
