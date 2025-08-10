@@ -1,42 +1,42 @@
 'use client';
-import { useEffect, useState } from 'react';
-import './ImageView.scss';
-
+import { useState } from 'react';
+import styles from './ImageView.module.scss';
 import { Loader } from '../loader';
 import { useDispatch } from 'react-redux';
 import { handleImageClick } from 'features/image-viewer';
+import clsx from 'clsx';
 
 type Props = {
   url: string;
   alt?: string;
   className?: string;
-  loading?: 'eager' | 'lazy' | undefined;
+  loading?: 'eager' | 'lazy';
 };
 
-export const ImageView = ({ url, alt, className, loading = undefined }: Props) => {
+export const ImageView = ({ url, alt = 'Изображение', className, loading }: Props) => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
-  const handleImageLoad = () => {
-    setIsLoading(false);
-  };
-  useEffect(() => {
-    const img = new Image();
-    img.src = url;
-    img.onload = () => setIsLoading(false);
-  }, [url]);
 
-  const ImgLoad = () => {
-    return (
-      <img
-        src={url}
-        className={'image-view__image ' + className}
+  return (
+    <div className={styles.wrapper}>
+      {isLoading && (
+        <div className={styles.loaderWrapper}>
+          <Loader />
+        </div>
+      )}
+      <button
+        type="button"
+        className={clsx(styles.imageButton, className, { [styles.hidden]: isLoading })}
         onClick={() => handleImageClick(url, dispatch)}
-        onLoad={handleImageLoad}
-        alt={alt || 'Изображение'}
-        loading={loading}
-      />
-    );
-  };
-
-  return <> {isLoading ? <Loader /> : <ImgLoad />}</>;
+      >
+        <img
+          src={url}
+          alt={alt}
+          loading={loading}
+          className={styles.image}
+          onLoad={() => setIsLoading(false)}
+        />
+      </button>
+    </div>
+  );
 };
