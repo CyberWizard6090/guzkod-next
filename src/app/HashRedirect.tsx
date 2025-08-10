@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function HashRedirect() {
   const router = useRouter();
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       const hash = window.location.hash;
 
-      if (hash.startsWith("#/")) {
-        const path = hash.slice(2); 
-        router.replace("/" + path);
+      if (hash.startsWith('#/')) {
+        const path = hash.slice(2);
+        router.replace('/' + path);
       }
     }
   }, [router]);

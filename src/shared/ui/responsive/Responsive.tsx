@@ -18,14 +18,9 @@ interface Props {
  * - desktop=true + mode="except" => скрыто на ПК
  * - desktop=false + mode="except" => скрыто на мобилке
  */
-export const Responsive = ({
-  children,
-  breakpoint,
-  desktop = true,
-  mode = 'only',
-}: Props) => {
+export const Responsive = ({ children, breakpoint, desktop = true, mode = 'only' }: Props) => {
   const matches = useMediaQuery(
-    desktop ? `(min-width: ${breakpoint}px)` : `(max-width: ${breakpoint - 1}px)`
+    desktop ? `(min-width: ${breakpoint}px)` : `(max-width: ${breakpoint - 1}px)`,
   );
 
   if (matches && mode === 'only') return <>{children}</>;

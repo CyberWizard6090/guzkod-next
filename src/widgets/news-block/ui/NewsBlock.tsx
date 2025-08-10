@@ -46,7 +46,7 @@ export const NewsBlock = () => {
         </div>
       ) : error ? (
         <Block>
-        <p className={styles['news-block__error']}>{error}</p>
+          <p className={styles['news-block__error']}>{error}</p>
         </Block>
       ) : (
         <div className={styles['news-block__wrap']}>

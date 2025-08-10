@@ -18,6 +18,7 @@
     max-height: 100vh;
     overflow: hidden;
     position: relative;
+    margin: var(--spacing-m);
   }
 
   &__header {
