@@ -5,7 +5,7 @@ import { useEffect, useState, useCallback } from 'react';
 
 import { Article } from 'shared/types/article';
 import { Button } from 'shared/ui/button';
-import { getAllArticles } from 'shared/api/articles';
+import { getArticles } from 'shared/api/articles';
 const PAGE_SIZE = 5;
 
 export default function ArticlePage() {
@@ -19,7 +19,7 @@ export default function ArticlePage() {
     setLoading(true);
     setError(null);
 
-    const { data, error } = await getAllArticles(pageNum, PAGE_SIZE);
+    const { data, error } = await getArticles(pageNum, PAGE_SIZE);
     const articles = data?.docs ?? [];
     if (error) {
       setError(error);

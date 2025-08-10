@@ -1,11 +1,7 @@
 import { ArticleResponse } from 'shared/types/article';
 import { API_BASE, fetchApi, fetchApiWithState } from './api';
 
-export const getArticles = async () => {
-  return fetchApi('/api/article?limit=3');
-};
-
-export const getAllArticles = async (
+export const getArticles = async (
   page = 1,
   limit = 10,
 ): Promise<{
