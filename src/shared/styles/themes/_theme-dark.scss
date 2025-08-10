@@ -50,6 +50,9 @@
   --shadow-primary: rgba(255, 165, 0, 0.15); /* мягкий оранжевый */
   --shadow-secondary: rgba(255, 64, 64, 0.12); /* красноватый для акцентов */
 
+    /* Затемнение (оверлей) — полупрозрачный черный */
+  --color-overlay: rgba(0, 0, 0, 0.7);
+
   /* QR и Skeleton */
   --qr-color: #ffffff;
   --skeleton-base: #444;

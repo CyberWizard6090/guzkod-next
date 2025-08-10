@@ -53,6 +53,9 @@
   --link-focus-shadow: rgba(155, 89, 42, 0.4);
   --link-info-color: #6b6b6c;
 
+    /* Затемнение (оверлей) — полупрозрачный черный */
+  --color-overlay: rgba(0, 0, 0, 0.7);
+
   /*QR и Скелетон */
   --qr-color: #000000;
   --skeleton-base: #d6c7ba;

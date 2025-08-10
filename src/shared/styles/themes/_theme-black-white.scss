@@ -53,6 +53,9 @@
   --shadow-secondary: rgba(255, 255, 255, 0.18);
   --shadow-tertiary: rgba(255, 255, 255, 0.1);
 
+    /* Затемнение (оверлей) — полупрозрачный черный */
+  --color-overlay: rgba(0, 0, 0, 0.7);
+
   /*QR и Скелетон */
   --qr-color: #ffffff;
   --skeleton-base: #444444;

@@ -12,9 +12,9 @@
   --button-text: #ffffff;
 
   /* 🟪 Альтернативные кнопки */
-  --btn-color-alt: #03035c;
+  --btn-color-alt: #6969ca;
   --btn-color-alt-hover: #4c5ed4;
-  --btn-text-alt: #dddbe4;
+  --btn-text-alt: #11024b;
 
   /* 🧱 Границы */
   --border-secondary: #03035c;
@@ -30,7 +30,7 @@
   --background-secondary: #dfe6fa;
   --background-panel: #e6e6ff;
   --background-panel-item: #ffffff;
-  --background-block: #ffffff;
+  --background-block: #dddef5;
 
   /* 🌓 Тени */
   --shadow-primary: rgba(60, 64, 67, 0.3);
@@ -54,6 +54,9 @@
   --link-hover-bg: #d0e0ff;
   --link-focus-shadow: rgba(0, 68, 204, 0.3);
   --link-info-color: #3f3f7f;
+
+    /* Затемнение (оверлей) — полупрозрачный черный */
+  --color-overlay: rgba(0, 0, 0, 0.7);
 
   /* ⬛ QR и Скелетон */
   --qr-color: #000000;
