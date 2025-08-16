@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { EmployeeList, EmployeeSkeletonList } from 'widgets/employee-list';
 import { getPersonnel } from 'shared/api/personnel';
+import { SectionTitle } from 'shared/ui/section-title';
 
 const PAGE_SIZE = 10;
 
@@ -78,9 +79,10 @@ export default function PersonnelPage() {
 
   return (
     <>
-      <h2>Список сотрудников</h2>
+      <SectionTitle>Список сотрудников</SectionTitle>
       <EmployeeList List={data} />
       {loading && <EmployeeSkeletonList count={3} />}
+
     </>
   );
 }

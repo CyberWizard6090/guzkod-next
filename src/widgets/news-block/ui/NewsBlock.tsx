@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { CardRead, CardReadSkeleton } from 'entities/card-read';
+import { ArticleCard, ArticleCardSkeleton } from 'entities/article-card';
 import { SectionTitle } from 'shared/ui/section-title';
 import { getArticles } from 'shared/api/articles';
 import type { Article } from 'shared/types/article';
@@ -40,9 +40,9 @@ export const NewsBlock = () => {
 
       {isLoading ? (
         <div className={styles['news-block__wrap']}>
-          <CardReadSkeleton />
-          <CardReadSkeleton />
-          <CardReadSkeleton />
+          <ArticleCardSkeleton />
+          <ArticleCardSkeleton />
+          <ArticleCardSkeleton />
         </div>
       ) : error ? (
         <Block>
@@ -51,7 +51,7 @@ export const NewsBlock = () => {
       ) : (
         <div className={styles['news-block__wrap']}>
           {articles.map((article) => (
-            <CardRead key={article.id} article={article} />
+            <ArticleCard key={article.id} article={article} />
           ))}
         </div>
       )}

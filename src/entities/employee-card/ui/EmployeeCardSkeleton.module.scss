@@ -1,0 +1,34 @@
+@import 'shared/styles/animations/shimmer.scss';
+
+.employee-card--skeleton {
+  .employee-card__photo--skeleton,
+  .employee-card__name--skeleton,
+  .employee-card__position--skeleton,
+  .employee-card__education--skeleton,
+  .employee-card__department--skeleton {
+
+    border-radius: var(--radius-md);
+  @extend .shimmer;
+  }
+
+  .employee-card__photo--skeleton {
+    width: 400px;
+    height: 300px;
+  }
+
+  .employee-card__name--skeleton {
+    width: 70%;
+    height: 24px;
+  }
+
+  .employee-card__position--skeleton {
+    width: 50%;
+    height: 20px;
+  }
+
+  .employee-card__department--skeleton,
+  .employee-card__education--skeleton {
+    width: 60%;
+    height: 18px;
+  }
+}

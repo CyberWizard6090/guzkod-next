@@ -1,6 +1,6 @@
 'use client';
 
-import { CardRead, CardReadSkeleton } from 'entities/card-read';
+import { ArticleCard, ArticleCardSkeleton } from 'entities/article-card';
 import { useEffect, useState, useCallback } from 'react';
 
 import { Article } from 'shared/types/article';
@@ -60,9 +60,9 @@ export default function ArticlePage() {
   if (loading && articles.length === 0) {
     return (
       <>
-        <CardReadSkeleton />
-        <CardReadSkeleton />
-        <CardReadSkeleton />
+        <ArticleCardSkeleton />
+        <ArticleCardSkeleton />
+        <ArticleCardSkeleton />
       </>
     );
   }
@@ -70,7 +70,7 @@ export default function ArticlePage() {
   return (
     <>
       {articles.map((item, index) => (
-        <CardRead key={`${item.id}-${index}`} article={item} />
+        <ArticleCard key={`${item.id}-${index}`} article={item} />
       ))}
 
       {hasMore && (
