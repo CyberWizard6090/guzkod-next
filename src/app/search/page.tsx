@@ -82,7 +82,7 @@ const SearchPage = () => {
     {
       id: 'files',
       label: 'Файлы',
-      data: r.Filesbox ?? [],
+      data: r.filesbox ?? [],
       render: (file: any) => (
         <File key={file.url} name={file.name} filename={file.filename} url={file.url} />
       ),

@@ -4,7 +4,7 @@ import { EmployeeType } from './employee';
 export type SearchResultsType = {
   query: string;
   results: {
-    Filesbox?: any[];
+    filesbox?: any[];
     article?: Article[];
     departments?: any[];
     employee?: EmployeeType[];
