@@ -82,7 +82,6 @@ export default function PersonnelPage() {
       <SectionTitle>Список сотрудников</SectionTitle>
       <EmployeeList List={data} />
       {loading && <EmployeeSkeletonList count={3} />}
-
     </>
   );
 }

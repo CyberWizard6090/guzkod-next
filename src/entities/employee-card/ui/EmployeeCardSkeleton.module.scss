@@ -6,9 +6,8 @@
   .employee-card__position--skeleton,
   .employee-card__education--skeleton,
   .employee-card__department--skeleton {
-
     border-radius: var(--radius-md);
-  @extend .shimmer;
+    @extend .shimmer;
   }
 
   .employee-card__photo--skeleton {

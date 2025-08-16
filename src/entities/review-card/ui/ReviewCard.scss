@@ -16,7 +16,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--font-color-gray);
+  color: var(--font-color-secondary);
   margin-bottom: var(--spacing-xs);
 }
 
@@ -59,7 +59,7 @@
 .review-card__author {
   font-size: var(--font-size-xl);
   font-weight: 600;
-  color: var(--font-color-light);
+  color: var(--font-color-primary);
 }
 
 .review-card__verified {
@@ -73,13 +73,13 @@
 
 .review-card__meta {
   font-size: var(--font-size-small);
-  color: var(--font-color-gray);
+  color: var(--font-color-secondary);
   opacity: 0.9;
 }
 
 .review-card__feedback {
   font-size: var(--font-size-medium);
-  color: var(--font-color-light);
+  color: var(--font-color-primary);
   line-height: 1.4;
   &-title {
     font-size: var(--font-size-large);

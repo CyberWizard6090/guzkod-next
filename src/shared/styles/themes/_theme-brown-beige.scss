@@ -14,15 +14,6 @@
   --btn-color-alt-hover: #000000;
   --btn-text-alt: #e4dbdb;
 
-  /*Границы */
-  --border-secondary: #000000;
-  --border-tertiary: #5acc18;
-  --border-primary: #000000;
-
-  /*Меню и списки */
-  --menu-item-text: #5d4037;
-  --list-item-text: #15088b;
-
   /*Фоны */
   --background-primary: #c48c56;
   --background-secondary: #f0e6d9;
@@ -30,19 +21,11 @@
   --background-panel-item: #ffffff;
   --background-block: #ffffff;
 
-  /*Тени */
-  --shadow-primary: rgba(60, 64, 67, 0.3);
-  --shadow-secondary: rgba(9, 36, 51, 0.12);
-  --shadow-tertiary: rgba(0, 0, 0, 0.08); /* чуть мягче */
-
   /*Тексты */
-  --font-color-light: #000000;
-  --font-color-gray: #444444;
-
-  /*Формы */
-  --color-form-input: #ffffff;
-  --color-form-input-text: #000000;
-  --form-text: #6b6b6c;
+  --font-color-primary: #000000;
+  --font-color-secondary: #444444;
+  --font-color-tertiary: #6b6b6c;
+  --font-color-inverse: #ffffff;
 
   /*Ссылки */
   --link-color: #4e342e;
@@ -53,7 +36,34 @@
   --link-focus-shadow: rgba(155, 89, 42, 0.4);
   --link-info-color: #6b6b6c;
 
-    /* Затемнение (оверлей) — полупрозрачный черный */
+  /*Формы */
+  --color-form-input: #ffffff;
+  --color-form-input-text: #000000;
+  --form-text: #6b6b6c;
+
+  /*Границы */
+  --border-secondary: #000000;
+  --border-tertiary: #5acc18;
+  --border-primary: #000000;
+
+  /*Меню и списки */
+  --menu-item-text: #5d4037;
+  --list-item-text: #15088b;
+
+  /*Серые оттенки */
+  --gray-lightest: #f9f5f0;
+  --gray-lighter: #e0d8cc;
+  --gray-light: #bca89a;
+  --gray-medium: #8a6d5c;
+  --gray-dark: #5d4037;
+  --gray-darker: #3b2316;
+
+  /*Тени */
+  --shadow-primary: rgba(60, 64, 67, 0.3);
+  --shadow-secondary: rgba(9, 36, 51, 0.12);
+  --shadow-tertiary: rgba(0, 0, 0, 0.08);
+
+  /* Затемнение (оверлей) */
   --color-overlay: rgba(0, 0, 0, 0.7);
 
   /*QR и Скелетон */

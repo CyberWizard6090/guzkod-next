@@ -20,7 +20,7 @@ type Props = {
 
 export const Employee = ({ id, url, fullName, position, departments, education }: Props) => {
   return (
-    <Block className={styles['employee-card__block'] + ' animation-reveal'}>
+    <Block className={styles['employee-card__block']}>
       <div className={styles['employee-card']}>
         <div className={styles['employee-card__photo']}>
           <Image
@@ -39,9 +39,7 @@ export const Employee = ({ id, url, fullName, position, departments, education }
                 {department.name}
               </p>
             ))}
-            {education && (
-              <p className={styles['employee-card__info__education']}>{education}</p>
-            )}
+            {education && <p className={styles['employee-card__info__education']}>{education}</p>}
           </div>
         </Link>
       </div>

@@ -7,8 +7,7 @@
 
   &__photo {
     flex-shrink: 0;
-    width: 40%;
-    margin-bottom: 0;
+
     object-fit: cover;
     width: 400px;
     height: 300px;
@@ -21,7 +20,6 @@
   }
 
   a {
-    color: var(--font-color-light);
     text-decoration: none;
   }
 
@@ -32,27 +30,21 @@
     gap: var(--spacing-s);
 
     &__name {
-
       font-weight: bold;
-
-      margin: 0 0 var(--spacing-s);
+      font-size: var(--font-size-xl);
+      color: var(--font-color-primary);
     }
 
     &__position {
-      font-size: 1.2rem;
-      color: var(--font-color-gray);
-      margin: 0 0 4px;
+      font-size: var(--font-size-large);
+      color: var(--font-color-secondary);
+      margin: 0 0 var(--spacing-xxs);
     }
 
-    &__education {
-      font-size: 1rem;
-   
-      margin: 0;
-    }
-
+    &__education,
     &__department {
-      font-size: 1rem;
-     
+      font-size: var(--font-size-medium);
+      color: var(--font-color-tertiary);
       margin: 0;
     }
   }
@@ -63,7 +55,8 @@
 
     &__photo {
       width: 100%;
-      margin-bottom: 16px;
+      height: auto;
+      margin-bottom: var(--spacing-m);
     }
 
     &__info {

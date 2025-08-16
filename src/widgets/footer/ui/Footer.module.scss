@@ -24,7 +24,7 @@
   &__title {
     font-size: var(--font-size-large);
     margin-bottom: 10px;
-    color: var(--font-color-light);
+    color: var(--font-color-primary);
   }
 
   &__links {
@@ -33,7 +33,7 @@
 
   &__link {
     text-decoration: none;
-    color: var(--font-color-light);
+    color: var(--font-color-primary);
     font-size: 1rem;
 
     &:hover {

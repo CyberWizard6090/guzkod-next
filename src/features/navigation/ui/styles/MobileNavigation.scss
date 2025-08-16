@@ -10,7 +10,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: end;
-    color: var(--font-color-gray);
+    color: var(--font-color-secondary);
     gap: var(--spacing-xxs);
     border-radius: var(--radius-md);
     padding: var(--spacing-xs);
@@ -37,7 +37,7 @@
     left: 0;
     width: 100%;
     background-color: var(--background-secondary);
-    color: var(--font-color-light);
+    color: var(--font-color-primary);
     border-top: 1px solid var(--border-tertiary);
     z-index: 100;
     display: grid;
@@ -46,7 +46,7 @@
 
     button,
     a {
-      color: var(--font-color-light);
+      color: var(--font-color-primary);
       text-decoration: none;
       font-weight: 600;
       background: none;

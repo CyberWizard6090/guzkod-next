@@ -1,5 +1,5 @@
- @import 'shared/styles/animations/shimmer.scss';
- .article-card--skeleton {
+@import 'shared/styles/animations/shimmer.scss';
+.article-card--skeleton {
   .article-card__img-wrap--skeleton,
   .article-card__wrap-date--skeleton,
   .article-card__type--skeleton,
@@ -7,7 +7,7 @@
   .article-card__text-line--skeleton {
     background-color: var(--skeleton-base);
     border-radius: var(--radius-md);
-  @extend .shimmer;
+    @extend .shimmer;
   }
   .article-card__content--skeleton {
     display: flex;

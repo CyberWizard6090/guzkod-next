@@ -2,7 +2,7 @@
   background-color: var(--background-block);
   display: grid;
   grid-template-columns: 400px 1fr;
-  color: var(--font-color-light);
+  color: var(--font-color-primary);
   overflow: hidden;
   row-gap: 10px;
   border-radius: var(--radius-lg);
@@ -45,7 +45,7 @@
     display: block;
     font-size: var(--font-size-medium);
     font-weight: bold;
-    color: var(--font-color-gray);
+    color: var(--font-color-secondary);
   }
 
   &__content {
@@ -59,9 +59,8 @@
 
   &__textContainer {
     width: 100%;
-
   }
-    &__truncate-text {
+  &__truncate-text {
     overflow: hidden;
     display: -webkit-box;
     line-clamp: 5;

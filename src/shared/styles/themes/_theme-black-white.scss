@@ -22,8 +22,10 @@
   --background-block: #000000;
 
   /*Текст */
-  --font-color-light: #ffffff;
-  --font-color-gray: #ffffff;
+  --font-color-primary: #ffffff;
+  --font-color-secondary: #ffffff;
+  --font-color-tertiary: #cccccc;
+  --font-color-inverse: #000000;
 
   /*Ссылки */
   --link-color: #ffffff;
@@ -48,12 +50,20 @@
   --menu-item-text: #ffffff;
   --list-item-text: #ffffff;
 
+  /*Серые оттенки */
+  --gray-lightest: #1a1a1a;
+  --gray-lighter: #333333;
+  --gray-light: #4d4d4d;
+  --gray-medium: #666666;
+  --gray-dark: #999999;
+  --gray-darker: #cccccc;
+
   /*Тени */
   --shadow-primary: rgba(255, 255, 255, 0.12);
   --shadow-secondary: rgba(255, 255, 255, 0.18);
   --shadow-tertiary: rgba(255, 255, 255, 0.1);
 
-    /* Затемнение (оверлей) — полупрозрачный черный */
+  /* Затемнение (оверлей) */
   --color-overlay: rgba(0, 0, 0, 0.7);
 
   /*QR и Скелетон */
