@@ -6,6 +6,7 @@
   &__label {
     font-size: var(--font-size-medium);
     padding-left: var(--spacing-xs);
+    margin-bottom: var(--spacing-s);
   }
 
   &__input {
@@ -82,7 +83,6 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    gap: var(--spacing-s);
   }
 
   &__month,
