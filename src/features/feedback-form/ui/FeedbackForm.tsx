@@ -6,23 +6,20 @@ import { Button } from 'shared/ui/button';
 import { Dropdown } from 'shared/ui/dropdown';
 import { useAddNotification } from 'features/notifications';
 import { RadioGroup } from 'shared/ui/radio-group';
-
 import { Block } from 'shared/ui/block';
 import { Checkbox } from 'shared/ui/checkbox';
-import './FeedbackForm.scss';
-
 import { Input, InputPhone, Textarea } from 'shared/ui/input';
 
-import { API_BASE } from 'shared/api/api';
+import './FeedbackForm.scss';
 
 type FieldType = {
-  fio: string;
-  phone: string;
-  organization: string;
-  department: string;
-  doctor: string;
-  type_appeal: string;
-  messages: string;
+  fio: string; // Фамилия Имя Отчество
+  phone: string; // Номер телефона
+  organization: string; // Организация (select)
+  department: string; // Отделение (select)
+  doctor: string; // Врач (опционально)
+  type_appeal: string; // Тип обращения (radio group)
+  messages: string; // Сообщение (textarea)
 };
 
 export const FormFeedback = () => {
@@ -45,7 +42,7 @@ export const FormFeedback = () => {
   };
 
   const Push = () => {
-    fetch(`${API_BASE}/api/FeedbackMessages`, {
+    fetch('/api/FeedbackMessages', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: { 'Content-Type': 'application/json' },
