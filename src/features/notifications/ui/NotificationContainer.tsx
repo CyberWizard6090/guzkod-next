@@ -5,6 +5,8 @@ import { RootState } from 'shared/stores';
 import { removeNotification } from '../model/notificationSlice';
 import Notification from './Notification';
 
+import styles from './Notification.module.scss';
+
 export const NotificationContainer: React.FC = () => {
   const notifications = useSelector((state: RootState) => state.notifications.notifications);
   const dispatch = useDispatch();
@@ -18,7 +20,7 @@ export const NotificationContainer: React.FC = () => {
   }, [notifications, dispatch]);
 
   return (
-    <div className="notification-container">
+    <div className={styles['notification-container']}>
       {notifications.map((notification) => (
         <Notification key={notification.id} notification={notification} />
       ))}
