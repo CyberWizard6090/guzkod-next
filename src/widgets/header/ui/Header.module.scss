@@ -5,7 +5,7 @@
   grid-area: header;
   top: 0;
   position: sticky;
-  z-index: 1200;
+  z-index: 900;
   margin-bottom: var(--spacing-m);
   border-bottom: 1px solid var(--border-tertiary);
   &__container {
@@ -37,7 +37,7 @@
   span {
     font-size: 24px;
     font-weight: bold;
-    color: var(--font-color-light);
+    color: var(--font-color-primary);
   }
   .first {
     color: var(--accent-color);

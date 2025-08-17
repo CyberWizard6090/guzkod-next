@@ -1,11 +1,11 @@
 'use client';
 
-import { CardRead, CardReadSkeleton } from 'entities/card-read';
+import { ArticleCard, ArticleCardSkeleton } from 'entities/article-card';
 import { useEffect, useState, useCallback } from 'react';
 
 import { Article } from 'shared/types/article';
 import { Button } from 'shared/ui/button';
-import { getAllArticles } from 'shared/api/articles';
+import { getArticles } from 'shared/api/articles';
 const PAGE_SIZE = 5;
 
 export default function ArticlePage() {
@@ -19,7 +19,7 @@ export default function ArticlePage() {
     setLoading(true);
     setError(null);
 
-    const { data, error } = await getAllArticles(pageNum, PAGE_SIZE);
+    const { data, error } = await getArticles(pageNum, PAGE_SIZE);
     const articles = data?.docs ?? [];
     if (error) {
       setError(error);
@@ -60,9 +60,9 @@ export default function ArticlePage() {
   if (loading && articles.length === 0) {
     return (
       <>
-        <CardReadSkeleton />
-        <CardReadSkeleton />
-        <CardReadSkeleton />
+        <ArticleCardSkeleton />
+        <ArticleCardSkeleton />
+        <ArticleCardSkeleton />
       </>
     );
   }
@@ -70,7 +70,7 @@ export default function ArticlePage() {
   return (
     <>
       {articles.map((item, index) => (
-        <CardRead key={`${item.id}-${index}`} article={item} />
+        <ArticleCard key={`${item.id}-${index}`} article={item} />
       ))}
 
       {hasMore && (

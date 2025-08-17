@@ -1,5 +1,5 @@
-.NewsBlock {
-  color: var(--font-color-light);
+.news-block {
+  color: var(--font-color-primary);
   width: 100%;
 
   h2 {
@@ -7,9 +7,15 @@
     font-weight: bold;
   }
 
-  &_wrap {
+  &__wrap {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-m);
+  }
+
+  &__error {
+    color: red;
+    font-weight: 600;
+    margin-top: var(--spacing-s);
   }
 }

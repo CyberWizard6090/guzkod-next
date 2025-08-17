@@ -3,13 +3,12 @@
 import { VacancyCard, VacancySkeleton } from 'entities/vacancy-card';
 import { useEffect, useState, useCallback } from 'react';
 import { getVacancies } from 'shared/api/vacancies';
-
+import { SectionTitle } from 'shared/ui/section-title';
 import { EmptyState } from 'shared/ui/empty-state';
 
 const PAGE_SIZE = 10;
 
 export default function VacanciesPage() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [vacancies, setVacancies] = useState<any[]>([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
@@ -70,7 +69,7 @@ export default function VacanciesPage() {
 
   return (
     <>
-      <h2>Вакансии</h2>
+      <SectionTitle>Вакансии</SectionTitle>
       {vacancies.length === 0 && (
         <EmptyState
           title={'Новых вакансий пока нет'}

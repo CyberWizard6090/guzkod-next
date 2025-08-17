@@ -9,13 +9,8 @@
   }
 
   &__exit-btn {
-    margin-top: 2rem;
-    padding: 0.75rem 1.5rem;
     background: #ccc;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
+    font-size: 16px !important;
 
     &:hover {
       background: #bbb;
@@ -55,7 +50,7 @@
     align-items: center;
     justify-content: center;
     aspect-ratio: 1 / 1;
-
+    border-color: #c1c7fa;
     input {
       display: none;
     }
@@ -110,6 +105,16 @@
     &--theme-white-black {
       background-color: #fff;
       color: #000;
+    }
+
+    &--theme-light {
+      background-color: #f0f0f0;
+      color: #000;
+    }
+
+    &--theme-dark {
+      background-color: #333;
+      color: #fff;
     }
   }
 }

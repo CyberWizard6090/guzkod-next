@@ -13,6 +13,7 @@
   border-radius: var(--radius-lg);
   user-select: none;
   box-sizing: border-box;
+  gap: var(--spacing-m);
 
   // Адаптивные высоты
   min-height: 450px;
@@ -29,7 +30,7 @@
     gap: var(--spacing-m);
     align-items: center;
     justify-content: space-between;
-    padding: 0 var(--spacing-l);
+    padding: 0 var(--spacing-m) var(--spacing-m) var(--spacing-m);
   }
   &__count {
     display: grid;

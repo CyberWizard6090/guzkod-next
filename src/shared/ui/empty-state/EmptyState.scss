@@ -5,7 +5,7 @@
   justify-content: center;
 
   text-align: center;
-  color: var(--font-color-gray);
+  color: var(--font-color-secondary);
   min-height: 60vh;
 
   &__icon {
@@ -15,13 +15,13 @@
 
   &__title {
     font-size: var(--font-size-xl);
-    color: var(--font-color-light);
+    color: var(--font-color-primary);
     margin-bottom: var(--spacing-s);
   }
 
   &__description {
     font-size: var(--font-size-medium);
     max-width: 500px;
-    color: var(--font-color-gray);
+    color: var(--font-color-secondary);
   }
 }

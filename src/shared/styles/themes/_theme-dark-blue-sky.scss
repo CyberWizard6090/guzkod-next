@@ -1,52 +1,32 @@
 [data-theme='dark-blue-sky'] {
-  /* 🌌 Темно-синий на голубом */
-
-  /* 🔵 Основные цвета */
   --red: #0000ff;
   --dark-red: #000080;
   --gray: #999;
 
-  /* 🟦 Кнопки */
+  /* Кнопки */
   --accent-color: #0077cc;
   --accent-color-hover: #0066cc;
   --button-text: #ffffff;
 
-  /* 🟪 Альтернативные кнопки */
-  --btn-color-alt: #03035c;
+  /* Альтернативные кнопки */
+  --btn-color-alt: #6969ca;
   --btn-color-alt-hover: #4c5ed4;
-  --btn-text-alt: #dddbe4;
+  --btn-text-alt: #11024b;
 
-  /* 🧱 Границы */
-  --border-secondary: #03035c;
-  --border-tertiary: #3f18cc;
-  --border-primary: transparent;
-
-  /* 🧩 Меню и списки */
-  --menu-item-text: #004488;
-  --list-item-text: #1a1a99;
-
-  /* ⚪ Фоны */
+  /* Фоны */
   --background-primary: #e6e6ff;
   --background-secondary: #dfe6fa;
-  --background-panel: #e6e6ff;
-  --background-panel-item: #ffffff;
-  --background-block: #ffffff;
+  --background-footer: #e6e6ff;
+  --background-footer-item: #ffffff;
+  --background-block: #dddef5;
 
-  /* 🌓 Тени */
-  --shadow-primary: rgba(60, 64, 67, 0.3);
-  --shadow-secondary: rgba(9, 36, 51, 0.12);
-  --shadow-tertiary: rgba(0, 0, 0, 0.08);
+  /* Тексты */
+  --font-color-primary: #000000;
+  --font-color-secondary: #3f18cc;
+  --font-color-tertiary: #4a4a6a;
+  --font-color-inverse: #ffffff;
 
-  /* ⚫ Тексты */
-  --font-color-light: #000000;
-  --font-color-gray: #3f18cc;
-
-  /* 🖊 Формы */
-  --color-form-input: #ffffff;
-  --color-form-input-text: #000000;
-  --form-text: #4a4a6a;
-
-  /* 🔗 Ссылки */
+  /*Ссылки */
   --link-color: #0044cc;
   --link-bg: #f0f5ff;
   --link-border: transparent;
@@ -55,7 +35,37 @@
   --link-focus-shadow: rgba(0, 68, 204, 0.3);
   --link-info-color: #3f3f7f;
 
-  /* ⬛ QR и Скелетон */
+  /*Формы */
+  --color-form-input: #ffffff;
+  --color-form-input-text: #000000;
+  --form-text: #4a4a6a;
+
+  /*Границы */
+  --border-secondary: #03035c;
+  --border-tertiary: #3f18cc;
+  --border-primary: transparent;
+
+  /*Меню и списки */
+  --menu-item-text: #004488;
+  --list-item-text: #1a1a99;
+
+  /*Серые оттенки */
+  --gray-lightest: #f5f7ff;
+  --gray-lighter: #dfe6fa;
+  --gray-light: #b3b7dd;
+  --gray-medium: #8084aa;
+  --gray-dark: #4f5380;
+  --gray-darker: #2e3157;
+
+  /*Тени */
+  --shadow-primary: rgba(60, 64, 67, 0.3);
+  --shadow-secondary: rgba(9, 36, 51, 0.12);
+  --shadow-tertiary: rgba(0, 0, 0, 0.08);
+
+  /* Затемнение (оверлей) */
+  --color-overlay: rgba(0, 0, 0, 0.7);
+
+  /* QR и Skeleton */
   --qr-color: #000000;
   --skeleton-base: #cfd8f0;
   --skeleton-highlight: #e5ecfb;

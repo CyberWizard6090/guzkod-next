@@ -6,27 +6,27 @@
   padding: var(--spacing-xl) var(--spacing-m);
   min-height: 100vh;
   text-align: center;
-  color: var(--font-color-light);
+  color: var(--font-color-primary);
   gap: var(--spacing-l);
 
   &__title {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: var(--spacing-s);
-    color: var(--font-color-light);
+    color: var(--font-color-primary);
   }
 
   &__code {
     font-size: 5rem;
     font-weight: 800;
-    color: #d10000; // Жёсткий акцент для кода ошибки
+    color: var(--color-error-dark);
     margin-bottom: var(--spacing-xs);
   }
 
   &__description {
     font-size: 1.25rem;
     max-width: 600px;
-    color: var(--font-color-gray);
+    color: var(--font-color-secondary);
     margin-bottom: var(--spacing-xl);
   }
 

@@ -13,20 +13,30 @@
   --btn-color-alt: #272729;
   --btn-color-alt-hover: #2a2a2d;
   --btn-text-alt: #ffffff;
+  --background-footer-item: #202022;
 
   /*Цвета фонов */
   --background-primary: #111113;
   --background-secondary: #18181a;
-  --background-panel: #151516;
-  --background-panel-item: #202022;
+  --background-footer: #151516;
   --background-block: #1c1c1e;
 
   /*Текстовые цвета */
-  --font-color-light: #e6e6eb;
-  --font-color-gray: #b3b3ba;
+  --font-color-primary: #e6e6eb;
+  --font-color-secondary: #b3b3ba;
+  --font-color-tertiary: #8c8c92;
+  --font-color-inverse: #000000; /* для светлых элементов */
   --form-text: #999ca3;
   --menu-item-text: #f8f0f0;
   --list-item-text: #f4ad47;
+
+  /* Серые оттенки */
+  --gray-lightest: #1a1a1c;
+  --gray-lighter: #2a2a2d;
+  --gray-light: #3c3c3f;
+  --gray-medium: #555559;
+  --gray-dark: #77777a;
+  --gray-darker: #aaaaaa;
 
   /*Ссылки */
   --link-color: #f7a723;
@@ -49,6 +59,10 @@
   /* Тени */
   --shadow-primary: rgba(255, 165, 0, 0.15); /* мягкий оранжевый */
   --shadow-secondary: rgba(255, 64, 64, 0.12); /* красноватый для акцентов */
+  --shadow-tertiary: rgba(0, 0, 0, 0.2);
+
+  /* Затемнение (оверлей) — полупрозрачный черный */
+  --color-overlay: rgba(0, 0, 0, 0.7);
 
   /* QR и Skeleton */
   --qr-color: #ffffff;

@@ -1,0 +1,66 @@
+.employee-card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  gap: var(--spacing-l);
+
+  &__photo {
+    flex-shrink: 0;
+
+    object-fit: cover;
+    width: 400px;
+    height: 300px;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-sm);
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+
+    &__name {
+      font-weight: bold;
+      font-size: var(--font-size-xl);
+      color: var(--font-color-primary);
+    }
+
+    &__position {
+      font-size: var(--font-size-large);
+      color: var(--font-color-secondary);
+      margin: 0 0 var(--spacing-xxs);
+    }
+
+    &__education,
+    &__department {
+      font-size: var(--font-size-medium);
+      color: var(--font-color-tertiary);
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+
+    &__photo {
+      width: 100%;
+      height: auto;
+      margin-bottom: var(--spacing-m);
+    }
+
+    &__info {
+      align-items: center;
+    }
+  }
+}

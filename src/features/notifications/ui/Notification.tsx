@@ -1,35 +1,39 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { removeNotification } from '../model/notificationSlice';
-import { Notification as NotificationType } from '../model/notificationSlice';
+import { removeNotification, Notification as NotificationType } from '../model/notificationSlice';
 import { Icons } from '../model/notificationIcons';
 import Cross from 'shared/assets/svg/bootstrap-icons-1.11.2/x.svg';
-import './Notification.scss';
+import clsx from 'clsx';
+import styles from './Notification.module.scss';
 
 type NotificationProps = {
   notification: NotificationType;
 };
 
-const Notification: React.FC<NotificationProps> = ({ notification }) => {
+const Notification = ({ notification }: NotificationProps) => {
   const dispatch = useDispatch();
 
   const handleClose = () => {
     dispatch(removeNotification(notification.id));
   };
+
   const Icon = Icons[notification.type] || Icons.info;
+
   return (
-    <output className={`notification ${notification.type} fly-in`}>
-      <button className="notification__close-btn" onClick={handleClose}>
+    <output
+      className={clsx(styles.notification, styles[`notification--${notification.type}`], 'fly-in')}
+    >
+      <button className={styles['notification__close-btn']} onClick={handleClose}>
         <Cross />
       </button>
 
-      <div className="notification__container">
-        <div className="notification__icon">
-          <span className="notification__ring">
+      <div className={styles['notification__container']}>
+        <div className={styles['notification__icon']}>
+          <span className={styles['notification__ring']}>
             <Icon />
           </span>
         </div>
-        <div className="notification__message">
+        <div className={styles['notification__message']}>
           <span>{notification.message}</span>
         </div>
       </div>

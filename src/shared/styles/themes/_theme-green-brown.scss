@@ -1,52 +1,32 @@
 [data-theme='green-brown'] {
-  /* 🌿 Зеленый на темно-коричневом */
-
-  /* 🔴 Основные цвета */
   --red: #008000;
   --dark-red: #403000;
   --gray: #999;
 
-  /* 🟫 Кнопки */
+  /* Кнопки */
   --accent-color: #706000;
   --accent-color-hover: #5e4b00;
   --button-text: #ffffff;
 
-  /* 🟤 Альтернативные кнопки */
+  /* Альтернативные кнопки */
   --btn-color-alt: #3a2e2c;
   --btn-color-alt-hover: #2c1f1e;
   --btn-text-alt: #e4dbdb;
 
-  /* 🧱 Границы */
-  --border-secondary: #d0c000;
-  --border-tertiary: #b4a200;
-  --border-primary: transparent;
-
-  /* 🧩 Меню и списки */
-  --menu-item-text: #cfc390;
-  --list-item-text: #88a000;
-
-  /* ⚪ Фоны */
+  /* Фоны */
   --background-primary: #3b2926;
   --background-secondary: #4b2f2e;
-  --background-panel: #3e2a25;
-  --background-panel-item: #d0c000;
+  --background-footer: #3e2a25;
+  --background-footer-item: #d0c000;
   --background-block: #4b2f2e;
 
-  /* 🌓 Тени */
-  --shadow-primary: rgba(0, 0, 0, 0.2);
-  --shadow-secondary: rgba(0, 0, 0, 0.3);
-  --shadow-tertiary: rgba(0, 0, 0, 0.1);
+  /* Тексты */
+  --font-color-primary: #f5f2cd;
+  --font-color-secondary: #b8b088;
+  --font-color-tertiary: #908860;
+  --font-color-inverse: #000000;
 
-  /* ⚫ Тексты */
-  --font-color-light: #f5f2cd;
-  --font-color-gray: #b8b088;
-
-  /* 🖊 Формы */
-  --color-form-input: #fdf8e3;
-  --color-form-input-text: #2e2e2e;
-  --form-text: #908860;
-
-  /* 🔗 Ссылки */
+  /*Ссылки */
   --link-color: #d0c000;
   --link-bg: #3a2e2b;
   --link-border: transparent;
@@ -55,7 +35,37 @@
   --link-focus-shadow: rgba(208, 192, 0, 0.4);
   --link-info-color: #a89e6f;
 
-  /* ⬛ QR и Скелетон */
+  /*Формы */
+  --color-form-input: #fdf8e3;
+  --color-form-input-text: #2e2e2e;
+  --form-text: #908860;
+
+  /*Границы */
+  --border-secondary: #d0c000;
+  --border-tertiary: #b4a200;
+  --border-primary: transparent;
+
+  /*Меню и списки */
+  --menu-item-text: #cfc390;
+  --list-item-text: #88a000;
+
+  /*Серые оттенки */
+  --gray-lightest: #f5f2cd;
+  --gray-lighter: #d8d1a0;
+  --gray-light: #b8b088;
+  --gray-medium: #908860;
+  --gray-dark: #6a6446;
+  --gray-darker: #3b2f1a;
+
+  /*Тени */
+  --shadow-primary: rgba(0, 0, 0, 0.2);
+  --shadow-secondary: rgba(0, 0, 0, 0.3);
+  --shadow-tertiary: rgba(0, 0, 0, 0.1);
+
+  /* Затемнение (оверлей) */
+  --color-overlay: rgba(0, 0, 0, 0.7);
+
+  /* QR и Skeleton */
   --qr-color: #d0c000;
   --skeleton-base: #726d56;
   --skeleton-highlight: #a59c76;

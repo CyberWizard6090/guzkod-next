@@ -11,7 +11,6 @@ import { HorizontalContainer } from 'shared/ui/horizontal-container';
 import { Loader } from 'shared/ui/loader';
 import { VacancyCard } from 'entities/vacancy-card';
 import { SearchResultsType } from 'shared/types/search';
-import { CardRead } from 'entities/card-read';
 import { DepartmentCard } from 'entities/department-card';
 import { File } from 'features/files';
 import { Employee } from 'entities/employee-card';
@@ -19,6 +18,7 @@ import { TabItem, Tabs } from 'shared/ui/tabs';
 export type { TabItem } from 'shared/ui/tabs';
 import { SectionTitle } from 'shared/ui/section-title';
 import { EmptyState } from 'shared/ui/empty-state';
+import { ArticleCard } from 'entities/article-card';
 
 const SearchPage = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -71,7 +71,7 @@ const SearchPage = () => {
       id: 'articles',
       label: 'Новости и профилактика',
       data: r.article ?? [],
-      render: (article: any) => <CardRead key={article.id} article={article} />,
+      render: (article: any) => <ArticleCard key={article.id} article={article} />,
     },
     {
       id: 'departments',
@@ -82,7 +82,7 @@ const SearchPage = () => {
     {
       id: 'files',
       label: 'Файлы',
-      data: r.Filesbox ?? [],
+      data: r.filesbox ?? [],
       render: (file: any) => (
         <File key={file.url} name={file.name} filename={file.filename} url={file.url} />
       ),
@@ -121,10 +121,10 @@ const SearchPage = () => {
     renderItem: (item: any) => JSX.Element,
     wrapInBlock?: boolean,
   ) => (
-    <>
+    <VerticalContainer>
       <SectionTitle>{title}</SectionTitle>
       {wrapInBlock ? <Block>{items.map(renderItem)}</Block> : items.map(renderItem)}
-    </>
+    </VerticalContainer>
   );
 
   const allResults = (

@@ -1,0 +1,50 @@
+@import 'shared/styles/animations/shimmer.scss';
+.article-card--skeleton {
+  .article-card__img-wrap--skeleton,
+  .article-card__wrap-date--skeleton,
+  .article-card__type--skeleton,
+  .article-card__title--skeleton,
+  .article-card__text-line--skeleton {
+    background-color: var(--skeleton-base);
+    border-radius: var(--radius-md);
+    @extend .shimmer;
+  }
+  .article-card__content--skeleton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--spacing-m);
+  }
+  .article-card__img-wrap--skeleton {
+    width: 400px;
+    height: 300px;
+  }
+
+  .article-card__wrap-date--skeleton {
+    width: 180px;
+    height: 1.2em;
+  }
+
+  .article-card__top-bar--skeleton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-m);
+  }
+  .article-card__type--skeleton {
+    width: 160px;
+    height: 30px;
+  }
+
+  .article-card__title--skeleton {
+    height: 30px;
+    width: 100%;
+    margin-bottom: var(--spacing-m);
+  }
+
+  .article-card__text-line--skeleton {
+    height: 1em;
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+}

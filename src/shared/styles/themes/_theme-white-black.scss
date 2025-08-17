@@ -1,7 +1,5 @@
 [data-theme='white-black'] {
   /* Чёрно-белая тема */
-
-  /*Основные акценты */
   --red: #ff0000;
   --dark-red: #000000;
   --gray: #999;
@@ -11,42 +9,25 @@
   --accent-color-hover: #1a1a1a;
   --button-text: #ffffff;
 
-  /*  Альтернативные кнопки */
+  /* Альтернативные кнопки */
   --btn-color-alt: #e6e6e6;
   --btn-color-alt-hover: #cccccc;
   --btn-text-alt: #000000;
 
-  /* Границы */
-  --border-secondary: #000000;
-  --border-tertiary: #333333;
-  --border-primary: #000000;
-
-  /* Меню и списки */
-  --menu-item-text: #000000;
-  --list-item-text: #333333;
-
   /* Фоны */
   --background-primary: #ffffff;
   --background-secondary: #fafafa;
-  --background-panel: #f4f4f4;
-  --background-panel-item: #ffffff;
+  --background-footer: #f4f4f4;
+  --background-footer-item: #ffffff;
   --background-block: #ffffff;
 
-  /* Тени */
-  --shadow-primary: rgba(0, 0, 0, 0.12);
-  --shadow-secondary: rgba(0, 0, 0, 0.18);
-  --shadow-tertiary: rgba(0, 0, 0, 0.06);
-
   /* Тексты */
-  --font-color-light: #000000;
-  --font-color-gray: #5a5a5a;
+  --font-color-primary: #000000;
+  --font-color-secondary: #5a5a5a;
+  --font-color-tertiary: #7a7a7a;
+  --font-color-inverse: #ffffff;
 
-  /* Формы */
-  --color-form-input: #ffffff;
-  --color-form-input-text: #000000;
-  --form-text: #444444;
-
-  /* 🔗Ссылки */
+  /*Ссылки */
   --link-color: #000000;
   --link-bg: #f5f5f5;
   --link-border: transparent;
@@ -55,7 +36,37 @@
   --link-focus-shadow: rgba(0, 0, 0, 0.3);
   --link-info-color: #444444;
 
-  /*  QR и Скелетон */
+  /*Формы */
+  --color-form-input: #ffffff;
+  --color-form-input-text: #000000;
+  --form-text: #444444;
+
+  /*Границы */
+  --border-secondary: #000000;
+  --border-tertiary: #333333;
+  --border-primary: #000000;
+
+  /*Меню и списки */
+  --menu-item-text: #000000;
+  --list-item-text: #333333;
+
+  /*Серые оттенки */
+  --gray-lightest: #f9f9f9;
+  --gray-lighter: #e0e0e0;
+  --gray-light: #bfbfbf;
+  --gray-medium: #999999;
+  --gray-dark: #666666;
+  --gray-darker: #333333;
+
+  /*Тени */
+  --shadow-primary: rgba(0, 0, 0, 0.12);
+  --shadow-secondary: rgba(0, 0, 0, 0.18);
+  --shadow-tertiary: rgba(0, 0, 0, 0.06);
+
+  /* Затемнение (оверлей) */
+  --color-overlay: rgba(0, 0, 0, 0.7);
+
+  /* QR и Skeleton */
   --qr-color: #000000;
   --skeleton-base: #cccccc;
   --skeleton-highlight: #e5e5e5;

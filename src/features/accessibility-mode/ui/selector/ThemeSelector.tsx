@@ -8,6 +8,18 @@ interface ThemeSelectorProps {
 
 const themeOptions: { label: string; value: Theme; className: string; ariaLabel: string }[] = [
   {
+    label: 'СВ',
+    value: 'light',
+    className: 'theme-light',
+    ariaLabel: 'Светлая тема',
+  },
+  {
+    label: 'ТМ',
+    value: 'dark',
+    className: 'theme-dark',
+    ariaLabel: 'Темная тема',
+  },
+  {
     label: 'ЧБ',
     value: 'black-white',
     className: 'theme-black-white',

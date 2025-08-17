@@ -30,6 +30,7 @@ import {
   SITE_NAME,
   SITE_URL,
 } from 'shared/consts/site.constants';
+import HashRedirect from './HashRedirect';
 
 export const metadata = {
   title: SITE_NAME,
@@ -114,6 +115,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <html lang="ru" className={inter.variable} data-theme={theme}>
       <body>
+        <HashRedirect />
         <Providers>
           <Header />
           <ContentContainer className="layout layout__wrapper ">
