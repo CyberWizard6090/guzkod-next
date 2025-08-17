@@ -10,7 +10,6 @@ import { toggleTheme } from '../model/theme.actions';
 import { IconButton } from 'shared/ui/button';
 
 import { AppDispatch, RootState } from 'shared/stores';
-import './ButtonTheme.scss';
 
 export const ButtonTheme = () => {
   const dispatch: AppDispatch = useDispatch();
