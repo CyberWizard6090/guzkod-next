@@ -68,6 +68,7 @@ body {
   background-color: var(--background-primary);
   font-size: var(--font-size-medium);
   line-height: 1.5;
+  -webkit-tap-highlight-color: transparent;
 }
 
 // HEADINGS

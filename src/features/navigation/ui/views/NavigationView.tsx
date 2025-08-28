@@ -1,5 +1,3 @@
-'use client';
-
 import { useDeviceDetect } from 'shared/lib/hooks/useDeviceDetect';
 import { MobileMenu } from './MobileNavigation';
 import { DEVICE_BREAKPOINTS } from 'shared/consts/device-breakpoints.constants';
