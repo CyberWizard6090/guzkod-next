@@ -1,25 +1,25 @@
 // THEMES
-@import 'themes/theme-light';
-@import 'themes/theme-dark';
-@import 'themes/theme-black-white';
-@import 'themes/theme-white-black';
-@import 'themes/theme-brown-beige';
-@import 'themes/theme-dark-blue-sky';
-@import 'themes/theme-green-brown';
+@use 'themes/theme-light';
+@use 'themes/theme-dark';
+@use 'themes/theme-black-white';
+@use 'themes/theme-white-black';
+@use 'themes/theme-brown-beige';
+@use 'themes/theme-dark-blue-sky';
+@use 'themes/theme-green-brown';
 
 // BASE
-@import 'tokens/tokens';
-@import 'base/whitespace';
-@import 'base/font-size';
-@import 'base/layout';
-@import 'base/kern';
-@import 'base/overrides';
+@use 'tokens/tokens';
+@use 'base/whitespace';
+@use 'base/font-size';
+@use 'base/layout';
+@use 'base/kern';
+@use 'base/overrides';
 
 // UTILS
-@import 'utils/helpers';
+@use 'utils/helpers';
 
 // ANIMATIONS
-@import 'animations/index';
+@use 'animations/index';
 
 // RESET
 *,

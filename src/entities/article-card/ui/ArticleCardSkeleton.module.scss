@@ -1,4 +1,4 @@
-@import 'shared/styles/animations/shimmer.scss';
+@use 'shared/styles/animations/shimmer.scss';
 .article-card--skeleton {
   .article-card__img-wrap--skeleton,
   .article-card__wrap-date--skeleton,
