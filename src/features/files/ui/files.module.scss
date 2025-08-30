@@ -1,5 +1,9 @@
 .files {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--spacing-m);
+  .file:not(:last-child) {
+    padding-bottom: var(--spacing-m);
+    border-bottom: 1px solid var(--border-tertiary);
+  }
 }
