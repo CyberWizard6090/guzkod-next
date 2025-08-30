@@ -12,7 +12,6 @@ import {
 } from 'shared/consts/site.constants';
 
 import type { Metadata } from 'next';
-import { Loader } from 'shared/ui/loader';
 
 export const generateMetadata = async ({ params }: any): Promise<Metadata> => {
   const data = await getPageById(params.pageId);
