@@ -5,9 +5,12 @@ import DefaultPhoto from 'shared/assets/image/400x300.png';
 import 'shared/styles/pages/employee-page.scss';
 import { getEmployeeById } from 'shared/api/personnel';
 import Link from 'next/link';
-
-export default async function EmployeePage({ params }: any) {
-  const data = await getEmployeeById(params.employeeId);
+type PageParams = {
+  employeeId: string;
+};
+const EmployeePage = async ({ params }: { params: Promise<PageParams> }) => {
+  const { employeeId } = await params;
+  const data = await getEmployeeById(employeeId);
   const Photo = data.photo?.sizes.card.url ?? DefaultPhoto.src;
 
   return (
@@ -54,4 +57,5 @@ export default async function EmployeePage({ params }: any) {
       </Block>
     </div>
   );
-}
+};
+export default EmployeePage;

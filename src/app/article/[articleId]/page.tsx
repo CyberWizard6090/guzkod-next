@@ -9,8 +9,17 @@ import AlignWrapper from 'shared/ui/align-wrapper';
 import { cleanMetaDescription } from 'shared/lib/seo/cleanMetaDescription';
 import { formatDate } from 'shared/lib/format';
 
-export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const data = await getArticleById(params.articleId);
+type PageParams = {
+  articleId: string;
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<PageParams>;
+}): Promise<Metadata> {
+  const { articleId } = await params;
+  const data = await getArticleById(articleId);
   const title = `${data.type === 'News' ? 'Новость' : 'Профилактика'}: ${data.title ?? data.namepage}`;
   const description = cleanMetaDescription({ text: data.text });
   return {
@@ -19,13 +28,14 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     openGraph: {
       title: title,
       description: data.text,
-      url: `${SITE_HOST}/article/${params.articleId}`,
+      url: `${SITE_HOST}/article/${articleId}`,
     },
   };
 }
 
-export default async function DefaultPage({ params }: any) {
-  const data = await getArticleById(params.articleId);
+const ArticlePage = async ({ params }: { params: Promise<PageParams> }) => {
+  const { articleId } = await params;
+  const data = await getArticleById(articleId);
 
   return (
     <Block>
@@ -44,4 +54,5 @@ export default async function DefaultPage({ params }: any) {
       </AlignWrapper>
     </Block>
   );
-}
+};
+export default ArticlePage;

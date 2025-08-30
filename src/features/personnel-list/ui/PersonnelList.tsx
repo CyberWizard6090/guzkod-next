@@ -4,11 +4,12 @@ import { useEffect, useState, useCallback } from 'react';
 import { EmployeeList, EmployeeSkeletonList } from 'widgets/employee-list';
 import { getPersonnel } from 'shared/api/personnel';
 import { SectionTitle } from 'shared/ui/section-title';
+import { EmployeeType } from 'shared/types/employee';
 
 const PAGE_SIZE = 10;
 
 export const PersonnelList = () => {
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<EmployeeType[]>([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
