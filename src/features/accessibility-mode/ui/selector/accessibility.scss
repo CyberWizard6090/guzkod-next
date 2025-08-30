@@ -33,6 +33,7 @@
     display: flex;
     gap: var(--spacing-m);
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   &__option {
