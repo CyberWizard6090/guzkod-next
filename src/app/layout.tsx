@@ -31,8 +31,9 @@ import {
   SITE_URL,
 } from 'shared/consts/site.constants';
 import HashRedirect from './HashRedirect';
+import { Metadata, Viewport } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: SITE_NAME,
   description: SITE_DESCRIPTION,
   metadataBase: new URL(SITE_URL),
@@ -52,7 +53,6 @@ export const metadata = {
       noimageindex: false,
     },
   },
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   alternates: {
     canonical: SITE_URL,
     languages: {
@@ -95,6 +95,12 @@ export const metadata = {
     ],
   },
   manifest: '/site.webmanifest',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
   themeColor: [
     { media: '(prefers-color-scheme: dark)', color: '#000000' },
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },

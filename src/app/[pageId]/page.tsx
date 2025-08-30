@@ -13,12 +13,21 @@ import {
 
 import type { Metadata } from 'next';
 
-export const generateMetadata = async ({ params }: any): Promise<Metadata> => {
-  const data = await getPageById(params.pageId);
+type PageParams = {
+  pageId: string;
+};
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<PageParams>;
+}): Promise<Metadata> => {
+  const { pageId } = await params;
+  const data = await getPageById(pageId);
 
   const pageTitle = data.namepage ?? SITE_NAME;
   const pageDescription = data.description ?? SITE_DESCRIPTION;
-  const pageUrl = `${SITE_URL}${params.pageId}`;
+  const pageUrl = `${SITE_URL}${pageId}`;
 
   return {
     title: pageTitle,
@@ -51,8 +60,9 @@ export const generateMetadata = async ({ params }: any): Promise<Metadata> => {
   };
 };
 
-const DefaultPage = async ({ params }: any) => {
-  const data = await getPageById(params.pageId);
+const DefaultPage = async ({ params }: { params: Promise<PageParams> }) => {
+  const { pageId } = await params;
+  const data = await getPageById(pageId);
 
   return (
     <>

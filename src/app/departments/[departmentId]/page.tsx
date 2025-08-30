@@ -7,8 +7,13 @@ import { VerticalContainer } from 'shared/ui/vertical-container';
 import { ImageView } from 'shared/ui/image';
 import { EmptyState } from 'shared/ui/empty-state';
 
-export default async function DepartmentPage({ params }: any) {
-  const data = await getDepartmentById(params.departmentId);
+type PageParams = {
+  departmentId: string;
+};
+
+const DepartmentPage = async ({ params }: { params: Promise<PageParams> }) => {
+  const { departmentId } = await params;
+  const data = await getDepartmentById(departmentId);
   return (
     <VerticalContainer>
       <h1>{data.name}</h1>
@@ -34,4 +39,5 @@ export default async function DepartmentPage({ params }: any) {
       )}
     </VerticalContainer>
   );
-}
+};
+export default DepartmentPage;

@@ -5,11 +5,12 @@ import { useEffect, useState, useCallback } from 'react';
 import { getVacancies } from 'shared/api/vacancies';
 import { SectionTitle } from 'shared/ui/section-title';
 import { EmptyState } from 'shared/ui/empty-state';
+import type { Vacancy } from 'shared/types/vacancy';
 
 const PAGE_SIZE = 10;
 
 export default function VacanciesPage() {
-  const [vacancies, setVacancies] = useState<any[]>([]);
+  const [vacancies, setVacancies] = useState<Vacancy[]>([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);

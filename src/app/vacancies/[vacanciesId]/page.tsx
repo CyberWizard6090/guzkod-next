@@ -9,8 +9,17 @@ import { Metadata } from 'next';
 import { SITE_HOST } from 'shared/consts/site.constants';
 import { cleanMetaDescription } from 'shared/lib/seo/cleanMetaDescription';
 
-export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const data = await getVacanciesById(params.vacanciesId);
+type PageParams = {
+  vacanciesId: string;
+};
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<PageParams>;
+}): Promise<Metadata> => {
+  const { vacanciesId } = await params;
+  const data = await getVacanciesById(vacanciesId);
 
   const title = `Вакансия: ${data.title}`;
   const description = cleanMetaDescription({ text: data.description });
@@ -21,13 +30,14 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      url: `${SITE_HOST}/vacancies/${params.vacanciesId}`,
+      url: `${SITE_HOST}/vacancies/${vacanciesId}`,
     },
   };
-}
+};
 
-export default async function EmployeePage({ params }: any) {
-  const data = await getVacanciesById(params.vacanciesId);
+const EmployeePage = async ({ params }: { params: Promise<PageParams> }) => {
+  const { vacanciesId } = await params;
+  const data = await getVacanciesById(vacanciesId);
   return (
     <Block>
       <div className="vacancy-page animation-reveal">
@@ -77,4 +87,5 @@ export default async function EmployeePage({ params }: any) {
       </AlignWrapper>
     </Block>
   );
-}
+};
+export default EmployeePage;

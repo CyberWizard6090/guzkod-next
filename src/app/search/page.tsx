@@ -19,6 +19,11 @@ export type { TabItem } from 'shared/ui/tabs';
 import { SectionTitle } from 'shared/ui/section-title';
 import { EmptyState } from 'shared/ui/empty-state';
 import { ArticleCard } from 'entities/article-card';
+import type { Vacancy } from 'shared/types/vacancy';
+import type { Article } from 'shared/types/article';
+import type { DepartmentType } from 'shared/types/departments';
+import type { FileType } from 'shared/types/file';
+import type { EmployeeType } from 'shared/types/employee';
 
 const SearchPage = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -65,25 +70,27 @@ const SearchPage = () => {
       id: 'vacancies',
       label: 'Вакансии',
       data: r.vacancies ?? [],
-      render: (vacancy: any) => <VacancyCard key={vacancy.id} {...vacancy} />,
+      render: (vacancy: Vacancy) => <VacancyCard key={vacancy.id} {...vacancy} />,
     },
     {
       id: 'articles',
       label: 'Новости и профилактика',
       data: r.article ?? [],
-      render: (article: any) => <ArticleCard key={article.id} article={article} />,
+      render: (article: Article) => <ArticleCard key={article.id} article={article} />,
     },
     {
       id: 'departments',
       label: 'Отделения',
       data: r.departments ?? [],
-      render: (department: any) => <DepartmentCard key={department.id} department={department} />,
+      render: (department: DepartmentType) => (
+        <DepartmentCard key={department.id} department={department} />
+      ),
     },
     {
       id: 'files',
       label: 'Файлы',
       data: r.filesbox ?? [],
-      render: (file: any) => (
+      render: (file: FileType) => (
         <File key={file.url} name={file.name} filename={file.filename} url={file.url} />
       ),
       wrapInBlock: true,
@@ -92,7 +99,7 @@ const SearchPage = () => {
       id: 'employees',
       label: 'Сотрудники',
       data: r.employee ?? [],
-      render: (employee: any) => (
+      render: (employee: EmployeeType) => (
         <Employee
           key={employee.id}
           id={employee.id}

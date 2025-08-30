@@ -6,6 +6,8 @@ import { VerticalContainer } from 'shared/ui/vertical-container';
 import { getHomePage } from 'shared/api/home';
 import 'shared/styles/pages/home-page.scss';
 import { SectionTitle } from 'shared/ui/section-title';
+import type { Image } from 'shared/types/image';
+import type { RichTextBlock } from 'shared/types/RichTextBlock';
 
 type TextBlock = {
   blockType: 'text';
@@ -22,7 +24,7 @@ type BannerBlock = {
   blockType: 'banner-block';
   selectedBanners: {
     id: string;
-    image: { sizes: any; url: string };
+    image: Image;
     text?: string;
     buttonLink?: string;
     showButton?: boolean;
@@ -32,11 +34,6 @@ type BannerBlock = {
 type CodeBlock = {
   blockType: 'code';
   code: string;
-};
-
-type RichTextBlock = {
-  blockType: 'simpleRichText';
-  body: any;
 };
 
 type BlockContent = TextBlock | ImageBlock | BannerBlock | CodeBlock | RichTextBlock;
