@@ -11,11 +11,10 @@ export const metadata: Metadata = {
   twitter: {
     title: 'Форма для отправки отзыва',
     description: 'На этой странице вы можете оставить свой отзыв о нашей медицинской организации',
-    card: 'summary_large_image',
   },
 };
 
-export const ReviewsPage = () => {
+const ReviewsPage = () => {
   return <ReviewForm />;
 };
 export default ReviewsPage;
