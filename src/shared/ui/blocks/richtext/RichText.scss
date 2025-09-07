@@ -22,14 +22,13 @@
     margin-bottom: var(--spacing-m);
   }
   blockquote {
-    border-left: 2px solid var(--font-color-primary);
-    font-size: var(--font-size-large);
+    border: 1px solid var(--border-primary);
+
+    font-weight: 500;
     font-style: italic;
-    line-height: 1.8em;
-    margin: var(--spacing-s);
-    padding: var(--spacing-m) var(--spacing-xs);
-    position: relative;
-    transition: 0.2s border ease-in-out;
+    padding: var(--spacing-m) var(--spacing-l);
+    border-radius: var(--radius-md);
+    background-color: var(--background-primary);
     z-index: 0;
   }
   ul {
