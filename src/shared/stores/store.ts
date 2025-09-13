@@ -1,19 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import notificationReducer from 'features/notifications/model/notificationSlice';
-import themeReducer from 'features/theme/model/themeSlice';
-import accessibilityModeReducer from 'features/accessibility-mode/model/accessibilityModeSlice';
+import accessibilityModeReducer from 'entities/accessibility-mode/model/slice';
 import imageViewerReducer from 'features/image-viewer/model/imageViewerSlice ';
 import pdfViewerReducer from 'features/pdf-viewer/model/slice';
-import navigationReducer from 'features/navigation/model/slice/navigationSlice';
 
 export const store = configureStore({
   reducer: {
-    theme: themeReducer,
     notifications: notificationReducer,
     accessibilityMode: accessibilityModeReducer,
     imageViewer: imageViewerReducer,
     pdfViewer: pdfViewerReducer,
-    navigation: navigationReducer,
   },
 });
 

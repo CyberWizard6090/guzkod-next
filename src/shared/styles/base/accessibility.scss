@@ -1,0 +1,109 @@
+/* Размер шрифта */
+:root {
+  --letter-spacing: normal;
+  --line-height: normal;
+  /* базовые размеры текста */
+  --font-size-small: 0.75rem; /* 12px */
+  --font-size-medium: 1rem; /* 16px */
+  --font-size-large: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-xxl: 2rem; /* 32px */
+}
+
+/* ======= Размер текста ======= */
+[data-accessibility~='fontsize-small'] {
+  --font-size-small: 0.625rem; /* 10px */
+  --font-size-medium: 0.875rem; /* 14px */
+  --font-size-large: 1.125rem; /* 18px */
+  --font-size-xl: 1.375rem; /* 22px */
+  --font-size-xxl: 1.75rem; /* 28px */
+}
+
+[data-accessibility~='fontsize-medium'] {
+  --font-size-small: 0.75rem; /* 12px */
+  --font-size-medium: 1rem; /* 16px */
+  --font-size-large: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-xxl: 2rem; /* 32px */
+}
+
+[data-accessibility~='fontsize-large'] {
+  --font-size-small: 0.875rem; /* 14px */
+  --font-size-medium: 1.125rem; /* 18px */
+  --font-size-large: 1.375rem; /* 22px */
+  --font-size-xl: 1.625rem; /* 26px */
+  --font-size-xxl: 2.125rem; /* 34px */
+}
+
+[data-accessibility~='fontsize-xl'] {
+  --font-size-small: 1rem; /* 16px */
+  --font-size-medium: 1.25rem; /* 20px */
+  --font-size-large: 1.5rem; /* 24px */
+  --font-size-xl: 1.875rem; /* 30px */
+  --font-size-xxl: 2.5rem; /* 40px */
+}
+
+[data-accessibility~='fontsize-xxl'] {
+  --font-size-small: 1.25rem; /* 20px */
+  --font-size-medium: 1.5rem; /* 24px */
+  --font-size-large: 1.875rem; /* 30px */
+  --font-size-xl: 2.25rem; /* 36px */
+  --font-size-xxl: 3rem; /* 48px */
+}
+
+/* Семейство */
+[data-accessibility~='fontfamily-font-serif'] {
+  --font-family: Georgia, serif;
+}
+[data-accessibility~='fontfamily-font-sans'] {
+  --font-family: Arial, sans-serif;
+}
+[data-accessibility~='fontfamily-font-mono'] {
+  --font-family: monospace;
+}
+
+/* Интервал */
+[data-accessibility~='letter-wide'] {
+  --letter-spacing: 0.05em;
+}
+[data-accessibility~='letter-wider'] {
+  --letter-spacing: 0.1em;
+}
+/* Межстрочный интервал */
+[data-accessibility~='line-normal'] {
+  --line-height: normal;
+}
+[data-accessibility~='line-1.5'] {
+  --line-height: 1.5;
+}
+[data-accessibility~='line-2'] {
+  --line-height: 2;
+}
+[data-accessibility~='line-2.5'] {
+  --line-height: 2.5;
+}
+
+/* Изображения */
+[data-accessibility~='img-hide'] img {
+  display: none !important;
+}
+[data-accessibility~='img-grayscale'] img {
+  filter: grayscale(100%);
+}
+[data-accessibility~='img-high-contrast'] img {
+  filter: contrast(200%);
+}
+
+/* Навигация */
+[data-accessibility~='focus-highlight'] :focus {
+  outline: 3px solid yellow !important;
+}
+[data-accessibility~='cursor-large'] {
+  cursor: url('../../assets/cursors/cursor-100.png'), auto;
+}
+
+/* Анимации */
+[data-accessibility~='animations-none'] * {
+  transition: none !important;
+  animation: none !important;
+}

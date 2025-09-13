@@ -18,7 +18,7 @@ export const Toggle = ({ checked, onChange, disabled = false }: CheckboxTogglePr
       className={clsx(
         styles.toggle,
         checked && styles['toggle--checked'],
-        disabled && styles['toggle--disabled']
+        disabled && styles['toggle--disabled'],
       )}
       aria-label="Toggle"
     >

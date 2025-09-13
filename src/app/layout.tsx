@@ -2,9 +2,7 @@ import { ReactNode } from 'react';
 import { Header } from 'widgets/header';
 import { Footer } from 'widgets/footer';
 import { NotificationContainer } from 'features/notifications';
-import { AccessibilityStyles, AccessibilityUI } from 'features/accessibility-mode';
 import { ImageViewerModal } from 'features/image-viewer';
-import { StateTheme } from 'features/theme';
 import { Providers } from 'shared/providers';
 import { inter } from 'shared/fonts';
 import { cookies } from 'next/headers';
@@ -32,6 +30,7 @@ import {
 } from 'shared/consts/site.constants';
 import HashRedirect from './HashRedirect';
 import { Metadata, Viewport } from 'next';
+import { AccessibilityPanel } from 'features/accessibility-panel';
 
 export const metadata: Metadata = {
   title: SITE_NAME,
@@ -109,27 +108,17 @@ export const viewport: Viewport = {
 
 export default async function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   const cookieStore = await cookies();
-  const theme = cookieStore.get('theme')?.value ?? 'light';
-
-  if (!theme) {
-    cookieStore.set('theme', 'light', {
-      path: '/',
-      maxAge: 60 * 60 * 24 * 365,
-      sameSite: 'lax',
-    });
-  }
+  const theme = cookieStore.get('theme')?.value ?? 'system';
   return (
     <html lang="ru" className={inter.variable} data-theme={theme}>
       <body>
         <HashRedirect />
-        <Providers>
+        <Providers initialTheme={theme}>
           <Header />
           <ContentContainer className="layout layout__wrapper ">
             <NotificationContainer />
             <ImageViewerModal />
-            <AccessibilityUI />
-            <AccessibilityStyles />
-            <StateTheme />
+            <AccessibilityPanel />
 
             <PdfViewerModal />
             <Navigation />

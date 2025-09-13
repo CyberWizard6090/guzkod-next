@@ -1,6 +1,3 @@
-import { AccessibilityButton } from 'features/accessibility-mode';
-import { ButtonTheme } from 'features/theme/ui/buttonTheme';
-
 import IconLogo from 'shared/assets/svg/logo-guzkod.svg';
 
 import { ContentContainer } from 'shared/ui/content-container';
@@ -8,6 +5,7 @@ import styles from './Header.module.scss';
 import { ButtonSearch } from 'features/search';
 import { DEVICE_BREAKPOINTS } from 'shared/consts/device-breakpoints.constants';
 import { Responsive } from 'shared/ui/responsive';
+import { AccessibilityButton } from 'features/accessibility-panel';
 
 export const Header = () => {
   return (
@@ -21,7 +19,6 @@ export const Header = () => {
           <ButtonSearch />
         </Responsive>
         <AccessibilityButton />
-        <ButtonTheme />
       </ContentContainer>
     </header>
   );

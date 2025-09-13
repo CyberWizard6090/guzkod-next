@@ -22,5 +22,5 @@ export const inter = localFont({
     { path: '../assets/fonts/Inter/Inter-BlackItalic.otf', weight: '900', style: 'italic' },
   ],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-family',
 });
