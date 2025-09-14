@@ -1,5 +1,5 @@
 import { RenderBlocks } from 'entities/blocks';
-import { getPageById } from 'shared/api/pages';
+import { getPage } from 'shared/api/pages';
 import { Block } from 'shared/ui/block';
 import { EmptyState } from 'shared/ui/empty-state';
 
@@ -23,57 +23,43 @@ export const generateMetadata = async ({
   params: Promise<PageParams>;
 }): Promise<Metadata> => {
   const { pageId } = await params;
-  const data = await getPageById(pageId);
-
-  const pageTitle = data.namepage ?? SITE_NAME;
-  const pageDescription = data.description ?? SITE_DESCRIPTION;
-  const pageUrl = `${SITE_URL}${pageId}`;
+  const data = await getPage(pageId);
+  const pageTitle = data.meta?.title || data.namepage || SITE_NAME;
+  const pageDescription = data.meta?.description || data.description || SITE_DESCRIPTION;
+  const pageUrl = `${SITE_URL}/${data.url || pageId}`;
+  const pageImage = data.meta?.image ?? data.ogImage ?? OG_IMAGE;
 
   return {
     title: pageTitle,
     description: pageDescription,
-    alternates: {
-      canonical: pageUrl,
-    },
+    alternates: { canonical: pageUrl },
     openGraph: {
       title: pageTitle,
       description: pageDescription,
       url: pageUrl,
       siteName: SITE_NAME,
       locale: SITE_LOCALE,
-      type: 'article',
-      images: [
-        {
-          url: data.ogImage ?? OG_IMAGE,
-          width: 1200,
-          height: 630,
-          alt: pageTitle,
-        },
-      ],
+      images: [{ url: pageImage, width: 1200, height: 630, alt: pageTitle }],
     },
     twitter: {
       card: 'summary_large_image',
       title: pageTitle,
       description: pageDescription,
-      images: [data.ogImage ?? OG_IMAGE],
+      images: [pageImage],
     },
   };
 };
 
 const DefaultPage = async ({ params }: { params: Promise<PageParams> }) => {
   const { pageId } = await params;
-  const data = await getPageById(pageId);
+
+  const data = await getPage(pageId);
+  if (!data) return <EmptyState />;
 
   return (
-    <>
-      {data.layout && data.layout.length > 0 ? (
-        <Block>
-          <RenderBlocks layout={data.layout} />
-        </Block>
-      ) : (
-        <EmptyState />
-      )}
-    </>
+    <Block>
+      <RenderBlocks layout={data.layout ?? []} />
+    </Block>
   );
 };
 

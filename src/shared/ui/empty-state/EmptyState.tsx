@@ -6,8 +6,8 @@ type EmptyStateProps = {
 };
 
 export const EmptyState = ({
-  title = 'Страница в разработке',
-  description = 'Скоро здесь появится полезный контент.',
+  title = 'Страница медицинского учреждения',
+  description = 'Временно не содержит материалов. Ждём вас на других страницах сайта',
 }: EmptyStateProps) => {
   return (
     <Block>

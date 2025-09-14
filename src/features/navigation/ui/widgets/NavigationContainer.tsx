@@ -1,18 +1,9 @@
-'use client';
-import React, { useEffect } from 'react';
-
+import { getNavigation } from 'features/navigation/model/api/navigation.api';
 import { NavigationView } from '../views/NavigationView';
-import { fetchNavigation } from '../../model/slice/navigationSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState, AppDispatch } from 'shared/stores';
+import { NavigateProps } from 'features/navigation/model/types/navigation';
 
-export const NavigationContainer = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { items, loading, error } = useSelector((state: RootState) => state.navigation);
-
-  useEffect(() => {
-    dispatch(fetchNavigation());
-  }, [dispatch]);
-
-  return <NavigationView items={items} error={error ? new Error(error) : null} loading={loading} />;
+// серверный компонент
+export const NavigationContainer = async () => {
+  const result: NavigateProps = await getNavigation();
+  return <NavigationView items={result.items} />;
 };

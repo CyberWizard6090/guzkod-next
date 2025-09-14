@@ -1,10 +1,5 @@
-import { fetchApiWithState } from 'shared/api/api';
-import { NavigationResponse } from '../types/navigation';
+import { API_BASE, fetchApi } from 'shared/api/api';
 
-export const getNavigation = async (): Promise<{
-  data: NavigationResponse | null;
-  error: Error | null;
-  loading: boolean;
-}> => {
-  return fetchApiWithState('/api/globals/nav?locale=undefined&draft=false&depth=0');
+export const getNavigation = async () => {
+  return fetchApi(`${API_BASE}/api/globals/navigation?locale=undefined&draft=false&depth=0`);
 };

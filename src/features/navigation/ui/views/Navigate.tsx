@@ -1,31 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-import { Item, Separator, TreeItem } from 'features/navigation/ui/components';
-import { NavigationItem } from 'features/navigation/model/types/navigation';
+'use client';
+import { useRef, useState, useEffect } from 'react';
+import { Item, Separator, TreeItem } from '../components';
+import { NavigateProps } from 'features/navigation/model/types/navigation';
 
-const renderItem = (item: NavigationItem, index: number) => {
-  if (item.blockType == 'navitem') {
-    return <Item key={index} label={item.label} link={item.link || '#'} />;
-  }
-  if (item.blockType == 'navseparator') {
-    return <Separator key={index} label={item.label} id={item.id} blockType={'navseparator'} />;
-  }
-  if (item.blockType == 'navdropdown') {
-    return (
-      <TreeItem
-        key={index}
-        list={item.list}
-        label={item.label}
-        id={item.id}
-        blockType={'navdropdown'}
-      />
-    );
-  }
-};
-
-type Props = {
-  items: NavigationItem[];
-};
-export const Navigate = ({ items }: Props) => {
+export const Navigate = ({ items }: NavigateProps) => {
   const listRef = useRef<HTMLUListElement | null>(null);
   const [hasScroll, setHasScroll] = useState(false);
 
@@ -34,8 +12,7 @@ export const Navigate = ({ items }: Props) => {
     if (!el) return;
 
     const checkScroll = () => {
-      const isScrollable = el.scrollHeight > el.clientHeight;
-      setHasScroll(isScrollable);
+      setHasScroll(el.scrollHeight > el.clientHeight);
     };
 
     checkScroll();
@@ -58,7 +35,17 @@ export const Navigate = ({ items }: Props) => {
         className={`navigation__list ${hasScroll ? 'navigation__list--padded' : ''}`}
         ref={listRef}
       >
-        {items.map(renderItem)}
+        {items.map((item) => {
+          if (item.blockType === 'navitem') {
+            return <Item key={item.id} label={item.label} url={item.url!} />;
+          }
+          if (item.blockType === 'navseparator') {
+            return <Separator key={item.id} label={item.label} />;
+          }
+          if (item.blockType === 'navdropdown') {
+            return <TreeItem key={item.id} label={item.label} children={item.children!} />;
+          }
+        })}
       </ul>
     </nav>
   );

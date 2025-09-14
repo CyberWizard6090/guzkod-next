@@ -1,19 +1,18 @@
+'use client';
 import { useDeviceDetect } from 'shared/lib/hooks/useDeviceDetect';
 import { MobileMenu } from './MobileNavigation';
 import { DEVICE_BREAKPOINTS } from 'shared/consts/device-breakpoints.constants';
-import { NavigationItem } from '../../model/types/navigation';
+
 import { Navigate } from './Navigate';
 
 import 'features/navigation/ui/styles/Navigation.scss';
-import { NavigateSkeleton } from './NavigateSkeleton';
+import { NavigationItem } from 'features/navigation/model/types/navigation';
 
 type Props = {
   items: NavigationItem[];
-  error: Error | null;
-  loading: boolean;
 };
 
-export const NavigationView = ({ items, error, loading }: Props) => {
+export const NavigationView = ({ items }: Props) => {
   const { isMobile } = useDeviceDetect(DEVICE_BREAKPOINTS.MOBILE);
 
   // Пока не определено — ничего не рендерим (чтобы избежать SSR/CSR несоответствия)
@@ -24,14 +23,6 @@ export const NavigationView = ({ items, error, loading }: Props) => {
   return isMobile ? (
     <MobileMenu>{content}</MobileMenu>
   ) : (
-    <aside className="navigation shadow">
-      {loading ? (
-        <NavigateSkeleton />
-      ) : error ? (
-        <div className="navigation__error">Ошибка загрузки меню</div>
-      ) : (
-        content
-      )}
-    </aside>
+    <aside className="navigation shadow">{content}</aside>
   );
 };

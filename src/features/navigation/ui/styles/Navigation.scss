@@ -82,8 +82,8 @@
     }
   }
 
-  &__tree {
-    &-header {
+  &__dropdown {
+    &-label {
       width: 100%;
       display: flex;
       align-items: center;
@@ -150,10 +150,10 @@
     &__link {
       background-color: var(--background-secondary);
     }
-    &__tree {
+    &__dropdown {
       background-color: var(--background-secondary);
       border-radius: var(--radius-md);
-      &-header {
+      &-label {
         background-color: var(--background-secondary);
       }
     }
@@ -161,7 +161,7 @@
 }
 @media (hover: none) and (pointer: coarse) {
   .navigation__link:hover,
-  .navigation__tree-header:hover {
+  .navigation__dropdown-label:hover {
     background-color: transparent !important;
     color: var(--font-color-primary) !important;
   }

@@ -1,6 +1,7 @@
 import { getFooterData } from 'shared/api/footer';
 import styles from './Footer.module.scss';
 import clsx from 'clsx';
+import Link from 'next/link';
 
 type Link = {
   text: string;
@@ -40,6 +41,11 @@ export const Footer = async () => {
             </ul>
           </div>
         ))}
+      </div>
+      <div className={styles['footer__sitemap']}>
+        <Link href="/sitemap" className={styles['footer__link']}>
+          Карта сайта
+        </Link>
       </div>
     </footer>
   );
