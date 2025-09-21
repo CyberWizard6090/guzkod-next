@@ -13,8 +13,8 @@
 .vacancy-card {
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-m);
-  gap: var(--spacing-s);
+  padding: var(--space-md);
+  gap: var(--space-sm);
   background: var(--background-block);
 }
 
@@ -23,7 +23,7 @@
   justify-content: space-between;
   align-items: center;
   color: var(--font-color-secondary);
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--space-sm);
 }
 
 .vacancy-card__date {
@@ -33,7 +33,7 @@
 .vacancy-card__status {
   font-weight: bold;
   border-radius: var(--radius-md);
-  padding: var(--spacing-xs) var(--spacing-s);
+  padding: var(--space-sm) var(--space-sm);
   color: #fff;
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -51,7 +51,7 @@
   font-size: var(--font-size-xl);
   font-weight: 600;
   color: var(--font-color-primary);
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--space-sm);
 }
 
 .vacancy-card__department,
@@ -64,7 +64,7 @@
 }
 
 .vacancy-card__description {
-  margin-top: var(--spacing-xs);
+  margin-top: var(--space-sm);
   max-height: 4.5em;
   overflow: hidden;
   text-overflow: ellipsis;

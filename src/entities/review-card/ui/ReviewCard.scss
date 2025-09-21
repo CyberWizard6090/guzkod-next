@@ -7,8 +7,8 @@
 .review-card {
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-m);
-  gap: var(--spacing-s);
+  padding: var(--space-md);
+  gap: var(--space-sm);
   background: var(--background-block);
 }
 
@@ -17,7 +17,7 @@
   justify-content: space-between;
   align-items: center;
   color: var(--font-color-secondary);
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--space-sm);
 }
 
 .review-card__date {
@@ -42,19 +42,19 @@
 
 .review-card__text-desc {
   font-weight: 400;
-  margin-left: var(--spacing-m);
+  margin-left: var(--space-md);
 }
 
 .review-card__user-row {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xs);
+  gap: var(--space-sm);
 }
 
 .review-card__star-rating {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xs);
+  gap: var(--space-sm);
 }
 .review-card__author {
   font-size: var(--font-size-xl);
@@ -84,7 +84,7 @@
   &-title {
     font-size: var(--font-size-large);
     font-weight: 600;
-    margin: var(--spacing-m) 0;
+    margin: var(--space-md) 0;
   }
 }
 

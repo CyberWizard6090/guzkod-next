@@ -1,7 +1,7 @@
 .input {
   border: 1px solid var(--border-tertiary);
   width: 100%;
-  padding: var(--spacing-xs) var(--spacing-m);
+  padding: var(--space-sm) var(--space-md);
   background-color: var(--color-form-input);
   color: var(--color-form-input-text);
   border-radius: var(--radius-md);
@@ -18,11 +18,11 @@
 .input__container {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: var(--space-sm);
   width: 100%;
   label {
     font-size: var(--font-size-medium);
-    padding-left: var(--spacing-xs);
+    padding-left: var(--space-sm);
   }
   input {
     font-size: var(--font-size-medium);

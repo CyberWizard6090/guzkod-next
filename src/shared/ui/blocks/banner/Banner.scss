@@ -5,10 +5,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between; // Элементы равномерно распределяются
-  padding: var(--spacing-m) var(--spacing-l);
+  padding: var(--space-md) var(--space-lg);
   background-color: var(--background-block);
   color: var(--font-color-primary);
-  gap: var(--spacing-m);
+  gap: var(--space-md);
   &__image-wrapper {
     max-width: 100%;
     overflow: hidden;

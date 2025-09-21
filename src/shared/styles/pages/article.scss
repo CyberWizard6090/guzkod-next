@@ -3,8 +3,8 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    margin-bottom: var(--spacing-m);
-    gap: var(--spacing-l);
+    margin-bottom: var(--space-md);
+    gap: var(--space-lg);
   }
   &__date {
     display: block;
@@ -14,8 +14,8 @@
   }
 
   &__type {
-    border-radius: var(--spacing-m);
-    padding: var(--spacing-xxs) var(--spacing-m);
+    border-radius: var(--space-md);
+    padding: var(--space-xs) var(--space-md);
     background-color: var(--accent-color);
     color: var(--button-text);
     letter-spacing: 0.05em;

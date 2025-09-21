@@ -6,7 +6,7 @@
   top: 0;
   position: sticky;
   z-index: 900;
-  margin-bottom: var(--spacing-m);
+  margin-bottom: var(--space-md);
   border-bottom: 1px solid var(--border-tertiary);
   &__container {
     height: 100%;
@@ -15,16 +15,16 @@
     align-items: center;
     justify-content: end;
     margin: 0 auto;
-    gap: var(--spacing-m);
+    gap: var(--space-md);
   }
 
   &__logo {
     user-select: none;
     display: flex;
     align-items: center;
-    gap: var(--spacing-m);
+    gap: var(--space-md);
     flex: 1;
-    padding: var(--spacing-m) 0;
+    padding: var(--space-md) 0;
     width: 100%;
     justify-content: flex-start;
     svg {
@@ -46,7 +46,7 @@
 @media screen and (max-width: 768px) {
   .header {
     &__container {
-      padding: 0 var(--spacing-m);
+      padding: 0 var(--space-md);
     }
     &__logo {
       span {

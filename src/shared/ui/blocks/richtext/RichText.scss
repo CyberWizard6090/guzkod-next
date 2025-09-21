@@ -4,29 +4,29 @@
     span {
       font-size: var(--font-size-xxl);
     }
-    margin-top: var(--spacing-l);
-    margin-bottom: var(--spacing-m);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
   h2 {
     span {
       font-size: var(--font-size-xl);
     }
-    margin-top: var(--spacing-l);
-    margin-bottom: var(--spacing-m);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
   h3 {
     span {
       font-size: var(--font-size-l);
     }
-    margin-top: var(--spacing-l);
-    margin-bottom: var(--spacing-m);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
   blockquote {
     border: 1px solid var(--border-primary);
 
     font-weight: 500;
     font-style: italic;
-    padding: var(--spacing-m) var(--spacing-l);
+    padding: var(--space-md) var(--space-lg);
     border-radius: var(--radius-md);
     background-color: var(--background-primary);
     z-index: 0;
@@ -55,7 +55,7 @@
     }
   }
   .paragraph {
-    padding: var(--spacing-xxs) 0;
+    padding: var(--space-xs) 0;
   }
   .text-center {
     text-align: center;
@@ -115,7 +115,7 @@
   }
   ul,
   ol {
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--space-sm);
   }
   .link_wrap {
     box-sizing: border-box;
@@ -135,8 +135,8 @@
 
 .link {
   border-radius: var(--radius-sm);
-  padding: 0 var(--spacing-xs);
-  margin-right: var(--spacing-xs);
+  padding: 0 var(--space-sm);
+  margin-right: var(--space-sm);
   outline: none;
 
   &:hover,
@@ -164,7 +164,7 @@
   }
 
   &__info {
-    margin-left: var(--spacing-xs);
+    margin-left: var(--space-sm);
     color: var(--link-info-color);
     font-size: 0.875rem;
   }

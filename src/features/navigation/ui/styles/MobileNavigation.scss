@@ -11,9 +11,9 @@
     align-items: center;
     justify-content: end;
     color: var(--font-color-secondary);
-    gap: var(--spacing-xxs);
+    gap: var(--space-xs);
     border-radius: var(--radius-md);
-    padding: var(--spacing-xs);
+    padding: var(--space-sm);
   }
   &__logo {
     border-radius: var(--radius-md);
@@ -42,8 +42,8 @@
     z-index: 100;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    padding: var(--spacing-xs);
-    gap: var(--spacing-xs);
+    padding: var(--space-sm);
+    gap: var(--space-sm);
 
     button,
     a {
@@ -100,8 +100,8 @@
     background-color: var(--background-primary);
     display: flex;
     flex-direction: column;
-    padding: var(--spacing-xs);
-    gap: var(--spacing-xs);
+    padding: var(--space-sm);
+    gap: var(--space-sm);
   }
 
   &__content {

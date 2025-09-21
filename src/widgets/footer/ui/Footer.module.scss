@@ -1,6 +1,6 @@
 .footer {
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  padding: var(--spacing-l);
+  padding: var(--space-lg);
   grid-area: footer;
   width: 100%;
   background-color: var(--background-footer);
@@ -12,8 +12,8 @@
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--spacing-m);
-    gap: var(--spacing-m);
+    padding: 0 var(--space-md);
+    gap: var(--space-md);
   }
 
   &__column {
@@ -37,7 +37,7 @@
   }
 
   &__links {
-    margin-left: var(--spacing-m);
+    margin-left: var(--space-md);
   }
 
   &__link {
@@ -59,19 +59,19 @@
 
   li {
     list-style: none;
-    margin-bottom: var(--spacing-s);
+    margin-bottom: var(--space-sm);
 
     &:last-child {
       margin-bottom: 0;
     }
   }
   &__sitemap {
-    margin-top: var(--spacing-l);
+    margin-top: var(--space-lg);
     text-align: end;
     a {
       font-size: 1rem;
       color: var(--button-text);
-      padding: var(--spacing-s) var(--spacing-m);
+      padding: var(--space-sm) var(--space-md);
       background-color: var(--accent-color);
       text-decoration: none;
       transition:

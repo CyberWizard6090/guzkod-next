@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: var(--space-sm);
 
   @media (min-width: 769px) {
     position: relative;
@@ -10,14 +10,14 @@
 
   &__label {
     font-size: var(--font-size-medium);
-    padding-left: var(--spacing-xs);
+    padding-left: var(--space-sm);
   }
 
   &__control {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-xs) var(--spacing-s);
+    padding: var(--space-sm) var(--space-sm);
     background-color: var(--color-form-input);
     font-size: var(--font-size-medium);
     color: var(--color-form-input-text);
@@ -37,7 +37,7 @@
   }
 
   &__arrow {
-    margin-left: var(--spacing-xs);
+    margin-left: var(--space-sm);
     font-size: 12px;
   }
 
@@ -53,12 +53,12 @@
       width: 100%;
       position: absolute;
       top: 100%;
-      margin-top: var(--spacing-xs);
+      margin-top: var(--space-sm);
       background-color: var(--background-block);
       color: var(--color-form-input-text);
       border: 1px solid var(--border-tertiary);
       border-radius: var(--radius-md);
-      padding: var(--spacing-m);
+      padding: var(--space-md);
       max-height: 400px;
       z-index: 1001;
     }
@@ -71,8 +71,8 @@
   }
 
   &__option {
-    padding: var(--spacing-m) var(--spacing-l);
-    margin-right: var(--spacing-m);
+    padding: var(--space-md) var(--space-lg);
+    margin-right: var(--space-md);
     cursor: pointer;
 
     &:not(:last-child) {
@@ -81,7 +81,7 @@
 
     &--selected {
       border-left: 4px solid var(--accent-color);
-      padding-left: calc(var(--spacing-l) - 4px);
+      padding-left: calc(var(--space-lg) - 4px);
     }
   }
 

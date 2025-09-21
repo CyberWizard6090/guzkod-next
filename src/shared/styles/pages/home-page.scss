@@ -4,14 +4,14 @@
   flex-direction: column;
   &__content {
     display: grid;
-    gap: var(--spacing-m);
+    gap: var(--space-md);
   }
 }
 .Cell {
   display: flex;
   flex-direction: column;
 
-  gap: var(--spacing-m);
+  gap: var(--space-md);
   img {
     max-width: 100%;
     border-radius: var(--radius-lg);
@@ -23,5 +23,5 @@
 .table-page {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-m);
+  gap: var(--space-md);
 }

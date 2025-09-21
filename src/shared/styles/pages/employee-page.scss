@@ -19,13 +19,13 @@
       align-items: start;
       // width: 800px;
     }
-    gap: var(--spacing-m);
+    gap: var(--space-md);
   }
   &__info {
     justify-content: start;
     display: flex;
     flex-direction: column;
-    row-gap: var(--spacing-m);
+    row-gap: var(--space-md);
   }
   &__header {
     margin-bottom: 10px;

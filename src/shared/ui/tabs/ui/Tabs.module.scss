@@ -6,10 +6,10 @@
 .tabList {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-s);
-  margin-bottom: var(--spacing-m);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
   @media (max-width: 768px) {
-    padding: 0 var(--spacing-m);
+    padding: 0 var(--space-md);
   }
 }
 
@@ -17,7 +17,7 @@
   background: var(--btn-color-alt);
   color: var(--btn-text-alt);
   border: none;
-  padding: var(--spacing-xs) var(--spacing-m);
+  padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: background 0.2s linear;

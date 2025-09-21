@@ -1,12 +1,12 @@
 .block {
   width: 100%;
-  padding: var(--spacing-m);
+  padding: var(--space-md);
   border-radius: var(--radius-lg);
   background: var(--background-block);
   color: var(--font-color-primary);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-m);
+  gap: var(--space-md);
 
   img {
     max-width: 100%;

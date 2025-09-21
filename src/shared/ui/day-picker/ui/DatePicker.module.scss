@@ -5,15 +5,15 @@
 
   &__label {
     font-size: var(--font-size-medium);
-    padding-left: var(--spacing-xs);
-    margin-bottom: var(--spacing-s);
+    padding-left: var(--space-sm);
+    margin-bottom: var(--space-sm);
   }
 
   &__input {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-xs) var(--spacing-m);
+    padding: var(--space-sm) var(--space-md);
     background-color: var(--color-form-input);
     font-size: var(--font-size-medium);
     color: var(--color-form-input-text);
@@ -56,7 +56,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-xs) var(--spacing-m);
+    padding: var(--space-sm) var(--space-md);
     background-color: var(--color-form-input);
     font-size: var(--font-size-medium);
     color: var(--color-form-input-text);
@@ -68,7 +68,7 @@
     user-select: none;
   }
   &__icon {
-    margin-left: var(--spacing-xs);
+    margin-left: var(--space-sm);
     font-size: 12px;
   }
   &__value {
@@ -88,7 +88,7 @@
   &__month,
   &__year {
     text-align: center;
-    padding: 0 var(--spacing-m);
+    padding: 0 var(--space-md);
     border-radius: var(--radius-sm);
     cursor: pointer;
     user-select: none;
@@ -116,14 +116,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--spacing-m);
+    margin-bottom: var(--space-md);
     user-select: none;
   }
 
   &__grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: var(--spacing-xs);
+    gap: var(--space-sm);
     &--months {
       grid-template-columns: repeat(4, 1fr);
       flex: 1;
@@ -135,7 +135,7 @@
 
   &__cell {
     text-align: center;
-    padding: var(--spacing-s);
+    padding: var(--space-sm);
     border-radius: var(--radius-sm);
     cursor: pointer;
     user-select: none;
@@ -199,8 +199,8 @@
     background: var(--background-block);
     border: 1px solid var(--border-tertiary);
     border-radius: var(--radius-md);
-    padding: var(--spacing-s);
-    margin-top: var(--spacing-xs);
+    padding: var(--space-sm);
+    margin-top: var(--space-sm);
     top: 100%;
   }
   .calendar__container {

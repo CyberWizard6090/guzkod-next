@@ -3,19 +3,19 @@
   width: 100%;
 
   h2 {
-    margin-bottom: var(--spacing-m);
+    margin-bottom: var(--space-md);
     font-weight: bold;
   }
 
   &__wrap {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-m);
+    gap: var(--space-md);
   }
 
   &__error {
     color: red;
     font-weight: 600;
-    margin-top: var(--spacing-s);
+    margin-top: var(--space-sm);
   }
 }

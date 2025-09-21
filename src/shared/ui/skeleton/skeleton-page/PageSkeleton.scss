@@ -1,5 +1,5 @@
 .page-skeleton {
-  padding: var(--spacing-xl);
+  padding: var(--space-xl);
 
   .skeleton-line,
   .skeleton-box {
@@ -14,25 +14,25 @@
       var(--skeleton-base) 100%
     );
     background-size: 200% 100%;
-    margin-bottom: var(--spacing-s);
+    margin-bottom: var(--space-sm);
   }
 
   .skeleton-title {
     width: 50%;
     height: 32px;
-    margin-bottom: var(--spacing-m);
+    margin-bottom: var(--space-md);
   }
 
   .skeleton-subtitle {
     width: 30%;
     height: 20px;
-    margin-bottom: var(--spacing-l);
+    margin-bottom: var(--space-lg);
   }
 
   .skeleton-section {
     display: flex;
-    gap: var(--spacing-m);
-    margin-bottom: var(--spacing-xl);
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
 
     .skeleton-block {
       flex: 1;

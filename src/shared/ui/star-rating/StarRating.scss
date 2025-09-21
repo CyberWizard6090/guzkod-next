@@ -2,16 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-m);
+  gap: var(--space-md);
 
   &__label {
-    margin-right: var(--spacing-s);
+    margin-right: var(--space-sm);
     font-weight: bold;
     font-size: var(--font-size-large);
   }
   &__star-group {
     display: flex;
-    gap: var(--spacing-s);
+    gap: var(--space-sm);
   }
   &__star {
     cursor: pointer;

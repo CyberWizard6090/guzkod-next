@@ -37,7 +37,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    padding: var(--spacing-s) var(--spacing-s) var(--spacing-s) 0;
+    padding: var(--space-sm) var(--space-sm) var(--space-sm) 0;
 
     cursor: grab;
     &::before {
@@ -47,7 +47,7 @@
       height: 6px;
       background-color: var(--gray);
       border-radius: var(--radius-sm);
-      margin: var(--spacing-s) auto 0 auto;
+      margin: var(--space-sm) auto 0 auto;
       position: absolute;
       top: 0;
       left: 50%;
@@ -71,7 +71,7 @@
   }
 
   &__content {
-    padding: var(--spacing-s);
+    padding: var(--space-sm);
     overflow-y: hidden;
     max-height: calc(80vh - 30px);
   }

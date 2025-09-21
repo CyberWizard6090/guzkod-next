@@ -1,7 +1,7 @@
 .multiline-text {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: var(--space-sm);
   &__line {
     white-space: pre-line;
     margin: 0;

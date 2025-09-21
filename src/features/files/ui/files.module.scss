@@ -1,9 +1,9 @@
 .files {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-m);
+  gap: var(--space-md);
   .file:not(:last-child) {
-    padding-bottom: var(--spacing-m);
+    padding-bottom: var(--space-md);
     border-bottom: 1px solid var(--border-tertiary);
   }
 }

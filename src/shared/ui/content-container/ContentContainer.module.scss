@@ -2,9 +2,9 @@
   max-width: 1500px;
   margin: 0 auto;
   @media (min-width: 1200px) {
-    padding: 0 var(--spacing-m);
+    padding: 0 var(--space-md);
   }
   @media (min-width: 768px) and (max-width: 1199px) {
-    padding: 0 var(--spacing-m);
+    padding: 0 var(--space-md);
   }
 }
