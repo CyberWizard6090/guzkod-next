@@ -12,7 +12,7 @@ export default function NotFound() {
       <div className="error-page">
         <h1 className="error-page__title">Ошибка</h1>
         <div className="error-page__code">404</div>
-        <p className="error-page__description">Страница не найдена</p>
+        <p className="error-page__description">Страница не найдена или была перенесена </p>
         <div className="error-page__button-group">
           <Button className="error-page__button" onClick={() => router.push('/')}>
             На главную

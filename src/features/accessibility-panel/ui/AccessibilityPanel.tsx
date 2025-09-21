@@ -47,11 +47,11 @@ export const AccessibilityPanel = () => {
           name="fontSize"
           value={a11y.fontSize}
           options={buildRadioOptions('fontSize', [
-            { label: 'Маленький', value: 'small' },
-            { label: 'Нормальный', value: 'normal' },
-            { label: 'Большой', value: 'large' },
-            { label: 'Огромный', value: 'xl' },
-            { label: 'XXL', value: 'xxl' },
+            { label: 'Аа', value: 'small' },
+            { label: 'Аа', value: 'normal' },
+            { label: 'Аа', value: 'large' },
+            { label: 'Аа', value: 'xl' },
+           
           ])}
           onChange={(val) => dispatch(setFontSize(val as any))}
         />
