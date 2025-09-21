@@ -1,0 +1,42 @@
+.color-scheme-option {
+  display: flex;
+  align-items: center;
+
+  &__preview {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    flex-shrink: 0;
+
+    &--light {
+      background: #fff;
+    }
+    &--dark {
+      background: #000;
+    }
+    &--black-white {
+      background: linear-gradient(90deg, #000 50%, #fff 50%);
+    }
+    &--white-black {
+      background: linear-gradient(90deg, #fff 50%, #000 50%);
+    }
+    &--brown-beige {
+      background: linear-gradient(90deg, #8b4513 50%, #f5f5dc 50%);
+    }
+    &--dark-blue-sky {
+      background: linear-gradient(90deg, #001f54 50%, #87ceeb 50%);
+    }
+    &--green-brown {
+      background: linear-gradient(90deg, #006400 50%, #8b4513 50%);
+    }
+    &--default {
+      background: #ddd;
+    }
+  }
+
+  &__label {
+    margin-left: 8px;
+  }
+}

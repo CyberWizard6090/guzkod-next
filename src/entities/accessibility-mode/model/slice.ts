@@ -2,7 +2,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AccessibilityState } from '../types';
 
-const initialState: AccessibilityState = {
+const defaultState: AccessibilityState = {
   fontSize: 'normal',
   fontFamily: 'sans',
   letterSpacing: 'normal',
@@ -23,6 +23,22 @@ const initialState: AccessibilityState = {
   isModeActive: false,
   isModalOpen: false,
 };
+
+// Восстанавливаем из localStorage, если persist = true
+function loadState(): AccessibilityState {
+  try {
+    const raw = localStorage.getItem('a11y');
+    if (raw) {
+      const parsed: AccessibilityState = JSON.parse(raw);
+      return { ...defaultState, ...parsed };
+    }
+  } catch {
+    // игнорим ошибки
+  }
+  return defaultState;
+}
+
+const initialState: AccessibilityState = loadState();
 
 const accessibilitySlice = createSlice({
   name: 'accessibility',
@@ -65,7 +81,7 @@ const accessibilitySlice = createSlice({
     togglePersist: (s) => {
       s.persist = !s.persist;
     },
-    resetSettings: () => initialState,
+    resetSettings: () => defaultState,
 
     setMode: (s, a: PayloadAction<boolean>) => {
       s.isModeActive = a.payload;

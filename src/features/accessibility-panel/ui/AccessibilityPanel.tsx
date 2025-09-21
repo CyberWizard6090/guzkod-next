@@ -19,6 +19,7 @@ import {
   // setAnimations,
   resetSettings,
   setModalOpen,
+  togglePersist,
 } from 'entities/accessibility-mode/model/slice';
 
 import { RadioGroup } from './components/RadioGroup';
@@ -51,7 +52,6 @@ export const AccessibilityPanel = () => {
             { label: 'Аа', value: 'normal' },
             { label: 'Аа', value: 'large' },
             { label: 'Аа', value: 'xl' },
-           
           ])}
           onChange={(val) => dispatch(setFontSize(val as any))}
         />
@@ -157,6 +157,9 @@ export const AccessibilityPanel = () => {
           ])}
           onChange={(val) => dispatch(setAnimations(val as any))}
         /> */}
+
+        <label>Сохранить настройки</label>
+        <Toggle checked={a11y.persist} onChange={() => dispatch(togglePersist())} />
       </div>
 
       <div className={styles['accessibility-modal__footer']}>

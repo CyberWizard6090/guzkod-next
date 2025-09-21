@@ -16,33 +16,28 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    padding: var(--spacing-m) var(--spacing-l);
+    background-color: var(--gray-lightest);
+    border: 2px solid var(--gray-medium);
+    border-radius: var(--radius-md);
     cursor: pointer;
     transition: all 0.2s ease;
     flex: 1;
     min-width: 200px;
 
     &:hover {
-      border-color: #007bff;
+      border-color: var(--accent-color);
+      background-color: #fff;
     }
 
     &_active {
-      border-color: #007bff;
+      border-color: var(--accent-color);
+      background-color: #fff;
     }
   }
 
   &__input {
     display: none;
-  }
-
-  &__custom-radio {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    border: 2px solid #666;
-    position: relative;
   }
 
   &__input:checked + .radio-group__custom-radio {

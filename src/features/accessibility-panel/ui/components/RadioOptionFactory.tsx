@@ -1,5 +1,6 @@
+import clsx from 'clsx';
 import React from 'react';
-
+import './ColorSchemeOption.scss';
 type RadioOption = {
   label: string;
   value: string;
@@ -53,34 +54,15 @@ export const buildRadioOptions = (
       return options.map((opt) => ({
         ...opt,
         preview: (
-          <>
+          <div className="color-scheme-option">
             <span
-              style={{
-                display: 'inline-block',
-                width: 28,
-                height: 20,
-                borderRadius: 4,
-                border: '1px solid #ccc',
-                background:
-                  opt.value === 'light'
-                    ? '#fff'
-                    : opt.value === 'dark'
-                      ? '#000'
-                      : opt.value === 'black-white'
-                        ? 'linear-gradient(90deg,#000 50%, #fff 50%)'
-                        : opt.value === 'white-black'
-                          ? 'linear-gradient(90deg,#fff 50%, #000 50%)'
-                          : opt.value === 'brown-beige'
-                            ? 'linear-gradient(90deg,#8B4513 50%, #F5F5DC 50%)'
-                            : opt.value === 'dark-blue-sky'
-                              ? 'linear-gradient(90deg,#001F54 50%, #87CEEB 50%)'
-                              : opt.value === 'green-brown'
-                                ? 'linear-gradient(90deg,#006400 50%, #8B4513 50%)'
-                                : '#ddd',
-              }}
+              className={clsx(
+                'color-scheme-option__preview',
+                `color-scheme-option__preview--${opt.value || 'default'}`,
+              )}
             />
-            <span style={{ marginLeft: 8 }}>{opt.label}</span>
-          </>
+            <span className="color-scheme-option__label">{opt.label}</span>
+          </div>
         ),
       }));
 
