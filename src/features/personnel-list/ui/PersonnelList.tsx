@@ -4,14 +4,25 @@ import { useEffect, useState, useCallback } from 'react';
 import { EmployeeList, EmployeeSkeletonList } from 'widgets/employee-list';
 import { getPersonnel } from 'shared/api/personnel';
 import { SectionTitle } from 'shared/ui/section-title';
-import { EmployeeType } from 'shared/types/employee';
+import {  PersonnelType } from 'shared/types/employee';
+import { Pagination } from 'shared/ui/pagination';
 
 const PAGE_SIZE = 10;
 
 export const PersonnelList = () => {
-  const [data, setData] = useState<EmployeeType[]>([]);
   const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
+ const [data, setData] = useState<PersonnelType>({
+  docs: [],
+  totalPages: 0,
+  hasNextPage: false,
+  hasPrevPage: false,
+  limit: 10,
+  nextPage: null,
+  page: 1,
+  pagingCounter: 1,
+  prevPage: null,
+  totalDocs: 0,
+});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
@@ -28,60 +39,35 @@ export const PersonnelList = () => {
     }
 
     if (!newData) {
-      setError(new Error('No data received'));
+      setError(new Error('Нет данных'));
       setLoading(false);
       return;
     }
 
-    if (newData.length < PAGE_SIZE) {
-      setHasMore(false);
-    }
-
-    setData((prev) => {
-      const existingIds = new Set(prev.map((item) => item.id));
-      const uniqueNew = newData.filter((item) => !existingIds.has(item.id));
-      return [...prev, ...uniqueNew];
-    });
+    setData(newData); // при переключении страниц перезаписываем список
     setLoading(false);
   }, []);
 
   useEffect(() => {
-    loadPage(1);
-  }, [loadPage]);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 200 &&
-        !loading &&
-        hasMore
-      ) {
-        setPage((prev) => prev + 1);
-      }
-    };
-
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [loading, hasMore]);
-
-  useEffect(() => {
-    if (page === 1) return;
     loadPage(page);
+
+     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [page, loadPage]);
 
   if (error) {
     return <h2>Ошибка: {error.message}</h2>;
   }
 
-  if (loading && data.length === 0) {
+  if (loading && data.docs.length === 0) {
     return <EmployeeSkeletonList count={8} />;
   }
 
   return (
     <>
       <SectionTitle>Список сотрудников</SectionTitle>
-      <EmployeeList List={data} />
+      <EmployeeList List={data.docs} />
       {loading && <EmployeeSkeletonList count={3} />}
+      <Pagination totalPages={data.totalPages} currentPage={page} onPageChange={setPage} />
     </>
   );
 };

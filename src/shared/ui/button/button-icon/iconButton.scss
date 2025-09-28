@@ -37,4 +37,25 @@
       background-color: var(--btn-color-alt-hover);
     }
   }
+  &-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: var(--font-color-primary);
+    background-color: var(--btn-color-alt);
+    border: 1px solid var(--gray-lighter);
+
+    &:hover {
+      background-color: var(--accent-color);
+      color: var(--button-text);
+      border-color: var(--accent-color-hover);
+    }
+
+    &:disabled {
+      background-color: var(--gray-lightest);
+      color: var(--gray-light);
+      border-color: var(--gray-lighter);
+      cursor: not-allowed;
+    }
+  }
 }

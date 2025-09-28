@@ -1,6 +1,6 @@
 import { ImageView } from 'shared/ui/image';
-import './Banner.scss';
 import { Button } from 'shared/ui/button';
+import styles from './Banner.module.scss';
 
 type Props = {
   image?: string;
@@ -15,16 +15,16 @@ export const Banner = ({ image, link, title, buttonDisabled = false, altText }: 
   const alt = altText || title?.trim() || 'Баннер';
 
   return (
-    <div className="banner">
-      {title?.trim() && <h4 className="banner__title">{title}</h4>}
+    <div className={styles.banner}>
+      {title?.trim() && <h4 className={styles.banner__title}>{title}</h4>}
 
-      <div className="banner__image-wrapper">
-        {image && <ImageView url={image} alt={alt} className="banner__image" loading="lazy" />}
+      <div className={styles['banner__image-wrapper']}>
+        {image && <ImageView url={image} alt={alt} className={styles.banner__image} loading="lazy" />}
       </div>
 
       {showButton && (
-        <div className="banner__actions">
-          <a href={link}>
+        <div className={styles.banner__content}>
+          <a href={link} className={styles.banner__link}>
             <Button disabled={buttonDisabled} aria-label={alt}>
               Перейти
             </Button>

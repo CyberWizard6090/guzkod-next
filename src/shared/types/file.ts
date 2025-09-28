@@ -8,6 +8,7 @@ export type FileType = {
   updatedAt: string;
   url: string;
 };
+
 export type FileBlock = {
   id: string;
   file: File;

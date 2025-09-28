@@ -19,4 +19,13 @@ export type EmployeeType = {
 };
 export type PersonnelType = {
   docs: EmployeeType[];
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+  limit: number;
+  nextPage: number | null;
+  page: number;
+  pagingCounter: number;
+  prevPage: number | null;
+  totalDocs: number;
+  totalPages: number;
 };

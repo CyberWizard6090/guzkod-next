@@ -8,9 +8,9 @@ type PropsIconButton = {
       title?: string | undefined;
     }
   >;
-  isCounterVisible?: boolean;
-  variant?: 'primary' | 'secondary';
-  counterValue?: number;
+
+  variant?: 'primary' | 'secondary' | 'circle';
+
   onClick?: (() => void) | ((event: React.MouseEvent<HTMLButtonElement>) => void);
   className?: string;
 };
