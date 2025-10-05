@@ -2,10 +2,10 @@ import { Block } from 'shared/ui/block';
 import { formatDate } from 'shared/lib/format';
 import { Review } from '../model/types';
 import IconStarFill from 'shared/assets/svg/bootstrap-icons-1.11.2/star-fill.svg';
-import './ReviewCard.scss';
 import { MultilineText } from 'shared/ui/multiline-text';
 import { ExpandableBlock } from 'entities/expandable';
 
+import './ReviewCard.scss';
 type StarRatingProps = { rating: number };
 
 const StarRating = ({ rating }: StarRatingProps) => {
@@ -54,7 +54,7 @@ export const ReviewCard = ({
 
         <div className="review-card__user-row">
           <h3 className="review-card__author">{safeUserName}</h3>
-          {is_verified && <span className="review-card__verified">✔ Подтверждён</span>}
+          {is_verified && <span className="review-card__verified">Подтверждён</span>}
         </div>
 
         <p className="review-card__meta">

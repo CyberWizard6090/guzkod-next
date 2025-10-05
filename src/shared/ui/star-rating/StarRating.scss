@@ -30,24 +30,24 @@
         width: 35px;
         height: 35px;
       }
-      color: #ccc;
+      color: var(--gray-medium);
       transition: color 0.2s ease;
       &--fill {
-        color: #ffca28;
+        color: var(--yellow);
       }
       &:hover,
       &:hover ~ .starRating__icon {
-        color: #ffca28;
+        color: var(--yellow);
       }
     }
 
     input:checked ~ .starRating__icon,
     input:checked + .starRating__icon {
-      color: #ffca28;
+      color: var(--yellow);
     }
   }
 
   &__star input:checked ~ .starRating__icon {
-    color: #ffca28;
+    color: var(--yellow);
   }
 }

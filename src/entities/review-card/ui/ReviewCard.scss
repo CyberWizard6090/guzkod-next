@@ -27,13 +27,13 @@
 
 .review-card__rating {
   font-size: 0.875rem;
-  color: #ffb400;
+  color: var(--yellow);
   svg {
     width: 16px;
     height: 16px;
   }
   &-icon--checked {
-    color: #ffb400;
+    color: var(--yellow);
   }
   &-icon--unchecked {
     color: #ccc;
@@ -63,7 +63,7 @@
 }
 
 .review-card__verified {
-  background-color: #2e7d32;
+  background-color: var(--color-success);
   color: white;
   font-size: 0.625rem;
   padding: 2px 6px;
